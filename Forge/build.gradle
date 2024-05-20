@@ -27,6 +27,25 @@ minecraft {
             }
         }
 
+        data {
+            workingDirectory project.file('run')
+            ideaModule "${rootProject.name}.${project.name}.main"
+            taskName 'Data'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            args '--mod', mod_id, '--all',
+                    '--output', file('src/generated/resources/'),
+                    '--existing', file('src/main/resources/'),
+                    '--existing', file("${project(':Common').projectDir}/src/main/resources/"),
+                    '--existing', file('src/generated/resources/')
+            mods {
+                modDataRun {
+                    source sourceSets.main
+                    source project(":Common").sourceSets.main
+                }
+            }
+        }
+
         server {
             workingDirectory project.file('run')
             ideaModule "${rootProject.name}.${project.name}.main"
@@ -41,6 +60,17 @@ minecraft {
             }
         }
 
+    }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java']
+        }
+        resources {
+            srcDirs = ['src/main/resources', 'src/generated/resources']
+        }
     }
 }
 
@@ -79,6 +109,7 @@ tasks.register('publishCurseForge', TaskPublishCurseForge) {
     "${forge_release_versions}".split(',').each {
         mainFile.addGameVersion("${it}")
     }
+    mainFile.addModLoader('Forge', 'NeoForge')
 //    mainFile.addOptional("")
 }
 
@@ -93,4 +124,5 @@ modrinth {
     dependencies {
 //        optional.project ""
     }
+    loaders = "forge,neoforge".split(",") as List<String>
 }

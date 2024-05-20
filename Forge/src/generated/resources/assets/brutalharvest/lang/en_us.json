@@ -1,0 +1,19 @@
+{
+  "item.brutalharvest.corn": "Corn",
+  "item.brutalharvest.corn_kernel": "Corn Kernel",
+  "item.brutalharvest.corn_seeds": "Corn Seeds",
+  "item.brutalharvest.cucumber": "Cucumber",
+  "item.brutalharvest.cucumber_seeds": "Cucumber Seeds",
+  "item.brutalharvest.cut_cucumber": "Cut Cucumber",
+  "item.brutalharvest.green_tomato": "Green Tomato",
+  "item.brutalharvest.lettuce": "Lettuce",
+  "item.brutalharvest.lettuce_seeds": "Lettuce Seeds",
+  "item.brutalharvest.pickles": "Pickles",
+  "item.brutalharvest.rotten_tomato": "Rotten Tomato",
+  "item.brutalharvest.sliced_lettuce": "Sliced Lettuce",
+  "item.brutalharvest.sunflower": "Sunflower",
+  "item.brutalharvest.sunflower_seeds": "Sunflower Seeds",
+  "item.brutalharvest.tomato": "Tomato",
+  "item.brutalharvest.tomato_seeds": "Tomato Seeds",
+  "itemGroup.brutalharvest": "Brutal Harvest"
+}

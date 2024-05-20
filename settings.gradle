@@ -22,4 +22,4 @@ pluginManagement {
 }
 
 rootProject.name = 'Brutal Harvest'
-include("Common", "Forge", "NeoForge")
+include("Common", "Forge")
