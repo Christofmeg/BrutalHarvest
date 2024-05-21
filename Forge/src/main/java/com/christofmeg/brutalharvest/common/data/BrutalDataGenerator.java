@@ -1,8 +1,11 @@
-package com.christofmeg.brutalharvest.client.data;
+package com.christofmeg.brutalharvest.common.data;
 
 import com.christofmeg.brutalharvest.CommonConstants;
+import com.christofmeg.brutalharvest.client.data.BrutalItemModelProvider;
+import com.christofmeg.brutalharvest.client.data.BrutalLanguageProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -21,21 +24,22 @@ public class BrutalDataGenerator {
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
-        var gen = event.getGenerator();
-        var packOutput = gen.getPackOutput();
-        CompletableFuture<HolderLookup.Provider> provider = event.getLookupProvider();
-        DataGenerator generator = event.getGenerator();
+        DataGenerator gen = event.getGenerator();
+        PackOutput output = gen.getPackOutput();
+        CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
         if (event.includeClient()) {
-            gen.addProvider(true, new BrutalItemModelProvider(packOutput, existingFileHelper));
+            gen.addProvider(true, new BrutalItemModelProvider(output, existingFileHelper));
         }
 
         if (event.includeServer()) {
-
+            BrutalBlockTagsProvider blockTags = gen.addProvider(true, new BrutalBlockTagsProvider(output, lookupProvider, existingFileHelper));
+            gen.addProvider(true, new BrutalItemTagsProvider(output, lookupProvider, blockTags, existingFileHelper));
+            gen.addProvider(true, new BrutalRecipeProvider(output));
         }
 
         for (String locale : LOCALE_CODES) {
-            gen.addProvider(true, new BrutalLanguageProvider(packOutput, locale));
+            gen.addProvider(true, new BrutalLanguageProvider(output, locale));
 
         }
 

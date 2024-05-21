@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "brutalharvest:tomato_seeds_from_green_tomato"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "tomato_seeds": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "brutalharvest:tomato_seeds"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "tomato_seeds",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "brutalharvest:tomato_seeds_from_green_tomato"
+    ]
+  },
+  "sends_telemetry_event": false
+}

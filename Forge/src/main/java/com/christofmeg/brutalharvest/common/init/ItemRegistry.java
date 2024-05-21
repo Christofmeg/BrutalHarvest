@@ -28,12 +28,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CORN_SEEDS;
 
     public static final RegistryObject<Item> CUCUMBER;
-    public static final RegistryObject<Item> CUT_CUCUMBER;
-    public static final RegistryObject<Item> PICKLES;
+    public static final RegistryObject<Item> CUCUMBER_SLICE;
+    public static final RegistryObject<Item> PICKLE;
     public static final RegistryObject<Item> CUCUMBER_SEEDS;
-
-    public static final RegistryObject<Item> SUNFLOWER;
-    public static final RegistryObject<Item> SUNFLOWER_SEEDS;
 
     private ItemRegistry() {
     }
@@ -56,16 +53,13 @@ public class ItemRegistry {
         CORN_KERNEL = ITEMS.register("corn_kernel", () -> new Item(new Item.Properties().food(BrutalFoods.CORN_KERNEL)));
 
         CUCUMBER = ITEMS.register("cucumber", () -> new Item(new Item.Properties().food(BrutalFoods.CUCUMBER)));
-        CUT_CUCUMBER = ITEMS.register("cut_cucumber", () -> new Item(new Item.Properties().food(BrutalFoods.CUT_CUCUMBER)));
-        PICKLES = ITEMS.register("pickles", () -> new Item(new Item.Properties().food(BrutalFoods.PICKLES)));
-
-        SUNFLOWER = ITEMS.register("sunflower", () -> new Item(new Item.Properties()));
+        CUCUMBER_SLICE = ITEMS.register("cucumber_slice", () -> new Item(new Item.Properties().food(BrutalFoods.CUT_CUCUMBER)));
+        PICKLE = ITEMS.register("pickle", () -> new Item(new Item.Properties().food(BrutalFoods.PICKLES)));
 
         TOMATO_SEEDS = ITEMS.register("tomato_seeds", () -> new Item(new Item.Properties()));
         LETTUCE_SEEDS = ITEMS.register("lettuce_seeds", () -> new Item(new Item.Properties()));
         CORN_SEEDS = ITEMS.register("corn_seeds", () -> new Item(new Item.Properties()));
         CUCUMBER_SEEDS = ITEMS.register("cucumber_seeds", () -> new Item(new Item.Properties()));
-        SUNFLOWER_SEEDS = ITEMS.register("sunflower_seeds", () -> new Item(new Item.Properties()));
 
     }
 
