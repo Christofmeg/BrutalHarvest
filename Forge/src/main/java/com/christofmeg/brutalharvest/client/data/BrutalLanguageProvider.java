@@ -22,9 +22,11 @@ public class BrutalLanguageProvider extends LanguageProvider {
             ItemRegistry.ITEMS.getEntries().stream().map(RegistryObject::get).forEach(item -> addItem(() -> item,
                 StringUtils.capitaliseAllWords(item.getDescription().getString()
                     .replace("item." + CommonConstants.MOD_ID + ".", "")
+                        .replace("block." + CommonConstants.MOD_ID + ".", "")
                     .replace("_", " ")
                 )
             ));
+
         }
     }
 

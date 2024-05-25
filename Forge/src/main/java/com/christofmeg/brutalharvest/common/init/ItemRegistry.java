@@ -53,7 +53,7 @@ public class ItemRegistry {
         CORN_KERNEL = ITEMS.register("corn_kernel", () -> new Item(new Item.Properties().food(BrutalFoods.CORN_KERNEL)));
 
         CUCUMBER = ITEMS.register("cucumber", () -> new Item(new Item.Properties().food(BrutalFoods.CUCUMBER)));
-        CUCUMBER_SLICE = ITEMS.register("cucumber_slice", () -> new Item(new Item.Properties().food(BrutalFoods.CUT_CUCUMBER)));
+        CUCUMBER_SLICE = ITEMS.register("cucumber_slices", () -> new Item(new Item.Properties().food(BrutalFoods.CUT_CUCUMBER)));
         PICKLE = ITEMS.register("pickle", () -> new Item(new Item.Properties().food(BrutalFoods.PICKLES)));
 
         TOMATO_SEEDS = ITEMS.register("tomato_seeds", () -> new Item(new Item.Properties()));

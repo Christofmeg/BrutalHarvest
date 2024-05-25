@@ -122,6 +122,8 @@ dependencies {
         }
     }
 
+    implementation fg.deobf("curse.maven:pneumaticcraft-repressurized-281849:5279325")
+
 }
 
 processResources {
