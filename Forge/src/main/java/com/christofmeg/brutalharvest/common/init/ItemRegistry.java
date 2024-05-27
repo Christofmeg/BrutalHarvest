@@ -3,6 +3,8 @@ package com.christofmeg.brutalharvest.common.init;
 import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.item.BrutalFoods;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -56,7 +58,7 @@ public class ItemRegistry {
         CUCUMBER_SLICE = ITEMS.register("cucumber_slices", () -> new Item(new Item.Properties().food(BrutalFoods.CUT_CUCUMBER)));
         PICKLE = ITEMS.register("pickle", () -> new Item(new Item.Properties().food(BrutalFoods.PICKLES)));
 
-        TOMATO_SEEDS = ITEMS.register("tomato_seeds", () -> new Item(new Item.Properties()));
+        TOMATO_SEEDS = ITEMS.register("tomato_seeds", () -> new ItemNameBlockItem(BlockRegistry.TOMATO_PLANT.get(), new Item.Properties()));
         LETTUCE_SEEDS = ITEMS.register("lettuce_seeds", () -> new Item(new Item.Properties()));
         CORN_SEEDS = ITEMS.register("corn_seeds", () -> new Item(new Item.Properties()));
         CUCUMBER_SEEDS = ITEMS.register("cucumber_seeds", () -> new Item(new Item.Properties()));

@@ -1,0 +1,6 @@
+{
+  "parent": "brutalharvest:block/crop",
+  "textures": {
+    "crop": "brutalharvest:block/tomato_stage5"
+  }
+}
