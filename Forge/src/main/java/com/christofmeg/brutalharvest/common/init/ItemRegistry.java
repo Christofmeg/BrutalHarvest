@@ -74,14 +74,14 @@ public class ItemRegistry {
         CORN_SEEDS = ITEMS.register("corn_seeds", () -> new Item(new Item.Properties()));
         CUCUMBER_SEEDS = ITEMS.register("cucumber_seeds", () -> new Item(new Item.Properties()));
 
-        FLINT_KNIFE = ITEMS.register("flint_knife", () -> new KnifeItem(BrutalTiers.FLINT, 0, -2, new Item.Properties()));
-        WOODEN_KNIFE = ITEMS.register("wooden_knife", () -> new KnifeItem(Tiers.WOOD, 2, -2, new Item.Properties()));
-        STONE_KNIFE = ITEMS.register("stone_knife", () -> new KnifeItem(Tiers.STONE, 0, -2, new Item.Properties()));
-        COPPER_KNIFE = ITEMS.register("copper_knife", () -> new KnifeItem(BrutalTiers.COPPER, 0, -2, new Item.Properties()));
-        IRON_KNIFE = ITEMS.register("iron_knife", () -> new KnifeItem(Tiers.IRON, 0, -2, new Item.Properties()));
-        GOLDEN_KNIFE = ITEMS.register("golden_knife", () -> new KnifeItem(Tiers.GOLD, 0, -2, new Item.Properties()));
-        DIAMOND_KNIFE = ITEMS.register("diamond_knife", () -> new KnifeItem(Tiers.DIAMOND, 0, -2, new Item.Properties()));
-        NETHERITE_KNIFE = ITEMS.register("netherite_knife", () -> new KnifeItem(Tiers.NETHERITE, 0, -2, new Item.Properties()));
+        FLINT_KNIFE = ITEMS.register("flint_knife", () -> new KnifeItem(BrutalTiers.FLINT, 0, new Item.Properties()));
+        WOODEN_KNIFE = ITEMS.register("wooden_knife", () -> new KnifeItem(Tiers.WOOD, 1, new Item.Properties()));
+        STONE_KNIFE = ITEMS.register("stone_knife", () -> new KnifeItem(BrutalTiers.STONE, 0, new Item.Properties()));
+        COPPER_KNIFE = ITEMS.register("copper_knife", () -> new KnifeItem(BrutalTiers.COPPER,  0, new Item.Properties()));
+        IRON_KNIFE = ITEMS.register("iron_knife", () -> new KnifeItem(Tiers.IRON, 1, new Item.Properties()));
+        GOLDEN_KNIFE = ITEMS.register("golden_knife", () -> new KnifeItem(Tiers.GOLD, 1, new Item.Properties()));
+        DIAMOND_KNIFE = ITEMS.register("diamond_knife", () -> new KnifeItem(Tiers.DIAMOND, 1, new Item.Properties()));
+        NETHERITE_KNIFE = ITEMS.register("netherite_knife", () -> new KnifeItem(Tiers.NETHERITE, 1, new Item.Properties()));
 
     }
 
