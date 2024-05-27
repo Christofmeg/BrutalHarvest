@@ -2,6 +2,7 @@ package com.christofmeg.brutalharvest;
 
 import com.christofmeg.brutalharvest.common.init.BlockRegistry;
 import com.christofmeg.brutalharvest.common.init.CreativeModeTabRegistry;
+import com.christofmeg.brutalharvest.common.init.EntityTypeRegistry;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -24,6 +25,7 @@ public class BrutalHarvest {
         BlockRegistry.init(modEventBus);
         ItemRegistry.init(modEventBus);
         CreativeModeTabRegistry.REGISTRY.register(modEventBus);
+        EntityTypeRegistry.ENTITY_TYPES.register(modEventBus);
     }
 
     /*TODO
@@ -36,5 +38,7 @@ public class BrutalHarvest {
     //TODO serene seasons crops https://github.com/vectorwing/FarmersDelight/tree/1.19/src/generated/resources/data/sereneseasons/tags/items
 
     //TODO "#forge:crops/tomato" tag "#forge:crops/lettuce" tag ...
+
+    //TODO Tomato Throwable Entity
 
 }
