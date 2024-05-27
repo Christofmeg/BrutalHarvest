@@ -1,7 +1,6 @@
 package com.christofmeg.brutalharvest.common.init;
 
 import com.christofmeg.brutalharvest.CommonConstants;
-import com.christofmeg.brutalharvest.common.block.CropSupportBlock;
 import com.christofmeg.brutalharvest.common.block.TomatoCropBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
