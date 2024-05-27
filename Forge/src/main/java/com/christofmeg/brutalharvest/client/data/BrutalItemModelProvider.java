@@ -2,9 +2,11 @@ package com.christofmeg.brutalharvest.client.data;
 
 import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
+import com.christofmeg.brutalharvest.common.item.KnifeItem;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 
 public class BrutalItemModelProvider extends ItemModelProvider {
@@ -32,6 +34,8 @@ public class BrutalItemModelProvider extends ItemModelProvider {
         basicItem(ItemRegistry.PICKLE.get());
 
         basicItem(ItemRegistry.TOMATO_SEEDS.get());
+
+        ItemRegistry.ITEMS.getEntries().stream().map(RegistryObject::get).filter(item -> item instanceof KnifeItem).forEach(this::basicItem);
 
     }
 

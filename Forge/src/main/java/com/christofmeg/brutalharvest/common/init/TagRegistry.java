@@ -2,11 +2,35 @@ package com.christofmeg.brutalharvest.common.init;
 
 import com.christofmeg.brutalharvest.CommonConstants;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.minecraftforge.common.Tags;
 
 public class TagRegistry {
+
+    public static final class Blocks {
+        @SuppressWarnings("unused")
+        private static TagKey<Block> vanillaTag(final String path) {
+            return BlockTags.create(new ResourceLocation("minecraft", path));
+        }
+
+        @SuppressWarnings("unused")
+        private static TagKey<Block> modTag(final String path) {
+            return BlockTags.create(new ResourceLocation(CommonConstants.MOD_ID, path));
+        }
+
+        @SuppressWarnings("unused")
+        private static TagKey<Block> forgeTag(final String path) {
+            return BlockTags.create(new ResourceLocation("forge", path));
+        }
+
+        public static TagKey<Block> NEEDS_FLINT_TOOL = forgeTag("needs_flint_tool");
+        public static TagKey<Block> NEEDS_COPPER_TOOL = forgeTag("needs_copper_tool");
+
+    }
 
     public static final class Items {
         @SuppressWarnings("unused")
@@ -37,6 +61,8 @@ public class TagRegistry {
 
         public static TagKey<Item> SALAD_INGREDIENTS = forgeTag("salad_ingredients");
         public static TagKey<Item> SALAD_INGREDIENTS_LETTUCE = forgeTag("salad_ingredients/lettuce");
+
+        public static TagKey<Item> KNIVES = forgeTag("knives");
 
     }
 

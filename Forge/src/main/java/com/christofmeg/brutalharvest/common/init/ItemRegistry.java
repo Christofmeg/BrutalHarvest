@@ -2,9 +2,11 @@ package com.christofmeg.brutalharvest.common.init;
 
 import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.item.BrutalFoods;
+import com.christofmeg.brutalharvest.common.item.BrutalTiers;
+import com.christofmeg.brutalharvest.common.item.KnifeItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.item.Tiers;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -34,6 +36,15 @@ public class ItemRegistry {
     public static final RegistryObject<Item> PICKLE;
     public static final RegistryObject<Item> CUCUMBER_SEEDS;
 
+    public static final RegistryObject<Item> FLINT_KNIFE;
+    public static final RegistryObject<Item> WOODEN_KNIFE;
+    public static final RegistryObject<Item> STONE_KNIFE;
+    public static final RegistryObject<Item> COPPER_KNIFE;
+    public static final RegistryObject<Item> IRON_KNIFE;
+    public static final RegistryObject<Item> GOLDEN_KNIFE;
+    public static final RegistryObject<Item> DIAMOND_KNIFE;
+    public static final RegistryObject<Item> NETHERITE_KNIFE;
+
     private ItemRegistry() {
     }
 
@@ -62,6 +73,15 @@ public class ItemRegistry {
         LETTUCE_SEEDS = ITEMS.register("lettuce_seeds", () -> new Item(new Item.Properties()));
         CORN_SEEDS = ITEMS.register("corn_seeds", () -> new Item(new Item.Properties()));
         CUCUMBER_SEEDS = ITEMS.register("cucumber_seeds", () -> new Item(new Item.Properties()));
+
+        FLINT_KNIFE = ITEMS.register("flint_knife", () -> new KnifeItem(BrutalTiers.FLINT, 0, -2, new Item.Properties()));
+        WOODEN_KNIFE = ITEMS.register("wooden_knife", () -> new KnifeItem(Tiers.WOOD, 2, -2, new Item.Properties()));
+        STONE_KNIFE = ITEMS.register("stone_knife", () -> new KnifeItem(Tiers.STONE, 0, -2, new Item.Properties()));
+        COPPER_KNIFE = ITEMS.register("copper_knife", () -> new KnifeItem(BrutalTiers.COPPER, 0, -2, new Item.Properties()));
+        IRON_KNIFE = ITEMS.register("iron_knife", () -> new KnifeItem(Tiers.IRON, 0, -2, new Item.Properties()));
+        GOLDEN_KNIFE = ITEMS.register("golden_knife", () -> new KnifeItem(Tiers.GOLD, 0, -2, new Item.Properties()));
+        DIAMOND_KNIFE = ITEMS.register("diamond_knife", () -> new KnifeItem(Tiers.DIAMOND, 0, -2, new Item.Properties()));
+        NETHERITE_KNIFE = ITEMS.register("netherite_knife", () -> new KnifeItem(Tiers.NETHERITE, 0, -2, new Item.Properties()));
 
     }
 
