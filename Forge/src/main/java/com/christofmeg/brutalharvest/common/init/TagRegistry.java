@@ -63,6 +63,7 @@ public class TagRegistry {
         public static TagKey<Item> SALAD_INGREDIENTS_LETTUCE = forgeTag("salad_ingredients/lettuce");
 
         public static TagKey<Item> KNIVES = forgeTag("knives");
+        public static TagKey<Item> FARMERS_DELIGHT_KNIVES = ItemTags.create(new ResourceLocation("farmersdelight", "tools/knives"));
 
     }
 

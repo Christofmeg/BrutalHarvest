@@ -158,7 +158,7 @@ tasks.register('publishCurseForge', TaskPublishCurseForge) {
     }
     mainFile.addModLoader('Forge', 'NeoForge')
     mainFile.addOptional("catalogue")
-//    mainFile.addOptional("")
+    mainFile.addOptional("farmers-delight")
 }
 
 modrinth {
@@ -170,7 +170,7 @@ modrinth {
     uploadFile = file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar")
     gameVersions = "${forge_release_versions}".split(",") as List<String>
     dependencies {
-//        optional.project ""
+        optional.project "farmers-delight"
     }
     loaders = "forge,neoforge".split(",") as List<String>
 }

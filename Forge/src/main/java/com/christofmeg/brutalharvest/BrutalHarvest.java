@@ -26,25 +26,6 @@ public class BrutalHarvest {
         CreativeModeTabRegistry.REGISTRY.register(modEventBus);
     }
 
-
-
-    /*TODO
-     * FarmingForBlockheads data/farmersdelight/tags/items/tools/knives.json
-     * {
-     * "values": [
-     * "brutalharvest:flint_knife",
-     * "brutalharvest:wooden_knife",
-     * "brutalharvest:stone_knife",
-     * "brutalharvest:copper_knife",
-     * "brutalharvest:iron_knife",
-     * "brutalharvest:golden_knife",
-     * "brutalharvest:diamond_knife",
-     * "brutalharvest:netherite_knife"
-     * ]
-     * }
-     * + optional dependency in build.gradle file
-     */
-
     /*TODO
      * FarmingForBlockheads data/farmingforblockheads/recipes/market/brutalharvest/tomato_seeds.json
      * {"type":"farmingforblockheads:market","category":"farmingforblockheads:seeds","preset":"brutalharvest:seeds","result":{"item":"brutalharvest:tomato_seeds"}}

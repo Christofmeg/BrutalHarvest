@@ -39,7 +39,14 @@ public class BrutalRecipeProvider extends RecipeProvider implements IConditionBu
     }
 
     private void addSmithingRecipes(Consumer<FinishedRecipe> consumer) {
-        netheriteSmithing(consumer, ItemRegistry.DIAMOND_KNIFE.get(), RecipeCategory.COMBAT, ItemRegistry.NETHERITE_KNIFE.get());
+        SmithingTransformRecipeBuilder.smithing(
+                Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
+                Ingredient.of(ItemRegistry.DIAMOND_KNIFE.get()),
+                Ingredient.of(Items.NETHERITE_INGOT),
+                RecipeCategory.COMBAT,
+                ItemRegistry.NETHERITE_KNIFE.get())
+                .unlocks("has_netherite_ingot", has(Items.NETHERITE_INGOT))
+                .save(consumer, modLoc(getItemName(ItemRegistry.NETHERITE_KNIFE.get()) + "_smithing"));
     }
 
     private void addShapelessRecipes(Consumer<FinishedRecipe> consumer) {
