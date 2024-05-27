@@ -54,6 +54,7 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
         tag(TagRegistry.Items.SALAD_INGREDIENTS).addTag(TagRegistry.Items.SALAD_INGREDIENTS_LETTUCE);
         tag(TagRegistry.Items.SALAD_INGREDIENTS_LETTUCE).add(ItemRegistry.LETTUCE.get());
 
+        tag(TagRegistry.Items.TOOLS).addTag(TagRegistry.Items.KNIVES);
         ItemRegistry.ITEMS.getEntries().stream().map(RegistryObject::get).filter(item -> item instanceof KnifeItem).forEach(item -> {
             tag(TagRegistry.Items.KNIVES).add(item);
             tag(TagRegistry.Items.FARMERS_DELIGHT_KNIVES).add(item);
