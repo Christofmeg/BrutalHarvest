@@ -56,7 +56,7 @@ public class ItemRegistry {
     static {
         ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, CommonConstants.MOD_ID);
 
-        GREEN_TOMATO = ITEMS.register("green_tomato", () -> new Item(new Item.Properties().food(BrutalFoods.GREEN_TOMATO)));
+        GREEN_TOMATO = ITEMS.register("green_tomato", () -> new TomatoProjectileItem(new Item.Properties().food(BrutalFoods.GREEN_TOMATO)));
         TOMATO = ITEMS.register("tomato", () -> new TomatoProjectileItem(new Item.Properties().food(BrutalFoods.TOMATO)));
         ROTTEN_TOMATO = ITEMS.register("rotten_tomato", () -> new TomatoProjectileItem(new Item.Properties().food(BrutalFoods.ROTTEN_TOMATO)));
 
