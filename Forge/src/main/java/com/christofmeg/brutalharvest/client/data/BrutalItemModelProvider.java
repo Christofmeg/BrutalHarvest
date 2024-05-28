@@ -23,7 +23,7 @@ public class BrutalItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
 
-        basicItem(ItemRegistry.GREEN_TOMATO.get());
+        basicItem(ItemRegistry.UNRIPE_TOMATO.get());
         basicItem(ItemRegistry.TOMATO.get());
         basicItem(ItemRegistry.ROTTEN_TOMATO.get());
         basicItem(ItemRegistry.LETTUCE.get());

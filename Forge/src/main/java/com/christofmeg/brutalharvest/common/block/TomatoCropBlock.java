@@ -100,7 +100,7 @@ public class TomatoCropBlock extends CropBlock {
             ItemStack stack = player.getItemInHand(interactionHand);
             if (stack.getItem() instanceof KnifeItem) {
                 int random = 1 + level.random.nextInt(2);
-                popResource(level, pos, new ItemStack(age == 5 ? ItemRegistry.GREEN_TOMATO.get() : age == 6 ? ItemRegistry.TOMATO.get() : ItemRegistry.ROTTEN_TOMATO.get(), random + (reachedTomatoAge ? 1 : 0)));
+                popResource(level, pos, new ItemStack(age == 5 ? ItemRegistry.UNRIPE_TOMATO.get() : age == 6 ? ItemRegistry.TOMATO.get() : ItemRegistry.ROTTEN_TOMATO.get(), random + (reachedTomatoAge ? 1 : 0)));
                 level.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
                 BlockState newBlockState = state.setValue(AGE, 4);
                 level.setBlock(pos, newBlockState, 2);

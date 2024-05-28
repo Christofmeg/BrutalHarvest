@@ -6,7 +6,7 @@ import net.minecraft.world.food.FoodProperties;
 
 public class BrutalFoods {
 
-    public static final FoodProperties GREEN_TOMATO = new FoodProperties.Builder().nutrition(1).saturationMod(1).build();
+    public static final FoodProperties UNRIPE_TOMATO = new FoodProperties.Builder().nutrition(1).saturationMod(1).build();
     public static final FoodProperties TOMATO = new FoodProperties.Builder().nutrition(3).saturationMod(2.5F).build();
     public static final FoodProperties ROTTEN_TOMATO = new FoodProperties.Builder().nutrition(-2).saturationMod(1.2F).effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 100), 1).build();
     public static final FoodProperties LETTUCE = new FoodProperties.Builder().nutrition(3).saturationMod(5).build();

@@ -19,7 +19,7 @@ public class ItemRegistry {
 
     public static final DeferredRegister<Item> ITEMS;
 
-    public static final RegistryObject<Item> GREEN_TOMATO;
+    public static final RegistryObject<Item> UNRIPE_TOMATO;
     public static final RegistryObject<Item> TOMATO;
     public static final RegistryObject<Item> ROTTEN_TOMATO;
     public static final RegistryObject<Item> TOMATO_SEEDS;
@@ -56,7 +56,7 @@ public class ItemRegistry {
     static {
         ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, CommonConstants.MOD_ID);
 
-        GREEN_TOMATO = ITEMS.register("green_tomato", () -> new TomatoProjectileItem(new Item.Properties().food(BrutalFoods.GREEN_TOMATO)));
+        UNRIPE_TOMATO = ITEMS.register("unripe_tomato", () -> new TomatoProjectileItem(new Item.Properties().food(BrutalFoods.UNRIPE_TOMATO)));
         TOMATO = ITEMS.register("tomato", () -> new TomatoProjectileItem(new Item.Properties().food(BrutalFoods.TOMATO)));
         ROTTEN_TOMATO = ITEMS.register("rotten_tomato", () -> new TomatoProjectileItem(new Item.Properties().food(BrutalFoods.ROTTEN_TOMATO)));
 

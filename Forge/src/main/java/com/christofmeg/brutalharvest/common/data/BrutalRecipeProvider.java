@@ -51,7 +51,7 @@ public class BrutalRecipeProvider extends RecipeProvider implements IConditionBu
 
     private void addShapelessRecipes(Consumer<FinishedRecipe> consumer) {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_SEEDS.get())
-                .requires(ItemRegistry.GREEN_TOMATO.get())
+                .requires(ItemRegistry.UNRIPE_TOMATO.get())
                 .unlockedBy("tomato_seeds", has(ItemRegistry.TOMATO_SEEDS.get()))
                 .save(consumer, modLoc("tomato_seeds_from_green_tomato"));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_SEEDS.get(), 3)

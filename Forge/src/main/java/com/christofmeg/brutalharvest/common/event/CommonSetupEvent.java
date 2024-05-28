@@ -12,7 +12,7 @@ public class CommonSetupEvent {
     @SubscribeEvent
     public static void commonSetupEvent(FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            ComposterBlock.COMPOSTABLES.put(ItemRegistry.GREEN_TOMATO.get(), 0.30F);
+            ComposterBlock.COMPOSTABLES.put(ItemRegistry.UNRIPE_TOMATO.get(), 0.30F);
             ComposterBlock.COMPOSTABLES.put(ItemRegistry.TOMATO.get(), 0.65F);
             ComposterBlock.COMPOSTABLES.put(ItemRegistry.ROTTEN_TOMATO.get(), 0.85F);
 
