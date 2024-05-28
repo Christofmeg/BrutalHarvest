@@ -22,11 +22,11 @@ public class BrutalTiers {
             new ResourceLocation(CommonConstants.MOD_ID, "flint"), List.of(), List.of(Tiers.WOOD));
 
     public static final Tier STONE = TierSortingRegistry.registerTier(
-            new ForgeTier(1, 131, 4.0F, 1.5F, 5, BlockTags.NEEDS_STONE_TOOL, () -> Ingredient.of(ItemTags.STONE_TOOL_MATERIALS)),
+            new ForgeTier(1, 131, 4.0F, 1.0F, 5, BlockTags.NEEDS_STONE_TOOL, () -> Ingredient.of(ItemTags.STONE_TOOL_MATERIALS)),
             new ResourceLocation(CommonConstants.MOD_ID, "stone"), List.of(Tiers.STONE), List.of());
 
     public static final Tier COPPER = TierSortingRegistry.registerTier(
-            new ForgeTier(1, 190, 5.0f, 2f, 10, TagRegistry.Blocks.NEEDS_COPPER_TOOL, () -> Ingredient.of(Tags.Items.INGOTS_COPPER)),
+            new ForgeTier(1, 190, 5.0f, 1.5f, 10, TagRegistry.Blocks.NEEDS_COPPER_TOOL, () -> Ingredient.of(Tags.Items.INGOTS_COPPER)),
             new ResourceLocation(CommonConstants.MOD_ID, "copper"), List.of(BrutalTiers.STONE), List.of(Tiers.IRON));
 
 }
