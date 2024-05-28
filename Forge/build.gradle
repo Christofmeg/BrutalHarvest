@@ -5,12 +5,14 @@ plugins {
     id 'idea'
     id 'net.darkhax.curseforgegradle' version '1.+'
     id 'com.modrinth.minotaur' version '2.+'
+    id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
 archivesBaseName = "${mod_id}-forge-${forge_supported_versions}"
 
 minecraft {
-    mappings channel: 'official', version: forge_minecraft_version
+//    mappings channel: 'official', version: forge_minecraft_version
+    mappings channel: 'parchment', version: parchment_version
 
     runs {
         client {
