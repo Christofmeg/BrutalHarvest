@@ -1,0 +1,38 @@
+{
+  "criteria": {
+    "0": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "brutalharvest:tomato"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "minecraft:textures/block/rooted_dirt.png",
+    "description": {
+      "translate": "brutalharvest.advancement.root.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "brutalharvest:tomato"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "Brutal Harvest"
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

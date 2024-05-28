@@ -36,6 +36,7 @@ public class BrutalDataGenerator {
             BrutalBlockTagsProvider blockTags = gen.addProvider(true, new BrutalBlockTagsProvider(output, lookupProvider, existingFileHelper));
             gen.addProvider(true, new BrutalItemTagsProvider(output, lookupProvider, blockTags, existingFileHelper));
             gen.addProvider(true, new BrutalRecipeProvider(output));
+            gen.addProvider(event.includeServer(), new BrutalAdvancementProvider(output, lookupProvider, existingFileHelper));
         }
 
         for (String locale : LOCALE_CODES) {

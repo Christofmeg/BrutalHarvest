@@ -1,10 +1,12 @@
 package com.christofmeg.brutalharvest.common.entity;
 
+import com.christofmeg.brutalharvest.common.init.AdvancementRegistry;
 import com.christofmeg.brutalharvest.common.init.EntityTypeRegistry;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -36,16 +38,17 @@ public class TomatoProjectileEntity extends ThrowableItemProjectile {
     }
 
     private ParticleOptions getParticle() {
-        ItemStack $$0 = this.getItemRaw();
-        return $$0.isEmpty() ? ParticleTypes.ITEM_SNOWBALL : new ItemParticleOption(ParticleTypes.ITEM, $$0);
+        ItemStack stack = this.getItemRaw();
+        return stack.isEmpty() ? ParticleTypes.ITEM_SNOWBALL : new ItemParticleOption(ParticleTypes.ITEM, stack);
+        //TODO custom particles
     }
 
     public void handleEntityEvent(byte p_37402_) {
         if (p_37402_ == 3) {
-            ParticleOptions $$1 = this.getParticle();
+            ParticleOptions particleOptions = this.getParticle();
 
-            for(int $$2 = 0; $$2 < 8; ++$$2) {
-                this.level().addParticle($$1, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
+            for(int i = 0; i < 8; ++i) {
+                this.level().addParticle(particleOptions, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
             }
         }
 
@@ -54,9 +57,13 @@ public class TomatoProjectileEntity extends ThrowableItemProjectile {
     protected void onHitEntity(@NotNull EntityHitResult entityHitResult) {
         super.onHitEntity(entityHitResult);
         Entity entity = entityHitResult.getEntity();
-        entity.hurt(this.damageSources().thrown(this, this.getOwner()), 0);
-        if (entity instanceof Villager villager) {
-            villager.setAggressive(true);
+        if (!entity.level().isClientSide) {
+            entity.hurt(this.damageSources().thrown(this, this.getOwner()), 0);
+            if (entity instanceof Villager) {
+                if (this.getOwner() instanceof ServerPlayer serverPlayer) {
+                    AdvancementRegistry.ROTTEN_TOMATOES.trigger(serverPlayer);
+                }
+            }
         }
     }
 

@@ -1,9 +1,6 @@
 package com.christofmeg.brutalharvest;
 
-import com.christofmeg.brutalharvest.common.init.BlockRegistry;
-import com.christofmeg.brutalharvest.common.init.CreativeModeTabRegistry;
-import com.christofmeg.brutalharvest.common.init.EntityTypeRegistry;
-import com.christofmeg.brutalharvest.common.init.ItemRegistry;
+import com.christofmeg.brutalharvest.common.init.*;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -26,6 +23,7 @@ public class BrutalHarvest {
         ItemRegistry.init(modEventBus);
         CreativeModeTabRegistry.REGISTRY.register(modEventBus);
         EntityTypeRegistry.ENTITY_TYPES.register(modEventBus);
+        AdvancementRegistry.register();
     }
 
     /*TODO

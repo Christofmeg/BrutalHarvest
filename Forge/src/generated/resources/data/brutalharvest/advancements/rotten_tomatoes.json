@@ -1,0 +1,30 @@
+{
+  "parent": "brutalharvest:root",
+  "criteria": {
+    "0": {
+      "conditions": {},
+      "trigger": "brutalharvest:throw_tomato_at_villager"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "brutalharvest.advancement.rotten_tomatoes.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "brutalharvest:rotten_tomato"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "brutalharvest.advancement.rotten_tomatoes"
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
