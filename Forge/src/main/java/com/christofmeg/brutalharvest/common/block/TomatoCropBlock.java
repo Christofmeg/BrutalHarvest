@@ -31,7 +31,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Collections;
 import java.util.List;
 
 public class TomatoCropBlock extends CropBlock {
@@ -63,9 +62,16 @@ public class TomatoCropBlock extends CropBlock {
     @Override
     public @NotNull List<ItemStack> getDrops(@NotNull BlockState state, LootParams.@NotNull Builder builder) {
         List<ItemStack> dropsOriginal = super.getDrops(state, builder);
-        if (!dropsOriginal.isEmpty())
+        int randomTomatoes = 1 + builder.getLevel().random.nextInt(2);
+        int randomSeeds = 1 + builder.getLevel().random.nextInt(2);
+        if (!dropsOriginal.isEmpty()) {
             return dropsOriginal;
-        return Collections.singletonList(new ItemStack(this, 1));
+        }
+        return
+                state.getValue(AGE) == 5 ?  List.of(new ItemStack(ItemRegistry.UNRIPE_TOMATO.get(), 1 + randomTomatoes), new ItemStack(this, 1 + randomSeeds)) :
+                        state.getValue(AGE) == 6 ? List.of(new ItemStack(ItemRegistry.TOMATO.get(), 1 + randomTomatoes), new ItemStack(this, 1 + randomSeeds)) :
+                                state.getValue(AGE) == 7 ? List.of(new ItemStack(ItemRegistry.ROTTEN_TOMATO.get(), 1 + randomTomatoes), new ItemStack(this, 1 + randomSeeds)) :
+                                        List.of(new ItemStack(this, 1 + randomSeeds));
     }
 
     @Override
