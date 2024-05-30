@@ -14,6 +14,7 @@ public class CommonSetupEvent {
         event.enqueueWork(() -> {
             ComposterBlock.COMPOSTABLES.put(ItemRegistry.UNRIPE_TOMATO.get(), 0.30F);
             ComposterBlock.COMPOSTABLES.put(ItemRegistry.TOMATO.get(), 0.65F);
+            ComposterBlock.COMPOSTABLES.put(ItemRegistry.TOMATO_SLICE.get(), 0.30F);
             ComposterBlock.COMPOSTABLES.put(ItemRegistry.ROTTEN_TOMATO.get(), 0.85F);
 
             ComposterBlock.COMPOSTABLES.put(ItemRegistry.LETTUCE.get(), 0.65F);
