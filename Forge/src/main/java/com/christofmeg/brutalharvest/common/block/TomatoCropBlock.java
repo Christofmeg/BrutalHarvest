@@ -62,16 +62,15 @@ public class TomatoCropBlock extends CropBlock {
     @Override
     public @NotNull List<ItemStack> getDrops(@NotNull BlockState state, LootParams.@NotNull Builder builder) {
         List<ItemStack> dropsOriginal = super.getDrops(state, builder);
-        int randomTomatoes = 1 + builder.getLevel().random.nextInt(2);
-        int randomSeeds = 1 + builder.getLevel().random.nextInt(2);
+        int randomTomatoes = 3 + builder.getLevel().random.nextInt(4);
         if (!dropsOriginal.isEmpty()) {
             return dropsOriginal;
         }
         return
-                state.getValue(AGE) == 5 ?  List.of(new ItemStack(ItemRegistry.UNRIPE_TOMATO.get(), 1 + randomTomatoes), new ItemStack(this, 1 + randomSeeds)) :
-                        state.getValue(AGE) == 6 ? List.of(new ItemStack(ItemRegistry.TOMATO.get(), 1 + randomTomatoes), new ItemStack(this, 1 + randomSeeds)) :
-                                state.getValue(AGE) == 7 ? List.of(new ItemStack(ItemRegistry.ROTTEN_TOMATO.get(), 1 + randomTomatoes), new ItemStack(this, 1 + randomSeeds)) :
-                                        List.of(new ItemStack(this, 1 + randomSeeds));
+                state.getValue(AGE) == 5 ?  List.of(new ItemStack(ItemRegistry.UNRIPE_TOMATO.get(), randomTomatoes), new ItemStack(this, 2)) :
+                        state.getValue(AGE) == 6 ? List.of(new ItemStack(ItemRegistry.TOMATO.get(), randomTomatoes), new ItemStack(this, 2)) :
+                                state.getValue(AGE) == 7 ? List.of(new ItemStack(ItemRegistry.ROTTEN_TOMATO.get(), randomTomatoes), new ItemStack(this, 2)) :
+                                        List.of(new ItemStack(this, 1));
     }
 
     @Override
@@ -105,8 +104,11 @@ public class TomatoCropBlock extends CropBlock {
         } else if (age > 4) {
             ItemStack stack = player.getItemInHand(interactionHand);
             if (stack.getItem() instanceof KnifeItem) {
-                int random = 1 + level.random.nextInt(2);
-                popResource(level, pos, new ItemStack(age == 5 ? ItemRegistry.UNRIPE_TOMATO.get() : age == 6 ? ItemRegistry.TOMATO.get() : ItemRegistry.ROTTEN_TOMATO.get(), random + (reachedTomatoAge ? 1 : 0)));
+                int randomTomatoes = 3 + level.random.nextInt(4);
+                popResource(level, pos,
+                        age == 5 ?  new ItemStack(ItemRegistry.UNRIPE_TOMATO.get(), randomTomatoes) :
+                        age == 6 ? new ItemStack(ItemRegistry.TOMATO.get(), randomTomatoes) :
+                        age == 7 ? new ItemStack(ItemRegistry.ROTTEN_TOMATO.get(), randomTomatoes) : ItemStack.EMPTY);
                 level.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
                 BlockState newBlockState = state.setValue(AGE, 4);
                 level.setBlock(pos, newBlockState, 2);
