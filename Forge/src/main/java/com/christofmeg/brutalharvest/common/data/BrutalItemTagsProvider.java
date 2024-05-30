@@ -8,6 +8,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -51,6 +52,16 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
         tag(TagRegistry.Items.CORN).add(ItemRegistry.CORN.get());
         tag(TagRegistry.Items.CUCUMBER).add(ItemRegistry.CUCUMBER.get());
 
+        tag(TagRegistry.Items.CROPS)
+                .addTag(TagRegistry.Items.CROPS_TOMATO)
+                .addTag(TagRegistry.Items.CROPS_LETTUCE)
+                .addTag(TagRegistry.Items.CROPS_CORN)
+                .addTag(TagRegistry.Items.CROPS_CUCUMBER);
+        tag(TagRegistry.Items.CROPS_TOMATO).add(ItemRegistry.TOMATO.get());
+        tag(TagRegistry.Items.CROPS_LETTUCE).add(ItemRegistry.LETTUCE.get());
+        tag(TagRegistry.Items.CROPS_CORN).add(ItemRegistry.CORN.get());
+        tag(TagRegistry.Items.CROPS_CUCUMBER).add(ItemRegistry.CUCUMBER.get());
+
         tag(TagRegistry.Items.SALAD_INGREDIENTS).addTag(TagRegistry.Items.SALAD_INGREDIENTS_LETTUCE);
         tag(TagRegistry.Items.SALAD_INGREDIENTS_LETTUCE).add(ItemRegistry.LETTUCE.get());
 
@@ -59,6 +70,8 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
             tag(TagRegistry.Items.KNIVES).add(item);
             tag(TagRegistry.Items.FARMERS_DELIGHT_KNIVES).add(item);
         });
+
+        tag(ItemTags.PIGLIN_LOVED).add(ItemRegistry.GOLDEN_KNIFE.get());
 
     }
 }

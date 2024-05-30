@@ -32,11 +32,6 @@ public class BrutalHarvest {
      * + optional dependency in build.gradle file
      */
 
-    //TODO Piglin loved on golden items
     //TODO serene seasons crops https://github.com/vectorwing/FarmersDelight/tree/1.19/src/generated/resources/data/sereneseasons/tags/items
-
-    //TODO "#forge:crops/tomato" tag "#forge:crops/lettuce" tag ...
-
-    //TODO Tomato Throwable Entity
 
 }

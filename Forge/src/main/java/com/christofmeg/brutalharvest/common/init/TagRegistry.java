@@ -59,6 +59,12 @@ public class TagRegistry {
         public static TagKey<Item> CORN= forgeTag("vegetables/corn");
         public static TagKey<Item> CUCUMBER = forgeTag("vegetables/cucumber");
 
+        public static TagKey<Item> CROPS = forgeTag("crops");
+        public static TagKey<Item> CROPS_TOMATO = forgeTag("crops/tomato");
+        public static TagKey<Item> CROPS_LETTUCE = forgeTag("crops/lettuce");
+        public static TagKey<Item> CROPS_CORN= forgeTag("crops/corn");
+        public static TagKey<Item> CROPS_CUCUMBER = forgeTag("crops/cucumber");
+
         public static TagKey<Item> SALAD_INGREDIENTS = forgeTag("salad_ingredients");
         public static TagKey<Item> SALAD_INGREDIENTS_LETTUCE = forgeTag("salad_ingredients/lettuce");
 
