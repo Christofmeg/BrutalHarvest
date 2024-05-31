@@ -37,7 +37,7 @@ public class BrutalLootTablesProvider extends LootTableProvider {
             LootPool.Builder commonPool = LootPool.lootPool();
             commonPool.setRolls(UniformGenerator.between(3, 8))
                     .add(createEntry(ItemRegistry.TOMATO_SEEDS.get(), 5,1, 5))
-                    .add(EmptyLootItem.emptyItem().setWeight(20));
+                    .add(EmptyLootItem.emptyItem().setWeight(10));
             LootTable.Builder commonTable = LootTable.lootTable();
             commonTable.withPool(commonPool);
             consumer.accept(new ResourceLocation(CommonConstants.MOD_ID, "chests/village/village_loot"), commonTable);

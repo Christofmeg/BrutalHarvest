@@ -18,17 +18,11 @@ public class BrutalGlobalLootModifierProvider extends GlobalLootModifierProvider
     protected void start() {
         add("village_loot", new RollLootTableModifier(new LootItemCondition[] {
                 getList(new String[]{
-//                        "village_armorer",
-//                        "village_butcher",
-                        "village_desert_house"
-                        , "village_plains_house"
-                        , "village_savanna_house"
-                        , "village_snowy_house"
-                        , "village_taiga_house"
-//                        , "village_tannery"
-//                        , "village_temple"
-//                        , "village_toolsmith"
-//                        , "village_weaponsmith"
+                        "village_desert_house",
+                        "village_plains_house",
+                        "village_savanna_house",
+                        "village_snowy_house",
+                        "village_taiga_house"
                 })
         }));
     }
