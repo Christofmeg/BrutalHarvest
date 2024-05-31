@@ -21,9 +21,10 @@ public class BrutalHarvest {
         MinecraftForge.EVENT_BUS.register(this);
         BlockRegistry.init(modEventBus);
         ItemRegistry.init(modEventBus);
-        CreativeModeTabRegistry.REGISTRY.register(modEventBus);
-        EntityTypeRegistry.ENTITY_TYPES.register(modEventBus);
+        CreativeModeTabRegistry.init(modEventBus);
+        EntityTypeRegistry.init(modEventBus);
         AdvancementRegistry.register();
+        LootModifierRegistry.init(modEventBus);
     }
 
     /*TODO

@@ -19,7 +19,7 @@ import javax.annotation.Nonnull;
 @SuppressWarnings("unused")
 public class BlockRegistry {
 
-    public static final DeferredRegister<Block> BLOCKS;
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, CommonConstants.MOD_ID);
 
 //    public static final RegistryObject<Block> CROP_SUPPORT;
     public static final RegistryObject<Block> TOMATO_PLANT;
@@ -32,8 +32,6 @@ public class BlockRegistry {
     }
 
     static {
-        BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, CommonConstants.MOD_ID);
-
 //        CROP_SUPPORT = BLOCKS.register("crop_support", () -> new CropSupportBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.BAMBOO_WOOD).pushReaction(PushReaction.DESTROY)));
 //        ItemRegistry.ITEMS.register("crop_support", () -> new BlockItem(CROP_SUPPORT.get(), new Item.Properties()));
 

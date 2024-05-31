@@ -37,6 +37,8 @@ public class BrutalDataGenerator {
             gen.addProvider(true, new BrutalItemTagsProvider(output, lookupProvider, blockTags, existingFileHelper));
             gen.addProvider(true, new BrutalRecipeProvider(output));
             gen.addProvider(event.includeServer(), new BrutalAdvancementProvider(output, lookupProvider, existingFileHelper));
+            gen.addProvider(event.includeServer(), new BrutalGlobalLootModifierProvider(gen));
+            gen.addProvider(event.includeServer(), new BrutalLootTablesProvider(gen));
         }
 
         for (String locale : LOCALE_CODES) {

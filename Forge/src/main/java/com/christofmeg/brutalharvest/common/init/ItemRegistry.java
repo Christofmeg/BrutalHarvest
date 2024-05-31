@@ -47,9 +47,6 @@ public class ItemRegistry {
     public static final RegistryObject<Item> DIAMOND_KNIFE;
     public static final RegistryObject<Item> NETHERITE_KNIFE;
 
-    private ItemRegistry() {
-    }
-
     public static void init(@Nonnull IEventBus modEventBus) {
         ITEMS.register(modEventBus);
     }
