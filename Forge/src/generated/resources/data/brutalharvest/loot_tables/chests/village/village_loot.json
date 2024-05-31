@@ -11,69 +11,25 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "brutalharvest:unripe_tomato",
-          "weight": 10
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 10.0,
-                "min": 5.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "brutalharvest:tomato",
-          "weight": 10
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "brutalharvest:rotten_tomato",
-          "weight": 3
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
+                "max": 5.0,
                 "min": 1.0
               },
               "function": "minecraft:set_count"
             }
           ],
           "name": "brutalharvest:tomato_seeds",
-          "weight": 3
+          "weight": 5
         },
         {
           "type": "minecraft:empty",
           "weight": 20
         }
       ],
-      "rolls": 3.0
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 8.0,
+        "min": 3.0
+      }
     }
   ],
   "random_sequence": "brutalharvest:chests/village/village_loot"

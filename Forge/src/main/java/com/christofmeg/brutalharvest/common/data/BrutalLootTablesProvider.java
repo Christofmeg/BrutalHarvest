@@ -17,7 +17,6 @@ import net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.functions.SetNbtFunction;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.List;
@@ -36,11 +35,8 @@ public class BrutalLootTablesProvider extends LootTableProvider {
         @Override
         public void generate(BiConsumer<ResourceLocation, LootTable.Builder> consumer) {
             LootPool.Builder commonPool = LootPool.lootPool();
-            commonPool.setRolls(ConstantValue.exactly(3))
-                    .add(createEntry(ItemRegistry.UNRIPE_TOMATO.get(), 10,1, 3))
-                    .add(createEntry(ItemRegistry.TOMATO.get(), 10,5, 10))
-                    .add(createEntry(ItemRegistry.ROTTEN_TOMATO.get(), 3,1, 1))
-                    .add(createEntry(ItemRegistry.TOMATO_SEEDS.get(), 3,1, 1))
+            commonPool.setRolls(UniformGenerator.between(3, 8))
+                    .add(createEntry(ItemRegistry.TOMATO_SEEDS.get(), 5,1, 5))
                     .add(EmptyLootItem.emptyItem().setWeight(20));
             LootTable.Builder commonTable = LootTable.lootTable();
             commonTable.withPool(commonPool);

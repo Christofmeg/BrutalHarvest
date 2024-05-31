@@ -6,14 +6,6 @@
       "terms": [
         {
           "condition": "forge:loot_table_id",
-          "loot_table_id": "minecraft:chests/village/village_armorer"
-        },
-        {
-          "condition": "forge:loot_table_id",
-          "loot_table_id": "minecraft:chests/village/village_butcher"
-        },
-        {
-          "condition": "forge:loot_table_id",
           "loot_table_id": "minecraft:chests/village/village_desert_house"
         },
         {
@@ -31,22 +23,6 @@
         {
           "condition": "forge:loot_table_id",
           "loot_table_id": "minecraft:chests/village/village_taiga_house"
-        },
-        {
-          "condition": "forge:loot_table_id",
-          "loot_table_id": "minecraft:chests/village/village_tannery"
-        },
-        {
-          "condition": "forge:loot_table_id",
-          "loot_table_id": "minecraft:chests/village/village_temple"
-        },
-        {
-          "condition": "forge:loot_table_id",
-          "loot_table_id": "minecraft:chests/village/village_toolsmith"
-        },
-        {
-          "condition": "forge:loot_table_id",
-          "loot_table_id": "minecraft:chests/village/village_weaponsmith"
         }
       ]
     }
