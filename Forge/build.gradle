@@ -131,6 +131,7 @@ dependencies {
 
 processResources {
     from project(":Common").sourceSets.main.resources
+    exclude '.cache'
 }
 
 tasks.withType(ProcessResources).configureEach {
