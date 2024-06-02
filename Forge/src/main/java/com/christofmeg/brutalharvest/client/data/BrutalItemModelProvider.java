@@ -30,10 +30,12 @@ public class BrutalItemModelProvider extends ItemModelProvider {
         basicItem(ItemRegistry.SLICED_LETTUCE.get());
         basicItem(ItemRegistry.CORN.get());
         basicItem(ItemRegistry.CUCUMBER.get());
-        basicItem(ItemRegistry.CUCUMBER_SLICE.get());
+        basicItem(ItemRegistry.CUCUMBER_SLICES.get());
         basicItem(ItemRegistry.PICKLE.get());
 
         basicItem(ItemRegistry.TOMATO_SEEDS.get());
+        basicItem(ItemRegistry.CORN_SEEDS.get());
+        basicItem(ItemRegistry.CUCUMBER_SEEDS.get());
 
         ItemRegistry.ITEMS.getEntries().stream().map(RegistryObject::get).filter(item -> item instanceof KnifeItem).forEach(this::basicItem);
 

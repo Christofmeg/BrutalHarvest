@@ -21,10 +21,9 @@ public class CommonSetupEvent {
             ComposterBlock.COMPOSTABLES.put(ItemRegistry.SLICED_LETTUCE.get(), 0.50F);
 
             ComposterBlock.COMPOSTABLES.put(ItemRegistry.CORN.get(), 0.65F);
-            ComposterBlock.COMPOSTABLES.put(ItemRegistry.CORN_KERNEL.get(), 0.30F);
 
             ComposterBlock.COMPOSTABLES.put(ItemRegistry.CUCUMBER.get(), 0.65F);
-            ComposterBlock.COMPOSTABLES.put(ItemRegistry.CUCUMBER_SLICE.get(), 0.50F);
+            ComposterBlock.COMPOSTABLES.put(ItemRegistry.CUCUMBER_SLICES.get(), 0.50F);
             ComposterBlock.COMPOSTABLES.put(ItemRegistry.PICKLE.get(), 0.65F);
 
             ComposterBlock.COMPOSTABLES.put(ItemRegistry.TOMATO_SEEDS.get(), 0.30F);

@@ -19,13 +19,17 @@ public class BrutalLanguageProvider extends LanguageProvider {
         if (locale.equals("en_us")) {
             add("itemGroup." + CommonConstants.MOD_ID, CommonConstants.MOD_NAME);
 
-            ItemRegistry.ITEMS.getEntries().stream().map(RegistryObject::get).forEach(item -> addItem(() -> item,
+            ItemRegistry.ITEMS.getEntries().stream().map(RegistryObject::get)
+                .filter(item -> !(item == ItemRegistry.CORN_SEEDS.get()))
+                .forEach(item -> addItem(() -> item,
                 StringUtils.capitaliseAllWords(item.getDescription().getString()
                     .replace("item." + CommonConstants.MOD_ID + ".", "")
                         .replace("block." + CommonConstants.MOD_ID + ".", "")
                     .replace("_", " ")
                 )
             ));
+
+            addItem(ItemRegistry.CORN_SEEDS, "Corn Seeds (Kernel)");
 
             add(CommonConstants.MOD_ID + "." + "advancement" + "." + "root" + ".desc", "Obtain some tomatoes");
             add(CommonConstants.MOD_ID + "." + "advancement" + "." + "rotten_tomatoes", "Rotten Tomatoes");
