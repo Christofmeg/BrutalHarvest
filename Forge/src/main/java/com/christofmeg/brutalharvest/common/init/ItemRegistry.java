@@ -56,8 +56,8 @@ public class ItemRegistry {
 
         UNRIPE_TOMATO = ITEMS.register("unripe_tomato", () -> new TomatoProjectileItem(new Item.Properties().food(BrutalFoods.UNRIPE_TOMATO)));
         TOMATO = ITEMS.register("tomato", () -> new TomatoProjectileItem(new Item.Properties().food(BrutalFoods.TOMATO)));
-        TOMATO_SLICE = ITEMS.register("tomato_slice", () -> new Item(new Item.Properties().food(BrutalFoods.TOMATO_SLICE)));
         ROTTEN_TOMATO = ITEMS.register("rotten_tomato", () -> new TomatoProjectileItem(new Item.Properties().food(BrutalFoods.ROTTEN_TOMATO)));
+        TOMATO_SLICE = ITEMS.register("tomato_slice", () -> new Item(new Item.Properties().food(BrutalFoods.TOMATO_SLICE)));
 
         LETTUCE = ITEMS.register("lettuce", () -> new Item(new Item.Properties().food(BrutalFoods.LETTUCE)));
         SLICED_LETTUCE = ITEMS.register("sliced_lettuce", () -> new Item(new Item.Properties().food(BrutalFoods.SLICED_LETTUCE)));
