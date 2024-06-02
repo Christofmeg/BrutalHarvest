@@ -37,6 +37,9 @@ public class BrutalLootTablesProvider extends LootTableProvider {
             LootPool.Builder commonPool = LootPool.lootPool();
             commonPool.setRolls(UniformGenerator.between(3, 8))
                     .add(createEntry(ItemRegistry.TOMATO_SEEDS.get(), 5,1, 5))
+                    .add(createEntry(ItemRegistry.LETTUCE_SEEDS.get(), 5,1, 5))
+                    .add(createEntry(ItemRegistry.CORN_SEEDS.get(), 5,1, 5))
+                    .add(createEntry(ItemRegistry.CUCUMBER_SEEDS.get(), 5,1, 5))
                     .add(EmptyLootItem.emptyItem().setWeight(10));
             LootTable.Builder commonTable = LootTable.lootTable();
             commonTable.withPool(commonPool);

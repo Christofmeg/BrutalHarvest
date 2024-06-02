@@ -23,6 +23,9 @@
     },
     "age=7": {
       "model": "brutalharvest:block/tomato_stage7"
+    },
+    "age=8": {
+      "model": "brutalharvest:block/tomato_stage8"
     }
   }
 }

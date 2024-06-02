@@ -2,6 +2,7 @@ package com.christofmeg.brutalharvest.common.data;
 
 import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
+import com.christofmeg.brutalharvest.common.init.TagRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
@@ -62,6 +63,13 @@ public class BrutalRecipeProvider extends RecipeProvider implements IConditionBu
                 .requires(ItemRegistry.ROTTEN_TOMATO.get())
                 .unlockedBy("tomato_seeds", has(ItemRegistry.TOMATO_SEEDS.get()))
                 .save(consumer, modLoc("tomato_seeds_from_rotten_tomato"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.PICKLE.get())
+                .requires(ItemRegistry.CUCUMBER.get())
+                .requires(TagRegistry.Items.BUCKETS_WATER)
+                .unlockedBy("cucumber_seeds", has(ItemRegistry.CUCUMBER_SEEDS.get()))
+                .save(consumer, modLoc("pickle"));
+
     }
 
     private ResourceLocation modLoc(String string) {
