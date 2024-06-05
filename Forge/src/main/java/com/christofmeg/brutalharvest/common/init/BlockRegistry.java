@@ -22,7 +22,8 @@ public class BlockRegistry {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, CommonConstants.MOD_ID);
 
 //    public static final RegistryObject<Block> CROP_SUPPORT;
-    public static final RegistryObject<Block> TOMATO_PLANT;
+    public static final RegistryObject<Block> TOMATO;
+//    public static final RegistryObject<Block> CORN;
 
     private BlockRegistry() {
     }
@@ -35,7 +36,8 @@ public class BlockRegistry {
 //        CROP_SUPPORT = BLOCKS.register("crop_support", () -> new CropSupportBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.BAMBOO_WOOD).pushReaction(PushReaction.DESTROY)));
 //        ItemRegistry.ITEMS.register("crop_support", () -> new BlockItem(CROP_SUPPORT.get(), new Item.Properties()));
 
-        TOMATO_PLANT = BLOCKS.register("tomato_plant", () -> new TomatoCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
+        TOMATO = BLOCKS.register("tomato", () -> new TomatoCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
+//        CORN = BLOCKS.register("corn", () -> new CornCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
 
     }
 

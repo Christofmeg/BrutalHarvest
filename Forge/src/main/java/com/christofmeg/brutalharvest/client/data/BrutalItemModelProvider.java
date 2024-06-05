@@ -26,6 +26,7 @@ public class BrutalItemModelProvider extends ItemModelProvider {
         basicItem(ItemRegistry.UNRIPE_TOMATO.get());
         basicItem(ItemRegistry.TOMATO.get());
         basicItem(ItemRegistry.ROTTEN_TOMATO.get());
+        basicItem(ItemRegistry.TOMATO_SLICE.get());
         basicItem(ItemRegistry.LETTUCE.get());
         basicItem(ItemRegistry.SLICED_LETTUCE.get());
         basicItem(ItemRegistry.CORN.get());
@@ -34,8 +35,14 @@ public class BrutalItemModelProvider extends ItemModelProvider {
         basicItem(ItemRegistry.PICKLE.get());
 
         basicItem(ItemRegistry.TOMATO_SEEDS.get());
+        basicItem(ItemRegistry.LETTUCE_SEEDS.get());
         basicItem(ItemRegistry.CORN_SEEDS.get());
         basicItem(ItemRegistry.CUCUMBER_SEEDS.get());
+        basicItem(ItemRegistry.COTTON_SEEDS.get());
+        basicItem(ItemRegistry.RAPESEED_SEEDS.get());
+        basicItem(ItemRegistry.SUGAR_BEET_SEEDS.get());
+        basicItem(ItemRegistry.STRAWBERRY_SEEDS.get());
+        basicItem(ItemRegistry.ONION_SEEDS.get());
 
         ItemRegistry.ITEMS.getEntries().stream().map(RegistryObject::get).filter(item -> item instanceof KnifeItem).forEach(this::basicItem);
 

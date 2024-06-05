@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "brutalharvest:block/corn_stage0"
+    },
+    "age=1": {
+      "model": "brutalharvest:block/corn_stage1"
+    },
+    "age=2": {
+      "model": "brutalharvest:block/corn_stage2"
+    },
+    "age=3": {
+      "model": "brutalharvest:block/corn_stage3"
+    },
+    "age=4": {
+      "model": "brutalharvest:block/corn_stage4"
+    },
+    "age=5": {
+      "model": "brutalharvest:block/corn_stage5"
+    }
+  }
+}

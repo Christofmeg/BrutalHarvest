@@ -73,7 +73,7 @@ public class ItemRegistry {
         CUCUMBER_SLICES = ITEMS.register("cucumber_slices", () -> new Item(new Item.Properties().food(BrutalFoods.CUCUMBER_SLICES)));
         PICKLE = ITEMS.register("pickle", () -> new Item(new Item.Properties().food(BrutalFoods.PICKLES)));
 
-        TOMATO_SEEDS = ITEMS.register("tomato_seeds", () -> new ItemNameBlockItem(BlockRegistry.TOMATO_PLANT.get(), new Item.Properties()));
+        TOMATO_SEEDS = ITEMS.register("tomato_seeds", () -> new ItemNameBlockItem(BlockRegistry.TOMATO.get(), new Item.Properties()));
         LETTUCE_SEEDS = ITEMS.register("lettuce_seeds", () -> new Item(new Item.Properties()));
         CORN_SEEDS = ITEMS.register("corn_seeds", () -> new Item(new Item.Properties()));
         CUCUMBER_SEEDS = ITEMS.register("cucumber_seeds", () -> new Item(new Item.Properties()));
