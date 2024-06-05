@@ -1,1 +1,1 @@
-# Brutal Harvest
+# Brutal Harvest <a href="https://www.curseforge.com/minecraft/mc-mods/brutal-harvest"><img src="http://cf.way2muchnoise.eu/versions/1024406.svg" style="max-width:100%;"></a> <a href="https://www.curseforge.com/minecraft/mc-mods/brutal-harvest"><img src="https://cf.way2muchnoise.eu/1024406.svg" style="max-width:100%;"></a> 
