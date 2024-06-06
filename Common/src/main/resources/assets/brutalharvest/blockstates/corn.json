@@ -17,6 +17,18 @@
     },
     "age=5": {
       "model": "brutalharvest:block/corn_stage5"
+    },
+    "age=6": {
+      "model": "brutalharvest:block/corn_stage2_upper"
+    },
+    "age=7": {
+      "model": "brutalharvest:block/corn_stage3_upper"
+    },
+    "age=8": {
+      "model": "brutalharvest:block/corn_stage4_upper"
+    },
+    "age=9": {
+      "model": "brutalharvest:block/corn_stage5_upper"
     }
   }
 }

@@ -75,7 +75,7 @@ public class ItemRegistry {
 
         TOMATO_SEEDS = ITEMS.register("tomato_seeds", () -> new ItemNameBlockItem(BlockRegistry.TOMATO.get(), new Item.Properties()));
         LETTUCE_SEEDS = ITEMS.register("lettuce_seeds", () -> new Item(new Item.Properties()));
-        CORN_SEEDS = ITEMS.register("corn_seeds", () -> new Item(new Item.Properties()));
+        CORN_SEEDS = ITEMS.register("corn_seeds", () -> new ItemNameBlockItem(BlockRegistry.CORN.get(), new Item.Properties()));
         CUCUMBER_SEEDS = ITEMS.register("cucumber_seeds", () -> new Item(new Item.Properties()));
         COTTON_SEEDS = ITEMS.register("cotton_seeds", () -> new Item(new Item.Properties()));
         RAPESEED_SEEDS = ITEMS.register("rapeseed_seeds", () -> new Item(new Item.Properties()));

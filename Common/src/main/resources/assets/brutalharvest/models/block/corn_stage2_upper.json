@@ -1,6 +1,6 @@
 {
   "parent": "brutalharvest:block/crop",
   "textures": {
-    "crop": "brutalharvest:block/corn_stage4_lower"
+    "crop": "brutalharvest:block/corn_stage2_upper"
   }
 }

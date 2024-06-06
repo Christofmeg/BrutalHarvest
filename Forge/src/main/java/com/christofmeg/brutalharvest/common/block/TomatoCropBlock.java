@@ -13,6 +13,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
@@ -120,8 +121,8 @@ public class TomatoCropBlock extends CropBlock {
     }
 
     @Override
-    public @NotNull ItemStack getCloneItemStack(@NotNull BlockGetter $$0, @NotNull BlockPos $$1, @NotNull BlockState $$2) {
-        return new ItemStack(ItemRegistry.TOMATO_SEEDS.get());
+    protected @NotNull ItemLike getBaseSeedId() {
+        return ItemRegistry.TOMATO_SEEDS.get();
     }
 
     @Override
@@ -155,6 +156,8 @@ public class TomatoCropBlock extends CropBlock {
     public boolean isValidBonemealTarget(@NotNull LevelReader levelReader, @NotNull BlockPos pos, BlockState state, boolean $$3) {
         return state.getValue(AGE) < 4;
     }
+
+    //TODO go over tomato height
 
     static {
         AGE = IntegerProperty.create("age", 0, 8);
