@@ -64,6 +64,8 @@ public class TagRegistry {
         public static TagKey<Item> CROPS_LETTUCE = forgeTag("crops/lettuce");
         public static TagKey<Item> CROPS_CORN= forgeTag("crops/corn");
         public static TagKey<Item> CROPS_CUCUMBER = forgeTag("crops/cucumber");
+        public static TagKey<Item> COTTON = forgeTag("crops/cotton");
+
 
         public static TagKey<Item> SALAD_INGREDIENTS = forgeTag("salad_ingredients");
         public static TagKey<Item> SALAD_INGREDIENTS_LETTUCE = forgeTag("salad_ingredients/lettuce");
@@ -71,8 +73,13 @@ public class TagRegistry {
         public static TagKey<Item> TOOLS = forgeTag("tools");
         public static TagKey<Item> KNIVES = forgeTag("tools/knives");
         public static TagKey<Item> FARMERS_DELIGHT_KNIVES = ItemTags.create(new ResourceLocation("farmersdelight", "tools/knives"));
+        public static TagKey<Item> SCYTHE = forgeTag("tools/scythes");
+
+        public static TagKey<Item> SEED_SATCHEL = forgeTag("tools/seed_satchel");
 
         public static TagKey<Item> BUCKETS_WATER = forgeTag("buckets/water");
+
+
 
     }
 
