@@ -165,6 +165,7 @@ tasks.register('publishCurseForge', TaskPublishCurseForge) {
     mainFile.addOptional("farmers-delight")
 }
 
+/*
 modrinth {
     token = file('../../API Tokens/modrinth.md').text
     projectId = "${modrinth_id}"
@@ -178,3 +179,5 @@ modrinth {
     }
     loaders = "forge,neoforge".split(",") as List<String>
 }
+
+ */
