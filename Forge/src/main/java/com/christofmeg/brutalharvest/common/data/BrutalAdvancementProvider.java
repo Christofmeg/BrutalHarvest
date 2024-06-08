@@ -49,6 +49,7 @@ public class BrutalAdvancementProvider extends ForgeAdvancementProvider {
                     .parent(root)
                     .addCriterion("0", TomatoProjectileTrigger.TriggerInstance.simple())
                     .save(consumer, getNameId("rotten_tomatoes"));
+
         }
 
         private String getNameId(String id) {

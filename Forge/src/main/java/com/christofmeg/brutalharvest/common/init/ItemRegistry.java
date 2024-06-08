@@ -59,6 +59,8 @@ public class ItemRegistry {
 
     public static final RegistryObject<Item> SEED_SATCHEL;
 
+    public static final RegistryObject<Item> CUTTING_BOARD;
+
     public static void init(@Nonnull IEventBus modEventBus) {
         ITEMS.register(modEventBus);
     }
