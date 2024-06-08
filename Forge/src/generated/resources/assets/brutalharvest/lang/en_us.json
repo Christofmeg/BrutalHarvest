@@ -29,5 +29,12 @@
   "item.brutalharvest.tomato_slice": "Tomato Slice",
   "item.brutalharvest.unripe_tomato": "Unripe Tomato",
   "item.brutalharvest.wooden_knife": "Wooden Knife",
+  "item.brutalharvest.stone_scythe": "Stone Scythe",
+  "item.brutalharvest.copper_scythe": "Stone Scythe",
+  "item.brutalharvest.iron_scythe" : "Iron Scythe",
+  "item.brutalharvest.gold_scythe" : "Gold Scythe",
+  "item.brutalharvest.diamond_scythe" : "Diamond Scythe",
+  "item.brutalharvest.netherite_scythe" : "Netherite Scythe",
+  "item.brutalharvest.seed_satchel" : "Seed Satchel",
   "itemGroup.brutalharvest": "Brutal Harvest"
 }

@@ -1,5 +1,7 @@
 {
   "values": [
-    "#forge:tools/knives"
+    "#forge:tools/knives",
+    "#forge:tools/seed_satchel",
+    "#forge:tools/scythes"
   ]
 }

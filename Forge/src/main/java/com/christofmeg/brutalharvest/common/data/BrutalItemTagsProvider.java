@@ -1,9 +1,11 @@
 package com.christofmeg.brutalharvest.common.data;
 
 import com.christofmeg.brutalharvest.CommonConstants;
+import com.christofmeg.brutalharvest.common.init.CreativeModeTabRegistry;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
 import com.christofmeg.brutalharvest.common.init.TagRegistry;
 import com.christofmeg.brutalharvest.common.item.KnifeItem;
+import com.christofmeg.brutalharvest.common.item.ScytheItem;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -63,14 +65,22 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
         tag(TagRegistry.Items.CROPS_CORN).add(ItemRegistry.CORN.get());
         tag(TagRegistry.Items.CROPS_CUCUMBER).add(ItemRegistry.CUCUMBER.get());
 
+        tag(TagRegistry.Items.COTTON).add(ItemRegistry.COTTON.get());
+
         tag(TagRegistry.Items.SALAD_INGREDIENTS).addTag(TagRegistry.Items.SALAD_INGREDIENTS_LETTUCE);
         tag(TagRegistry.Items.SALAD_INGREDIENTS_LETTUCE).add(ItemRegistry.LETTUCE.get());
 
-        tag(TagRegistry.Items.TOOLS).addTag(TagRegistry.Items.KNIVES);
+        tag(TagRegistry.Items.TOOLS)
+                .addTag(TagRegistry.Items.SEED_SATCHEL)
+                .addTag(TagRegistry.Items.KNIVES);
         ItemRegistry.ITEMS.getEntries().stream().map(RegistryObject::get).filter(item -> item instanceof KnifeItem).forEach(item -> {
             tag(TagRegistry.Items.KNIVES).add(item);
             tag(TagRegistry.Items.FARMERS_DELIGHT_KNIVES).add(item);
         });
+        ItemRegistry.ITEMS.getEntries().stream().map(RegistryObject::get).filter(item -> item instanceof ScytheItem).forEach(item -> {
+            tag(TagRegistry.Items.SCYTHE).add(item);
+        });
+
 
         tag(ItemTags.PIGLIN_LOVED).add(ItemRegistry.GOLDEN_KNIFE.get());
 
