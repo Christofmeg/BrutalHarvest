@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "I": {
+      "tag": "minecraft:stone_tool_materials"
+    },
+    "S": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "I ",
+    " I",
+    "S "
+  ],
+  "result": {
+    "item": "brutalharvest:stone_scythe"
+  },
+  "show_notification": true
+}

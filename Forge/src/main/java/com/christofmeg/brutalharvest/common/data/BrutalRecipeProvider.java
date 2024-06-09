@@ -37,6 +37,12 @@ public class BrutalRecipeProvider extends RecipeProvider implements IConditionBu
         knifeBuilder(ItemRegistry.IRON_KNIFE.get(), Ingredient.of(Tags.Items.INGOTS_IRON), "iron" + "_knife", consumer);
         knifeBuilder(ItemRegistry.GOLDEN_KNIFE.get(), Ingredient.of(Tags.Items.INGOTS_GOLD), "golden" + "_knife", consumer);
         knifeBuilder(ItemRegistry.DIAMOND_KNIFE.get(), Ingredient.of(Tags.Items.GEMS_DIAMOND), "diamond" + "_knife", consumer);
+
+        scytheBuilder(ItemRegistry.STONE_SCYTHE.get(), Ingredient.of(ItemTags.STONE_TOOL_MATERIALS), "stone" + "_scythe", consumer);
+        scytheBuilder(ItemRegistry.COPPER_SCYTHE.get(), Ingredient.of(Tags.Items.INGOTS_COPPER), "copper" + "_scythe", consumer);
+        scytheBuilder(ItemRegistry.IRON_SCYTHE.get(), Ingredient.of(Tags.Items.INGOTS_IRON), "iron" + "_scythe", consumer);
+        scytheBuilder(ItemRegistry.GOLDEN_SCYTHE.get(), Ingredient.of(Tags.Items.INGOTS_GOLD), "golden" + "_scythe", consumer);
+        scytheBuilder(ItemRegistry.DIAMOND_SCYTHE.get(), Ingredient.of(Tags.Items.GEMS_DIAMOND), "diamond" + "_scythe", consumer);
     }
 
     private void addSmithingRecipes(Consumer<FinishedRecipe> consumer) {
@@ -48,6 +54,15 @@ public class BrutalRecipeProvider extends RecipeProvider implements IConditionBu
                 ItemRegistry.NETHERITE_KNIFE.get())
                 .unlocks("has_netherite_ingot", has(Items.NETHERITE_INGOT))
                 .save(consumer, modLoc(getItemName(ItemRegistry.NETHERITE_KNIFE.get()) + "_smithing"));
+
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
+                        Ingredient.of(ItemRegistry.DIAMOND_SCYTHE.get()),
+                        Ingredient.of(Items.NETHERITE_INGOT),
+                        RecipeCategory.COMBAT,
+                        ItemRegistry.NETHERITE_SCYTHE.get())
+                .unlocks("has_netherite_ingot", has(Items.NETHERITE_INGOT))
+                .save(consumer, modLoc(getItemName(ItemRegistry.NETHERITE_SCYTHE.get()) + "_smithing"));
     }
 
     private void addShapelessRecipes(Consumer<FinishedRecipe> consumer) {
@@ -80,6 +95,17 @@ public class BrutalRecipeProvider extends RecipeProvider implements IConditionBu
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, item)
                 .define('I', ingredient)
                 .define('S', Tags.Items.RODS_WOODEN)
+                .pattern(" I")
+                .pattern("S ")
+                .unlockedBy("has_stick", has(Tags.Items.RODS_WOODEN))
+                .save(consumer, modLoc(string));
+    }
+
+    private void scytheBuilder(Item item, Ingredient ingredient, String string, Consumer<FinishedRecipe> consumer) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, item)
+                .define('I', ingredient)
+                .define('S', Tags.Items.RODS_WOODEN)
+                .pattern("I ")
                 .pattern(" I")
                 .pattern("S ")
                 .unlockedBy("has_stick", has(Tags.Items.RODS_WOODEN))

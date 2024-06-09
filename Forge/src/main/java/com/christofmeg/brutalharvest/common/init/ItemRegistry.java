@@ -53,7 +53,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> STONE_SCYTHE;
     public static final RegistryObject<Item> COPPER_SCYTHE;
     public static final RegistryObject<Item> IRON_SCYTHE;
-    public static final RegistryObject<Item> GOLD_SCYTHE;
+    public static final RegistryObject<Item> GOLDEN_SCYTHE;
     public static final RegistryObject<Item> DIAMOND_SCYTHE;
     public static final RegistryObject<Item> NETHERITE_SCYTHE;
 
@@ -104,7 +104,7 @@ public class ItemRegistry {
         STONE_SCYTHE = ITEMS.register("stone_scythe", () -> new ScytheItem(BrutalTiers.STONE, 1, new Item.Properties()));
         COPPER_SCYTHE = ITEMS.register("copper_scythe", () -> new ScytheItem(BrutalTiers.COPPER,  1, new Item.Properties()));
         IRON_SCYTHE = ITEMS.register("iron_scythe", () -> new ScytheItem(Tiers.IRON, 1, new Item.Properties()));
-        GOLD_SCYTHE = ITEMS.register("golden_scythe", () -> new ScytheItem(Tiers.GOLD, 1, new Item.Properties()));
+        GOLDEN_SCYTHE = ITEMS.register("golden_scythe", () -> new ScytheItem(Tiers.GOLD, 1, new Item.Properties()));
         DIAMOND_SCYTHE = ITEMS.register("diamond_scythe", () -> new ScytheItem(Tiers.DIAMOND, 1, new Item.Properties()));
         NETHERITE_SCYTHE = ITEMS.register("netherite_scythe", () -> new ScytheItem(Tiers.NETHERITE, 1, new Item.Properties()));
 

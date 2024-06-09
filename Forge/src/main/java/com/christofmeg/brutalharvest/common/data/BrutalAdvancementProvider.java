@@ -7,6 +7,7 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.advancements.critereon.RecipeCraftedTrigger;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.network.chat.Component;
@@ -49,6 +50,16 @@ public class BrutalAdvancementProvider extends ForgeAdvancementProvider {
                     .parent(root)
                     .addCriterion("0", TomatoProjectileTrigger.TriggerInstance.simple())
                     .save(consumer, getNameId("rotten_tomatoes"));
+
+            Advancement.Builder.advancement()
+                    .display(ItemRegistry.STONE_SCYTHE.get(),
+                            Component.translatable(CommonConstants.MOD_ID + "." + "advancement.grim_reaper"),
+                            Component.translatable(CommonConstants.MOD_ID + "." + "advancement.grim_reaper.desc"),
+                            null,
+                            FrameType.TASK, true, true, false)
+                    .parent(root)
+                    .addCriterion("0", RecipeCraftedTrigger.TriggerInstance.craftedItem(ItemRegistry.STONE_SCYTHE.getId()))
+                    .save(consumer, getNameId("grim_reaper"));
         }
 
         private String getNameId(String id) {

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "I": {
+      "tag": "forge:ingots/copper"
+    },
+    "S": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "I ",
+    " I",
+    "S "
+  ],
+  "result": {
+    "item": "brutalharvest:copper_scythe"
+  },
+  "show_notification": true
+}
