@@ -53,7 +53,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> STONE_SCYTHE;
     public static final RegistryObject<Item> COPPER_SCYTHE;
     public static final RegistryObject<Item> IRON_SCYTHE;
-    public static final RegistryObject<Item> GOLD_SCYTHE;
+    public static final RegistryObject<Item> GOLDEN_SCYTHE;
     public static final RegistryObject<Item> DIAMOND_SCYTHE;
     public static final RegistryObject<Item> NETHERITE_SCYTHE;
 
@@ -79,6 +79,7 @@ public class ItemRegistry {
         CUCUMBER = ITEMS.register("cucumber", () -> new Item(new Item.Properties().food(BrutalFoods.CUCUMBER)));
         CUCUMBER_SLICES = ITEMS.register("cucumber_slices", () -> new Item(new Item.Properties().food(BrutalFoods.CUCUMBER_SLICES)));
         PICKLE = ITEMS.register("pickle", () -> new Item(new Item.Properties().food(BrutalFoods.PICKLES)));
+
         COTTON = ITEMS.register("cotton", () -> new Item(new Item.Properties()));
 
         TOMATO_SEEDS = ITEMS.register("tomato_seeds", () -> new ItemNameBlockItem(BlockRegistry.TOMATO.get(), new Item.Properties()));
@@ -91,19 +92,19 @@ public class ItemRegistry {
         STRAWBERRY_SEEDS = ITEMS.register("strawberry_seeds", () -> new Item(new Item.Properties()));
         ONION_SEEDS = ITEMS.register("onion_seeds", () -> new Item(new Item.Properties()));
 
-        FLINT_KNIFE = ITEMS.register("flint_knife", () -> new KnifeItem(BrutalTiers.FLINT, 2, new Item.Properties()));
-        WOODEN_KNIFE = ITEMS.register("wooden_knife", () -> new KnifeItem(Tiers.WOOD, 2, new Item.Properties()));
-        STONE_KNIFE = ITEMS.register("stone_knife", () -> new KnifeItem(BrutalTiers.STONE, 3, new Item.Properties()));
-        COPPER_KNIFE = ITEMS.register("copper_knife", () -> new KnifeItem(BrutalTiers.COPPER,  4, new Item.Properties()));
-        IRON_KNIFE = ITEMS.register("iron_knife", () -> new KnifeItem(Tiers.IRON, 4, new Item.Properties()));
-        GOLDEN_KNIFE = ITEMS.register("golden_knife", () -> new KnifeItem(Tiers.GOLD, 5, new Item.Properties()));
-        DIAMOND_KNIFE = ITEMS.register("diamond_knife", () -> new KnifeItem(Tiers.DIAMOND, 5, new Item.Properties()));
-        NETHERITE_KNIFE = ITEMS.register("netherite_knife", () -> new KnifeItem(Tiers.NETHERITE, 6, new Item.Properties()));
+        FLINT_KNIFE = ITEMS.register("flint_knife", () -> new KnifeItem(BrutalTiers.FLINT, 1, new Item.Properties()));
+        WOODEN_KNIFE = ITEMS.register("wooden_knife", () -> new KnifeItem(Tiers.WOOD, 1, new Item.Properties()));
+        STONE_KNIFE = ITEMS.register("stone_knife", () -> new KnifeItem(BrutalTiers.STONE, 1, new Item.Properties()));
+        COPPER_KNIFE = ITEMS.register("copper_knife", () -> new KnifeItem(BrutalTiers.COPPER,  1, new Item.Properties()));
+        IRON_KNIFE = ITEMS.register("iron_knife", () -> new KnifeItem(Tiers.IRON, 1, new Item.Properties()));
+        GOLDEN_KNIFE = ITEMS.register("golden_knife", () -> new KnifeItem(Tiers.GOLD, 1, new Item.Properties()));
+        DIAMOND_KNIFE = ITEMS.register("diamond_knife", () -> new KnifeItem(Tiers.DIAMOND, 1, new Item.Properties()));
+        NETHERITE_KNIFE = ITEMS.register("netherite_knife", () -> new KnifeItem(Tiers.NETHERITE, 1, new Item.Properties()));
 
         STONE_SCYTHE = ITEMS.register("stone_scythe", () -> new ScytheItem(BrutalTiers.STONE, 1, new Item.Properties()));
         COPPER_SCYTHE = ITEMS.register("copper_scythe", () -> new ScytheItem(BrutalTiers.COPPER,  1, new Item.Properties()));
         IRON_SCYTHE = ITEMS.register("iron_scythe", () -> new ScytheItem(Tiers.IRON, 1, new Item.Properties()));
-        GOLD_SCYTHE = ITEMS.register("gold_scythe", () -> new ScytheItem(Tiers.GOLD, 1, new Item.Properties()));
+        GOLDEN_SCYTHE = ITEMS.register("golden_scythe", () -> new ScytheItem(Tiers.GOLD, 1, new Item.Properties()));
         DIAMOND_SCYTHE = ITEMS.register("diamond_scythe", () -> new ScytheItem(Tiers.DIAMOND, 1, new Item.Properties()));
         NETHERITE_SCYTHE = ITEMS.register("netherite_scythe", () -> new ScytheItem(Tiers.NETHERITE, 1, new Item.Properties()));
 
