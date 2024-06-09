@@ -1,6 +1,7 @@
 package com.christofmeg.brutalharvest.common.data;
 
 import com.christofmeg.brutalharvest.CommonConstants;
+import com.christofmeg.brutalharvest.client.data.BrutalBlockStateProvider;
 import com.christofmeg.brutalharvest.client.data.BrutalItemModelProvider;
 import com.christofmeg.brutalharvest.client.data.BrutalLanguageProvider;
 import net.minecraft.core.HolderLookup;
@@ -14,9 +15,9 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import java.util.concurrent.CompletableFuture;
 
 @EventBusSubscriber(modid = CommonConstants.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
-public class BrutalDataGenerator {
+public class BrutalDataGenerators {
 
-    private BrutalDataGenerator() {
+    private BrutalDataGenerators() {
     }
 
     private static final String[] LOCALE_CODES = new String[] { "en_us", };
@@ -29,6 +30,7 @@ public class BrutalDataGenerator {
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
         if (event.includeClient()) {
+            gen.addProvider(true, new BrutalBlockStateProvider(output, existingFileHelper));
             gen.addProvider(true, new BrutalItemModelProvider(output, existingFileHelper));
         }
 
