@@ -1,4 +1,2 @@
-1.2.0:
-* Added Cotton, Scythes and Seed Satchel
-* Added Scythe recipes
-* Added "Grim Reaper" advancement
+1.2.1:
+* Change corn to use cross model instead of crop model
