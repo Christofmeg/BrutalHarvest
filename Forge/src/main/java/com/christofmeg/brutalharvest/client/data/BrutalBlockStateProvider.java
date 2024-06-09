@@ -6,14 +6,10 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class BrutalBlockStateProvider extends BlockStateProvider {
@@ -34,34 +30,32 @@ public class BrutalBlockStateProvider extends BlockStateProvider {
 
         cropBlock(BlockRegistry.TOMATO.get(), 8);
 
-        BlockRegistry.BLOCKS.getEntries().stream().map(RegistryObject::get)
-            .forEach(block -> {
-
-
-
-            });
-
+        cornBlock(BlockRegistry.CORN.get(), "0");
+        cornBlock(BlockRegistry.CORN.get(), "1");
+        cornBlock(BlockRegistry.CORN.get(), "2_lower");
+        cornBlock(BlockRegistry.CORN.get(), "2_upper");
+        cornBlock(BlockRegistry.CORN.get(), "3_lower");
+        cornBlock(BlockRegistry.CORN.get(), "3_upper");
+        cornBlock(BlockRegistry.CORN.get(), "4_lower");
+        cornBlock(BlockRegistry.CORN.get(), "4_upper");
+        cornBlock(BlockRegistry.CORN.get(), "5_lower");
+        cornBlock(BlockRegistry.CORN.get(), "5_upper");
     }
 
-    public void cropBlock(Block block, int stages) {
-        List<ConfiguredModel> modelsList = new ArrayList<>();
-
+    private void cropBlock(Block block, int stages) {
         for (int i = 0; i <= stages; i++) {
-            modelsList.add(new ConfiguredModel(models()
-                    .crop(name(block) + "_stage" + i,
-                            new ResourceLocation(CommonConstants.MOD_ID,
-                                    "block/" + name(block) + "_stage" + i))
-                    .renderType(CUTOUT)
-            ));
+            this.models()
+                .crop(name(block) + "_stage" + i,
+                    new ResourceLocation(CommonConstants.MOD_ID,
+                        "block/" + name(block) + "_stage" + i))
+                .renderType(CUTOUT);
         }
+    }
 
-  //      ConfiguredModel[] modelsArray = modelsList.toArray(new ConfiguredModel[0]);
-  //      simpleBlock(block, modelsArray);
-
-
-//        this.models().crop(name(block) + "stage_1", new ResourceLocation(CommonConstants.MOD_ID,
-//                "block/" + name(block) + "_stage" + 1));
-
+    private void cornBlock(Block block, String name) {
+        this.models().cross(name(block) + "_stage" + name,
+            new ResourceLocation(CommonConstants.MOD_ID,
+            "block/" + name(block) + "_stage" + name)).renderType(CUTOUT);
     }
 
     private String name(Block block) {
