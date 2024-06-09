@@ -1,11 +1,13 @@
 package com.christofmeg.brutalharvest.client.data;
 
 import com.christofmeg.brutalharvest.CommonConstants;
+import com.christofmeg.brutalharvest.common.block.TomatoCropBlock;
 import com.christofmeg.brutalharvest.common.init.BlockRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
@@ -28,7 +30,7 @@ public class BrutalBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
 
-        cropBlock(BlockRegistry.TOMATO.get(), 8);
+        makeTomatoCrop(BlockRegistry.TOMATO.get());
 
         cornBlock(BlockRegistry.CORN.get(), "0");
         cornBlock(BlockRegistry.CORN.get(), "1");
@@ -42,16 +44,6 @@ public class BrutalBlockStateProvider extends BlockStateProvider {
         cornBlock(BlockRegistry.CORN.get(), "5_upper");
     }
 
-    private void cropBlock(Block block, int stages) {
-        for (int i = 0; i <= stages; i++) {
-            this.models()
-                .crop(name(block) + "_stage" + i,
-                    new ResourceLocation(CommonConstants.MOD_ID,
-                        "block/" + name(block) + "_stage" + i))
-                .renderType(CUTOUT);
-        }
-    }
-
     private void cornBlock(Block block, String name) {
         this.models().cross(name(block) + "_stage" + name,
             new ResourceLocation(CommonConstants.MOD_ID,
@@ -60,6 +52,15 @@ public class BrutalBlockStateProvider extends BlockStateProvider {
 
     private String name(Block block) {
         return Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath();
+    }
+
+    public void makeTomatoCrop(Block block) {
+        getVariantBuilder(block).forAllStates(state -> {
+            String modelName = "tomato_stage" + state.getValue(((TomatoCropBlock) block).getAgeProperty());
+            ResourceLocation textureLocation = new ResourceLocation(CommonConstants.MOD_ID, "block/" + modelName);
+            ConfiguredModel model = new ConfiguredModel(models().crop(modelName, textureLocation).renderType(CUTOUT));
+            return new ConfiguredModel[]{model};
+        });
     }
 
 }
