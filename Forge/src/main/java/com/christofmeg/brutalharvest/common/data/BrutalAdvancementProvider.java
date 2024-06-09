@@ -37,7 +37,7 @@ public class BrutalAdvancementProvider extends ForgeAdvancementProvider {
                             Component.translatable(CommonConstants.MOD_NAME),
                             Component.translatable(CommonConstants.MOD_ID + "." + "advancement.root.desc"),
                             new ResourceLocation("minecraft:textures/block/rooted_dirt.png"),
-                    FrameType.TASK, true, true, false)
+                            FrameType.TASK, true, true, false)
                     .addCriterion("0", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.TOMATO.get()))
                     .save(consumer, getNameId("root"));
 
