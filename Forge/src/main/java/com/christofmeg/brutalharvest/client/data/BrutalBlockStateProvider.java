@@ -46,7 +46,7 @@ public class BrutalBlockStateProvider extends BlockStateProvider {
     public void cropBlock(Block block, int stages) {
         List<ConfiguredModel> modelsList = new ArrayList<>();
 
-        for (int i = 1; i <= stages; i++) {
+        for (int i = 0; i <= stages; i++) {
             modelsList.add(new ConfiguredModel(models()
                     .crop(name(block) + "_stage" + i,
                             new ResourceLocation(CommonConstants.MOD_ID,
