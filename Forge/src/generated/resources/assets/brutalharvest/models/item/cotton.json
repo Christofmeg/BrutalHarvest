@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "brutalharvest:item/gold_scythe"
+    "layer0": "brutalharvest:item/cotton"
   }
 }
