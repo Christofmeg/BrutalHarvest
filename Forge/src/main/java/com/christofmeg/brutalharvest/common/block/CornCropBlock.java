@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ItemLike;
@@ -84,15 +85,40 @@ public class CornCropBlock extends CropBlock {
     }
 
     @Override
-    public boolean canSurvive(@NotNull BlockState pState, @NotNull LevelReader pLevel, @NotNull BlockPos pPos) {
-        return
-                super.canSurvive(pState, pLevel, pPos) || (pLevel.getBlockState(pPos.below(1)).is(this) &&
-                        (pLevel.getBlockState(pPos.below(1)).getValue(AGE) != 0 || pLevel.getBlockState(pPos.below(1)).getValue(AGE) != 1));
+    public boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader level, @NotNull BlockPos pos) {
+        BlockState below = level.getBlockState(pos.below(1));
+        if (below.is(this)) {
+            int belowAge = below.getValue(AGE);
+            int thisAge = state.getValue(AGE);
+            if (belowAge + 4 == thisAge) {
+                return true;
+            }
+        }
+        return super.canSurvive(state, level, pos);
     }
 
     @Override
     public int getMaxAge() {
         return 5; //TODO JADE/TOP/WTHIT override
+    }
+
+    @Override
+    public void playerWillDestroy(Level world, BlockPos pos, @NotNull BlockState state, @NotNull Player player) {
+        BlockState belowState = world.getBlockState(pos.below());
+        BlockState aboveState = world.getBlockState(pos.above());
+
+        // If the block below is the same plant, break it
+        if (belowState.is(this)) {
+            world.destroyBlock(pos.below(), false, player);
+        }
+
+        // If the block above is the same plant, break it
+        if (aboveState.is(this)) {
+            world.destroyBlock(pos.above(), false, player);
+        }
+
+        // Call the super method to handle the original block
+        super.playerWillDestroy(world, pos, state, player);
     }
 
     @SuppressWarnings("deprecation")
@@ -104,7 +130,9 @@ public class CornCropBlock extends CropBlock {
         if (!dropsOriginal.isEmpty()) {
             return dropsOriginal;
         }
-        return state.getValue(AGE) == 5 ? List.of(new ItemStack(ItemRegistry.CORN.get(), randomAmountCrop), new ItemStack(this, randomAmountSeed)) : List.of(new ItemStack(this, 1));
+        return state.getValue(AGE) == 5 || state.getValue(AGE) == 9 ?
+                List.of(new ItemStack(ItemRegistry.CORN.get(), randomAmountCrop), new ItemStack(this, randomAmountSeed)) :
+                List.of(new ItemStack(this, 1));
     }
 
     @Override
@@ -129,7 +157,7 @@ public class CornCropBlock extends CropBlock {
 
     @Override
     public void growCrops(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state) {
-        int newAge = this.getAge(state) + this.getBonemealAgeIncrease(level);
+        int newAge = this.getAge(state) + 1; //this.getBonemealAgeIncrease(level);
         int maxAge = this.getMaxAge();
         if (this.getAge(state) > 5) {
             maxAge += 4;
@@ -143,19 +171,14 @@ public class CornCropBlock extends CropBlock {
 
         if (above.getBlock() instanceof CornCropBlock) {
             level.setBlock(pos.above(), this.getStateForAge(newAge + 4), 2);
-            System.out.println("1");
         } else if (below.getBlock() instanceof CornCropBlock) {
-            level.setBlock(pos.above(), this.getStateForAge(newAge - 4), 2);
-            System.out.println("2");
+            level.setBlock(pos.below(), this.getStateForAge(newAge - 4), 2);
+        }
+        if (this.getAge(state) >= 1 && level.getBlockState(pos.above()).is(Blocks.AIR) && !level.getBlockState(pos.below()).is(this)) {
+            level.setBlock(pos.above(), this.getStateForAge(newAge + 4), 2);
         }
 
-        if (this.getAge(state) >= 1 && level.getBlockState(pos.above()).is(Blocks.AIR)) {
-            level.setBlock(pos.above(), this.getStateForAge(newAge + 4), 2);
-            System.out.println("3");
-        } else {
-            level.setBlock(pos, this.getStateForAge(newAge), 2);
-            System.out.println("4");
-        }
+        level.setBlock(pos, this.getStateForAge(newAge), 2);
 
     }
 
