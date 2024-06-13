@@ -36,7 +36,7 @@ public class TomatoProjectileEntity extends ThrowableItemProjectile {
     private ParticleOptions getParticle() {
         ItemStack stack = this.getItemRaw();
         if (stack.isEmpty()) {
-            stack = Items.DIAMOND.getDefaultInstance();
+            stack = Items.AIR.getDefaultInstance();
         }
         return new ItemParticleOption(ParticleTypes.ITEM, stack);
     }
