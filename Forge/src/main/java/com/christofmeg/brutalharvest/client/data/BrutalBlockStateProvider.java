@@ -32,22 +32,27 @@ public class BrutalBlockStateProvider extends BlockStateProvider {
 
         makeTomatoCrop(BlockRegistry.TOMATO.get());
 
-        cornBlock(BlockRegistry.CORN.get(), "0");
-        cornBlock(BlockRegistry.CORN.get(), "1");
-        cornBlock(BlockRegistry.CORN.get(), "2_lower");
-        cornBlock(BlockRegistry.CORN.get(), "2_upper");
-        cornBlock(BlockRegistry.CORN.get(), "3_lower");
-        cornBlock(BlockRegistry.CORN.get(), "3_upper");
-        cornBlock(BlockRegistry.CORN.get(), "4_lower");
-        cornBlock(BlockRegistry.CORN.get(), "4_upper");
-        cornBlock(BlockRegistry.CORN.get(), "5_lower");
-        cornBlock(BlockRegistry.CORN.get(), "5_upper");
+        cornBlockCrop(BlockRegistry.CORN.get(), "0");
+        cornBlockCrop(BlockRegistry.CORN.get(), "1");
+        cornBlockCrop(BlockRegistry.CORN.get(), "2_lower");
+        cornBlockFull(BlockRegistry.CORN.get(), "2_upper");
+        cornBlockCrop(BlockRegistry.CORN.get(), "3_lower");
+        cornBlockFull(BlockRegistry.CORN.get(), "3_upper");
+        cornBlockCrop(BlockRegistry.CORN.get(), "4_lower");
+        cornBlockFull(BlockRegistry.CORN.get(), "4_upper");
+        cornBlockCrop(BlockRegistry.CORN.get(), "5_lower");
+        cornBlockFull(BlockRegistry.CORN.get(), "5_upper");
     }
 
-    private void cornBlock(Block block, String name) {
+    private void cornBlockFull(Block block, String name) {
         this.models().cross(name(block) + "_stage" + name,
-            new ResourceLocation(CommonConstants.MOD_ID,
-            "block/" + name(block) + "_stage" + name)).renderType(CUTOUT);
+                new ResourceLocation(CommonConstants.MOD_ID,
+                        "block/" + name(block) + "_stage" + name)).renderType(CUTOUT);
+    }
+
+    private void cornBlockCrop(Block block, String name) {
+        this.models().singleTexture(name(block) + "_stage" + name,  new ResourceLocation(CommonConstants.MOD_ID + ":" + "block/lowered_cross"), "cross", new ResourceLocation(CommonConstants.MOD_ID,
+                "block/" + name(block) + "_stage" + name)).renderType(CUTOUT);
     }
 
     private String name(Block block) {

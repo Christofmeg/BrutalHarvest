@@ -1,2 +1,3 @@
-1.2.2:
-* Fix corn growth stages and drops
+1.2.3:
+* Fix corn block model
+* Make Tomato Crop bonemealable up to the growth stage with red tomatoes

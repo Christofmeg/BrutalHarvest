@@ -123,7 +123,7 @@ public class TomatoCropBlock extends CropBlock {
 
     @Override
     public boolean isValidBonemealTarget(@NotNull LevelReader levelReader, @NotNull BlockPos pos, BlockState state, boolean $$3) {
-        return state.getValue(AGE) < 4;
+        return state.getValue(AGE) < 6;
     }
 
     @SuppressWarnings("deprecation")

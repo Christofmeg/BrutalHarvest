@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:block/cross",
+  "parent": "brutalharvest:block/lowered_cross",
   "render_type": "minecraft:cutout",
   "textures": {
     "cross": "brutalharvest:block/corn_stage1"
