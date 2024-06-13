@@ -24,7 +24,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -35,8 +34,18 @@ import java.util.List;
 
 public class TomatoCropBlock extends CropBlock {
 
-    public static final IntegerProperty AGE;
-    private static final VoxelShape[] SHAPE_BY_AGE;
+    public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 8);
+    private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{
+            Block.box(0.0, 0.0, 0.0, 16.0, 4.0, 16.0),
+            Block.box(0.0, 0.0, 0.0, 16.0, 8.0, 16.0),
+            Block.box(0.0, 0.0, 0.0, 16.0, 11.0, 16.0),
+            Block.box(0.0, 0.0, 0.0, 16.0, 13.0, 16.0),
+            Block.box(0.0, 0.0, 0.0, 16.0, 14.0, 16.0),
+            Block.box(0.0, 0.0, 0.0, 16.0, 14.0, 16.0),
+            Block.box(0.0, 0.0, 0.0, 16.0, 14.0, 16.0),
+            Block.box(0.0, 0.0, 0.0, 16.0, 14.0, 16.0),
+            Block.box(0.0, 0.0, 0.0, 16.0, 14.0, 16.0)
+    };
 
     public TomatoCropBlock(Properties properties) {
         super(properties);
@@ -49,9 +58,31 @@ public class TomatoCropBlock extends CropBlock {
     }
 
     @Override
-    @NotNull
-    public IntegerProperty getAgeProperty() {
-        return AGE;
+    public void randomTick(@NotNull BlockState state, @NotNull ServerLevel $$1, @NotNull BlockPos $$2, @NotNull RandomSource $$3) {
+        int age = state.getValue(AGE);
+        if (age < 8 && $$3.nextInt(5) == 0 && $$1.getRawBrightness($$2.above(), 0) >= 9) {
+            BlockState $$5 = state;
+            if (age == 7) {
+                if ($$3.nextInt(4) == 0) { // 25% chance
+                    $$5 = state.setValue(AGE, age + 1);
+                }
+            } else {
+                $$5 = state.setValue(AGE, age + 1);
+            }
+            $$1.setBlock($$2, $$5, 2);
+            $$1.gameEvent(GameEvent.BLOCK_CHANGE, $$2, GameEvent.Context.of($$5));
+        }
+    }
+
+    @Override
+    protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter blockGetter, @NotNull BlockPos pos) {
+        return state.is(Blocks.FARMLAND) || state.getBlock() instanceof FarmBlock;
+    }
+
+    @Override
+    public boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader levelReader, BlockPos pos) {
+        BlockPos below = pos.below();
+        return this.mayPlaceOn(levelReader.getBlockState(below), levelReader, below);
     }
 
     @Override
@@ -75,24 +106,24 @@ public class TomatoCropBlock extends CropBlock {
     }
 
     @Override
-    protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter blockGetter, @NotNull BlockPos pos) {
-        return state.is(Blocks.FARMLAND) || state.getBlock() instanceof FarmBlock;
+    protected @NotNull ItemLike getBaseSeedId() {
+        return ItemRegistry.TOMATO_SEEDS.get();
     }
 
     @Override
-    public boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader levelReader, BlockPos pos) {
-        BlockPos below = pos.below();
-        return this.mayPlaceOn(levelReader.getBlockState(below), levelReader, below);
+    @NotNull
+    public IntegerProperty getAgeProperty() {
+        return AGE;
     }
 
     @Override
-    public boolean propagatesSkylightDown(BlockState state, @NotNull BlockGetter blockGetter, @NotNull BlockPos pos) {
-        return state.getFluidState().isEmpty();
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        builder.add(AGE);
     }
 
     @Override
-    public boolean isPathfindable(@NotNull BlockState state, @NotNull BlockGetter blockGetter, @NotNull BlockPos pos, @NotNull PathComputationType $$3) {
-        return $$3 == PathComputationType.AIR && !this.hasCollision || super.isPathfindable(state, blockGetter, pos, $$3);
+    public boolean isValidBonemealTarget(@NotNull LevelReader levelReader, @NotNull BlockPos pos, BlockState state, boolean $$3) {
+        return state.getValue(AGE) < 4;
     }
 
     @SuppressWarnings("deprecation")
@@ -108,8 +139,8 @@ public class TomatoCropBlock extends CropBlock {
                 int randomTomatoes = 3 + level.random.nextInt(4);
                 popResource(level, pos,
                         age == 4 || age == 5 || age == 6 ? new ItemStack(ItemRegistry.UNRIPE_TOMATO.get(), randomTomatoes) :
-                        age == 7 ? new ItemStack(ItemRegistry.TOMATO.get(), randomTomatoes) :
-                        age == 8 ? new ItemStack(ItemRegistry.ROTTEN_TOMATO.get(), randomTomatoes) : ItemStack.EMPTY);
+                                age == 7 ? new ItemStack(ItemRegistry.TOMATO.get(), randomTomatoes) :
+                                        age == 8 ? new ItemStack(ItemRegistry.ROTTEN_TOMATO.get(), randomTomatoes) : ItemStack.EMPTY);
                 level.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
                 BlockState newBlockState = state.setValue(AGE, 3);
                 level.setBlock(pos, newBlockState, 2);
@@ -119,59 +150,6 @@ public class TomatoCropBlock extends CropBlock {
             }
         }
         return super.use(state, level, pos, player, interactionHand, blockHitResult);
-    }
-
-    @Override
-    protected @NotNull ItemLike getBaseSeedId() {
-        return ItemRegistry.TOMATO_SEEDS.get();
-    }
-
-    @Override
-    public boolean isRandomlyTicking(@NotNull BlockState state) {
-        return state.getValue(AGE) < 8;
-    }
-
-    @Override
-    public void randomTick(@NotNull BlockState state, @NotNull ServerLevel $$1, @NotNull BlockPos $$2, @NotNull RandomSource $$3) {
-        int age = state.getValue(AGE);
-        if (age < 8 && $$3.nextInt(5) == 0 && $$1.getRawBrightness($$2.above(), 0) >= 9) {
-            BlockState $$5 = state;
-            if (age == 7) {
-                if ($$3.nextInt(4) == 0) { // 25% chance
-                    $$5 = state.setValue(AGE, age + 1);
-                }
-            } else {
-                $$5 = state.setValue(AGE, age + 1);
-            }
-            $$1.setBlock($$2, $$5, 2);
-            $$1.gameEvent(GameEvent.BLOCK_CHANGE, $$2, GameEvent.Context.of($$5));
-        }
-    }
-
-    @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(AGE);
-    }
-
-    @Override
-    public boolean isValidBonemealTarget(@NotNull LevelReader levelReader, @NotNull BlockPos pos, BlockState state, boolean $$3) {
-        return state.getValue(AGE) < 4;
-    }
-
-    //TODO go over tomato height
-
-    static {
-        AGE = IntegerProperty.create("age", 0, 8);
-        SHAPE_BY_AGE = new VoxelShape[]{
-                Block.box(0.0, 0.0, 0.0, 16.0, 4.0, 16.0),
-                Block.box(0.0, 0.0, 0.0, 16.0, 8.0, 16.0),
-                Block.box(0.0, 0.0, 0.0, 16.0, 11.0, 16.0),
-                Block.box(0.0, 0.0, 0.0, 16.0, 13.0, 16.0),
-                Block.box(0.0, 0.0, 0.0, 16.0, 14.0, 16.0),
-                Block.box(0.0, 0.0, 0.0, 16.0, 14.0, 16.0),
-                Block.box(0.0, 0.0, 0.0, 16.0, 14.0, 16.0),
-                Block.box(0.0, 0.0, 0.0, 16.0, 14.0, 16.0),
-                Block.box(0.0, 0.0, 0.0, 16.0, 14.0, 16.0)};
     }
 
 }

@@ -3,7 +3,6 @@ package com.christofmeg.brutalharvest.common.block;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
 import com.christofmeg.brutalharvest.common.item.KnifeItem;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -31,13 +30,13 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.common.IPlantable;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
 public class CornCropBlock extends CropBlock {
 
+    public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 9);
     private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{
             Block.box(0.0, 0.0, 0.0, 16.0, 5.0, 16.0),
             Block.box(0.0, 0.0, 0.0, 16.0, 10.0, 16.0),
@@ -50,8 +49,6 @@ public class CornCropBlock extends CropBlock {
             Block.box(0.0, 0.0, 0.0, 16.0, 11.0, 16.0),
             Block.box(0.0, 0.0, 0.0, 16.0, 11.0, 16.0),
     };
-
-    public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 9);
 
     public CornCropBlock(Properties pProperties) {
         super(pProperties);
@@ -80,11 +77,6 @@ public class CornCropBlock extends CropBlock {
                 }
             }
         }
-    }
-
-    @Override
-    public boolean canSustainPlant(@NotNull BlockState state, @NotNull BlockGetter world, @NotNull BlockPos pos, @NotNull Direction facing, @NotNull IPlantable plantable) {
-        return this.mayPlaceOn(state, world, pos);
     }
 
     @Override
