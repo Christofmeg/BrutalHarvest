@@ -1,12 +1,18 @@
 package com.christofmeg.brutalharvest.common.block;
 
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
+import com.christofmeg.brutalharvest.common.item.KnifeItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
@@ -18,7 +24,9 @@ import net.minecraft.world.level.block.FarmBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.storage.loot.LootParams;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -90,7 +98,7 @@ public class CornCropBlock extends CropBlock {
         if (below.is(this)) {
             int belowAge = below.getValue(AGE);
             int thisAge = state.getValue(AGE);
-            if (belowAge + 4 == thisAge) {
+            if (belowAge + 4 <= thisAge) {
                 return true;
             }
         }
@@ -103,22 +111,22 @@ public class CornCropBlock extends CropBlock {
     }
 
     @Override
-    public void playerWillDestroy(Level world, BlockPos pos, @NotNull BlockState state, @NotNull Player player) {
-        BlockState belowState = world.getBlockState(pos.below());
-        BlockState aboveState = world.getBlockState(pos.above());
+    public void playerWillDestroy(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state, @NotNull Player player) {
+        BlockState belowState = level.getBlockState(pos.below());
+        BlockState aboveState = level.getBlockState(pos.above());
 
         // If the block below is the same plant, break it
         if (belowState.is(this)) {
-            world.destroyBlock(pos.below(), false, player);
+            level.destroyBlock(pos.below(), false, player);
         }
 
         // If the block above is the same plant, break it
         if (aboveState.is(this)) {
-            world.destroyBlock(pos.above(), false, player);
+            level.destroyBlock(pos.above(), false, player);
         }
 
         // Call the super method to handle the original block
-        super.playerWillDestroy(world, pos, state, player);
+        super.playerWillDestroy(level, pos, state, player);
     }
 
     @SuppressWarnings("deprecation")
@@ -182,34 +190,41 @@ public class CornCropBlock extends CropBlock {
 
     }
 
-    /*
-
     @SuppressWarnings("deprecation")
     @Override
     public @NotNull InteractionResult use(BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
         int age = state.getValue(AGE);
-        boolean reachedCornAge = age == 4;
+        boolean reachedCornAge = age == 5 || age == 9;
         if (!reachedCornAge && player.getItemInHand(interactionHand).is(Items.BONE_MEAL)) {
             return InteractionResult.PASS;
-        } else if (age > 4) {
+        } else if (reachedCornAge) {
             ItemStack stack = player.getItemInHand(interactionHand);
             if (stack.getItem() instanceof KnifeItem) {
-                int randomAmount = 3 + level.random.nextInt(2);
-                popResource(level, pos,
-                        age == 5 ? new ItemStack(ItemRegistry.CORN.get(), randomAmount) : ItemStack.EMPTY);
-                level.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
-                BlockState newBlockState = state.setValue(AGE, 3);
-                level.setBlock(pos, newBlockState, 2);
-                level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, newBlockState));
-                stack.hurtAndBreak(1, player, (livingEntity) -> livingEntity.broadcastBreakEvent(interactionHand));
+                if (level.getBlockState(pos.above()).getBlock() instanceof CornCropBlock) {
+                    use(level, state, pos, pos.above(), +4, player, stack, interactionHand);
+                } else if (level.getBlockState(pos.below()).getBlock() instanceof CornCropBlock) {
+                    use(level, state, pos, pos.below(), -4, player, stack, interactionHand);
+                }
                 return InteractionResult.sidedSuccess(level.isClientSide);
             }
         }
         return super.use(state, level, pos, player, interactionHand, blockHitResult);
     }
 
+    private void use(Level level, BlockState state, BlockPos pos, BlockPos posNearby, int age, Player player, ItemStack stack, InteractionHand interactionHand) {
+        int randomAmountCrop = 3 + level.random.nextInt(2);
+        int newCropAge = state.getValue(AGE) - 1;
+        BlockState newBlockState = state.setValue(AGE, newCropAge);
 
-    //TODO Potted Corn Block https://github.com/BluSunrize/ImmersiveEngineering/blob/1.20.1/src/main/java/blusunrize/immersiveengineering/common/blocks/plant/PottedHempBlock.java
+        level.setBlock(posNearby, this.getStateForAge(newCropAge + age), 2);
+        level.setBlock(pos, newBlockState, 2);
 
-     */
+        level.gameEvent(GameEvent.BLOCK_CHANGE, posNearby, GameEvent.Context.of(player, this.getStateForAge(newCropAge + age)));
+        level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, newBlockState));
+
+        popResource(level, pos, new ItemStack(ItemRegistry.CORN.get(), randomAmountCrop));
+        level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
+        stack.hurtAndBreak(1, player, (livingEntity) -> livingEntity.broadcastBreakEvent(interactionHand));
+    }
+
 }
