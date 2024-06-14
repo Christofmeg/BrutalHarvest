@@ -3,10 +3,8 @@ package com.christofmeg.brutalharvest.common.block;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
 import com.christofmeg.brutalharvest.common.item.KnifeItem;
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -32,22 +30,19 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class TomatoCropBlock extends CropBlock {
+public class CottonCropBlock extends CropBlock {
 
-    public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 8);
+    public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 5);
     private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[] {
-            Block.box(0.0, 0.0, 0.0, 16.0, 4.0, 16.0),
-            Block.box(0.0, 0.0, 0.0, 16.0, 8.0, 16.0),
+            Block.box(0.0, 0.0, 0.0, 16.0, 5.0, 16.0),
+            Block.box(0.0, 0.0, 0.0, 16.0, 7.0, 16.0),
+            Block.box(0.0, 0.0, 0.0, 16.0, 9.0, 16.0),
             Block.box(0.0, 0.0, 0.0, 16.0, 11.0, 16.0),
             Block.box(0.0, 0.0, 0.0, 16.0, 13.0, 16.0),
-            Block.box(0.0, 0.0, 0.0, 16.0, 14.0, 16.0),
-            Block.box(0.0, 0.0, 0.0, 16.0, 14.0, 16.0),
-            Block.box(0.0, 0.0, 0.0, 16.0, 14.0, 16.0),
-            Block.box(0.0, 0.0, 0.0, 16.0, 14.0, 16.0),
-            Block.box(0.0, 0.0, 0.0, 16.0, 14.0, 16.0)
+            Block.box(0.0, 0.0, 0.0, 16.0, 15.0, 16.0)
     };
 
-    public TomatoCropBlock(Properties properties) {
+    public CottonCropBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(this.getAgeProperty(), 0));
     }
@@ -58,56 +53,30 @@ public class TomatoCropBlock extends CropBlock {
     }
 
     @Override
-    public void randomTick(@NotNull BlockState state, @NotNull ServerLevel $$1, @NotNull BlockPos $$2, @NotNull RandomSource $$3) {
-        int age = state.getValue(AGE);
-        if (age < 8 && $$3.nextInt(5) == 0 && $$1.getRawBrightness($$2.above(), 0) >= 9) {
-            BlockState $$5 = state;
-            if (age == 7) {
-                if ($$3.nextInt(4) == 0) { // 25% chance
-                    $$5 = state.setValue(AGE, age + 1);
-                }
-            } else {
-                $$5 = state.setValue(AGE, age + 1);
-            }
-            $$1.setBlock($$2, $$5, 2);
-            $$1.gameEvent(GameEvent.BLOCK_CHANGE, $$2, GameEvent.Context.of($$5));
-        }
-    }
-
-    @Override
     protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter blockGetter, @NotNull BlockPos pos) {
         return state.is(Blocks.FARMLAND) || state.getBlock() instanceof FarmBlock;
     }
 
     @Override
-    public boolean canSurvive(@NotNull BlockState state, @NotNull LevelReader levelReader, BlockPos pos) {
-        BlockPos below = pos.below();
-        return this.mayPlaceOn(levelReader.getBlockState(below), levelReader, below);
-    }
-
-    @Override
     public int getMaxAge() {
-        return 7;
+        return 5;
     }
 
     @SuppressWarnings("deprecation")
     @Override
     public @NotNull List<ItemStack> getDrops(@NotNull BlockState state, LootParams.@NotNull Builder builder) {
         List<ItemStack> dropsOriginal = super.getDrops(state, builder);
-        int randomTomatoes = 3 + builder.getLevel().random.nextInt(4);
+        int randomCotton = 2 + builder.getLevel().random.nextInt(4);
+        int randomCottonSeeds = 2 + builder.getLevel().random.nextInt(2);
         if (!dropsOriginal.isEmpty()) {
             return dropsOriginal;
         }
-        return
-                state.getValue(AGE) == 4 || state.getValue(AGE) == 5 || state.getValue(AGE) == 6 ?  List.of(new ItemStack(ItemRegistry.UNRIPE_TOMATO.get(), randomTomatoes), new ItemStack(this, 2)) :
-                        state.getValue(AGE) == 7 ? List.of(new ItemStack(ItemRegistry.TOMATO.get(), randomTomatoes), new ItemStack(this, 2)) :
-                                state.getValue(AGE) == 8 ? List.of(new ItemStack(ItemRegistry.ROTTEN_TOMATO.get(), randomTomatoes), new ItemStack(this, 2)) :
-                                        List.of(new ItemStack(this, 1));
+        return state.getValue(AGE) == 5 ?  List.of(new ItemStack(ItemRegistry.COTTON.get(), randomCotton), new ItemStack(this, randomCottonSeeds)) : List.of(new ItemStack(this, 1));
     }
 
     @Override
     protected @NotNull ItemLike getBaseSeedId() {
-        return ItemRegistry.TOMATO_SEEDS.get();
+        return ItemRegistry.COTTON_SEEDS.get();
     }
 
     @Override
@@ -123,26 +92,25 @@ public class TomatoCropBlock extends CropBlock {
 
     @Override
     public boolean isValidBonemealTarget(@NotNull LevelReader levelReader, @NotNull BlockPos pos, BlockState state, boolean $$3) {
-        return state.getValue(AGE) < 6;
+        return state.getValue(AGE) < 4;
     }
 
     @SuppressWarnings("deprecation")
     @Override
     public @NotNull InteractionResult use(BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
         int age = state.getValue(AGE);
-        boolean reachedTomatoAge = age == 4;
-        if (!reachedTomatoAge && player.getItemInHand(interactionHand).is(Items.BONE_MEAL)) {
+        boolean reachedCottonAge = age == 5;
+        if (!reachedCottonAge && player.getItemInHand(interactionHand).is(Items.BONE_MEAL)) {
             return InteractionResult.PASS;
-        } else if (age > 3) {
+        } else if (reachedCottonAge) {
             ItemStack stack = player.getItemInHand(interactionHand);
             if (stack.getItem() instanceof KnifeItem) {
-                int randomTomatoes = 3 + level.random.nextInt(4);
-                popResource(level, pos,
-                        age == 4 || age == 5 || age == 6 ? new ItemStack(ItemRegistry.UNRIPE_TOMATO.get(), randomTomatoes) :
-                                age == 7 ? new ItemStack(ItemRegistry.TOMATO.get(), randomTomatoes) :
-                                        age == 8 ? new ItemStack(ItemRegistry.ROTTEN_TOMATO.get(), randomTomatoes) : ItemStack.EMPTY);
+                int randomCotton = 2 + level.random.nextInt(4);
+                int randomCottonSeeds = 2 + level.random.nextInt(2);
+                popResource(level, pos, new ItemStack(ItemRegistry.COTTON.get(), randomCotton));
+                popResource(level, pos, new ItemStack(ItemRegistry.COTTON_SEEDS.get(), randomCottonSeeds));
                 level.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
-                BlockState newBlockState = state.setValue(AGE, 3);
+                BlockState newBlockState = state.setValue(AGE, 4);
                 level.setBlock(pos, newBlockState, 2);
                 level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, newBlockState));
                 stack.hurtAndBreak(1, player, (livingEntity) -> livingEntity.broadcastBreakEvent(interactionHand));

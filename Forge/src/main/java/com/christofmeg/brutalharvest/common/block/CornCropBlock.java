@@ -37,7 +37,7 @@ import java.util.List;
 public class CornCropBlock extends CropBlock {
 
     public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 9);
-    private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{
+    private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[] {
             Block.box(0.0, 0.0, 0.0, 16.0, 5.0, 16.0),
             Block.box(0.0, 0.0, 0.0, 16.0, 10.0, 16.0),
             Shapes.block(),

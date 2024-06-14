@@ -41,6 +41,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> STRAWBERRY_SEEDS;
     public static final RegistryObject<Item> ONION_SEEDS;
 
+    public static final RegistryObject<Item> RUBBER_BUCKET;
+    public static final RegistryObject<Item> RUBBER;
+
     public static final RegistryObject<Item> FLINT_KNIFE;
     public static final RegistryObject<Item> WOODEN_KNIFE;
     public static final RegistryObject<Item> STONE_KNIFE;
@@ -86,13 +89,14 @@ public class ItemRegistry {
         LETTUCE_SEEDS = ITEMS.register("lettuce_seeds", () -> new Item(new Item.Properties()));
         CORN_SEEDS = ITEMS.register("corn_seeds", () -> new ItemNameBlockItem(BlockRegistry.CORN.get(), new Item.Properties()));
         CUCUMBER_SEEDS = ITEMS.register("cucumber_seeds", () -> new Item(new Item.Properties()));
-        COTTON_SEEDS = ITEMS.register("cotton_seeds", () -> new Item(new Item.Properties()));
+        COTTON_SEEDS = ITEMS.register("cotton_seeds", () -> new ItemNameBlockItem(BlockRegistry.COTTON.get(), new Item.Properties()));
         RAPESEEDS = ITEMS.register("rapeseeds", () -> new Item(new Item.Properties()));
         SUGAR_BEET_SEEDS = ITEMS.register("sugar_beet_seeds", () -> new Item(new Item.Properties()));
         STRAWBERRY_SEEDS = ITEMS.register("strawberry_seeds", () -> new Item(new Item.Properties()));
         ONION_SEEDS = ITEMS.register("onion_seeds", () -> new Item(new Item.Properties()));
 
-
+        RUBBER_BUCKET = ITEMS.register("rubber_bucket", () -> new Item(new Item.Properties())); //TODO implement
+        RUBBER = ITEMS.register("rubber", () -> new Item(new Item.Properties()));
 
         FLINT_KNIFE = ITEMS.register("flint_knife", () -> new KnifeItem(BrutalTiers.FLINT, 1, new Item.Properties()));
         WOODEN_KNIFE = ITEMS.register("wooden_knife", () -> new KnifeItem(Tiers.WOOD, 1, new Item.Properties()));
