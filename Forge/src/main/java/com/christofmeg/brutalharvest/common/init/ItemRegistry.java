@@ -36,7 +36,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> COTTON;
 
     public static final RegistryObject<Item> COTTON_SEEDS;
-    public static final RegistryObject<Item> RAPESEED_SEEDS;
+    public static final RegistryObject<Item> RAPESEEDS;
     public static final RegistryObject<Item> SUGAR_BEET_SEEDS;
     public static final RegistryObject<Item> STRAWBERRY_SEEDS;
     public static final RegistryObject<Item> ONION_SEEDS;
@@ -87,10 +87,12 @@ public class ItemRegistry {
         CORN_SEEDS = ITEMS.register("corn_seeds", () -> new ItemNameBlockItem(BlockRegistry.CORN.get(), new Item.Properties()));
         CUCUMBER_SEEDS = ITEMS.register("cucumber_seeds", () -> new Item(new Item.Properties()));
         COTTON_SEEDS = ITEMS.register("cotton_seeds", () -> new Item(new Item.Properties()));
-        RAPESEED_SEEDS = ITEMS.register("rapeseed_seeds", () -> new Item(new Item.Properties()));
+        RAPESEEDS = ITEMS.register("rapeseeds", () -> new Item(new Item.Properties()));
         SUGAR_BEET_SEEDS = ITEMS.register("sugar_beet_seeds", () -> new Item(new Item.Properties()));
         STRAWBERRY_SEEDS = ITEMS.register("strawberry_seeds", () -> new Item(new Item.Properties()));
         ONION_SEEDS = ITEMS.register("onion_seeds", () -> new Item(new Item.Properties()));
+
+
 
         FLINT_KNIFE = ITEMS.register("flint_knife", () -> new KnifeItem(BrutalTiers.FLINT, 1, new Item.Properties()));
         WOODEN_KNIFE = ITEMS.register("wooden_knife", () -> new KnifeItem(Tiers.WOOD, 1, new Item.Properties()));

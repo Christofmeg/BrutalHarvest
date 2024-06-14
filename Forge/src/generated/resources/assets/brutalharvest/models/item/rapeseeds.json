@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "brutalharvest:item/rapeseed_seeds"
+    "layer0": "brutalharvest:item/rapeseeds"
   }
 }

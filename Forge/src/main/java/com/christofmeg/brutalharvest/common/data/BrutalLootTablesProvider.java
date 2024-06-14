@@ -41,7 +41,7 @@ public class BrutalLootTablesProvider extends LootTableProvider {
                     .add(createEntry(ItemRegistry.CORN_SEEDS.get(), 5,1, 5))
                     .add(createEntry(ItemRegistry.CUCUMBER_SEEDS.get(), 5,1, 5))
                     .add(createEntry(ItemRegistry.COTTON_SEEDS.get(), 5,1, 5))
-                    .add(createEntry(ItemRegistry.RAPESEED_SEEDS.get(), 5,1, 5))
+                    .add(createEntry(ItemRegistry.RAPESEEDS.get(), 5,1, 5))
                     .add(createEntry(ItemRegistry.SUGAR_BEET_SEEDS.get(), 5,1, 5))
                     .add(createEntry(ItemRegistry.STRAWBERRY_SEEDS.get(), 5,1, 5))
                     .add(createEntry(ItemRegistry.ONION_SEEDS.get(), 5,1, 5))

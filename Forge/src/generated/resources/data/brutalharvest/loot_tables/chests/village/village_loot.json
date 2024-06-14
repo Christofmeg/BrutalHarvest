@@ -97,7 +97,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "brutalharvest:rapeseed_seeds",
+          "name": "brutalharvest:rapeseeds",
           "weight": 5
         },
         {

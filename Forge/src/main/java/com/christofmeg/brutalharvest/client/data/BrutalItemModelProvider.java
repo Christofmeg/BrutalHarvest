@@ -41,7 +41,7 @@ public class BrutalItemModelProvider extends ItemModelProvider {
         basicItem(ItemRegistry.CORN_SEEDS.get());
         basicItem(ItemRegistry.CUCUMBER_SEEDS.get());
         basicItem(ItemRegistry.COTTON_SEEDS.get());
-        basicItem(ItemRegistry.RAPESEED_SEEDS.get());
+        basicItem(ItemRegistry.RAPESEEDS.get());
         basicItem(ItemRegistry.SUGAR_BEET_SEEDS.get());
         basicItem(ItemRegistry.STRAWBERRY_SEEDS.get());
         basicItem(ItemRegistry.ONION_SEEDS.get());
