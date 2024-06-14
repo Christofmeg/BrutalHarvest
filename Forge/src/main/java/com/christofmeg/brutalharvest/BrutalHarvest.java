@@ -1,5 +1,7 @@
 package com.christofmeg.brutalharvest;
 
+import com.christofmeg.brutalharvest.client.event.ClientSetupEvent;
+import com.christofmeg.brutalharvest.common.event.CommonSetupEvent;
 import com.christofmeg.brutalharvest.common.init.*;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -15,6 +17,8 @@ public class BrutalHarvest {
     public BrutalHarvest() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         init(bus);
+        bus.addListener(new ClientSetupEvent()::clientSetupEvent);
+        bus.addListener(new CommonSetupEvent()::commonSetupEvent);
     }
 
     private void init(@Nonnull IEventBus modEventBus) {

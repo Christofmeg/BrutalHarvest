@@ -4,18 +4,16 @@ import com.christofmeg.brutalharvest.common.init.EntityTypeRegistry;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@OnlyIn(Dist.CLIENT)
 public class ClientSetupEvent {
 
-    @SubscribeEvent
-    public static void clientSetupEvent(FMLClientSetupEvent event) {
-
-        EntityRenderers.register(EntityTypeRegistry.TOMATO_PROJECTILE.get(), ThrownItemRenderer::new);
-
+    public void clientSetupEvent(final FMLClientSetupEvent event) {
+        event.enqueueWork(() -> {
+            EntityRenderers.register(EntityTypeRegistry.TOMATO_PROJECTILE.get(), ThrownItemRenderer::new);
+        });
     }
 
 }

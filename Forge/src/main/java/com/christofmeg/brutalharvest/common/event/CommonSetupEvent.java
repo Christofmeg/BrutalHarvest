@@ -2,15 +2,11 @@ package com.christofmeg.brutalharvest.common.event;
 
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
 import net.minecraft.world.level.block.ComposterBlock;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CommonSetupEvent {
 
-    @SubscribeEvent
-    public static void commonSetupEvent(FMLCommonSetupEvent event) {
+    public void commonSetupEvent(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
             ComposterBlock.COMPOSTABLES.put(ItemRegistry.UNRIPE_TOMATO.get(), 0.30F);
             ComposterBlock.COMPOSTABLES.put(ItemRegistry.TOMATO.get(), 0.65F);
