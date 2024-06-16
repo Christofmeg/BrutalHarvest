@@ -3,6 +3,7 @@
     "#forge:crops/tomato",
     "#forge:crops/lettuce",
     "#forge:crops/corn",
-    "#forge:crops/cucumber"
+    "#forge:crops/cucumber",
+    "#forge:crops/sugar_beet"
   ]
 }

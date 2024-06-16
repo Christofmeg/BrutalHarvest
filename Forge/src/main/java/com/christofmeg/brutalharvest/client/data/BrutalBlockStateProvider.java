@@ -2,6 +2,7 @@ package com.christofmeg.brutalharvest.client.data;
 
 import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.block.CottonCropBlock;
+import com.christofmeg.brutalharvest.common.block.SugarBeetCropBlock;
 import com.christofmeg.brutalharvest.common.block.TomatoCropBlock;
 import com.christofmeg.brutalharvest.common.init.BlockRegistry;
 import net.minecraft.data.PackOutput;
@@ -45,6 +46,7 @@ public class BrutalBlockStateProvider extends BlockStateProvider {
         cornBlockFull(BlockRegistry.CORN.get(), "5_upper");
 
         makeCottonCrop(BlockRegistry.COTTON.get());
+        makeSugarBeetCrop(BlockRegistry.SUGAR_BEET.get());
     }
 
     private void cornBlockFull(Block block, String name) {
@@ -74,6 +76,15 @@ public class BrutalBlockStateProvider extends BlockStateProvider {
     public void makeCottonCrop(Block block) {
         getVariantBuilder(block).forAllStates(state -> {
             String modelName = "cotton_stage" + state.getValue(((CottonCropBlock) block).getAgeProperty());
+            ResourceLocation textureLocation = new ResourceLocation(CommonConstants.MOD_ID, "block/" + modelName);
+            ConfiguredModel model = new ConfiguredModel(models().crop(modelName, textureLocation).renderType(CUTOUT));
+            return new ConfiguredModel[]{model};
+        });
+    }
+
+    public void makeSugarBeetCrop(Block block) {
+        getVariantBuilder(block).forAllStates(state -> {
+            String modelName = "sugar_beet_stage" + state.getValue(((SugarBeetCropBlock) block).getAgeProperty());
             ResourceLocation textureLocation = new ResourceLocation(CommonConstants.MOD_ID, "block/" + modelName);
             ConfiguredModel model = new ConfiguredModel(models().crop(modelName, textureLocation).renderType(CUTOUT));
             return new ConfiguredModel[]{model};

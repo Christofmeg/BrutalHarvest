@@ -2,6 +2,7 @@ package com.christofmeg.brutalharvest.common.data;
 
 import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
+import com.christofmeg.brutalharvest.common.data.loot.BrutalBlockLootTables;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
@@ -27,7 +28,8 @@ public class BrutalLootTablesProvider extends LootTableProvider {
 
     public BrutalLootTablesProvider(DataGenerator dataGeneratorIn) {
         super(dataGeneratorIn.getPackOutput(), Set.of(), List.of(
-                new LootTableProvider.SubProviderEntry(CustomDungeonLootProvider::new, LootContextParamSets.CHEST)
+                new LootTableProvider.SubProviderEntry(CustomDungeonLootProvider::new, LootContextParamSets.CHEST),
+                new LootTableProvider.SubProviderEntry(BrutalBlockLootTables::new, LootContextParamSets.BLOCK)
         ));
     }
 

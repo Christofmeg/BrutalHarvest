@@ -1,8 +1,10 @@
 package com.christofmeg.brutalharvest.common.data;
 
 import com.christofmeg.brutalharvest.CommonConstants;
+import com.christofmeg.brutalharvest.common.init.BlockRegistry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
+import net.minecraft.tags.BlockTags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
@@ -23,6 +25,36 @@ public class BrutalBlockTagsProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.@NotNull Provider pProvider) {
+
+        tag(BlockTags.CROPS)
+                .add(BlockRegistry.TOMATO.get())
+                .add(BlockRegistry.CORN.get())
+                .add(BlockRegistry.COTTON.get())
+                .add(BlockRegistry.SUGAR_BEET.get());
+
+        tag(BlockTags.MINEABLE_WITH_AXE)
+                .add(BlockRegistry.TOMATO.get())
+                .add(BlockRegistry.CORN.get())
+                .add(BlockRegistry.COTTON.get())
+                .add(BlockRegistry.SUGAR_BEET.get());
+
+        tag(BlockTags.MAINTAINS_FARMLAND)
+                .add(BlockRegistry.TOMATO.get())
+                .add(BlockRegistry.CORN.get())
+                .add(BlockRegistry.COTTON.get())
+                .add(BlockRegistry.SUGAR_BEET.get());
+
+        tag(BlockTags.BEE_GROWABLES)
+                .add(BlockRegistry.TOMATO.get())
+                .add(BlockRegistry.CORN.get())
+                .add(BlockRegistry.COTTON.get())
+                .add(BlockRegistry.SUGAR_BEET.get());
+
+        tag(BlockTags.SWORD_EFFICIENT)
+                .add(BlockRegistry.TOMATO.get())
+                .add(BlockRegistry.CORN.get())
+                .add(BlockRegistry.COTTON.get())
+                .add(BlockRegistry.SUGAR_BEET.get());
 
     }
 }

@@ -38,33 +38,55 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
             .addTag(TagRegistry.Items.TOMATO_SEEDS)
             .addTag(TagRegistry.Items.LETTUCE_SEEDS)
             .addTag(TagRegistry.Items.CORN_SEEDS)
-            .addTag(TagRegistry.Items.CUCUMBER_SEEDS);
+            .addTag(TagRegistry.Items.CUCUMBER_SEEDS)
+            .addTag(TagRegistry.Items.COTTON_SEEDS)
+            .addTag(TagRegistry.Items.RAPESEEDS)
+            .addTag(TagRegistry.Items.SUGAR_BEET_SEEDS)
+            .addTag(TagRegistry.Items.STRAWBERRY_SEEDS)
+            .addTag(TagRegistry.Items.ONION_SEEDS);
         tag(TagRegistry.Items.TOMATO_SEEDS).add(ItemRegistry.TOMATO_SEEDS.get());
         tag(TagRegistry.Items.LETTUCE_SEEDS).add(ItemRegistry.LETTUCE_SEEDS.get());
         tag(TagRegistry.Items.CORN_SEEDS).add(ItemRegistry.CORN_SEEDS.get());
         tag(TagRegistry.Items.CUCUMBER_SEEDS).add(ItemRegistry.CUCUMBER_SEEDS.get());
+        tag(TagRegistry.Items.COTTON_SEEDS).add(ItemRegistry.COTTON_SEEDS.get());
+        tag(TagRegistry.Items.RAPESEEDS).add(ItemRegistry.RAPESEEDS.get());
+        tag(TagRegistry.Items.SUGAR_BEET_SEEDS).add(ItemRegistry.SUGAR_BEET_SEEDS.get());
+        tag(TagRegistry.Items.STRAWBERRY_SEEDS).add(ItemRegistry.STRAWBERRY_SEEDS.get());
+        tag(TagRegistry.Items.ONION_SEEDS).add(ItemRegistry.ONION_SEEDS.get());
 
         tag(TagRegistry.Items.VEGETABLES)
             .addTag(TagRegistry.Items.TOMATO)
             .addTag(TagRegistry.Items.LETTUCE)
             .addTag(TagRegistry.Items.CORN)
-            .addTag(TagRegistry.Items.CUCUMBER);
+            .addTag(TagRegistry.Items.CUCUMBER)
+            .addTag(TagRegistry.Items.BEETROOT)
+            .addTag(TagRegistry.Items.SUGAR_BEET)
+//          .addTag(TagRegistry.Items.ONTION)
+            ;
         tag(TagRegistry.Items.TOMATO).add(ItemRegistry.TOMATO.get());
         tag(TagRegistry.Items.LETTUCE).add(ItemRegistry.LETTUCE.get());
         tag(TagRegistry.Items.CORN).add(ItemRegistry.CORN.get());
         tag(TagRegistry.Items.CUCUMBER).add(ItemRegistry.CUCUMBER.get());
+        tag(TagRegistry.Items.BEETROOT).add(Items.BEETROOT).add(ItemRegistry.SUGAR_BEET.get());
+        tag(TagRegistry.Items.SUGAR_BEET).add(ItemRegistry.SUGAR_BEET.get());
+//        tag(TagRegistry.Items.ONTION).add(ItemRegistry.ONTION.get());
 
         tag(TagRegistry.Items.CROPS)
                 .addTag(TagRegistry.Items.CROPS_TOMATO)
                 .addTag(TagRegistry.Items.CROPS_LETTUCE)
                 .addTag(TagRegistry.Items.CROPS_CORN)
-                .addTag(TagRegistry.Items.CROPS_CUCUMBER);
+                .addTag(TagRegistry.Items.CROPS_CUCUMBER)
+                .addTag(TagRegistry.Items.CROPS_SUGAR_BEET)
+//                .addTag(TagRegistry.Items.CROPS_ONION)
+        ;
         tag(TagRegistry.Items.CROPS_TOMATO).add(ItemRegistry.TOMATO.get());
         tag(TagRegistry.Items.CROPS_LETTUCE).add(ItemRegistry.LETTUCE.get());
         tag(TagRegistry.Items.CROPS_CORN).add(ItemRegistry.CORN.get());
         tag(TagRegistry.Items.CROPS_CUCUMBER).add(ItemRegistry.CUCUMBER.get());
+        tag(TagRegistry.Items.CROPS_SUGAR_BEET).add(ItemRegistry.SUGAR_BEET.get());
+//        tag(TagRegistry.Items.CROPS_ONION).add(ItemRegistry.ONION.get());
 
-        tag(TagRegistry.Items.COTTON).add(ItemRegistry.COTTON.get());
+        tag(TagRegistry.Items.CROPS_COTTON).add(ItemRegistry.COTTON.get());
 
         tag(TagRegistry.Items.SALAD_INGREDIENTS).addTag(TagRegistry.Items.SALAD_INGREDIENTS_LETTUCE);
         tag(TagRegistry.Items.SALAD_INGREDIENTS_LETTUCE).add(ItemRegistry.LETTUCE.get());
@@ -80,7 +102,7 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
             tag(TagRegistry.Items.SCYTHES).add(item);
         });
 
-        tag(ItemTags.PIGLIN_LOVED).add(ItemRegistry.GOLDEN_KNIFE.get());
+        tag(ItemTags.PIGLIN_LOVED).add(ItemRegistry.GOLDEN_KNIFE.get()).add(ItemRegistry.GOLDEN_SCYTHE.get());
 
         tag(TagRegistry.Items.BUCKETS_WATER).add(Items.WATER_BUCKET);
 

@@ -14,6 +14,8 @@ import javax.annotation.Nonnull;
 
 public class ItemRegistry {
 
+    //TODO look at farmers delight cooking pot
+
     public static final DeferredRegister<Item> ITEMS;
 
     public static final RegistryObject<Item> UNRIPE_TOMATO;
@@ -33,12 +35,17 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CUCUMBER_SLICES;
     public static final RegistryObject<Item> PICKLE;
     public static final RegistryObject<Item> CUCUMBER_SEEDS;
-    public static final RegistryObject<Item> COTTON;
 
+    public static final RegistryObject<Item> COTTON;
     public static final RegistryObject<Item> COTTON_SEEDS;
-    public static final RegistryObject<Item> RAPESEEDS;
+
+    public static final RegistryObject<Item> SUGAR_BEET;
     public static final RegistryObject<Item> SUGAR_BEET_SEEDS;
+
+    public static final RegistryObject<Item> RAPESEEDS;
+
     public static final RegistryObject<Item> STRAWBERRY_SEEDS;
+
     public static final RegistryObject<Item> ONION_SEEDS;
 
     public static final RegistryObject<Item> RUBBER_BUCKET;
@@ -84,6 +91,7 @@ public class ItemRegistry {
         PICKLE = ITEMS.register("pickle", () -> new Item(new Item.Properties().food(BrutalFoods.PICKLES)));
 
         COTTON = ITEMS.register("cotton", () -> new Item(new Item.Properties()));
+        SUGAR_BEET = ITEMS.register("sugar_beet", () -> new Item(new Item.Properties()));
 
         TOMATO_SEEDS = ITEMS.register("tomato_seeds", () -> new ItemNameBlockItem(BlockRegistry.TOMATO.get(), new Item.Properties()));
         LETTUCE_SEEDS = ITEMS.register("lettuce_seeds", () -> new Item(new Item.Properties()));
@@ -91,7 +99,7 @@ public class ItemRegistry {
         CUCUMBER_SEEDS = ITEMS.register("cucumber_seeds", () -> new Item(new Item.Properties()));
         COTTON_SEEDS = ITEMS.register("cotton_seeds", () -> new ItemNameBlockItem(BlockRegistry.COTTON.get(), new Item.Properties()));
         RAPESEEDS = ITEMS.register("rapeseeds", () -> new Item(new Item.Properties()));
-        SUGAR_BEET_SEEDS = ITEMS.register("sugar_beet_seeds", () -> new Item(new Item.Properties()));
+        SUGAR_BEET_SEEDS = ITEMS.register("sugar_beet_seeds", () -> new ItemNameBlockItem(BlockRegistry.SUGAR_BEET.get(), new Item.Properties()));
         STRAWBERRY_SEEDS = ITEMS.register("strawberry_seeds", () -> new Item(new Item.Properties()));
         ONION_SEEDS = ITEMS.register("onion_seeds", () -> new Item(new Item.Properties()));
 
