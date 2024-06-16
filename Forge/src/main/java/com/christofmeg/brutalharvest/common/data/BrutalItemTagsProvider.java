@@ -88,6 +88,15 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
 
         tag(TagRegistry.Items.CROPS_COTTON).add(ItemRegistry.COTTON.get());
 
+        tag(ItemTags.VILLAGER_PLANTABLE_SEEDS)
+                .add(ItemRegistry.TOMATO_SEEDS.get())
+    //            .add(ItemRegistry.LETTUCE_SEEDS.get())
+                .add(ItemRegistry.CORN_SEEDS.get())
+    //            .add(ItemRegistry.CUCUMBER_SEEDS.get())
+    //            .add(ItemRegistry.COFFEE_SEEDS.get())
+    //            .add(ItemRegistry.ONION_SEEDS.get())
+        ;
+
         tag(TagRegistry.Items.SALAD_INGREDIENTS).addTag(TagRegistry.Items.SALAD_INGREDIENTS_LETTUCE);
         tag(TagRegistry.Items.SALAD_INGREDIENTS_LETTUCE).add(ItemRegistry.LETTUCE.get());
 
