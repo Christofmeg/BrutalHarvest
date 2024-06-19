@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "brutalharvest:sugar"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "sugar_beet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "brutalharvest:sugar_beet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "sugar_beet",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "brutalharvest:sugar"
+    ]
+  },
+  "sends_telemetry_event": false
+}

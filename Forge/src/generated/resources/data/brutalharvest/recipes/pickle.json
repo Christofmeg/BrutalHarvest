@@ -7,6 +7,9 @@
     },
     {
       "tag": "forge:buckets/water"
+    },
+    {
+      "item": "minecraft:sugar"
     }
   ],
   "result": {

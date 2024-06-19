@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "brutalharvest:sugar_beet"
+    }
+  ],
+  "result": {
+    "item": "minecraft:sugar"
+  }
+}

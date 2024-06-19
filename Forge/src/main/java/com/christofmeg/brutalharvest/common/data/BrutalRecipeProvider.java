@@ -82,8 +82,14 @@ public class BrutalRecipeProvider extends RecipeProvider implements IConditionBu
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.PICKLE.get())
                 .requires(ItemRegistry.CUCUMBER.get())
                 .requires(TagRegistry.Items.BUCKETS_WATER)
+                .requires(Items.SUGAR)
                 .unlockedBy("cucumber_seeds", has(ItemRegistry.CUCUMBER_SEEDS.get()))
                 .save(consumer, modLoc("pickle"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.SUGAR)
+                .requires(ItemRegistry.SUGAR_BEET.get())
+                .unlockedBy("sugar_beet", has(ItemRegistry.SUGAR_BEET.get()))
+                .save(consumer, modLoc("sugar"));
 
     }
 
