@@ -3,13 +3,13 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "brutalharvest:fabrics"
+      "tag": "brutalharvest:fabrics_colored"
     },
     {
-      "tag": "forge:dyes/white"
+      "tag": "forge:buckets/water"
     }
   ],
   "result": {
-    "item": "brutalharvest:white_fabric"
+    "item": "brutalharvest:fabric"
   }
 }

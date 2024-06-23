@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "fabric": {
+    "has_cotton": {
       "conditions": {
         "items": [
           {
             "items": [
-              "brutalharvest:fabric"
+              "brutalharvest:cotton"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "brutalharvest:white_fabric"
+        "recipe": "brutalharvest:fabric"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "fabric",
+      "has_cotton",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "brutalharvest:white_fabric"
+      "brutalharvest:fabric"
     ]
   },
   "sends_telemetry_event": false

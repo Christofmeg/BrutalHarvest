@@ -115,5 +115,27 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
 
         tag(TagRegistry.Items.BUCKETS_WATER).add(Items.WATER_BUCKET);
 
+        tag(TagRegistry.Items.FABRICS)
+                .add(ItemRegistry.FABRIC.get())
+                .addTag(TagRegistry.Items.FABRICS_COLORED);
+
+        tag(TagRegistry.Items.FABRICS_COLORED)
+                .add(ItemRegistry.BLACK_FABRIC.get())
+                .add(ItemRegistry.BLUE_FABRIC.get())
+                .add(ItemRegistry.BROWN_FABRIC.get())
+                .add(ItemRegistry.CYAN_FABRIC.get())
+                .add(ItemRegistry.GRAY_FABRIC.get())
+                .add(ItemRegistry.GREEN_FABRIC.get())
+                .add(ItemRegistry.LIGHT_BLUE_FABRIC.get())
+                .add(ItemRegistry.LIGHT_GRAY_FABRIC.get())
+                .add(ItemRegistry.LIME_FABRIC.get())
+                .add(ItemRegistry.MAGENTA_FABRIC.get())
+                .add(ItemRegistry.ORANGE_FABRIC.get())
+                .add(ItemRegistry.PINK_FABRIC.get())
+                .add(ItemRegistry.PURPLE_FABRIC.get())
+                .add(ItemRegistry.RED_FABRIC.get())
+                .add(ItemRegistry.WHITE_FABRIC.get())
+                .add(ItemRegistry.YELLOW_FABRIC.get());
+
     }
 }

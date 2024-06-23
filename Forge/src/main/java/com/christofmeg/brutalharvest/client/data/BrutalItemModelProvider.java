@@ -2,8 +2,6 @@ package com.christofmeg.brutalharvest.client.data;
 
 import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
-import com.christofmeg.brutalharvest.common.item.KnifeItem;
-import com.christofmeg.brutalharvest.common.item.ScytheItem;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -24,6 +22,9 @@ public class BrutalItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
 
+        ItemRegistry.ITEMS.getEntries().stream().map(RegistryObject::get).forEach((this::basicItem));
+
+        /*
         basicItem(ItemRegistry.UNRIPE_TOMATO.get());
         basicItem(ItemRegistry.TOMATO.get());
         basicItem(ItemRegistry.ROTTEN_TOMATO.get());
@@ -54,8 +55,8 @@ public class BrutalItemModelProvider extends ItemModelProvider {
         ItemRegistry.ITEMS.getEntries().stream().map(RegistryObject::get).filter(item -> item instanceof ScytheItem).forEach((this::basicItem));
 
         basicItem(ItemRegistry.SEED_SATCHEL.get());
-        basicItem(ItemRegistry.WHITE_FABRIC.get());
-
+        basicItem(ItemRegistry.FABRIC.get());
+*/
     }
 
 }

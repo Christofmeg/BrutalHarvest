@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "brutalharvest:white_fabric"
+        "recipe": "brutalharvest:fabric_cleaning"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "brutalharvest:white_fabric"
+      "brutalharvest:fabric_cleaning"
     ]
   },
   "sends_telemetry_event": false

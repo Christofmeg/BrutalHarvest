@@ -6,10 +6,10 @@
       "tag": "brutalharvest:fabrics"
     },
     {
-      "tag": "forge:dyes/white"
+      "tag": "forge:dyes/red"
     }
   ],
   "result": {
-    "item": "brutalharvest:white_fabric"
+    "item": "brutalharvest:red_fabric"
   }
 }

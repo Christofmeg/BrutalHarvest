@@ -69,7 +69,24 @@ public class ItemRegistry {
     public static final RegistryObject<Item> NETHERITE_SCYTHE;
 
     public static final RegistryObject<Item> SEED_SATCHEL;
+    public static final RegistryObject<Item> FABRIC;
+
+    public static final RegistryObject<Item> BLACK_FABRIC;
+    public static final RegistryObject<Item> BLUE_FABRIC;
+    public static final RegistryObject<Item> BROWN_FABRIC;
+    public static final RegistryObject<Item> CYAN_FABRIC;
+    public static final RegistryObject<Item> GRAY_FABRIC;
+    public static final RegistryObject<Item> GREEN_FABRIC;
+    public static final RegistryObject<Item> LIGHT_BLUE_FABRIC;
+    public static final RegistryObject<Item> LIGHT_GRAY_FABRIC;
+    public static final RegistryObject<Item> LIME_FABRIC;
+    public static final RegistryObject<Item> MAGENTA_FABRIC;
+    public static final RegistryObject<Item> ORANGE_FABRIC;
+    public static final RegistryObject<Item> PINK_FABRIC;
+    public static final RegistryObject<Item> PURPLE_FABRIC;
+    public static final RegistryObject<Item> RED_FABRIC;
     public static final RegistryObject<Item> WHITE_FABRIC;
+    public static final RegistryObject<Item> YELLOW_FABRIC;
 
     public static void init(@Nonnull IEventBus modEventBus) {
         ITEMS.register(modEventBus);
@@ -125,7 +142,24 @@ public class ItemRegistry {
         NETHERITE_SCYTHE = ITEMS.register("netherite_scythe", () -> new ScytheItem(Tiers.NETHERITE, 1, new Item.Properties()));
 
         SEED_SATCHEL = ITEMS.register("seed_satchel", () -> new Item(new Item.Properties()));
-        WHITE_FABRIC = ITEMS.register("white_fabric", () -> new Item(new Item.Properties()));
+        FABRIC = ITEMS.register("fabric", () -> new Item(new Item.Properties()));
+
+        BLACK_FABRIC = ITEMS.register("black" + "_" + "fabric", () -> new Item(new Item.Properties()));
+        BLUE_FABRIC = ITEMS.register("blue" + "_" + "fabric", () -> new Item(new Item.Properties()));
+        BROWN_FABRIC = ITEMS.register("brown" + "_" + "fabric", () -> new Item(new Item.Properties()));
+        CYAN_FABRIC = ITEMS.register("cyan" + "_" + "fabric", () -> new Item(new Item.Properties()));
+        GRAY_FABRIC = ITEMS.register("gray" + "_" + "fabric", () -> new Item(new Item.Properties()));
+        GREEN_FABRIC = ITEMS.register("green" + "_" + "fabric", () -> new Item(new Item.Properties()));
+        LIGHT_BLUE_FABRIC = ITEMS.register("light_blue" + "_" + "fabric", () -> new Item(new Item.Properties()));
+        LIGHT_GRAY_FABRIC = ITEMS.register("light_gray" + "_" + "fabric", () -> new Item(new Item.Properties()));
+        LIME_FABRIC = ITEMS.register("lime" + "_" + "fabric", () -> new Item(new Item.Properties()));
+        MAGENTA_FABRIC = ITEMS.register("magenta" + "_" + "fabric", () -> new Item(new Item.Properties()));
+        ORANGE_FABRIC = ITEMS.register("orange" + "_" + "fabric", () -> new Item(new Item.Properties()));
+        PINK_FABRIC = ITEMS.register("pink" + "_" + "fabric", () -> new Item(new Item.Properties()));
+        PURPLE_FABRIC = ITEMS.register("purple" + "_" + "fabric", () -> new Item(new Item.Properties()));
+        RED_FABRIC = ITEMS.register("red" + "_" + "fabric", () -> new Item(new Item.Properties()));
+        WHITE_FABRIC = ITEMS.register("white" + "_" + "fabric", () -> new Item(new Item.Properties()));
+        YELLOW_FABRIC = ITEMS.register("yellow" + "_" + "fabric", () -> new Item(new Item.Properties()));
 
     }
 

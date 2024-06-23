@@ -7,6 +7,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -44,16 +45,16 @@ public class BrutalRecipeProvider extends RecipeProvider implements IConditionBu
         scytheBuilder(ItemRegistry.GOLDEN_SCYTHE.get(), Ingredient.of(Tags.Items.INGOTS_GOLD), "golden" + "_scythe", consumer);
         scytheBuilder(ItemRegistry.DIAMOND_SCYTHE.get(), Ingredient.of(Tags.Items.GEMS_DIAMOND), "diamond" + "_scythe", consumer);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.WHITE_FABRIC.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.FABRIC.get())
                 .define('I', TagRegistry.Items.CROPS_COTTON)
                 .pattern("II")
                 .pattern("II")
                 .unlockedBy("has_cotton", has(ItemRegistry.COTTON.get()))
-                .save(consumer, modLoc(getItemName(ItemRegistry.WHITE_FABRIC.get())));
+                .save(consumer, modLoc(getItemName(ItemRegistry.FABRIC.get())));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.SEED_SATCHEL.get())
                 .define('C', TagRegistry.Items.CROPS)
-                .define('F', ItemRegistry.WHITE_FABRIC.get())
+                .define('F', ItemRegistry.FABRIC.get())
                 .pattern("FCF")
                 .pattern("FFF")
                 .unlockedBy("has_cotton", has(ItemRegistry.COTTON.get()))
@@ -106,6 +107,28 @@ public class BrutalRecipeProvider extends RecipeProvider implements IConditionBu
                 .unlockedBy("sugar_beet", has(ItemRegistry.SUGAR_BEET.get()))
                 .save(consumer, modLoc("sugar"));
 
+        fabricRecipeBuilder(ItemRegistry.BLACK_FABRIC.get(), Tags.Items.DYES_BLACK, consumer);
+        fabricRecipeBuilder(ItemRegistry.BLUE_FABRIC.get(), Tags.Items.DYES_BLUE, consumer);
+        fabricRecipeBuilder(ItemRegistry.BROWN_FABRIC.get(), Tags.Items.DYES_BROWN, consumer);
+        fabricRecipeBuilder(ItemRegistry.CYAN_FABRIC.get(), Tags.Items.DYES_CYAN, consumer);
+        fabricRecipeBuilder(ItemRegistry.GRAY_FABRIC.get(), Tags.Items.DYES_GRAY, consumer);
+        fabricRecipeBuilder(ItemRegistry.GREEN_FABRIC.get(), Tags.Items.DYES_GREEN, consumer);
+        fabricRecipeBuilder(ItemRegistry.LIGHT_BLUE_FABRIC.get(), Tags.Items.DYES_LIGHT_BLUE, consumer);
+        fabricRecipeBuilder(ItemRegistry.LIGHT_GRAY_FABRIC.get(), Tags.Items.DYES_LIGHT_GRAY, consumer);
+        fabricRecipeBuilder(ItemRegistry.LIME_FABRIC.get(), Tags.Items.DYES_LIME, consumer);
+        fabricRecipeBuilder(ItemRegistry.MAGENTA_FABRIC.get(), Tags.Items.DYES_MAGENTA, consumer);
+        fabricRecipeBuilder(ItemRegistry.ORANGE_FABRIC.get(), Tags.Items.DYES_ORANGE, consumer);
+        fabricRecipeBuilder(ItemRegistry.PINK_FABRIC.get(), Tags.Items.DYES_PINK, consumer);
+        fabricRecipeBuilder(ItemRegistry.PURPLE_FABRIC.get(), Tags.Items.DYES_PURPLE, consumer);
+        fabricRecipeBuilder(ItemRegistry.RED_FABRIC.get(), Tags.Items.DYES_RED, consumer);
+        fabricRecipeBuilder(ItemRegistry.WHITE_FABRIC.get(), Tags.Items.DYES_WHITE, consumer);
+        fabricRecipeBuilder(ItemRegistry.YELLOW_FABRIC.get(), Tags.Items.DYES_YELLOW, consumer);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.FABRIC.get())
+                .requires(TagRegistry.Items.FABRICS_COLORED)
+                .requires(TagRegistry.Items.BUCKETS_WATER)
+                .unlockedBy("fabric", has(ItemRegistry.FABRIC.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.FABRIC.get()) + "_cleaning"));
     }
 
     private ResourceLocation modLoc(String string) {
@@ -131,6 +154,14 @@ public class BrutalRecipeProvider extends RecipeProvider implements IConditionBu
                 .pattern("S ")
                 .unlockedBy("has_stick", has(Tags.Items.RODS_WOODEN))
                 .save(consumer, modLoc(string));
+    }
+
+    private void fabricRecipeBuilder(Item item, TagKey<Item> requires, Consumer<FinishedRecipe> consumer) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, item)
+                .requires(TagRegistry.Items.FABRICS)
+                .requires(requires)
+                .unlockedBy("fabric", has(ItemRegistry.FABRIC.get()))
+                .save(consumer, modLoc(getItemName(item)));
     }
 
     //TODO look at JER plantdrops category

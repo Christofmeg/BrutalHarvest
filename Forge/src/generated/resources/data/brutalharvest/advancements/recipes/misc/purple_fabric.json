@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "brutalharvest:white_fabric"
+        "recipe": "brutalharvest:purple_fabric"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "brutalharvest:white_fabric"
+      "brutalharvest:purple_fabric"
     ]
   },
   "sends_telemetry_event": false

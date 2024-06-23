@@ -85,6 +85,9 @@ public class TagRegistry {
 
         public static TagKey<Item> BUCKETS_WATER = forgeTag("buckets/water");
 
+        public static TagKey<Item> FABRICS = modTag("fabrics");
+        public static TagKey<Item> FABRICS_COLORED = modTag("fabrics_colored");
+
     }
 
 }
