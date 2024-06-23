@@ -54,6 +54,7 @@ public class BrutalItemModelProvider extends ItemModelProvider {
         ItemRegistry.ITEMS.getEntries().stream().map(RegistryObject::get).filter(item -> item instanceof ScytheItem).forEach((this::basicItem));
 
         basicItem(ItemRegistry.SEED_SATCHEL.get());
+        basicItem(ItemRegistry.WHITE_FABRIC.get());
 
     }
 

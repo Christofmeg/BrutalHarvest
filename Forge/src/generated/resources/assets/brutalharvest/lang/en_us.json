@@ -41,6 +41,8 @@
   "item.brutalharvest.tomato_seeds": "Tomato Seeds",
   "item.brutalharvest.tomato_slice": "Tomato Slice",
   "item.brutalharvest.unripe_tomato": "Unripe Tomato",
+  "item.brutalharvest.white_fabric": "White Fabric",
   "item.brutalharvest.wooden_knife": "Wooden Knife",
-  "itemGroup.brutalharvest": "Brutal Harvest"
+  "itemGroup.brutalharvest": "Brutal Harvest",
+  "sounds.brutalharvest.tomato_splat": "Tomato Splat"
 }

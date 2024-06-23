@@ -2,7 +2,6 @@ package com.christofmeg.brutalharvest.common.init;
 
 import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.item.*;
-import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
@@ -70,6 +69,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> NETHERITE_SCYTHE;
 
     public static final RegistryObject<Item> SEED_SATCHEL;
+    public static final RegistryObject<Item> WHITE_FABRIC;
 
     public static void init(@Nonnull IEventBus modEventBus) {
         ITEMS.register(modEventBus);
@@ -125,6 +125,7 @@ public class ItemRegistry {
         NETHERITE_SCYTHE = ITEMS.register("netherite_scythe", () -> new ScytheItem(Tiers.NETHERITE, 1, new Item.Properties()));
 
         SEED_SATCHEL = ITEMS.register("seed_satchel", () -> new Item(new Item.Properties()));
+        WHITE_FABRIC = ITEMS.register("white_fabric", () -> new Item(new Item.Properties()));
 
     }
 

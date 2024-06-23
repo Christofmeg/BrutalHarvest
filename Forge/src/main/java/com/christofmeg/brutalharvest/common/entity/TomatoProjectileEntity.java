@@ -2,6 +2,7 @@ package com.christofmeg.brutalharvest.common.entity;
 
 import com.christofmeg.brutalharvest.common.init.AdvancementRegistry;
 import com.christofmeg.brutalharvest.common.init.EntityTypeRegistry;
+import com.christofmeg.brutalharvest.common.init.SoundRegistry;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
@@ -21,8 +22,8 @@ import org.jetbrains.annotations.NotNull;
 
 public class TomatoProjectileEntity extends ThrowableItemProjectile {
 
-    public TomatoProjectileEntity(EntityType<? extends ThrowableItemProjectile> pEntityType, Level pLevel) {
-        super(pEntityType, pLevel);
+    public TomatoProjectileEntity(EntityType<? extends ThrowableItemProjectile> entityType, Level level) {
+        super(entityType, level);
     }
 
     public TomatoProjectileEntity(Level pLevel, LivingEntity livingEntity) {
@@ -44,33 +45,34 @@ public class TomatoProjectileEntity extends ThrowableItemProjectile {
     public void handleEntityEvent(byte p_37402_) {
         if (p_37402_ == 3) {
             ParticleOptions particleOptions = this.getParticle();
-
             for(int i = 0; i < 8; ++i) {
                 this.level().addParticle(particleOptions, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
             }
         }
-
     }
 
     protected void onHitEntity(@NotNull EntityHitResult entityHitResult) {
         super.onHitEntity(entityHitResult);
         Entity entity = entityHitResult.getEntity();
+        this.playSound(SoundRegistry.TOMATO_SPLAT.get(), 0.5F, 0.8F);
         if (!entity.level().isClientSide) {
             entity.hurt(this.damageSources().thrown(this, this.getOwner()), 0);
-            if (entity instanceof Villager) {
-                if (this.getOwner() instanceof ServerPlayer serverPlayer) {
+            if (this.getOwner() instanceof ServerPlayer serverPlayer) {
+                if (entity instanceof Villager) {
                     AdvancementRegistry.ROTTEN_TOMATOES.trigger(serverPlayer);
                 }
             }
         }
+
     }
 
     protected void onHit(@NotNull HitResult hitResult) {
         super.onHit(hitResult);
+        this.playSound(SoundRegistry.TOMATO_SPLAT.get(), 0.5F, 0.8F);
         if (!this.level().isClientSide) {
             this.level().broadcastEntityEvent(this, (byte)3);
             this.discard();
         }
-
     }
+
 }

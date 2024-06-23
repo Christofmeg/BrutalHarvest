@@ -37,6 +37,8 @@ public class BrutalLanguageProvider extends LanguageProvider {
             add(CommonConstants.MOD_ID + "." + "advancement" + "." + "grim_reaper", "Grim Reaper");
             add(CommonConstants.MOD_ID + "." + "advancement" + "." + "grim_reaper" + ".desc", "Craft a scythe");
 
+            add("sounds." + CommonConstants.MOD_ID + "." + "tomato_splat", "Tomato Splat");
+
         }
     }
 

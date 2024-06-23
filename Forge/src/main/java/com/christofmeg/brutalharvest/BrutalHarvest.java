@@ -29,6 +29,7 @@ public class BrutalHarvest {
         EntityTypeRegistry.init(modEventBus);
         AdvancementRegistry.register();
         LootModifierRegistry.init(modEventBus);
+        SoundRegistry.init(modEventBus);
     }
 
     /*TODO

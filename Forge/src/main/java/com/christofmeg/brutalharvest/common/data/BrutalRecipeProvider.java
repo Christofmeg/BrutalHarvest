@@ -43,6 +43,21 @@ public class BrutalRecipeProvider extends RecipeProvider implements IConditionBu
         scytheBuilder(ItemRegistry.IRON_SCYTHE.get(), Ingredient.of(Tags.Items.INGOTS_IRON), "iron" + "_scythe", consumer);
         scytheBuilder(ItemRegistry.GOLDEN_SCYTHE.get(), Ingredient.of(Tags.Items.INGOTS_GOLD), "golden" + "_scythe", consumer);
         scytheBuilder(ItemRegistry.DIAMOND_SCYTHE.get(), Ingredient.of(Tags.Items.GEMS_DIAMOND), "diamond" + "_scythe", consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.WHITE_FABRIC.get())
+                .define('I', TagRegistry.Items.CROPS_COTTON)
+                .pattern("II")
+                .pattern("II")
+                .unlockedBy("has_cotton", has(ItemRegistry.COTTON.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.WHITE_FABRIC.get())));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.SEED_SATCHEL.get())
+                .define('C', TagRegistry.Items.CROPS)
+                .define('F', ItemRegistry.WHITE_FABRIC.get())
+                .pattern("FCF")
+                .pattern("FFF")
+                .unlockedBy("has_cotton", has(ItemRegistry.COTTON.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.SEED_SATCHEL.get())));
     }
 
     private void addSmithingRecipes(Consumer<FinishedRecipe> consumer) {
