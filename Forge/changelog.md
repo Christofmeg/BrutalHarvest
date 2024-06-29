@@ -5,3 +5,4 @@
 * Updated Seed Satchel texture
 * Updated Coffee Seeds texture
 * Added textures for future items
+* Tweaked fabric recipe
