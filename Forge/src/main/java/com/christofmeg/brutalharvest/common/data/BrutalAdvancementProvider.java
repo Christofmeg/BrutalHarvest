@@ -1,6 +1,7 @@
 package com.christofmeg.brutalharvest.common.data;
 
 import com.christofmeg.brutalharvest.CommonConstants;
+import com.christofmeg.brutalharvest.common.advancement.ThrowingKnifeTrigger;
 import com.christofmeg.brutalharvest.common.advancement.TomatoProjectileTrigger;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -60,6 +61,18 @@ public class BrutalAdvancementProvider extends ForgeAdvancementProvider {
                     .parent(root)
                     .addCriterion("0", RecipeCraftedTrigger.TriggerInstance.craftedItem(ItemRegistry.STONE_SCYTHE.getId()))
                     .save(consumer, getNameId("grim_reaper"));
+
+            Advancement.Builder.advancement()
+                    .display(ItemRegistry.FLINT_KNIFE.get(),
+                            Component.translatable(CommonConstants.MOD_ID + "." + "advancement.throwing_knives"),
+                            Component.translatable(CommonConstants.MOD_ID + "." + "advancement.throwing_knives.desc"),
+                            null,
+                            FrameType.TASK, true, true, false)
+                    .parent(root)
+//                    .addCriterion("0", UsingItemTrigger.TriggerInstance.lookingAt(EntityPredicate.Builder.entity(), ItemPredicate.Builder.item().of(ItemRegistry.FLINT_KNIFE.get())))
+//                    .addCriterion("0", PlayerHurtEntityTrigger.TriggerInstance.playerHurtEntity(EntityPredicate.Builder.entity().of(EntityTypeRegistry.THROWING_KNIFE.get()).build()))
+                    .addCriterion("0", ThrowingKnifeTrigger.TriggerInstance.simple())
+                    .save(consumer, getNameId("throwing_knives"));
         }
 
         private String getNameId(String id) {

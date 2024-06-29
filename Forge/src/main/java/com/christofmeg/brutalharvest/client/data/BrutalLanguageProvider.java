@@ -1,6 +1,7 @@
 package com.christofmeg.brutalharvest.client.data;
 
 import com.christofmeg.brutalharvest.CommonConstants;
+import com.christofmeg.brutalharvest.common.init.EntityTypeRegistry;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
@@ -29,6 +30,14 @@ public class BrutalLanguageProvider extends LanguageProvider {
                 )
             ));
 
+            EntityTypeRegistry.ENTITY_TYPES.getEntries().stream().map(RegistryObject::get)
+                    .forEach(entity -> addEntityType(() -> entity,
+                            StringUtils.capitaliseAllWords(entity.getDescription().getString()
+                                    .replace("entity." + CommonConstants.MOD_ID + ".", "")
+                                    .replace("_", " ")
+                            )
+                    ));
+
             addItem(ItemRegistry.CORN_SEEDS, "Corn Seeds (Kernel)");
 
             add(CommonConstants.MOD_ID + "." + "advancement" + "." + "root" + ".desc", "Obtain some tomatoes");
@@ -36,6 +45,8 @@ public class BrutalLanguageProvider extends LanguageProvider {
             add(CommonConstants.MOD_ID + "." + "advancement" + "." + "rotten_tomatoes" + ".desc", "Throw a tomato at a villager");
             add(CommonConstants.MOD_ID + "." + "advancement" + "." + "grim_reaper", "Grim Reaper");
             add(CommonConstants.MOD_ID + "." + "advancement" + "." + "grim_reaper" + ".desc", "Craft a scythe");
+            add(CommonConstants.MOD_ID + "." + "advancement" + "." + "throwing_knives", "Throwing knives?");
+            add(CommonConstants.MOD_ID + "." + "advancement" + "." + "throwing_knives" + ".desc", "Throw a knife");
 
             add("sounds." + CommonConstants.MOD_ID + "." + "tomato_splat", "Tomato Splat");
 

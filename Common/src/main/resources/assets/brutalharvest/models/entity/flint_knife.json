@@ -1,0 +1,6 @@
+{
+	"parent": "brutalharvest/throwing_knife",
+	"textures": {
+		"texture": "brutalharvest:flint_knife"
+	}
+}

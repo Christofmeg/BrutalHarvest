@@ -1,0 +1,152 @@
+{
+	"parent": "builtin/entity",
+	"gui_light": "front",
+	"textures": {
+		"knife": "brutalharvest:item/copper_knife"
+	},
+	"elements": [
+		{
+			"from": [7, 10, 12],
+			"to": [8, 11, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 11, 14]},
+			"faces": {
+				"north": {"uv": [3, 13, 4, 14], "rotation": 180, "texture": "#knife"},
+				"east": {"uv": [2, 13, 4, 14], "texture": "#knife"},
+				"south": {"uv": [2, 13, 3, 14], "rotation": 180, "texture": "#knife"},
+				"west": {"uv": [2, 13, 4, 14], "rotation": 180, "texture": "#knife"},
+				"up": {"uv": [2, 13, 4, 14], "rotation": 270, "texture": "#knife"},
+				"down": {"uv": [0, 0, 2, 1], "rotation": 90, "texture": "#knife"}
+			}
+		},
+		{
+			"from": [7, 9, 11],
+			"to": [8, 10, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 10, 14]},
+			"faces": {
+				"north": {"uv": [4, 12, 5, 13], "rotation": 180, "texture": "#knife"},
+				"east": {"uv": [2, 12, 5, 13], "texture": "#knife"},
+				"south": {"uv": [2, 12, 3, 13], "rotation": 180, "texture": "#knife"},
+				"west": {"uv": [2, 12, 5, 13], "rotation": 180, "texture": "#knife"},
+				"up": {"uv": [4, 12, 5, 13], "rotation": 270, "texture": "#knife"},
+				"down": {"uv": [2, 12, 3, 13], "rotation": 90, "texture": "#knife"}
+			}
+		},
+		{
+			"from": [7, 8, 10],
+			"to": [8, 9, 13],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 9, 13]},
+			"faces": {
+				"north": {"uv": [5, 11, 6, 12], "rotation": 180, "texture": "#knife"},
+				"east": {"uv": [3, 11, 6, 12], "texture": "#knife"},
+				"south": {"uv": [3, 11, 4, 12], "rotation": 180, "texture": "#knife"},
+				"west": {"uv": [3, 11, 6, 12], "rotation": 180, "texture": "#knife"},
+				"up": {"uv": [5, 11, 6, 12], "rotation": 270, "texture": "#knife"},
+				"down": {"uv": [3, 11, 4, 12], "rotation": 90, "texture": "#knife"}
+			}
+		},
+		{
+			"from": [7, 7, 8],
+			"to": [8, 8, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 12]},
+			"faces": {
+				"north": {"uv": [7, 10, 8, 11], "rotation": 180, "texture": "#knife"},
+				"east": {"uv": [4, 10, 8, 11], "texture": "#knife"},
+				"south": {"uv": [4, 10, 5, 11], "rotation": 180, "texture": "#knife"},
+				"west": {"uv": [4, 10, 8, 11], "rotation": 180, "texture": "#knife"},
+				"up": {"uv": [7, 10, 8, 11], "rotation": 270, "texture": "#knife"},
+				"down": {"uv": [4, 10, 5, 11], "rotation": 90, "texture": "#knife"}
+			}
+		},
+		{
+			"from": [7, 6, 7],
+			"to": [8, 7, 11],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 7, 11]},
+			"faces": {
+				"north": {"uv": [8, 9, 9, 10], "rotation": 180, "texture": "#knife"},
+				"east": {"uv": [5, 9, 9, 10], "texture": "#knife"},
+				"south": {"uv": [5, 9, 6, 10], "rotation": 180, "texture": "#knife"},
+				"west": {"uv": [5, 9, 9, 10], "rotation": 180, "texture": "#knife"},
+				"up": {"uv": [8, 9, 9, 10], "rotation": 270, "texture": "#knife"},
+				"down": {"uv": [0, 0, 4, 1], "rotation": 90, "texture": "#knife"}
+			}
+		},
+		{
+			"from": [7, 5, 6],
+			"to": [8, 6, 11],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 6, 11]},
+			"faces": {
+				"north": {"uv": [9, 8, 10, 9], "rotation": 180, "texture": "#knife"},
+				"east": {"uv": [5, 8, 10, 9], "texture": "#knife"},
+				"south": {"uv": [5, 8, 6, 9], "rotation": 180, "texture": "#knife"},
+				"west": {"uv": [5, 8, 10, 9], "rotation": 180, "texture": "#knife"},
+				"up": {"uv": [9, 8, 10, 9], "rotation": 270, "texture": "#knife"},
+				"down": {"uv": [5, 8, 6, 9], "rotation": 90, "texture": "#knife"}
+			}
+		},
+		{
+			"from": [7, 4, 5],
+			"to": [8, 5, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 5, 10]},
+			"faces": {
+				"north": {"uv": [10, 7, 11, 8], "rotation": 180, "texture": "#knife"},
+				"east": {"uv": [6, 7, 11, 8], "texture": "#knife"},
+				"south": {"uv": [6, 7, 7, 8], "rotation": 180, "texture": "#knife"},
+				"west": {"uv": [6, 7, 11, 8], "rotation": 180, "texture": "#knife"},
+				"up": {"uv": [10, 7, 11, 8], "rotation": 270, "texture": "#knife"},
+				"down": {"uv": [6, 7, 7, 8], "rotation": 90, "texture": "#knife"}
+			}
+		},
+		{
+			"from": [7, 3, 4],
+			"to": [8, 4, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 4, 9]},
+			"faces": {
+				"north": {"uv": [11, 6, 12, 7], "rotation": 180, "texture": "#knife"},
+				"east": {"uv": [7, 6, 12, 7], "texture": "#knife"},
+				"south": {"uv": [7, 6, 8, 7], "rotation": 180, "texture": "#knife"},
+				"west": {"uv": [7, 6, 12, 7], "rotation": 180, "texture": "#knife"},
+				"up": {"uv": [11, 6, 12, 7], "rotation": 270, "texture": "#knife"},
+				"down": {"uv": [7, 6, 8, 7], "rotation": 90, "texture": "#knife"}
+			}
+		},
+		{
+			"from": [7, 2, 3],
+			"to": [8, 3, 8],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 3, 8]},
+			"faces": {
+				"north": {"uv": [12, 5, 13, 6], "rotation": 180, "texture": "#knife"},
+				"east": {"uv": [8, 5, 13, 6], "texture": "#knife"},
+				"south": {"uv": [8, 5, 9, 6], "rotation": 180, "texture": "#knife"},
+				"west": {"uv": [8, 5, 13, 6], "rotation": 180, "texture": "#knife"},
+				"up": {"uv": [12, 5, 13, 6], "rotation": 270, "texture": "#knife"},
+				"down": {"uv": [8, 5, 9, 6], "rotation": 90, "texture": "#knife"}
+			}
+		},
+		{
+			"from": [7, 1, 2],
+			"to": [8, 2, 7],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 2, 7]},
+			"faces": {
+				"north": {"uv": [13, 4, 14, 5], "rotation": 180, "texture": "#knife"},
+				"east": {"uv": [9, 4, 14, 5], "texture": "#knife"},
+				"south": {"uv": [9, 4, 10, 5], "rotation": 180, "texture": "#knife"},
+				"west": {"uv": [9, 4, 14, 5], "rotation": 180, "texture": "#knife"},
+				"up": {"uv": [13, 4, 14, 5], "rotation": 270, "texture": "#knife"},
+				"down": {"uv": [9, 4, 10, 5], "rotation": 90, "texture": "#knife"}
+			}
+		},
+		{
+			"from": [7, 0, 2],
+			"to": [8, 1, 6],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 1, 6]},
+			"faces": {
+				"north": {"uv": [13, 3, 14, 4], "rotation": 180, "texture": "#knife"},
+				"east": {"uv": [10, 3, 14, 4], "texture": "#knife"},
+				"south": {"uv": [10, 3, 11, 4], "rotation": 180, "texture": "#knife"},
+				"west": {"uv": [10, 3, 14, 4], "rotation": 180, "texture": "#knife"},
+				"up": {"uv": [0, 0, 4, 1], "rotation": 270, "texture": "#knife"},
+				"down": {"uv": [10, 3, 14, 4], "rotation": 90, "texture": "#knife"}
+			}
+		}
+	]
+}
