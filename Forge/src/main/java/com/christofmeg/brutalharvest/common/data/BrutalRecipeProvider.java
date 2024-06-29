@@ -45,13 +45,6 @@ public class BrutalRecipeProvider extends RecipeProvider implements IConditionBu
         scytheBuilder(ItemRegistry.GOLDEN_SCYTHE.get(), Ingredient.of(Tags.Items.INGOTS_GOLD), "golden" + "_scythe", consumer);
         scytheBuilder(ItemRegistry.DIAMOND_SCYTHE.get(), Ingredient.of(Tags.Items.GEMS_DIAMOND), "diamond" + "_scythe", consumer);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.FABRIC.get())
-                .define('I', TagRegistry.Items.CROPS_COTTON)
-                .pattern("II")
-                .pattern("II")
-                .unlockedBy("has_cotton", has(ItemRegistry.COTTON.get()))
-                .save(consumer, modLoc(getItemName(ItemRegistry.FABRIC.get())));
-
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.SEED_SATCHEL.get())
                 .define('C', TagRegistry.Items.CROPS)
                 .define('F', ItemRegistry.FABRIC.get())
@@ -123,6 +116,13 @@ public class BrutalRecipeProvider extends RecipeProvider implements IConditionBu
         fabricRecipeBuilder(ItemRegistry.RED_FABRIC.get(), Tags.Items.DYES_RED, consumer);
         fabricRecipeBuilder(ItemRegistry.WHITE_FABRIC.get(), Tags.Items.DYES_WHITE, consumer);
         fabricRecipeBuilder(ItemRegistry.YELLOW_FABRIC.get(), Tags.Items.DYES_YELLOW, consumer);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.FABRIC.get())
+                .requires(ItemRegistry.COTTON.get())
+                .requires(ItemRegistry.COTTON.get())
+                .requires(ItemRegistry.COTTON.get())
+                .unlockedBy("cotton", has(ItemRegistry.COTTON.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.FABRIC.get())));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.FABRIC.get())
                 .requires(TagRegistry.Items.FABRICS_COLORED)

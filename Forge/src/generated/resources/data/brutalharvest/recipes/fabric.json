@@ -1,17 +1,18 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "key": {
-    "I": {
-      "tag": "forge:crops/cotton"
+  "ingredients": [
+    {
+      "item": "brutalharvest:cotton"
+    },
+    {
+      "item": "brutalharvest:cotton"
+    },
+    {
+      "item": "brutalharvest:cotton"
     }
-  },
-  "pattern": [
-    "II",
-    "II"
   ],
   "result": {
     "item": "brutalharvest:fabric"
-  },
-  "show_notification": true
+  }
 }
