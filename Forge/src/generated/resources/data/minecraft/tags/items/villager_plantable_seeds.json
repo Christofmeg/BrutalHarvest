@@ -1,6 +1,8 @@
 {
   "values": [
     "brutalharvest:tomato_seeds",
-    "brutalharvest:corn_seeds"
+    "brutalharvest:corn_seeds",
+    "brutalharvest:onion_seeds",
+    "brutalharvest:chili_pepper_seeds"
   ]
 }
