@@ -38,6 +38,7 @@ public class BrutalItemModelProvider extends ItemModelProvider {
         basicItem(ItemRegistry.COTTON.get());
         basicItem(ItemRegistry.SUGAR_BEET.get());
         basicItem(ItemRegistry.ONION.get());
+        basicItem(ItemRegistry.CHILI_PEPPER.get());
 
 
         basicItem(ItemRegistry.TOMATO_SEEDS.get());
@@ -49,6 +50,7 @@ public class BrutalItemModelProvider extends ItemModelProvider {
         basicItem(ItemRegistry.SUGAR_BEET_SEEDS.get());
         basicItem(ItemRegistry.STRAWBERRY_SEEDS.get());
         basicItem(ItemRegistry.ONION_SEEDS.get());
+        basicItem(ItemRegistry.CHILI_PEPPER_SEEDS.get());
 
         basicItem(ItemRegistry.RUBBER_BUCKET.get());
         basicItem(ItemRegistry.RUBBER.get());

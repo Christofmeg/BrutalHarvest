@@ -7,6 +7,8 @@
   "item.brutalharvest.black_fabric": "Black Fabric",
   "item.brutalharvest.blue_fabric": "Blue Fabric",
   "item.brutalharvest.brown_fabric": "Brown Fabric",
+  "item.brutalharvest.chili_pepper": "Chili Pepper",
+  "item.brutalharvest.chili_pepper_seeds": "Chili Pepper Seeds",
   "item.brutalharvest.copper_knife": "Copper Knife",
   "item.brutalharvest.copper_scythe": "Copper Scythe",
   "item.brutalharvest.corn": "Corn",
@@ -35,6 +37,7 @@
   "item.brutalharvest.magenta_fabric": "Magenta Fabric",
   "item.brutalharvest.netherite_knife": "Netherite Knife",
   "item.brutalharvest.netherite_scythe": "Netherite Scythe",
+  "item.brutalharvest.onion": "Onion",
   "item.brutalharvest.onion_seeds": "Onion Seeds",
   "item.brutalharvest.orange_fabric": "Orange Fabric",
   "item.brutalharvest.pickle": "Pickle",
@@ -60,6 +63,5 @@
   "item.brutalharvest.wooden_knife": "Wooden Knife",
   "item.brutalharvest.yellow_fabric": "Yellow Fabric",
   "itemGroup.brutalharvest": "Brutal Harvest",
-  "sounds.brutalharvest.tomato_splat": "Tomato Splat",
-  "item.brutalharvest.onion": "Onion"
+  "sounds.brutalharvest.tomato_splat": "Tomato Splat"
 }

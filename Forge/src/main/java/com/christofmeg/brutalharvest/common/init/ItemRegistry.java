@@ -50,6 +50,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> ONION_SEEDS;
     public static final RegistryObject<Item> ONION;
 
+    public static final RegistryObject<Item> CHILI_PEPPER_SEEDS;
+    public static final RegistryObject<Item> CHILI_PEPPER;
+
     public static final RegistryObject<Item> RUBBER_BUCKET;
     public static final RegistryObject<Item> RUBBER;
 
@@ -113,6 +116,7 @@ public class ItemRegistry {
         COTTON = ITEMS.register("cotton", () -> new Item(new Item.Properties()));
         SUGAR_BEET = ITEMS.register("sugar_beet", () -> new Item(new Item.Properties().food(Foods.BEETROOT)));
         ONION = ITEMS.register("onion", () -> new Item(new Item.Properties().food(BrutalFoods.ONION)));
+        CHILI_PEPPER = ITEMS.register("chili_pepper", () -> new Item(new Item.Properties().food(BrutalFoods.CHILI_PEPPER)));
 
         TOMATO_SEEDS = ITEMS.register("tomato_seeds", () -> new ItemNameBlockItem(BlockRegistry.TOMATO.get(), new Item.Properties()));
         LETTUCE_SEEDS = ITEMS.register("lettuce_seeds", () -> new Item(new Item.Properties()));
@@ -123,6 +127,7 @@ public class ItemRegistry {
         SUGAR_BEET_SEEDS = ITEMS.register("sugar_beet_seeds", () -> new ItemNameBlockItem(BlockRegistry.SUGAR_BEET.get(), new Item.Properties()));
         STRAWBERRY_SEEDS = ITEMS.register("strawberry_seeds", () -> new Item(new Item.Properties()));
         ONION_SEEDS = ITEMS.register("onion_seeds", () -> new Item(new Item.Properties()));
+        CHILI_PEPPER_SEEDS = ITEMS.register("chili_pepper_seeds", () -> new Item(new Item.Properties()));
 
         RUBBER_BUCKET = ITEMS.register("rubber_bucket", () -> new Item(new Item.Properties())); //TODO implement
         RUBBER = ITEMS.register("rubber", () -> new Item(new Item.Properties()));
