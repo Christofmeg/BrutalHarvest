@@ -60,5 +60,6 @@
   "item.brutalharvest.wooden_knife": "Wooden Knife",
   "item.brutalharvest.yellow_fabric": "Yellow Fabric",
   "itemGroup.brutalharvest": "Brutal Harvest",
-  "sounds.brutalharvest.tomato_splat": "Tomato Splat"
+  "sounds.brutalharvest.tomato_splat": "Tomato Splat",
+  "item.brutalharvest.onion": "Onion"
 }
