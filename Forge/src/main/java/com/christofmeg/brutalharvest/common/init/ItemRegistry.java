@@ -48,6 +48,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> STRAWBERRY_SEEDS;
 
     public static final RegistryObject<Item> ONION_SEEDS;
+    public static final RegistryObject<Item> ONION;
 
     public static final RegistryObject<Item> RUBBER_BUCKET;
     public static final RegistryObject<Item> RUBBER;
@@ -111,6 +112,7 @@ public class ItemRegistry {
 
         COTTON = ITEMS.register("cotton", () -> new Item(new Item.Properties()));
         SUGAR_BEET = ITEMS.register("sugar_beet", () -> new Item(new Item.Properties().food(Foods.BEETROOT)));
+        ONION = ITEMS.register("onion", () -> new Item(new Item.Properties().food(BrutalFoods.ONION)));
 
         TOMATO_SEEDS = ITEMS.register("tomato_seeds", () -> new ItemNameBlockItem(BlockRegistry.TOMATO.get(), new Item.Properties()));
         LETTUCE_SEEDS = ITEMS.register("lettuce_seeds", () -> new Item(new Item.Properties()));

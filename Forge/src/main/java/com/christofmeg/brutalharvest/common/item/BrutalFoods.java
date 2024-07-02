@@ -16,5 +16,5 @@ public class BrutalFoods {
     public static final FoodProperties CUCUMBER = new FoodProperties.Builder().nutrition(3).saturationMod(2.4F).build();
     public static final FoodProperties CUCUMBER_SLICES = new FoodProperties.Builder().nutrition(1).saturationMod(1).build();
     public static final FoodProperties PICKLES = new FoodProperties.Builder().nutrition(3).saturationMod(2.4F).build();
-
+    public static final FoodProperties ONION = new FoodProperties.Builder().nutrition(2).saturationMod(2.4F).build();
 }
