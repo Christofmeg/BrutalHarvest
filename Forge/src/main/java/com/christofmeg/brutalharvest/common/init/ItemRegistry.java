@@ -45,22 +45,23 @@ public class ItemRegistry {
 
     public static final RegistryObject<Item> RAPESEEDS;
 
-    public static final RegistryObject<Item> STRAWBERRY_SEEDS;
+    // ALL BELOW IN 2.0 OR 3.0
+    // public static final RegistryObject<Item> STRAWBERRY_SEEDS;
 
-    public static final RegistryObject<Item> ONION_SEEDS;
-    public static final RegistryObject<Item> ONION;
+    // public static final RegistryObject<Item> ONION_SEEDS;
+    // public static final RegistryObject<Item> ONION;
 
-    public static final RegistryObject<Item> CHILI_PEPPER_SEEDS;
-    public static final RegistryObject<Item> CHILI_PEPPER;
+    // public static final RegistryObject<Item> CHILI_PEPPER_SEEDS;
+    // public static final RegistryObject<Item> CHILI_PEPPER;
 
-    public static final RegistryObject<Item> LOBSTER;
-    public static final RegistryObject<Item> RAW_LOBSTER;
+    // public static final RegistryObject<Item> LOBSTER;
+    // public static final RegistryObject<Item> RAW_LOBSTER;
 
-    public static final RegistryObject<Item> SUSHI;
-    public static final RegistryObject<Item> CUCUMBER_SUSHI;
-    public static final RegistryObject<Item> LOBSTER_SUSHI;
+    // public static final RegistryObject<Item> SUSHI;
+    // public static final RegistryObject<Item> CUCUMBER_SUSHI;
+    // public static final RegistryObject<Item> LOBSTER_SUSHI;
 
-    public static final RegistryObject<Item> RICE;
+    // public static final RegistryObject<Item> RICE;
 
     public static final RegistryObject<Item> RUBBER_BUCKET;
     public static final RegistryObject<Item> RUBBER;
@@ -124,8 +125,8 @@ public class ItemRegistry {
 
         COTTON = ITEMS.register("cotton", () -> new Item(new Item.Properties()));
         SUGAR_BEET = ITEMS.register("sugar_beet", () -> new Item(new Item.Properties().food(Foods.BEETROOT)));
-        ONION = ITEMS.register("onion", () -> new Item(new Item.Properties().food(BrutalFoods.ONION)));
-        CHILI_PEPPER = ITEMS.register("chili_pepper", () -> new Item(new Item.Properties().food(BrutalFoods.CHILI_PEPPER)));
+        // ONION = ITEMS.register("onion", () -> new Item(new Item.Properties().food(BrutalFoods.ONION)));
+        // CHILI_PEPPER = ITEMS.register("chili_pepper", () -> new Item(new Item.Properties().food(BrutalFoods.CHILI_PEPPER)));
 
         TOMATO_SEEDS = ITEMS.register("tomato_seeds", () -> new ItemNameBlockItem(BlockRegistry.TOMATO.get(), new Item.Properties()));
         LETTUCE_SEEDS = ITEMS.register("lettuce_seeds", () -> new Item(new Item.Properties()));
@@ -134,18 +135,20 @@ public class ItemRegistry {
         COTTON_SEEDS = ITEMS.register("cotton_seeds", () -> new ItemNameBlockItem(BlockRegistry.COTTON.get(), new Item.Properties()));
         RAPESEEDS = ITEMS.register("rapeseeds", () -> new Item(new Item.Properties()));
         SUGAR_BEET_SEEDS = ITEMS.register("sugar_beet_seeds", () -> new ItemNameBlockItem(BlockRegistry.SUGAR_BEET.get(), new Item.Properties()));
-        STRAWBERRY_SEEDS = ITEMS.register("strawberry_seeds", () -> new Item(new Item.Properties()));
-        ONION_SEEDS = ITEMS.register("onion_seeds", () -> new Item(new Item.Properties()));
-        CHILI_PEPPER_SEEDS = ITEMS.register("chili_pepper_seeds", () -> new Item(new Item.Properties()));
 
-        LOBSTER = ITEMS.register("lobster", () -> new Item(new Item.Properties().food(BrutalFoods.LOBSTER)));
-        RAW_LOBSTER = ITEMS.register("raw_lobster", () -> new Item(new Item.Properties().food(BrutalFoods.RAW_LOBSTER)));
+        // ALL BELOW IN 2.0 OR 3.0
+        // STRAWBERRY_SEEDS = ITEMS.register("strawberry_seeds", () -> new Item(new Item.Properties()));
+        // ONION_SEEDS = ITEMS.register("onion_seeds", () -> new Item(new Item.Properties()));
+        // CHILI_PEPPER_SEEDS = ITEMS.register("chili_pepper_seeds", () -> new Item(new Item.Properties()));
 
-        SUSHI = ITEMS.register("sushi", () -> new Item(new Item.Properties().food(BrutalFoods.SUSHI)));
-        CUCUMBER_SUSHI = ITEMS.register("cucumber_sushi", () -> new Item(new Item.Properties().food(BrutalFoods.CUCUMBER_SUSHI)));
-        LOBSTER_SUSHI = ITEMS.register("lobster_sushi", () -> new Item(new Item.Properties().food(BrutalFoods.LOBSTER_SUSHI)));
+        // LOBSTER = ITEMS.register("lobster", () -> new Item(new Item.Properties().food(BrutalFoods.LOBSTER)));
+        // RAW_LOBSTER = ITEMS.register("raw_lobster", () -> new Item(new Item.Properties().food(BrutalFoods.RAW_LOBSTER)));
 
-        RICE = ITEMS.register("rice", () -> new Item(new Item.Properties().food(BrutalFoods.RICE)));
+        // SUSHI = ITEMS.register("sushi", () -> new Item(new Item.Properties().food(BrutalFoods.SUSHI)));
+        // CUCUMBER_SUSHI = ITEMS.register("cucumber_sushi", () -> new Item(new Item.Properties().food(BrutalFoods.CUCUMBER_SUSHI)));
+        // LOBSTER_SUSHI = ITEMS.register("lobster_sushi", () -> new Item(new Item.Properties().food(BrutalFoods.LOBSTER_SUSHI)));
+
+        // RICE = ITEMS.register("rice", () -> new Item(new Item.Properties().food(BrutalFoods.RICE)));
 
         RUBBER_BUCKET = ITEMS.register("rubber_bucket", () -> new Item(new Item.Properties())); //TODO implement
         RUBBER = ITEMS.register("rubber", () -> new Item(new Item.Properties()));

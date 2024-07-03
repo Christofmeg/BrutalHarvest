@@ -53,7 +53,7 @@ public class BrutalRecipeProvider extends RecipeProvider implements IConditionBu
                 .unlockedBy("has_cotton", has(ItemRegistry.COTTON.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.SEED_SATCHEL.get())));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.SUSHI.get())
+/*        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.SUSHI.get())
                 .define('K', Items.DRIED_KELP)
                 .define('R', ItemRegistry.RICE.get())
                 .define('S', Items.SALMON)
@@ -82,6 +82,7 @@ public class BrutalRecipeProvider extends RecipeProvider implements IConditionBu
                 .pattern("KRK")
                 .unlockedBy("has_rice", has(ItemRegistry.RICE.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.LOBSTER_SUSHI.get())));
+ */
     }
 
 

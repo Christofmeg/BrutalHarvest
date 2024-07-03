@@ -30,36 +30,36 @@ public class BrutalBlockTagsProvider extends BlockTagsProvider {
                 .add(BlockRegistry.TOMATO.get())
                 .add(BlockRegistry.CORN.get())
                 .add(BlockRegistry.COTTON.get())
-                .add(BlockRegistry.SUGAR_BEET.get())
-                .add(BlockRegistry.ONION.get());
+                .add(BlockRegistry.SUGAR_BEET.get());
+//                .add(BlockRegistry.ONION.get());
 
         tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(BlockRegistry.TOMATO.get())
                 .add(BlockRegistry.CORN.get())
                 .add(BlockRegistry.COTTON.get())
-                .add(BlockRegistry.SUGAR_BEET.get())
-                .add(BlockRegistry.ONION.get());
+                .add(BlockRegistry.SUGAR_BEET.get());
+//                .add(BlockRegistry.ONION.get());
 
         tag(BlockTags.MAINTAINS_FARMLAND)
                 .add(BlockRegistry.TOMATO.get())
                 .add(BlockRegistry.CORN.get())
                 .add(BlockRegistry.COTTON.get())
-                .add(BlockRegistry.SUGAR_BEET.get())
-                .add(BlockRegistry.ONION.get());
+                .add(BlockRegistry.SUGAR_BEET.get());
+//                .add(BlockRegistry.ONION.get());
 
         tag(BlockTags.BEE_GROWABLES)
                 .add(BlockRegistry.TOMATO.get())
                 .add(BlockRegistry.CORN.get())
                 .add(BlockRegistry.COTTON.get())
-                .add(BlockRegistry.SUGAR_BEET.get())
-                .add(BlockRegistry.ONION.get());
+                .add(BlockRegistry.SUGAR_BEET.get());
+//                .add(BlockRegistry.ONION.get());
 
         tag(BlockTags.SWORD_EFFICIENT)
                 .add(BlockRegistry.TOMATO.get())
                 .add(BlockRegistry.CORN.get())
                 .add(BlockRegistry.COTTON.get())
-                .add(BlockRegistry.SUGAR_BEET.get())
-                .add(BlockRegistry.ONION.get());
+                .add(BlockRegistry.SUGAR_BEET.get());
+//                .add(BlockRegistry.ONION.get());
 
     }
 }
