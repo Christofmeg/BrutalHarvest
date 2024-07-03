@@ -43,6 +43,12 @@ public class BrutalItemModelProvider extends ItemModelProvider {
         basicItem(ItemRegistry.LOBSTER.get());
         basicItem(ItemRegistry.RAW_LOBSTER.get());
 
+        basicItem(ItemRegistry.SUSHI.get());
+        basicItem(ItemRegistry.CUCUMBER_SUSHI.get());
+        basicItem(ItemRegistry.LOBSTER_SUSHI.get());
+
+        basicItem(ItemRegistry.RICE.get());
+
         basicItem(ItemRegistry.TOMATO_SEEDS.get());
         basicItem(ItemRegistry.LETTUCE_SEEDS.get());
         basicItem(ItemRegistry.CORN_SEEDS.get());

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "brutalharvest:cucumber_slices"
+    },
+    "K": {
+      "item": "minecraft:dried_kelp"
+    },
+    "R": {
+      "item": "brutalharvest:rice"
+    }
+  },
+  "pattern": [
+    "KRK",
+    "RCR",
+    "KRK"
+  ],
+  "result": {
+    "item": "brutalharvest:sushi"
+  },
+  "show_notification": true
+}
