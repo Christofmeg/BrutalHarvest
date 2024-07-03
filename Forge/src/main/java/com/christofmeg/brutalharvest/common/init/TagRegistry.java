@@ -54,9 +54,9 @@ public class TagRegistry {
         public static TagKey<Item> COTTON_SEEDS = forgeTag("seeds/cotton");
         public static TagKey<Item> RAPESEEDS = forgeTag("seeds/rapeseeds");
         public static TagKey<Item> SUGAR_BEET_SEEDS = forgeTag("seeds/sugar_beet");
-        public static TagKey<Item> STRAWBERRY_SEEDS = forgeTag("seeds/strawberry_seeds");
-        public static TagKey<Item> ONION_SEEDS = forgeTag("seeds/onion_seeds");
-        public static TagKey<Item> CHILI_PEPPER_SEEDS = forgeTag("seeds/chili_pepper_seeds");
+//        public static TagKey<Item> STRAWBERRY_SEEDS = forgeTag("seeds/strawberry_seeds");
+//        public static TagKey<Item> ONION_SEEDS = forgeTag("seeds/onion_seeds");
+//        public static TagKey<Item> CHILI_PEPPER_SEEDS = forgeTag("seeds/chili_pepper_seeds");
 
 
         public static TagKey<Item> VEGETABLES = forgeTag("vegetables");
@@ -66,8 +66,8 @@ public class TagRegistry {
         public static TagKey<Item> CUCUMBER = forgeTag("vegetables/cucumber");
         public static TagKey<Item> BEETROOT = forgeTag("vegetables/beetroot");
         public static TagKey<Item> SUGAR_BEET = forgeTag("vegetables/sugar_beet");
-        public static TagKey<Item> ONION = forgeTag("vegetables/onion");
-        public static TagKey<Item> CHILI_PEPPER = forgeTag("vegetables/chili_pepper");
+//        public static TagKey<Item> ONION = forgeTag("vegetables/onion");
+//        public static TagKey<Item> CHILI_PEPPER = forgeTag("vegetables/chili_pepper");
 
         public static TagKey<Item> CROPS = forgeTag("crops");
         public static TagKey<Item> CROPS_TOMATO = forgeTag("crops/tomato");
@@ -76,15 +76,16 @@ public class TagRegistry {
         public static TagKey<Item> CROPS_CUCUMBER = forgeTag("crops/cucumber");
         public static TagKey<Item> CROPS_COTTON = forgeTag("crops/cotton");
         public static TagKey<Item> CROPS_SUGAR_BEET = forgeTag("crops/sugar_beet");
-        public static TagKey<Item> CROPS_ONION = forgeTag("crops/onion");
-        public static TagKey<Item> RICE = forgeTag("crops/rice");
+//        public static TagKey<Item> CROPS_ONION = forgeTag("crops/onion");
+//        public static TagKey<Item> RICE = forgeTag("crops/rice");
 
-        public static TagKey<Item> FOOD = forgeTag("food");
+/*        public static TagKey<Item> FOOD = forgeTag("food");
         public static TagKey<Item> LOBSTER = forgeTag("food/lobster");
         public static TagKey<Item> RAW_LOBSTER = forgeTag("food/raw_lobster");
         public static TagKey<Item> SUSHI = forgeTag("food/sushi");
         public static TagKey<Item> CUCUMBER_SUSHI = forgeTag("food/cucumber_shushi");
         public static TagKey<Item> LOBSTER_SUSHI = forgeTag("food/lobster_sushi");
+*/
 
         public static TagKey<Item> SALAD_INGREDIENTS = forgeTag("salad_ingredients");
         public static TagKey<Item> SALAD_INGREDIENTS_LETTUCE = forgeTag("salad_ingredients/lettuce");

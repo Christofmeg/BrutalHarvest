@@ -41,11 +41,13 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
             .addTag(TagRegistry.Items.CUCUMBER_SEEDS)
             .addTag(TagRegistry.Items.COTTON_SEEDS)
             .addTag(TagRegistry.Items.RAPESEEDS)
-            .addTag(TagRegistry.Items.SUGAR_BEET_SEEDS)
-            .addTag(TagRegistry.Items.STRAWBERRY_SEEDS)
+            .addTag(TagRegistry.Items.SUGAR_BEET_SEEDS);
+/*            .addTag(TagRegistry.Items.STRAWBERRY_SEEDS)
             .addTag(TagRegistry.Items.ONION_SEEDS)
             .addTag(TagRegistry.Items.CHILI_PEPPER_SEEDS)
             .addTag(TagRegistry.Items.RICE);
+
+ */
         tag(TagRegistry.Items.TOMATO_SEEDS).add(ItemRegistry.TOMATO_SEEDS.get());
         tag(TagRegistry.Items.LETTUCE_SEEDS).add(ItemRegistry.LETTUCE_SEEDS.get());
         tag(TagRegistry.Items.CORN_SEEDS).add(ItemRegistry.CORN_SEEDS.get());
@@ -53,10 +55,10 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
         tag(TagRegistry.Items.COTTON_SEEDS).add(ItemRegistry.COTTON_SEEDS.get());
         tag(TagRegistry.Items.RAPESEEDS).add(ItemRegistry.RAPESEEDS.get());
         tag(TagRegistry.Items.SUGAR_BEET_SEEDS).add(ItemRegistry.SUGAR_BEET_SEEDS.get());
-        tag(TagRegistry.Items.STRAWBERRY_SEEDS).add(ItemRegistry.STRAWBERRY_SEEDS.get());
-        tag(TagRegistry.Items.ONION_SEEDS).add(ItemRegistry.ONION_SEEDS.get());
-        tag(TagRegistry.Items.CHILI_PEPPER_SEEDS).add(ItemRegistry.CHILI_PEPPER_SEEDS.get());
-        tag(TagRegistry.Items.RICE).add(ItemRegistry.RICE.get());
+//       tag(TagRegistry.Items.STRAWBERRY_SEEDS).add(ItemRegistry.STRAWBERRY_SEEDS.get());
+//      tag(TagRegistry.Items.ONION_SEEDS).add(ItemRegistry.ONION_SEEDS.get());
+//     tag(TagRegistry.Items.CHILI_PEPPER_SEEDS).add(ItemRegistry.CHILI_PEPPER_SEEDS.get());
+//      tag(TagRegistry.Items.RICE).add(ItemRegistry.RICE.get());
 
         tag(TagRegistry.Items.VEGETABLES)
             .addTag(TagRegistry.Items.TOMATO)
@@ -64,9 +66,9 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
             .addTag(TagRegistry.Items.CORN)
             .addTag(TagRegistry.Items.CUCUMBER)
             .addTag(TagRegistry.Items.BEETROOT)
-            .addTag(TagRegistry.Items.SUGAR_BEET)
-            .addTag(TagRegistry.Items.ONION)
-            .addTag(TagRegistry.Items.CHILI_PEPPER);
+            .addTag(TagRegistry.Items.SUGAR_BEET);
+//            .addTag(TagRegistry.Items.ONION)
+//            .addTag(TagRegistry.Items.CHILI_PEPPER);
 
         tag(TagRegistry.Items.TOMATO).add(ItemRegistry.TOMATO.get());
         tag(TagRegistry.Items.LETTUCE).add(ItemRegistry.LETTUCE.get());
@@ -74,8 +76,8 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
         tag(TagRegistry.Items.CUCUMBER).add(ItemRegistry.CUCUMBER.get());
         tag(TagRegistry.Items.BEETROOT).add(Items.BEETROOT).add(ItemRegistry.SUGAR_BEET.get());
         tag(TagRegistry.Items.SUGAR_BEET).add(ItemRegistry.SUGAR_BEET.get());
-        tag(TagRegistry.Items.ONION).add(ItemRegistry.ONION.get());
-        tag(TagRegistry.Items.CHILI_PEPPER).add(ItemRegistry.CHILI_PEPPER.get());
+//        tag(TagRegistry.Items.ONION).add(ItemRegistry.ONION.get());
+//        tag(TagRegistry.Items.CHILI_PEPPER).add(ItemRegistry.CHILI_PEPPER.get());
 
         tag(TagRegistry.Items.CROPS)
                 .addTag(TagRegistry.Items.CROPS_TOMATO)
@@ -83,18 +85,18 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
                 .addTag(TagRegistry.Items.CROPS_CORN)
                 .addTag(TagRegistry.Items.CROPS_CUCUMBER)
                 .addTag(TagRegistry.Items.CROPS_SUGAR_BEET)
-                .addTag(TagRegistry.Items.CROPS_ONION)
+//                .addTag(TagRegistry.Items.CROPS_ONION)
         ;
         tag(TagRegistry.Items.CROPS_TOMATO).add(ItemRegistry.TOMATO.get());
         tag(TagRegistry.Items.CROPS_LETTUCE).add(ItemRegistry.LETTUCE.get());
         tag(TagRegistry.Items.CROPS_CORN).add(ItemRegistry.CORN.get());
         tag(TagRegistry.Items.CROPS_CUCUMBER).add(ItemRegistry.CUCUMBER.get());
         tag(TagRegistry.Items.CROPS_SUGAR_BEET).add(ItemRegistry.SUGAR_BEET.get());
-        tag(TagRegistry.Items.CROPS_ONION).add(ItemRegistry.ONION.get());
+//        tag(TagRegistry.Items.CROPS_ONION).add(ItemRegistry.ONION.get());
 
         tag(TagRegistry.Items.CROPS_COTTON).add(ItemRegistry.COTTON.get());
 
-        tag(TagRegistry.Items.FOOD)
+/*        tag(TagRegistry.Items.FOOD)
                 .addTag(TagRegistry.Items.LOBSTER)
                 .addTag(TagRegistry.Items.RAW_LOBSTER)
                 .addTag(TagRegistry.Items.SUSHI)
@@ -107,14 +109,15 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
         tag(TagRegistry.Items.CUCUMBER_SUSHI).add(ItemRegistry.CUCUMBER_SUSHI.get());
         tag(TagRegistry.Items.LOBSTER_SUSHI).add(ItemRegistry.LOBSTER_SUSHI.get());
 
+ */
         tag(ItemTags.VILLAGER_PLANTABLE_SEEDS)
                 .add(ItemRegistry.TOMATO_SEEDS.get())
     //            .add(ItemRegistry.LETTUCE_SEEDS.get())
                 .add(ItemRegistry.CORN_SEEDS.get())
     //            .add(ItemRegistry.CUCUMBER_SEEDS.get())
     //            .add(ItemRegistry.COFFEE_SEEDS.get())
-                .add(ItemRegistry.ONION_SEEDS.get())
-                .add(ItemRegistry.CHILI_PEPPER_SEEDS.get())
+//                .add(ItemRegistry.ONION_SEEDS.get())
+//                .add(ItemRegistry.CHILI_PEPPER_SEEDS.get())
         ;
 
         tag(TagRegistry.Items.SALAD_INGREDIENTS).addTag(TagRegistry.Items.SALAD_INGREDIENTS_LETTUCE);

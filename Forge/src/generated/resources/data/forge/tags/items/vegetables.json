@@ -5,8 +5,6 @@
     "#forge:vegetables/corn",
     "#forge:vegetables/cucumber",
     "#forge:vegetables/beetroot",
-    "#forge:vegetables/sugar_beet",
-    "#forge:vegetables/onion",
-    "#forge:vegetables/chili_pepper"
+    "#forge:vegetables/sugar_beet"
   ]
 }

@@ -6,10 +6,6 @@
     "#forge:seeds/cucumber",
     "#forge:seeds/cotton",
     "#forge:seeds/rapeseeds",
-    "#forge:seeds/sugar_beet",
-    "#forge:seeds/strawberry_seeds",
-    "#forge:seeds/onion_seeds",
-    "#forge:seeds/chili_pepper_seeds",
-    "#forge:crops/rice"
+    "#forge:seeds/sugar_beet"
   ]
 }

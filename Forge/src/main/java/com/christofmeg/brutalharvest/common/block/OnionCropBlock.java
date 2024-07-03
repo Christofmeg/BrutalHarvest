@@ -1,4 +1,4 @@
-package com.christofmeg.brutalharvest.common.block;
+/* package com.christofmeg.brutalharvest.common.block;
 
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
 import com.christofmeg.brutalharvest.common.item.KnifeItem;
@@ -118,3 +118,6 @@ public class OnionCropBlock extends CropBlock {
         return super.use(state, level, pos, player, interactionHand, blockHitResult);
     }
 }
+
+*/
+
