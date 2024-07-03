@@ -18,4 +18,7 @@ public class BrutalFoods {
     public static final FoodProperties PICKLES = new FoodProperties.Builder().nutrition(3).saturationMod(2.4F).build();
     public static final FoodProperties ONION = new FoodProperties.Builder().nutrition(2).saturationMod(2.4F).build();
     public static final FoodProperties CHILI_PEPPER = new FoodProperties.Builder().nutrition(2).saturationMod(2.4F).effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 300), 100).build();
+
+    public static final FoodProperties LOBSTER = new FoodProperties.Builder().nutrition(2).saturationMod(2.4F).build();
+    public static final FoodProperties RAW_LOBSTER = new FoodProperties.Builder().nutrition(-2).saturationMod(1.6F).build();
 }

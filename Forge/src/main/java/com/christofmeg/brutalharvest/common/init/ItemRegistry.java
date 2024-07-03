@@ -53,6 +53,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CHILI_PEPPER_SEEDS;
     public static final RegistryObject<Item> CHILI_PEPPER;
 
+    public static final RegistryObject<Item> LOBSTER;
+    public static final RegistryObject<Item> RAW_LOBSTER;
+
     public static final RegistryObject<Item> RUBBER_BUCKET;
     public static final RegistryObject<Item> RUBBER;
 
@@ -128,6 +131,9 @@ public class ItemRegistry {
         STRAWBERRY_SEEDS = ITEMS.register("strawberry_seeds", () -> new Item(new Item.Properties()));
         ONION_SEEDS = ITEMS.register("onion_seeds", () -> new Item(new Item.Properties()));
         CHILI_PEPPER_SEEDS = ITEMS.register("chili_pepper_seeds", () -> new Item(new Item.Properties()));
+
+        LOBSTER = ITEMS.register("lobster", () -> new Item(new Item.Properties().food(BrutalFoods.LOBSTER)));
+        RAW_LOBSTER = ITEMS.register("raw_lobster", () -> new Item(new Item.Properties().food(BrutalFoods.RAW_LOBSTER)));
 
         RUBBER_BUCKET = ITEMS.register("rubber_bucket", () -> new Item(new Item.Properties())); //TODO implement
         RUBBER = ITEMS.register("rubber", () -> new Item(new Item.Properties()));

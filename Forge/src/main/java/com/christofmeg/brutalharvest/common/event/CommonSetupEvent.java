@@ -33,6 +33,8 @@ public class CommonSetupEvent {
             ComposterBlock.COMPOSTABLES.put(ItemRegistry.RAPESEEDS.get(), 0.30F);
             ComposterBlock.COMPOSTABLES.put(ItemRegistry.STRAWBERRY_SEEDS.get(), 0.30F);
             ComposterBlock.COMPOSTABLES.put(ItemRegistry.ONION_SEEDS.get(), 0.30F);
+
+            // tristanh - TODO ONION, CHILI PEPPER, LOBSTER,
         });
     }
 
