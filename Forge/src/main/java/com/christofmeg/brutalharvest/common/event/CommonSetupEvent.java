@@ -22,7 +22,9 @@ public class CommonSetupEvent {
             ComposterBlock.COMPOSTABLES.put(ItemRegistry.CUCUMBER_SLICES.get(), 0.50F);
             ComposterBlock.COMPOSTABLES.put(ItemRegistry.PICKLE.get(), 0.65F);
 
-            ComposterBlock.COMPOSTABLES.put(ItemRegistry.SUGAR_BEET.get(), 0.65F);
+            ComposterBlock.COMPOSTABLES.put(ItemRegistry.ONION.get(), 0.65F);
+
+            ComposterBlock.COMPOSTABLES.put(ItemRegistry.CHILI_PEPPER.get(), 0.65F);
 
             ComposterBlock.COMPOSTABLES.put(ItemRegistry.TOMATO_SEEDS.get(), 0.30F);
             ComposterBlock.COMPOSTABLES.put(ItemRegistry.LETTUCE_SEEDS.get(), 0.30F);
@@ -33,8 +35,7 @@ public class CommonSetupEvent {
             ComposterBlock.COMPOSTABLES.put(ItemRegistry.RAPESEEDS.get(), 0.30F);
             ComposterBlock.COMPOSTABLES.put(ItemRegistry.STRAWBERRY_SEEDS.get(), 0.30F);
             ComposterBlock.COMPOSTABLES.put(ItemRegistry.ONION_SEEDS.get(), 0.30F);
-
-            // tristanh - TODO ONION, CHILI PEPPER, LOBSTER,
+            ComposterBlock.COMPOSTABLES.put(ItemRegistry.CHILI_PEPPER_SEEDS.get(), 0.30F);
         });
     }
 
