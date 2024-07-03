@@ -78,6 +78,10 @@ public class TagRegistry {
         public static TagKey<Item> CROPS_SUGAR_BEET = forgeTag("crops/sugar_beet");
 //        public static TagKey<Item> CROPS_ONION = forgeTag("crops/onion");
 
+        public static TagKey<Item> FOOD = forgeTag("food");
+        public static TagKey<Item> LOBSTER = forgeTag("food/lobster");
+        public static TagKey<Item> RAW_LOBSTER = forgeTag("food/raw_lobster");
+
         public static TagKey<Item> SALAD_INGREDIENTS = forgeTag("salad_ingredients");
         public static TagKey<Item> SALAD_INGREDIENTS_LETTUCE = forgeTag("salad_ingredients/lettuce");
 

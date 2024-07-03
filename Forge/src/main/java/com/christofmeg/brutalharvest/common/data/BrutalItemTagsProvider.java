@@ -92,6 +92,13 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
 
         tag(TagRegistry.Items.CROPS_COTTON).add(ItemRegistry.COTTON.get());
 
+        tag(TagRegistry.Items.FOOD)
+                .addTag(TagRegistry.Items.LOBSTER)
+                .addTag(TagRegistry.Items.RAW_LOBSTER);
+
+        tag(TagRegistry.Items.LOBSTER).add(ItemRegistry.LOBSTER.get());
+        tag(TagRegistry.Items.RAW_LOBSTER).add(ItemRegistry.RAW_LOBSTER.get());
+
         tag(ItemTags.VILLAGER_PLANTABLE_SEEDS)
                 .add(ItemRegistry.TOMATO_SEEDS.get())
     //            .add(ItemRegistry.LETTUCE_SEEDS.get())
