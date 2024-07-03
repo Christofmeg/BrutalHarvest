@@ -134,6 +134,12 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
             tag(TagRegistry.Items.SCYTHES).add(item);
         });
 
+        tag(TagRegistry.Items.ITEMS)
+                .addTag(TagRegistry.Items.SEED_SATCHEL);
+
+        tag(TagRegistry.Items.SEED_SATCHEL).add(ItemRegistry.SEED_SATCHEL.get());
+
+
         tag(ItemTags.PIGLIN_LOVED).add(ItemRegistry.GOLDEN_KNIFE.get()).add(ItemRegistry.GOLDEN_SCYTHE.get());
 
         tag(TagRegistry.Items.BUCKETS_WATER).add(Items.WATER_BUCKET);

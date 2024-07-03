@@ -28,6 +28,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> SUGAR_BEET;
 //    public static final RegistryObject<Block> ONION;
 //    public static final RegistryObject<Block> RUBBER_CAULDRON;
+//    public static final RegistryObject<Block> MILLSTONE;
 
     private BlockRegistry() {
     }

@@ -90,6 +90,9 @@ public class TagRegistry {
         public static TagKey<Item> SALAD_INGREDIENTS = forgeTag("salad_ingredients");
         public static TagKey<Item> SALAD_INGREDIENTS_LETTUCE = forgeTag("salad_ingredients/lettuce");
 
+        public static TagKey<Item> ITEMS = forgeTag("items");
+        public static TagKey<Item> SEED_SATCHEL = forgeTag("items/seed_satchel");
+
         public static TagKey<Item> TOOLS = forgeTag("tools");
         public static TagKey<Item> KNIVES = forgeTag("tools/knives");
         public static TagKey<Item> FARMERS_DELIGHT_KNIVES = ItemTags.create(new ResourceLocation("farmersdelight", "tools/knives"));
