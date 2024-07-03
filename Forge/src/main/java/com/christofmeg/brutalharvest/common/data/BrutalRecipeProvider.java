@@ -52,7 +52,38 @@ public class BrutalRecipeProvider extends RecipeProvider implements IConditionBu
                 .pattern("FFF")
                 .unlockedBy("has_cotton", has(ItemRegistry.COTTON.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.SEED_SATCHEL.get())));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.SUSHI.get())
+                .define('K', Items.DRIED_KELP)
+                .define('R', ItemRegistry.RICE.get())
+                .define('S', Items.SALMON)
+                .pattern("KRK")
+                .pattern("RSR")
+                .pattern("KRK")
+                .unlockedBy("has_rice", has(ItemRegistry.RICE.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.SUSHI.get())));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.SUSHI.get())
+                .define('K', Items.DRIED_KELP)
+                .define('R', ItemRegistry.RICE.get())
+                .define('C', ItemRegistry.CUCUMBER_SLICES.get())
+                .pattern("KRK")
+                .pattern("RCR")
+                .pattern("KRK")
+                .unlockedBy("has_rice", has(ItemRegistry.RICE.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.CUCUMBER_SUSHI.get())));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.SUSHI.get())
+                .define('K', Items.DRIED_KELP)
+                .define('R', ItemRegistry.RICE.get())
+                .define('L', ItemRegistry.RAW_LOBSTER.get())
+                .pattern("KRK")
+                .pattern("RLR")
+                .pattern("KRK")
+                .unlockedBy("has_rice", has(ItemRegistry.RICE.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.LOBSTER_SUSHI.get())));
     }
+
 
     private void addSmithingRecipes(Consumer<FinishedRecipe> consumer) {
         SmithingTransformRecipeBuilder.smithing(

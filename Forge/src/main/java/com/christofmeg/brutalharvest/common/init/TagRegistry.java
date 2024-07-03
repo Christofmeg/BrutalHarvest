@@ -76,11 +76,15 @@ public class TagRegistry {
         public static TagKey<Item> CROPS_CUCUMBER = forgeTag("crops/cucumber");
         public static TagKey<Item> CROPS_COTTON = forgeTag("crops/cotton");
         public static TagKey<Item> CROPS_SUGAR_BEET = forgeTag("crops/sugar_beet");
-//        public static TagKey<Item> CROPS_ONION = forgeTag("crops/onion");
+        public static TagKey<Item> CROPS_ONION = forgeTag("crops/onion");
+        public static TagKey<Item> RICE = forgeTag("crops/rice");
 
         public static TagKey<Item> FOOD = forgeTag("food");
         public static TagKey<Item> LOBSTER = forgeTag("food/lobster");
         public static TagKey<Item> RAW_LOBSTER = forgeTag("food/raw_lobster");
+        public static TagKey<Item> SUSHI = forgeTag("food/sushi");
+        public static TagKey<Item> CUCUMBER_SUSHI = forgeTag("food/cucumber_shushi");
+        public static TagKey<Item> LOBSTER_SUSHI = forgeTag("food/lobster_sushi");
 
         public static TagKey<Item> SALAD_INGREDIENTS = forgeTag("salad_ingredients");
         public static TagKey<Item> SALAD_INGREDIENTS_LETTUCE = forgeTag("salad_ingredients/lettuce");
