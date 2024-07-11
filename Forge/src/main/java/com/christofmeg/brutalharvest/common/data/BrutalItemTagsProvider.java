@@ -96,20 +96,27 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
 
         tag(TagRegistry.Items.CROPS_COTTON).add(ItemRegistry.COTTON.get());
 
-/*        tag(TagRegistry.Items.FOOD)
-                .addTag(TagRegistry.Items.LOBSTER)
-                .addTag(TagRegistry.Items.RAW_LOBSTER)
-                .addTag(TagRegistry.Items.SUSHI)
-                .addTag(TagRegistry.Items.CUCUMBER_SUSHI)
-                .addTag(TagRegistry.Items.LOBSTER_SUSHI);
+        tag(TagRegistry.Items.FOOD)
+//              .addTag(TagRegistry.Items.LOBSTER)
+//              .addTag(TagRegistry.Items.RAW_LOBSTER)
+//              .addTag(TagRegistry.Items.SUSHI)
+//              .addTag(TagRegistry.Items.CUCUMBER_SUSHI)
+//              .addTag(TagRegistry.Items.LOBSTER_SUSHI)
+                .addTag(TagRegistry.Items.FRIED_EGG)
+                .addTag(TagRegistry.Items.TOAST)
+                .addTag(TagRegistry.Items.SCRAMBLED_EGG);
+//
+//        tag(TagRegistry.Items.LOBSTER).add(ItemRegistry.LOBSTER.get());
+//        tag(TagRegistry.Items.RAW_LOBSTER).add(ItemRegistry.RAW_LOBSTER.get());
+//        tag(TagRegistry.Items.SUSHI).add(ItemRegistry.SUSHI.get());
+//        tag(TagRegistry.Items.CUCUMBER_SUSHI).add(ItemRegistry.CUCUMBER_SUSHI.get());
+//        tag(TagRegistry.Items.LOBSTER_SUSHI).add(ItemRegistry.LOBSTER_SUSHI.get());
+        tag(TagRegistry.Items.FRIED_EGG).add(ItemRegistry.FRIED_EGG.get());
+        tag(TagRegistry.Items.TOAST).add(ItemRegistry.TOAST.get());
+        tag(TagRegistry.Items.SCRAMBLED_EGG).add(ItemRegistry.SCRAMBLED_EGG.get());
 
-        tag(TagRegistry.Items.LOBSTER).add(ItemRegistry.LOBSTER.get());
-        tag(TagRegistry.Items.RAW_LOBSTER).add(ItemRegistry.RAW_LOBSTER.get());
-        tag(TagRegistry.Items.SUSHI).add(ItemRegistry.SUSHI.get());
-        tag(TagRegistry.Items.CUCUMBER_SUSHI).add(ItemRegistry.CUCUMBER_SUSHI.get());
-        tag(TagRegistry.Items.LOBSTER_SUSHI).add(ItemRegistry.LOBSTER_SUSHI.get());
 
- */
+
         tag(ItemTags.VILLAGER_PLANTABLE_SEEDS)
                 .add(ItemRegistry.TOMATO_SEEDS.get())
     //            .add(ItemRegistry.LETTUCE_SEEDS.get())

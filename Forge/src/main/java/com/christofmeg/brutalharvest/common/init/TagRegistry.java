@@ -79,13 +79,16 @@ public class TagRegistry {
 //        public static TagKey<Item> CROPS_ONION = forgeTag("crops/onion");
 //        public static TagKey<Item> RICE = forgeTag("crops/rice");
 
-/*        public static TagKey<Item> FOOD = forgeTag("food");
-        public static TagKey<Item> LOBSTER = forgeTag("food/lobster");
-        public static TagKey<Item> RAW_LOBSTER = forgeTag("food/raw_lobster");
-        public static TagKey<Item> SUSHI = forgeTag("food/sushi");
-        public static TagKey<Item> CUCUMBER_SUSHI = forgeTag("food/cucumber_shushi");
-        public static TagKey<Item> LOBSTER_SUSHI = forgeTag("food/lobster_sushi");
-*/
+        public static TagKey<Item> FOOD = forgeTag("food");
+//        public static TagKey<Item> LOBSTER = forgeTag("food/lobster");
+//        public static TagKey<Item> RAW_LOBSTER = forgeTag("food/raw_lobster");
+//        public static TagKey<Item> SUSHI = forgeTag("food/sushi");
+//        public static TagKey<Item> CUCUMBER_SUSHI = forgeTag("food/cucumber_shushi");
+//        public static TagKey<Item> LOBSTER_SUSHI = forgeTag("food/lobster_sushi");
+        public static TagKey<Item> FRIED_EGG = forgeTag("food/fried_egg");
+        public static TagKey<Item> TOAST = forgeTag("food/toast");
+        public static TagKey<Item> SCRAMBLED_EGG = forgeTag("food/scrambled_egg");
+
 
         public static TagKey<Item> SALAD_INGREDIENTS = forgeTag("salad_ingredients");
         public static TagKey<Item> SALAD_INGREDIENTS_LETTUCE = forgeTag("salad_ingredients/lettuce");

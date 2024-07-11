@@ -27,4 +27,8 @@ public class BrutalFoods {
     public static final FoodProperties LOBSTER_SUSHI = new FoodProperties.Builder().nutrition(4).saturationMod(2.3F).build();
 
  */
+
+    public static final FoodProperties FRIED_EGG = new FoodProperties.Builder().nutrition(3).saturationMod(2.4F).build();
+    public static final FoodProperties TOAST = new FoodProperties.Builder().nutrition(3).saturationMod(2.4F).build();
+    public static final FoodProperties SCRAMBLED_EGG = new FoodProperties.Builder().nutrition(3).saturationMod(2.4F).build();
 }
