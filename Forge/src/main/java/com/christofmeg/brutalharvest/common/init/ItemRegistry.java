@@ -64,8 +64,30 @@ public class ItemRegistry {
     // public static final RegistryObject<Item> RICE;
 
     public static final RegistryObject<Item> FRIED_EGG;
-    public static final RegistryObject<Item> TOAST;
     public static final RegistryObject<Item> SCRAMBLED_EGG;
+    public static final RegistryObject<Item> BOILED_EGG;
+
+    public static final RegistryObject<Item> TOAST_HONEY;
+    public static final RegistryObject<Item> TOAST_STRAWBERRY;
+    public static final RegistryObject<Item> TOAST_BLUEBERRY;
+
+    public static final RegistryObject<Item> HONEY_JAR;
+    public static final RegistryObject<Item> STRAWBERRY_JAM;
+    public static final RegistryObject<Item> BLUEBERRY_JAM;
+
+    public static final RegistryObject<Item> TOAST_FRIED_EGG;
+    public static final RegistryObject<Item> TOAST_SCRAMBLED_EGG;
+    public static final RegistryObject<Item> TOAST_BOILED_EGG;
+
+    public static final RegistryObject<Item> TOAST_LOAF;
+    public static final RegistryObject<Item> TOAST;
+    public static final RegistryObject<Item> TOAST_SLICE;
+
+    public static final RegistryObject<Item> CORN_KERNEL_BOWL;
+    public static final RegistryObject<Item> POPCORN;
+
+    public static final RegistryObject<Item> FLOUR;
+    public static final RegistryObject<Item> DOUGH;
 
     public static final RegistryObject<Item> RUBBER_BUCKET;
     public static final RegistryObject<Item> RUBBER;
@@ -87,6 +109,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> NETHERITE_SCYTHE;
 
     public static final RegistryObject<Item> SEED_SATCHEL;
+    public static final RegistryObject<Item> JAR;
     public static final RegistryObject<Item> FABRIC;
 
     public static final RegistryObject<Item> BLACK_FABRIC;
@@ -155,8 +178,30 @@ public class ItemRegistry {
         // RICE = ITEMS.register("rice", () -> new Item(new Item.Properties().food(BrutalFoods.RICE)));
 
         FRIED_EGG = ITEMS.register("fried_egg", () -> new Item(new Item.Properties().food(BrutalFoods.FRIED_EGG)));
-        TOAST = ITEMS.register("toast", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST)));
         SCRAMBLED_EGG = ITEMS.register("scrambled_egg", () -> new Item(new Item.Properties().food(BrutalFoods.SCRAMBLED_EGG)));
+        BOILED_EGG = ITEMS.register("boiled_egg", () -> new Item(new Item.Properties().food(BrutalFoods.BOILED_EGG)));
+
+        TOAST_HONEY = ITEMS.register("toast_honey", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST_HONEY)));
+        TOAST_STRAWBERRY = ITEMS.register("toast_strawberry", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST_STRAWBERRY)));
+        TOAST_BLUEBERRY = ITEMS.register("toast_blueberry", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST_BLUEBERRY)));
+
+        HONEY_JAR = ITEMS.register("honey_jar", () -> new Item(new Item.Properties().food(BrutalFoods.HONEY_JAR)));
+        STRAWBERRY_JAM = ITEMS.register("strawberry_jam", () -> new Item(new Item.Properties().food(BrutalFoods.STRAWBERRY_JAM)));
+        BLUEBERRY_JAM = ITEMS.register("blueberry_jam", () -> new Item(new Item.Properties().food(BrutalFoods.BLUEBERRY_JAM)));
+
+        TOAST_FRIED_EGG = ITEMS.register("toast_fried_egg", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST_FRIED_EGG)));
+        TOAST_SCRAMBLED_EGG = ITEMS.register("toast_scrambled_egg", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST_SCRAMBLED_EGG)));
+        TOAST_BOILED_EGG = ITEMS.register("toast_boiled_egg", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST_BOILED_EGG)));
+
+        TOAST_LOAF = ITEMS.register("toast_loaf", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST_LOAF)));
+        TOAST = ITEMS.register("toast", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST)));
+        TOAST_SLICE = ITEMS.register("toast_slice", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST_SLICE)));
+
+        CORN_KERNEL_BOWL = ITEMS.register("corn_kernel_bowl", () -> new Item(new Item.Properties()));
+        POPCORN = ITEMS.register("popcorn", () -> new Item(new Item.Properties().food(BrutalFoods.POPCORN)));
+
+        FLOUR = ITEMS.register("flour", () -> new Item(new Item.Properties()));
+        DOUGH = ITEMS.register("dough", () -> new Item(new Item.Properties()));
 
         RUBBER_BUCKET = ITEMS.register("rubber_bucket", () -> new Item(new Item.Properties())); //TODO implement
         RUBBER = ITEMS.register("rubber", () -> new Item(new Item.Properties()));
@@ -178,6 +223,8 @@ public class ItemRegistry {
         NETHERITE_SCYTHE = ITEMS.register("netherite_scythe", () -> new ScytheItem(Tiers.NETHERITE, 1, new Item.Properties()));
 
         SEED_SATCHEL = ITEMS.register("seed_satchel", () -> new Item(new Item.Properties()));
+        JAR = ITEMS.register("jar", () -> new Item(new Item.Properties()));
+
         FABRIC = ITEMS.register("fabric", () -> new Item(new Item.Properties()));
 
         BLACK_FABRIC = ITEMS.register("black" + "_" + "fabric", () -> new Item(new Item.Properties()));

@@ -103,8 +103,23 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
 //              .addTag(TagRegistry.Items.CUCUMBER_SUSHI)
 //              .addTag(TagRegistry.Items.LOBSTER_SUSHI)
                 .addTag(TagRegistry.Items.FRIED_EGG)
+                .addTag(TagRegistry.Items.SCRAMBLED_EGG)
+                .addTag(TagRegistry.Items.BOILED_EGG)
+
+                .addTag(TagRegistry.Items.TOAST_HONEY)
+                .addTag(TagRegistry.Items.TOAST_STRAWBERRY)
+                .addTag(TagRegistry.Items.TOAST_BLUEBERRY)
+
+                .addTag(TagRegistry.Items.STRAWBERRY_JAM)
+                .addTag(TagRegistry.Items.BLUEBERRY_JAM)
+
+                .addTag(TagRegistry.Items.TOAST_FRIED_EGG)
+                .addTag(TagRegistry.Items.TOAST_SCRAMBLED_EGG)
+                .addTag(TagRegistry.Items.TOAST_BOILED_EGG)
+
+                .addTag(TagRegistry.Items.TOAST_LOAF)
                 .addTag(TagRegistry.Items.TOAST)
-                .addTag(TagRegistry.Items.SCRAMBLED_EGG);
+                .addTag(TagRegistry.Items.TOAST_SLICE);
 //
 //        tag(TagRegistry.Items.LOBSTER).add(ItemRegistry.LOBSTER.get());
 //        tag(TagRegistry.Items.RAW_LOBSTER).add(ItemRegistry.RAW_LOBSTER.get());
@@ -112,9 +127,27 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
 //        tag(TagRegistry.Items.CUCUMBER_SUSHI).add(ItemRegistry.CUCUMBER_SUSHI.get());
 //        tag(TagRegistry.Items.LOBSTER_SUSHI).add(ItemRegistry.LOBSTER_SUSHI.get());
         tag(TagRegistry.Items.FRIED_EGG).add(ItemRegistry.FRIED_EGG.get());
-        tag(TagRegistry.Items.TOAST).add(ItemRegistry.TOAST.get());
         tag(TagRegistry.Items.SCRAMBLED_EGG).add(ItemRegistry.SCRAMBLED_EGG.get());
+        tag(TagRegistry.Items.BOILED_EGG).add(ItemRegistry.BOILED_EGG.get());
 
+        tag(TagRegistry.Items.TOAST_HONEY).add(ItemRegistry.TOAST_HONEY.get());
+        tag(TagRegistry.Items.TOAST_STRAWBERRY).add(ItemRegistry.TOAST_STRAWBERRY.get());
+        tag(TagRegistry.Items.TOAST_BLUEBERRY).add(ItemRegistry.TOAST_BLUEBERRY.get());
+
+        tag(TagRegistry.Items.HONEY_JAR).add(ItemRegistry.HONEY_JAR.get());
+        tag(TagRegistry.Items.STRAWBERRY_JAM).add(ItemRegistry.STRAWBERRY_JAM.get());
+        tag(TagRegistry.Items.BLUEBERRY_JAM).add(ItemRegistry.BLUEBERRY_JAM.get());
+
+        tag(TagRegistry.Items.TOAST_FRIED_EGG).add(ItemRegistry.TOAST_FRIED_EGG.get());
+        tag(TagRegistry.Items.TOAST_SCRAMBLED_EGG).add(ItemRegistry.TOAST_SCRAMBLED_EGG.get());
+        tag(TagRegistry.Items.TOAST_BOILED_EGG).add(ItemRegistry.TOAST_BOILED_EGG.get());
+
+        tag(TagRegistry.Items.TOAST_LOAF).add(ItemRegistry.TOAST_LOAF.get());
+        tag(TagRegistry.Items.TOAST).add(ItemRegistry.TOAST.get());
+        tag(TagRegistry.Items.TOAST_SLICE).add(ItemRegistry.TOAST_SLICE.get());
+
+        tag(TagRegistry.Items.CORN_KERNEL_BOWL).add(ItemRegistry.CORN_KERNEL_BOWL.get());
+        tag(TagRegistry.Items.POPCORN).add(ItemRegistry.POPCORN.get());
 
 
         tag(ItemTags.VILLAGER_PLANTABLE_SEEDS)
@@ -142,9 +175,17 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
         });
 
         tag(TagRegistry.Items.ITEMS)
-                .addTag(TagRegistry.Items.SEED_SATCHEL);
+                .addTag(TagRegistry.Items.SEED_SATCHEL)
+
+                .addTag(TagRegistry.Items.JAR)
+
+                .addTag(TagRegistry.Items.FLOUR)
+                .addTag(TagRegistry.Items.DOUGH);
 
         tag(TagRegistry.Items.SEED_SATCHEL).add(ItemRegistry.SEED_SATCHEL.get());
+        tag(TagRegistry.Items.JAR).add(ItemRegistry.JAR.get());
+        tag(TagRegistry.Items.FLOUR).add(ItemRegistry.FLOUR.get());
+        tag(TagRegistry.Items.DOUGH).add(ItemRegistry.DOUGH.get());
 
 
         tag(ItemTags.PIGLIN_LOVED).add(ItemRegistry.GOLDEN_KNIFE.get()).add(ItemRegistry.GOLDEN_SCYTHE.get());

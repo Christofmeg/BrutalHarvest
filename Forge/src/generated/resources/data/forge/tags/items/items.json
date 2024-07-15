@@ -1,5 +1,8 @@
 {
   "values": [
-    "#forge:items/seed_satchel"
+    "#forge:items/seed_satchel",
+    "#forge:items/jar",
+    "#forge:items/flour",
+    "#forge:items/dough"
   ]
 }
