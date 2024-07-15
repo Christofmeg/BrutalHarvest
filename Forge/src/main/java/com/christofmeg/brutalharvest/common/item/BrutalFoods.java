@@ -28,7 +28,25 @@ public class BrutalFoods {
 
  */
 
-    public static final FoodProperties FRIED_EGG = new FoodProperties.Builder().nutrition(3).saturationMod(2.4F).build();
-    public static final FoodProperties TOAST = new FoodProperties.Builder().nutrition(3).saturationMod(2.4F).build();
-    public static final FoodProperties SCRAMBLED_EGG = new FoodProperties.Builder().nutrition(3).saturationMod(2.4F).build();
+    public static final FoodProperties FRIED_EGG = new FoodProperties.Builder().nutrition(4).saturationMod(3.7F).build();
+    public static final FoodProperties SCRAMBLED_EGG = new FoodProperties.Builder().nutrition(4).saturationMod(2.8F).build();
+    public static final FoodProperties BOILED_EGG = new FoodProperties.Builder().nutrition(4).saturationMod(2.3F).build();
+
+    public static final FoodProperties TOAST_HONEY = new FoodProperties.Builder().nutrition(4).saturationMod(2.4F).build();
+    public static final FoodProperties TOAST_STRAWBERRY = new FoodProperties.Builder().nutrition(3).saturationMod(2.4F).build();
+    public static final FoodProperties TOAST_BLUEBERRY = new FoodProperties.Builder().nutrition(3).saturationMod(2.4F).build();
+
+    public static final FoodProperties HONEY_JAR = new FoodProperties.Builder().nutrition(2).saturationMod(1.3F).build();
+    public static final FoodProperties STRAWBERRY_JAM = new FoodProperties.Builder().nutrition(3).saturationMod(1.3F).build();
+    public static final FoodProperties BLUEBERRY_JAM = new FoodProperties.Builder().nutrition(3).saturationMod(1.3F).build();
+
+    public static final FoodProperties TOAST_FRIED_EGG = new FoodProperties.Builder().nutrition(5).saturationMod(3.5F).build();
+    public static final FoodProperties TOAST_SCRAMBLED_EGG = new FoodProperties.Builder().nutrition(5).saturationMod(2.7F).build();
+    public static final FoodProperties TOAST_BOILED_EGG = new FoodProperties.Builder().nutrition(5).saturationMod(1.3F).build();
+
+    public static final FoodProperties TOAST_LOAF = new FoodProperties.Builder().nutrition(-1).saturationMod(2.6F).build();
+    public static final FoodProperties TOAST = new FoodProperties.Builder().nutrition(3).saturationMod(3.5F).build();
+    public static final FoodProperties TOAST_SLICE = new FoodProperties.Builder().nutrition(1).saturationMod(1.9F).build();
+
+    public static final FoodProperties POPCORN = new FoodProperties.Builder().nutrition(2).saturationMod(3.2F).build();
 }

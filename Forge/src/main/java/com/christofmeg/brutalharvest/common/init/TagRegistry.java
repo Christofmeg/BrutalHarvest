@@ -86,15 +86,38 @@ public class TagRegistry {
 //        public static TagKey<Item> CUCUMBER_SUSHI = forgeTag("food/cucumber_shushi");
 //        public static TagKey<Item> LOBSTER_SUSHI = forgeTag("food/lobster_sushi");
         public static TagKey<Item> FRIED_EGG = forgeTag("food/fried_egg");
-        public static TagKey<Item> TOAST = forgeTag("food/toast");
         public static TagKey<Item> SCRAMBLED_EGG = forgeTag("food/scrambled_egg");
+        public static TagKey<Item> BOILED_EGG = forgeTag("food/boiled_egg");
 
+        public static TagKey<Item> TOAST_HONEY = forgeTag("food/toast_honey");
+        public static TagKey<Item> TOAST_STRAWBERRY = forgeTag("food/toast_strawberry");
+        public static TagKey<Item> TOAST_BLUEBERRY = forgeTag("food/toast_blueberry");
+
+        public static TagKey<Item> HONEY_JAR = forgeTag("food/honey_jar");
+        public static TagKey<Item> STRAWBERRY_JAM = forgeTag("food/strawberry_jam");
+        public static TagKey<Item> BLUEBERRY_JAM = forgeTag("food/blueberry_jam");
+
+        public static TagKey<Item> TOAST_FRIED_EGG = forgeTag("food/toast_fried_egg");
+        public static TagKey<Item> TOAST_SCRAMBLED_EGG = forgeTag("food/toast_scrambled_egg");
+        public static TagKey<Item> TOAST_BOILED_EGG = forgeTag("food/toast_boiled_egg");
+
+        public static TagKey<Item> TOAST_LOAF = forgeTag("food/toast_loaf");
+        public static TagKey<Item> TOAST = forgeTag("food/toast");
+        public static TagKey<Item> TOAST_SLICE = forgeTag("food/toast_slice");
+
+        public static TagKey<Item> CORN_KERNEL_BOWL = forgeTag("food/corn_kernel_bowl");
+        public static TagKey<Item> POPCORN = forgeTag("food/popcorn");
 
         public static TagKey<Item> SALAD_INGREDIENTS = forgeTag("salad_ingredients");
         public static TagKey<Item> SALAD_INGREDIENTS_LETTUCE = forgeTag("salad_ingredients/lettuce");
 
         public static TagKey<Item> ITEMS = forgeTag("items");
         public static TagKey<Item> SEED_SATCHEL = forgeTag("items/seed_satchel");
+
+        public static TagKey<Item> JAR = forgeTag("items/jar");
+
+        public static TagKey<Item> FLOUR = forgeTag("items/flour");
+        public static TagKey<Item> DOUGH = forgeTag("items/dough");
 
         public static TagKey<Item> TOOLS = forgeTag("tools");
         public static TagKey<Item> KNIVES = forgeTag("tools/knives");
