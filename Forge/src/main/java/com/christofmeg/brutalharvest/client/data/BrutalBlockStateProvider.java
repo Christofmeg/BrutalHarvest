@@ -47,6 +47,10 @@ public class BrutalBlockStateProvider extends BlockStateProvider {
         cornBlockFull(BlockRegistry.CORN.get(), "4_upper");
         cornBlockCrop(BlockRegistry.CORN.get(), "5_lower");
         cornBlockFull(BlockRegistry.CORN.get(), "5_upper");
+        cornBlockCrop(BlockRegistry.CORN.get(), "6_lower");
+        cornBlockFull(BlockRegistry.CORN.get(), "6_upper");
+        cornBlockCrop(BlockRegistry.CORN.get(), "7_lower");
+        cornBlockFull(BlockRegistry.CORN.get(), "7_upper");
 
         makeCottonCrop(BlockRegistry.COTTON.get());
         makeSugarBeetCrop(BlockRegistry.SUGAR_BEET.get());

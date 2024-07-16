@@ -87,7 +87,6 @@ public class ItemRegistry {
     public static final RegistryObject<Item> TOAST;
     public static final RegistryObject<Item> TOAST_SLICE;
 
-    public static final RegistryObject<Item> CORN_KERNEL_BOWL;
     public static final RegistryObject<Item> POPCORN;
 
     public static final RegistryObject<Item> FLOUR;
@@ -207,7 +206,6 @@ public class ItemRegistry {
         TOAST = ITEMS.register("toast", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST)));
         TOAST_SLICE = ITEMS.register("toast_slice", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST_SLICE)));
 
-        CORN_KERNEL_BOWL = ITEMS.register("corn_kernel_bowl", () -> new Item(new Item.Properties().craftRemainder(Items.BOWL)));
         POPCORN = ITEMS.register("popcorn", () -> new Item(new Item.Properties().food(BrutalFoods.POPCORN).craftRemainder(Items.BOWL)));
 
         FLOUR = ITEMS.register("flour", () -> new Item(new Item.Properties()));

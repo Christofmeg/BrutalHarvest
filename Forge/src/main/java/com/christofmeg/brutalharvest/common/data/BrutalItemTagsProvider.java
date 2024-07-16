@@ -153,7 +153,6 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
         tag(TagRegistry.Items.TOAST).add(ItemRegistry.TOAST.get());
         tag(TagRegistry.Items.TOAST_SLICE).add(ItemRegistry.TOAST_SLICE.get());
 
-        tag(TagRegistry.Items.CORN_KERNEL_BOWL).add(ItemRegistry.CORN_KERNEL_BOWL.get());
         tag(TagRegistry.Items.POPCORN).add(ItemRegistry.POPCORN.get());
 
 

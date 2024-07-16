@@ -36,7 +36,7 @@ import java.util.List;
 
 public class CornCropBlock extends CropBlock {
 
-    public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 9);
+    public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 13);
     private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[] {
             Block.box(0.0, 0.0, 0.0, 16.0, 5.0, 16.0),
             Block.box(0.0, 0.0, 0.0, 16.0, 10.0, 16.0),
@@ -44,8 +44,12 @@ public class CornCropBlock extends CropBlock {
             Shapes.block(),
             Shapes.block(),
             Shapes.block(),
+            Shapes.block(),
+            Shapes.block(),
             Block.box(0.0, 0.0, 0.0, 16.0, 3.0, 16.0),
             Block.box(0.0, 0.0, 0.0, 16.0, 8.0, 16.0),
+            Block.box(0.0, 0.0, 0.0, 16.0, 8.0, 16.0),
+            Block.box(0.0, 0.0, 0.0, 16.0, 11.0, 16.0),
             Block.box(0.0, 0.0, 0.0, 16.0, 11.0, 16.0),
             Block.box(0.0, 0.0, 0.0, 16.0, 11.0, 16.0),
     };
@@ -69,7 +73,7 @@ public class CornCropBlock extends CropBlock {
                     float f = getGrowthSpeed(this, pLevel, pPos);
                     if (ForgeHooks.onCropsGrowPre(pLevel, pPos, pState, pRandom.nextInt((int)(25.0F / f) + 1) == 0)) {
                         if (age >= 1) {
-                            pLevel.setBlock(pPos.above(1), this.getStateForAge(age + 4 + 1), 2);
+                            pLevel.setBlock(pPos.above(1), this.getStateForAge(age + 6 + 1), 2);
                         }
                         pLevel.setBlock(pPos, this.getStateForAge(age + 1), 2);
                         ForgeHooks.onCropsGrowPost(pLevel, pPos, pState);
@@ -90,7 +94,7 @@ public class CornCropBlock extends CropBlock {
         if (below.is(this)) {
             int belowAge = below.getValue(AGE);
             int thisAge = state.getValue(AGE);
-            if (belowAge + 4 <= thisAge) {
+            if (belowAge + 6 <= thisAge) {
                 return true;
             }
         }
@@ -99,7 +103,7 @@ public class CornCropBlock extends CropBlock {
 
     @Override
     public int getMaxAge() {
-        return 5; //TODO JADE/TOP/WTHIT override
+        return 7; //TODO JADE/TOP/WTHIT override
     }
 
     @Override
@@ -130,9 +134,9 @@ public class CornCropBlock extends CropBlock {
         if (!dropsOriginal.isEmpty()) {
             return dropsOriginal;
         }
-        return state.getValue(AGE) == 5 || state.getValue(AGE) == 9 ?
+        return state.getValue(AGE) == 7 || state.getValue(AGE) == 13 ?
                 List.of(new ItemStack(ItemRegistry.CORN.get(), randomAmountCrop), new ItemStack(this, randomAmountSeed)) :
-                List.of(new ItemStack(this, 1));
+                List.of(new ItemStack(this, 1)); //TODO Fix drops
     }
 
     @Override
@@ -152,15 +156,15 @@ public class CornCropBlock extends CropBlock {
 
     @Override
     public boolean isValidBonemealTarget(@NotNull LevelReader levelReader, @NotNull BlockPos pos, BlockState state, boolean $$3) {
-        return state.getValue(AGE) < 4 || state.getValue(AGE) > 5 && state.getValue(AGE) < 8;
+        return state.getValue(AGE) < 6 || state.getValue(AGE) > 7 && state.getValue(AGE) < 12;
     }
 
     @Override
     public void growCrops(@NotNull Level level, @NotNull BlockPos pos, @NotNull BlockState state) {
         int newAge = this.getAge(state) + 1; //this.getBonemealAgeIncrease(level);
         int maxAge = this.getMaxAge();
-        if (this.getAge(state) > 5) {
-            maxAge += 4;
+        if (this.getAge(state) > 7) {
+            maxAge += 6;
         }
         if (newAge > maxAge) {
             newAge = maxAge;
@@ -170,12 +174,12 @@ public class CornCropBlock extends CropBlock {
         BlockState below = level.getBlockState(pos.below());
 
         if (above.getBlock() instanceof CornCropBlock) {
-            level.setBlock(pos.above(), this.getStateForAge(newAge + 4), 2);
+            level.setBlock(pos.above(), this.getStateForAge(newAge + 6), 2);
         } else if (below.getBlock() instanceof CornCropBlock) {
-            level.setBlock(pos.below(), this.getStateForAge(newAge - 4), 2);
+            level.setBlock(pos.below(), this.getStateForAge(newAge - 6), 2);
         }
         if (this.getAge(state) >= 1 && level.getBlockState(pos.above()).is(Blocks.AIR) && !level.getBlockState(pos.below()).is(this)) {
-            level.setBlock(pos.above(), this.getStateForAge(newAge + 4), 2);
+            level.setBlock(pos.above(), this.getStateForAge(newAge + 6), 2);
         }
 
         level.setBlock(pos, this.getStateForAge(newAge), 2);
@@ -186,19 +190,19 @@ public class CornCropBlock extends CropBlock {
     @Override
     public @NotNull InteractionResult use(BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
         int age = state.getValue(AGE);
-        boolean reachedCornAge = age == 5 || age == 9;
+        boolean reachedCornAge = age == 7 || age == 13;
         if (!reachedCornAge && player.getItemInHand(interactionHand).is(Items.BONE_MEAL)) {
             return InteractionResult.PASS;
         } else if (reachedCornAge) {
             ItemStack stack = player.getItemInHand(interactionHand);
             if (stack.getItem() instanceof KnifeItem) {
                 if (level.getBlockState(pos.above()).getBlock() instanceof CornCropBlock) {
-                    use(level, state, pos, pos.above(), +4, player, stack, interactionHand);
+                    use(level, state, pos, pos.above(), +6, player, stack, interactionHand);
                 } else if (level.getBlockState(pos.below()).getBlock() instanceof CornCropBlock) {
-                    use(level, state, pos, pos.below(), -4, player, stack, interactionHand);
+                    use(level, state, pos, pos.below(), -6, player, stack, interactionHand);
                 }
                 return InteractionResult.sidedSuccess(level.isClientSide);
-            }
+            } //TODO fix knife interaction
         }
         return super.use(state, level, pos, player, interactionHand, blockHitResult);
     }

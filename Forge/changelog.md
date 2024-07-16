@@ -11,5 +11,9 @@
 * Added toast with honey jar, strawberry jam and blueberry jam
 * Fix Tomato Crop not random ticking to rotten age
 * Added Lettuce Crop
-* Added craft remainders to Corn Kernel Bowl, Honey Jar, Blueberry Jam, Strawberry Jam, Rubber Bucket and Popcorn
+* Added craft remainders to Honey Jar, Blueberry Jam, Strawberry Jam, Rubber Bucket and Popcorn
 * Updated Corn item texture
+* Removed Corn Kernel Bowl
+* Updated textures for Corn item, Cucumber Seeds, Sugar Beet Seeds and Rapeseeds
+* Updated Corn Crop textures
+* Tweaked Corn Crop growth stages
