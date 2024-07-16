@@ -1,23 +1,20 @@
 package com.christofmeg.brutalharvest.common.data;
 
-import com.christofmeg.brutalharvest.CommonConstants;
+import com.christofmeg.brutalharvest.common.data.base.BaseRecipeProvider;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
 import com.christofmeg.brutalharvest.common.init.TagRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.Tags;
-import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
 import java.util.function.Consumer;
 
-public class BrutalRecipeProvider extends RecipeProvider implements IConditionBuilder {
+public class BrutalRecipeProvider extends BaseRecipeProvider {
 
     public BrutalRecipeProvider(PackOutput packOutput) {
         super(packOutput);
@@ -28,6 +25,7 @@ public class BrutalRecipeProvider extends RecipeProvider implements IConditionBu
         this.addShapedRecipes(consumer);
         this.addShapelessRecipes(consumer);
         this.addSmithingRecipes(consumer);
+        this.addCookingRecipes(consumer);
     }
 
     private void addShapedRecipes(Consumer<FinishedRecipe> consumer) {
@@ -83,27 +81,6 @@ public class BrutalRecipeProvider extends RecipeProvider implements IConditionBu
                 .unlockedBy("has_rice", has(ItemRegistry.RICE.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.LOBSTER_SUSHI.get())));
  */
-    }
-
-
-    private void addSmithingRecipes(Consumer<FinishedRecipe> consumer) {
-        SmithingTransformRecipeBuilder.smithing(
-                Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
-                Ingredient.of(ItemRegistry.DIAMOND_KNIFE.get()),
-                Ingredient.of(Items.NETHERITE_INGOT),
-                RecipeCategory.COMBAT,
-                ItemRegistry.NETHERITE_KNIFE.get())
-                .unlocks("has_netherite_ingot", has(Items.NETHERITE_INGOT))
-                .save(consumer, modLoc(getItemName(ItemRegistry.NETHERITE_KNIFE.get()) + "_smithing"));
-
-        SmithingTransformRecipeBuilder.smithing(
-                        Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
-                        Ingredient.of(ItemRegistry.DIAMOND_SCYTHE.get()),
-                        Ingredient.of(Items.NETHERITE_INGOT),
-                        RecipeCategory.COMBAT,
-                        ItemRegistry.NETHERITE_SCYTHE.get())
-                .unlocks("has_netherite_ingot", has(Items.NETHERITE_INGOT))
-                .save(consumer, modLoc(getItemName(ItemRegistry.NETHERITE_SCYTHE.get()) + "_smithing"));
     }
 
     private void addShapelessRecipes(Consumer<FinishedRecipe> consumer) {
@@ -167,37 +144,34 @@ public class BrutalRecipeProvider extends RecipeProvider implements IConditionBu
                 .save(consumer, modLoc(getItemName(ItemRegistry.FABRIC.get()) + "_cleaning"));
     }
 
-    private ResourceLocation modLoc(String string) {
-        return new ResourceLocation(CommonConstants.MOD_ID, string);
+    private void addSmithingRecipes(Consumer<FinishedRecipe> consumer) {
+        SmithingTransformRecipeBuilder.smithing(
+                Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
+                Ingredient.of(ItemRegistry.DIAMOND_KNIFE.get()),
+                Ingredient.of(Items.NETHERITE_INGOT),
+                RecipeCategory.COMBAT,
+                ItemRegistry.NETHERITE_KNIFE.get())
+                .unlocks("has_netherite_ingot", has(Items.NETHERITE_INGOT))
+                .save(consumer, modLoc(getItemName(ItemRegistry.NETHERITE_KNIFE.get()) + "_smithing"));
+
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
+                        Ingredient.of(ItemRegistry.DIAMOND_SCYTHE.get()),
+                        Ingredient.of(Items.NETHERITE_INGOT),
+                        RecipeCategory.COMBAT,
+                        ItemRegistry.NETHERITE_SCYTHE.get())
+                .unlocks("has_netherite_ingot", has(Items.NETHERITE_INGOT))
+                .save(consumer, modLoc(getItemName(ItemRegistry.NETHERITE_SCYTHE.get()) + "_smithing"));
     }
 
-    private void knifeBuilder(Item item, Ingredient ingredient, String string, Consumer<FinishedRecipe> consumer) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, item)
-                .define('I', ingredient)
-                .define('S', Tags.Items.RODS_WOODEN)
-                .pattern(" I")
-                .pattern("S ")
-                .unlockedBy("has_stick", has(Tags.Items.RODS_WOODEN))
-                .save(consumer, modLoc(string));
-    }
-
-    private void scytheBuilder(Item item, Ingredient ingredient, String string, Consumer<FinishedRecipe> consumer) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, item)
-                .define('I', ingredient)
-                .define('S', Tags.Items.RODS_WOODEN)
-                .pattern("I ")
-                .pattern(" I")
-                .pattern("S ")
-                .unlockedBy("has_stick", has(Tags.Items.RODS_WOODEN))
-                .save(consumer, modLoc(string));
-    }
-
-    private void fabricRecipeBuilder(Item item, TagKey<Item> requires, Consumer<FinishedRecipe> consumer) {
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, item)
-                .requires(TagRegistry.Items.FABRICS)
-                .requires(requires)
-                .unlockedBy("fabric", has(ItemRegistry.FABRIC.get()))
-                .save(consumer, modLoc(getItemName(item)));
+    private void addCookingRecipes(Consumer<FinishedRecipe> consumer) {
+        /*
+        // The first argument is a list of inputs that can result in the same output
+        blasting(List.of(ItemRegistry.TOAST_LOAF.get()), RecipeCategory.FOOD, ItemRegistry.TOAST.get(), 0.25f, 200, "food", consumer);
+        campfire(List.of(ItemRegistry.TOAST_LOAF.get()), RecipeCategory.FOOD, ItemRegistry.TOAST.get(), 0.25f, 200, "food", consumer);
+        smelting(List.of(ItemRegistry.TOAST_LOAF.get()), RecipeCategory.FOOD, ItemRegistry.TOAST.get(), 0.25f, 200, "food", consumer);
+        smoking(List.of(ItemRegistry.TOAST_LOAF.get()), RecipeCategory.FOOD, ItemRegistry.TOAST.get(), 0.25f, 200, "food", consumer);
+         */
     }
 
     //TODO look at JER plantdrops category
