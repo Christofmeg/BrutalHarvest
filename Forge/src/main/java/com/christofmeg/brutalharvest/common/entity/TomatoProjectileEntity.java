@@ -2,11 +2,14 @@ package com.christofmeg.brutalharvest.common.entity;
 
 import com.christofmeg.brutalharvest.common.init.AdvancementRegistry;
 import com.christofmeg.brutalharvest.common.init.EntityTypeRegistry;
+import com.christofmeg.brutalharvest.common.init.ItemRegistry;
 import com.christofmeg.brutalharvest.common.init.SoundRegistry;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -19,6 +22,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Random;
 
 public class TomatoProjectileEntity extends ThrowableItemProjectile {
 
@@ -62,8 +67,19 @@ public class TomatoProjectileEntity extends ThrowableItemProjectile {
                     AdvancementRegistry.ROTTEN_TOMATOES.trigger(serverPlayer);
                 }
             }
+            Random random = new Random();
+            int randomInt = random.nextInt(10);
+           if (randomInt == 0) {
+                if (this.getItem().getItem() == ItemRegistry.ROTTEN_TOMATO.get()) {
+                    if (entity instanceof LivingEntity livingEntity) {
+                        MobEffectInstance poison = new MobEffectInstance(MobEffects.POISON, 40);
+                        MobEffectInstance blindness = new MobEffectInstance(MobEffects.BLINDNESS, 40);
+                        livingEntity.addEffect(poison);
+                        livingEntity.addEffect(blindness);
+                    }
+                }
+           }
         }
-
     }
 
     protected void onHit(@NotNull HitResult hitResult) {
