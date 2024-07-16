@@ -15,14 +15,17 @@ public class BrutalFoods {
     public static final FoodProperties SLICED_LETTUCE = builder(2, 3.5F).build();
 
     public static final FoodProperties STRAWBERRY = builder(3, 2.4F).build();
+    public static final FoodProperties UNRIPE_STRAWBERRY = builder(1, 1.3F).build();
     public static final FoodProperties BLUEBERRY = builder(2, 2.5F).build();
 
     public static final FoodProperties CORN = builder(4, 3.4F).build();
+    public static final FoodProperties SUGAR_BEET = builder(2, 2.4F).build();
 
     public static final FoodProperties CUCUMBER = builder(3, 2.4F).build();
     public static final FoodProperties CUCUMBER_SLICES = builder(1, 1F).build();
     public static final FoodProperties PICKLES = builder(3, 2.4F).build();
 
+    /*
     public static final FoodProperties ONION = builder(2, 2.4F).build();
     public static final FoodProperties CHILI_PEPPER = builder(2, 2.4F).effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 600), 1.0F).build();
     public static final FoodProperties RICE = builder(1, 1.6F).build();
@@ -33,6 +36,8 @@ public class BrutalFoods {
     public static final FoodProperties CUCUMBER_SUSHI = builder(3, 2.3F).build();
     public static final FoodProperties LOBSTER_SUSHI = builder(4, 2.3F).build();
 
+
+     */
     public static final FoodProperties FRIED_EGG = builder(4, 3.7F).build();
     public static final FoodProperties SCRAMBLED_EGG = builder(4, 2.8F).build();
     public static final FoodProperties BOILED_EGG = builder(4, 2.3F).build();

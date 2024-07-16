@@ -54,7 +54,7 @@ public class TagRegistry {
         public static TagKey<Item> COTTON_SEEDS = forgeTag("seeds/cotton");
         public static TagKey<Item> RAPESEEDS = forgeTag("seeds/rapeseeds");
         public static TagKey<Item> SUGAR_BEET_SEEDS = forgeTag("seeds/sugar_beet");
-//        public static TagKey<Item> STRAWBERRY_SEEDS = forgeTag("seeds/strawberry_seeds");
+        public static TagKey<Item> STRAWBERRY_SEEDS = forgeTag("seeds/strawberry_seeds");
 //        public static TagKey<Item> ONION_SEEDS = forgeTag("seeds/onion_seeds");
 //        public static TagKey<Item> CHILI_PEPPER_SEEDS = forgeTag("seeds/chili_pepper_seeds");
 
@@ -71,6 +71,7 @@ public class TagRegistry {
 
         public static TagKey<Item> FRUITS = forgeTag("fruits");
         public static TagKey<Item> STRAWBERRY = forgeTag("fruits/strawberry");
+        public static TagKey<Item> UNRIPE_STRAWBERRY = forgeTag("fruits/unripe_strawberry");
         public static TagKey<Item> BLUEBERRY = forgeTag("fruits/blueberry");
 
 

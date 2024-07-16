@@ -47,9 +47,10 @@ public class ItemRegistry {
     public static final RegistryObject<Item> RAPESEEDS;
 
     public static final RegistryObject<Item> STRAWBERRY;
+    public static final RegistryObject<Item> UNRIPE_STRAWBERRY;
     public static final RegistryObject<Item> BLUEBERRY;
 
-    // public static final RegistryObject<Item> STRAWBERRY_SEEDS;
+    public static final RegistryObject<Item> STRAWBERRY_SEEDS;
 
     // ALL BELOW IN 2.0 OR 3.0
     // public static final RegistryObject<Item> ONION_SEEDS;
@@ -148,6 +149,7 @@ public class ItemRegistry {
         SLICED_LETTUCE = ITEMS.register("sliced_lettuce", () -> new Item(new Item.Properties().food(BrutalFoods.SLICED_LETTUCE)));
 
         STRAWBERRY = ITEMS.register("strawberry", () -> new Item(new Item.Properties().food(BrutalFoods.STRAWBERRY)));
+        UNRIPE_STRAWBERRY = ITEMS.register("unripe_strawberry", () -> new Item(new Item.Properties().food(BrutalFoods.UNRIPE_STRAWBERRY)));
         BLUEBERRY = ITEMS.register("blueberry", () -> new Item(new Item.Properties().food(BrutalFoods.BLUEBERRY)));
 
         CORN = ITEMS.register("corn", () -> new Item(new Item.Properties().food(BrutalFoods.CORN)));
@@ -167,10 +169,10 @@ public class ItemRegistry {
         CUCUMBER_SEEDS = ITEMS.register("cucumber_seeds", () -> new Item(new Item.Properties()));
         COTTON_SEEDS = ITEMS.register("cotton_seeds", () -> new ItemNameBlockItem(BlockRegistry.COTTON.get(), new Item.Properties()));
         RAPESEEDS = ITEMS.register("rapeseeds", () -> new Item(new Item.Properties()));
+        STRAWBERRY_SEEDS = ITEMS.register("strawberry_seeds", () -> new Item(new Item.Properties()));
         SUGAR_BEET_SEEDS = ITEMS.register("sugar_beet_seeds", () -> new ItemNameBlockItem(BlockRegistry.SUGAR_BEET.get(), new Item.Properties()));
 
         // ALL BELOW IN 2.0 OR 3.0
-        // STRAWBERRY_SEEDS = ITEMS.register("strawberry_seeds", () -> new Item(new Item.Properties()));
         // ONION_SEEDS = ITEMS.register("onion_seeds", () -> new Item(new Item.Properties()));
         // CHILI_PEPPER_SEEDS = ITEMS.register("chili_pepper_seeds", () -> new Item(new Item.Properties()));
 

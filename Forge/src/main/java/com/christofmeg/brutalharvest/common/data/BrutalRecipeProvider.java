@@ -110,10 +110,21 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .unlockedBy("cucumber_seeds", has(ItemRegistry.CUCUMBER_SEEDS.get()))
                 .save(consumer, modLoc("pickle"));
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.CUCUMBER_SEEDS.get())
+                .requires(ItemRegistry.CUCUMBER.get())
+                .unlockedBy("cucumber_seeds", has(ItemRegistry.CUCUMBER_SEEDS.get()))
+                .save(consumer, modLoc("cucumber_seeds"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.CORN_SEEDS.get())
+                .requires(ItemRegistry.CORN.get())
+                .unlockedBy("corn_seeds", has(ItemRegistry.CORN_SEEDS.get()))
+                .save(consumer, modLoc("corn_seeds"));
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.SUGAR)
                 .requires(ItemRegistry.SUGAR_BEET.get())
                 .unlockedBy("sugar_beet", has(ItemRegistry.SUGAR_BEET.get()))
                 .save(consumer, modLoc("sugar"));
+
 
         fabricRecipeBuilder(ItemRegistry.BLACK_FABRIC.get(), Tags.Items.DYES_BLACK, consumer);
         fabricRecipeBuilder(ItemRegistry.BLUE_FABRIC.get(), Tags.Items.DYES_BLUE, consumer);
@@ -174,6 +185,8 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
         smelting(List.of(ItemRegistry.TOAST_LOAF.get()), RecipeCategory.FOOD, ItemRegistry.TOAST.get(), 0.25f, 200, "food", consumer);
         smoking(List.of(ItemRegistry.TOAST_LOAF.get()), RecipeCategory.FOOD, ItemRegistry.TOAST.get(), 0.25f, 200, "food", consumer);
          */
+
+        smelting(List.of(ItemRegistry.TOAST_LOAF.get()), RecipeCategory.FOOD, ItemRegistry.TOAST.get(), 0.25f, 200, "food", consumer);
     }
 
     //TODO look at JER plantdrops category
