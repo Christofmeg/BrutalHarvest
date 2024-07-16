@@ -4,49 +4,55 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 
+@SuppressWarnings("unused")
 public class BrutalFoods {
+    public static final FoodProperties UNRIPE_TOMATO = builder(1, 1F).effect(() -> new MobEffectInstance(MobEffects.POISON, 100), 0.2F).build();
+    public static final FoodProperties TOMATO = builder(3, 2.5F).build();
+    public static final FoodProperties ROTTEN_TOMATO = builder(-2, 1.2F).effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 200), 0.5F).build();
+    public static final FoodProperties TOMATO_SLICE = builder(2, 1.7F).build();
 
-    public static final FoodProperties UNRIPE_TOMATO = new FoodProperties.Builder().nutrition(1).saturationMod(1).build();
-    public static final FoodProperties TOMATO = new FoodProperties.Builder().nutrition(3).saturationMod(2.5F).build();
-    public static final FoodProperties TOMATO_SLICE = new FoodProperties.Builder().nutrition(2).saturationMod(1.7F).build();
-    public static final FoodProperties ROTTEN_TOMATO = new FoodProperties.Builder().nutrition(-2).saturationMod(1.2F).effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 100), 1).build();
-    public static final FoodProperties LETTUCE = new FoodProperties.Builder().nutrition(3).saturationMod(5).build();
-    public static final FoodProperties SLICED_LETTUCE = new FoodProperties.Builder().nutrition(2).saturationMod(3.5F).build();
-    public static final FoodProperties CORN = new FoodProperties.Builder().nutrition(4).saturationMod(3.4F).build();
-    public static final FoodProperties CUCUMBER = new FoodProperties.Builder().nutrition(3).saturationMod(2.4F).build();
-    public static final FoodProperties CUCUMBER_SLICES = new FoodProperties.Builder().nutrition(1).saturationMod(1).build();
-    public static final FoodProperties PICKLES = new FoodProperties.Builder().nutrition(3).saturationMod(2.4F).build();
-/*    public static final FoodProperties ONION = new FoodProperties.Builder().nutrition(2).saturationMod(2.4F).build();
-    public static final FoodProperties CHILI_PEPPER = new FoodProperties.Builder().nutrition(2).saturationMod(2.4F).effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 300), 100).build();
-    public static final FoodProperties RICE = new FoodProperties.Builder().nutrition(1).saturationMod(1.6F).build();
+    public static final FoodProperties LETTUCE = builder(3, 5F).build();
+    public static final FoodProperties SLICED_LETTUCE = builder(2, 3.5F).build();
 
-    public static final FoodProperties LOBSTER = new FoodProperties.Builder().nutrition(2).saturationMod(2.4F).build();
-    public static final FoodProperties RAW_LOBSTER = new FoodProperties.Builder().nutrition(-2).saturationMod(1.6F).build();
-    public static final FoodProperties SUSHI = new FoodProperties.Builder().nutrition(3).saturationMod(2.3F).build();
-    public static final FoodProperties CUCUMBER_SUSHI = new FoodProperties.Builder().nutrition(3).saturationMod(2.3F).build();
-    public static final FoodProperties LOBSTER_SUSHI = new FoodProperties.Builder().nutrition(4).saturationMod(2.3F).build();
+    public static final FoodProperties CORN = builder(4, 3.4F).build();
 
- */
+    public static final FoodProperties CUCUMBER = builder(3, 2.4F).build();
+    public static final FoodProperties CUCUMBER_SLICES = builder(1, 1F).build();
+    public static final FoodProperties PICKLES = builder(3, 2.4F).build();
 
-    public static final FoodProperties FRIED_EGG = new FoodProperties.Builder().nutrition(4).saturationMod(3.7F).build();
-    public static final FoodProperties SCRAMBLED_EGG = new FoodProperties.Builder().nutrition(4).saturationMod(2.8F).build();
-    public static final FoodProperties BOILED_EGG = new FoodProperties.Builder().nutrition(4).saturationMod(2.3F).build();
+    public static final FoodProperties ONION = builder(2, 2.4F).build();
+    public static final FoodProperties CHILI_PEPPER = builder(2, 2.4F).effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 600), 1.0F).build();
+    public static final FoodProperties RICE = builder(1, 1.6F).build();
 
-    public static final FoodProperties TOAST_HONEY = new FoodProperties.Builder().nutrition(4).saturationMod(2.4F).build();
-    public static final FoodProperties TOAST_STRAWBERRY = new FoodProperties.Builder().nutrition(3).saturationMod(2.4F).build();
-    public static final FoodProperties TOAST_BLUEBERRY = new FoodProperties.Builder().nutrition(3).saturationMod(2.4F).build();
+    public static final FoodProperties LOBSTER = builder(2, 2.4F).build();
+    public static final FoodProperties RAW_LOBSTER = builder(-2, 1.6F).build();
+    public static final FoodProperties SUSHI = builder(3, 2.3F).build();
+    public static final FoodProperties CUCUMBER_SUSHI = builder(3, 2.3F).build();
+    public static final FoodProperties LOBSTER_SUSHI = builder(4, 2.3F).build();
 
-    public static final FoodProperties HONEY_JAR = new FoodProperties.Builder().nutrition(2).saturationMod(1.3F).build();
-    public static final FoodProperties STRAWBERRY_JAM = new FoodProperties.Builder().nutrition(3).saturationMod(1.3F).build();
-    public static final FoodProperties BLUEBERRY_JAM = new FoodProperties.Builder().nutrition(3).saturationMod(1.3F).build();
+    public static final FoodProperties FRIED_EGG = builder(4, 3.7F).build();
+    public static final FoodProperties SCRAMBLED_EGG = builder(4, 2.8F).build();
+    public static final FoodProperties BOILED_EGG = builder(4, 2.3F).build();
 
-    public static final FoodProperties TOAST_FRIED_EGG = new FoodProperties.Builder().nutrition(5).saturationMod(3.5F).build();
-    public static final FoodProperties TOAST_SCRAMBLED_EGG = new FoodProperties.Builder().nutrition(5).saturationMod(2.7F).build();
-    public static final FoodProperties TOAST_BOILED_EGG = new FoodProperties.Builder().nutrition(5).saturationMod(1.3F).build();
+    public static final FoodProperties TOAST_HONEY = builder(4, 2.4F).build();
+    public static final FoodProperties TOAST_STRAWBERRY = builder(3, 2.4F).build();
+    public static final FoodProperties TOAST_BLUEBERRY = builder(3, 2.4F).build();
 
-    public static final FoodProperties TOAST_LOAF = new FoodProperties.Builder().nutrition(-1).saturationMod(2.6F).build();
-    public static final FoodProperties TOAST = new FoodProperties.Builder().nutrition(3).saturationMod(3.5F).build();
-    public static final FoodProperties TOAST_SLICE = new FoodProperties.Builder().nutrition(1).saturationMod(1.9F).build();
+    public static final FoodProperties HONEY_JAR = builder(2, 1.3F).build();
+    public static final FoodProperties STRAWBERRY_JAM = builder(3, 1.3F).build();
+    public static final FoodProperties BLUEBERRY_JAM = builder(3, 1.3F).build();
 
-    public static final FoodProperties POPCORN = new FoodProperties.Builder().nutrition(2).saturationMod(3.2F).build();
+    public static final FoodProperties TOAST_FRIED_EGG = builder(5, 3.5F).build();
+    public static final FoodProperties TOAST_SCRAMBLED_EGG = builder(5, 2.7F).build();
+    public static final FoodProperties TOAST_BOILED_EGG = builder(5, 1.3F).build();
+
+    public static final FoodProperties TOAST_LOAF = builder(-1, 2.6F).build();
+    public static final FoodProperties TOAST = builder(3, 3.5F).build();
+    public static final FoodProperties TOAST_SLICE = builder(1, 1.9F).build();
+
+    public static final FoodProperties POPCORN = builder(2, 3.2F).build();
+
+    private static FoodProperties.Builder builder(int nutrition, float saturation) {
+        return new FoodProperties.Builder().nutrition(nutrition).saturationMod(saturation / nutrition);
+    }
 }

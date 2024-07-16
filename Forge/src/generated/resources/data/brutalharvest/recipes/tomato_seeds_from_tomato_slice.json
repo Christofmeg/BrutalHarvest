@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "brutalharvest:tomato_slice"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "brutalharvest:tomato_seeds"
+  }
+}
