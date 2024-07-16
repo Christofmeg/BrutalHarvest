@@ -3,6 +3,7 @@ package com.christofmeg.brutalharvest.client.data;
 import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.block.CottonCropBlock;
 // import com.christofmeg.brutalharvest.common.block.OnionCropBlock;
+import com.christofmeg.brutalharvest.common.block.LettuceCropBlock;
 import com.christofmeg.brutalharvest.common.block.SugarBeetCropBlock;
 import com.christofmeg.brutalharvest.common.block.TomatoCropBlock;
 import com.christofmeg.brutalharvest.common.init.BlockRegistry;
@@ -34,6 +35,7 @@ public class BrutalBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
 
         makeTomatoCrop(BlockRegistry.TOMATO.get());
+        makeLettuceCrop(BlockRegistry.LETTUCE.get());
 
         cornBlockCrop(BlockRegistry.CORN.get(), "0");
         cornBlockCrop(BlockRegistry.CORN.get(), "1");
@@ -69,6 +71,15 @@ public class BrutalBlockStateProvider extends BlockStateProvider {
     public void makeTomatoCrop(Block block) {
         getVariantBuilder(block).forAllStates(state -> {
             String modelName = "tomato_stage" + state.getValue(((TomatoCropBlock) block).getAgeProperty());
+            ResourceLocation textureLocation = new ResourceLocation(CommonConstants.MOD_ID, "block/" + modelName);
+            ConfiguredModel model = new ConfiguredModel(models().crop(modelName, textureLocation).renderType(CUTOUT));
+            return new ConfiguredModel[]{model};
+        });
+    }
+
+    public void makeLettuceCrop(Block block) {
+        getVariantBuilder(block).forAllStates(state -> {
+            String modelName = "lettuce_stage" + state.getValue(((LettuceCropBlock) block).getAgeProperty());
             ResourceLocation textureLocation = new ResourceLocation(CommonConstants.MOD_ID, "block/" + modelName);
             ConfiguredModel model = new ConfiguredModel(models().crop(modelName, textureLocation).renderType(CUTOUT));
             return new ConfiguredModel[]{model};

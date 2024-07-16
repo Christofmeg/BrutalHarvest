@@ -5,6 +5,7 @@ import com.christofmeg.brutalharvest.common.item.*;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tiers;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -162,7 +163,7 @@ public class ItemRegistry {
         // CHILI_PEPPER = ITEMS.register("chili_pepper", () -> new Item(new Item.Properties().food(BrutalFoods.CHILI_PEPPER)));
 
         TOMATO_SEEDS = ITEMS.register("tomato_seeds", () -> new ItemNameBlockItem(BlockRegistry.TOMATO.get(), new Item.Properties()));
-        LETTUCE_SEEDS = ITEMS.register("lettuce_seeds", () -> new Item(new Item.Properties()));
+        LETTUCE_SEEDS = ITEMS.register("lettuce_seeds", () -> new ItemNameBlockItem(BlockRegistry.LETTUCE.get(), new Item.Properties()));
         CORN_SEEDS = ITEMS.register("corn_seeds", () -> new ItemNameBlockItem(BlockRegistry.CORN.get(), new Item.Properties()));
         CUCUMBER_SEEDS = ITEMS.register("cucumber_seeds", () -> new Item(new Item.Properties()));
         COTTON_SEEDS = ITEMS.register("cotton_seeds", () -> new ItemNameBlockItem(BlockRegistry.COTTON.get(), new Item.Properties()));
@@ -191,9 +192,12 @@ public class ItemRegistry {
         TOAST_STRAWBERRY = ITEMS.register("toast_strawberry", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST_STRAWBERRY)));
         TOAST_BLUEBERRY = ITEMS.register("toast_blueberry", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST_BLUEBERRY)));
 
-        HONEY_JAR = ITEMS.register("honey_jar", () -> new Item(new Item.Properties().food(BrutalFoods.HONEY_JAR)));
-        STRAWBERRY_JAM = ITEMS.register("strawberry_jam", () -> new Item(new Item.Properties().food(BrutalFoods.STRAWBERRY_JAM)));
-        BLUEBERRY_JAM = ITEMS.register("blueberry_jam", () -> new Item(new Item.Properties().food(BrutalFoods.BLUEBERRY_JAM)));
+        SEED_SATCHEL = ITEMS.register("seed_satchel", () -> new Item(new Item.Properties()));
+        JAR = ITEMS.register("jar", () -> new Item(new Item.Properties()));
+
+        HONEY_JAR = ITEMS.register("honey_jar", () -> new Item(new Item.Properties().food(BrutalFoods.HONEY_JAR).craftRemainder(ItemRegistry.JAR.get())));
+        STRAWBERRY_JAM = ITEMS.register("strawberry_jam", () -> new Item(new Item.Properties().food(BrutalFoods.STRAWBERRY_JAM).craftRemainder(ItemRegistry.JAR.get())));
+        BLUEBERRY_JAM = ITEMS.register("blueberry_jam", () -> new Item(new Item.Properties().food(BrutalFoods.BLUEBERRY_JAM).craftRemainder(ItemRegistry.JAR.get())));
 
         TOAST_FRIED_EGG = ITEMS.register("toast_fried_egg", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST_FRIED_EGG)));
         TOAST_SCRAMBLED_EGG = ITEMS.register("toast_scrambled_egg", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST_SCRAMBLED_EGG)));
@@ -203,13 +207,13 @@ public class ItemRegistry {
         TOAST = ITEMS.register("toast", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST)));
         TOAST_SLICE = ITEMS.register("toast_slice", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST_SLICE)));
 
-        CORN_KERNEL_BOWL = ITEMS.register("corn_kernel_bowl", () -> new Item(new Item.Properties()));
-        POPCORN = ITEMS.register("popcorn", () -> new Item(new Item.Properties().food(BrutalFoods.POPCORN)));
+        CORN_KERNEL_BOWL = ITEMS.register("corn_kernel_bowl", () -> new Item(new Item.Properties().craftRemainder(Items.BOWL)));
+        POPCORN = ITEMS.register("popcorn", () -> new Item(new Item.Properties().food(BrutalFoods.POPCORN).craftRemainder(Items.BOWL)));
 
         FLOUR = ITEMS.register("flour", () -> new Item(new Item.Properties()));
         DOUGH = ITEMS.register("dough", () -> new Item(new Item.Properties()));
 
-        RUBBER_BUCKET = ITEMS.register("rubber_bucket", () -> new Item(new Item.Properties())); //TODO implement
+        RUBBER_BUCKET = ITEMS.register("rubber_bucket", () -> new Item(new Item.Properties().craftRemainder(Items.BUCKET))); //TODO implement
         RUBBER = ITEMS.register("rubber", () -> new Item(new Item.Properties()));
 
         FLINT_KNIFE = ITEMS.register("flint_knife", () -> new KnifeItem(BrutalTiers.FLINT, 1, new Item.Properties()));
@@ -227,9 +231,6 @@ public class ItemRegistry {
         GOLDEN_SCYTHE = ITEMS.register("golden_scythe", () -> new ScytheItem(Tiers.GOLD, 1, new Item.Properties()));
         DIAMOND_SCYTHE = ITEMS.register("diamond_scythe", () -> new ScytheItem(Tiers.DIAMOND, 1, new Item.Properties()));
         NETHERITE_SCYTHE = ITEMS.register("netherite_scythe", () -> new ScytheItem(Tiers.NETHERITE, 1, new Item.Properties()));
-
-        SEED_SATCHEL = ITEMS.register("seed_satchel", () -> new Item(new Item.Properties()));
-        JAR = ITEMS.register("jar", () -> new Item(new Item.Properties()));
 
         FABRIC = ITEMS.register("fabric", () -> new Item(new Item.Properties()));
 

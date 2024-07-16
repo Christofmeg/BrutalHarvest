@@ -21,54 +21,7 @@ public class BrutalItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-
         ItemRegistry.ITEMS.getEntries().stream().map(RegistryObject::get).forEach((this::basicItem));
-
-        /*
-        basicItem(ItemRegistry.UNRIPE_TOMATO.get());
-        basicItem(ItemRegistry.TOMATO.get());
-        basicItem(ItemRegistry.ROTTEN_TOMATO.get());
-        basicItem(ItemRegistry.TOMATO_SLICE.get());
-        basicItem(ItemRegistry.LETTUCE.get());
-        basicItem(ItemRegistry.SLICED_LETTUCE.get());
-        basicItem(ItemRegistry.CORN.get());
-        basicItem(ItemRegistry.CUCUMBER.get());
-        basicItem(ItemRegistry.CUCUMBER_SLICES.get());
-        basicItem(ItemRegistry.PICKLE.get());
-        basicItem(ItemRegistry.COTTON.get());
-        basicItem(ItemRegistry.SUGAR_BEET.get());
-        basicItem(ItemRegistry.ONION.get());
-        basicItem(ItemRegistry.CHILI_PEPPER.get());
-
-        basicItem(ItemRegistry.LOBSTER.get());
-        basicItem(ItemRegistry.RAW_LOBSTER.get());
-
-        basicItem(ItemRegistry.SUSHI.get());
-        basicItem(ItemRegistry.CUCUMBER_SUSHI.get());
-        basicItem(ItemRegistry.LOBSTER_SUSHI.get());
-
-        basicItem(ItemRegistry.RICE.get());
-
-        basicItem(ItemRegistry.TOMATO_SEEDS.get());
-        basicItem(ItemRegistry.LETTUCE_SEEDS.get());
-        basicItem(ItemRegistry.CORN_SEEDS.get());
-        basicItem(ItemRegistry.CUCUMBER_SEEDS.get());
-        basicItem(ItemRegistry.COTTON_SEEDS.get());
-        basicItem(ItemRegistry.RAPESEEDS.get());
-        basicItem(ItemRegistry.SUGAR_BEET_SEEDS.get());
-        basicItem(ItemRegistry.STRAWBERRY_SEEDS.get());
-        basicItem(ItemRegistry.ONION_SEEDS.get());
-        basicItem(ItemRegistry.CHILI_PEPPER_SEEDS.get());
-
-        basicItem(ItemRegistry.RUBBER_BUCKET.get());
-        basicItem(ItemRegistry.RUBBER.get());
-
-        ItemRegistry.ITEMS.getEntries().stream().map(RegistryObject::get).filter(item -> item instanceof KnifeItem).forEach(this::basicItem);
-        ItemRegistry.ITEMS.getEntries().stream().map(RegistryObject::get).filter(item -> item instanceof ScytheItem).forEach((this::basicItem));
-
-        basicItem(ItemRegistry.SEED_SATCHEL.get());
-        basicItem(ItemRegistry.FABRIC.get());
-*/
     }
 
 }

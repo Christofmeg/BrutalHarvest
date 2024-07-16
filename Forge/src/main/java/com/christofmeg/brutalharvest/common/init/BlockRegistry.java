@@ -23,6 +23,7 @@ public class BlockRegistry {
 
 //    public static final RegistryObject<Block> CROP_SUPPORT;
     public static final RegistryObject<Block> TOMATO;
+    public static final RegistryObject<Block> LETTUCE;
     public static final RegistryObject<Block> CORN;
     public static final RegistryObject<Block> COTTON;
     public static final RegistryObject<Block> SUGAR_BEET;
@@ -42,6 +43,7 @@ public class BlockRegistry {
 //        ItemRegistry.ITEMS.register("crop_support", () -> new BlockItem(CROP_SUPPORT.get(), new Item.Properties()));
 
         TOMATO = BLOCKS.register("tomato", () -> new TomatoCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
+        LETTUCE = BLOCKS.register("lettuce", () -> new LettuceCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
         CORN = BLOCKS.register("corn", () -> new CornCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
         COTTON = BLOCKS.register("cotton", () -> new CottonCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
         SUGAR_BEET = BLOCKS.register("sugar_beet", () -> new SugarBeetCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
