@@ -45,9 +45,12 @@ public class ItemRegistry {
 
     public static final RegistryObject<Item> RAPESEEDS;
 
-    // ALL BELOW IN 2.0 OR 3.0
+    public static final RegistryObject<Item> STRAWBERRY;
+    public static final RegistryObject<Item> BLUEBERRY;
+
     // public static final RegistryObject<Item> STRAWBERRY_SEEDS;
 
+    // ALL BELOW IN 2.0 OR 3.0
     // public static final RegistryObject<Item> ONION_SEEDS;
     // public static final RegistryObject<Item> ONION;
 
@@ -143,6 +146,9 @@ public class ItemRegistry {
 
         LETTUCE = ITEMS.register("lettuce", () -> new Item(new Item.Properties().food(BrutalFoods.LETTUCE)));
         SLICED_LETTUCE = ITEMS.register("sliced_lettuce", () -> new Item(new Item.Properties().food(BrutalFoods.SLICED_LETTUCE)));
+
+        STRAWBERRY = ITEMS.register("strawberry", () -> new Item(new Item.Properties().food(BrutalFoods.STRAWBERRY)));
+        BLUEBERRY = ITEMS.register("blueberry", () -> new Item(new Item.Properties().food(BrutalFoods.BLUEBERRY)));
 
         CORN = ITEMS.register("corn", () -> new Item(new Item.Properties().food(BrutalFoods.CORN)));
 

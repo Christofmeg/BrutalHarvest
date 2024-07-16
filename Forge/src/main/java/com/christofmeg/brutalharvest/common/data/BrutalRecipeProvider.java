@@ -8,6 +8,7 @@ import net.minecraft.data.recipes.*;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraftforge.common.Tags;
 import org.jetbrains.annotations.NotNull;
 
@@ -27,6 +28,7 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
         this.addSmithingRecipes(consumer);
         this.addCookingRecipes(consumer);
     }
+
 
     private void addShapedRecipes(Consumer<FinishedRecipe> consumer) {
         knifeBuilder(ItemRegistry.FLINT_KNIFE.get(), Ingredient.of(Items.FLINT), "flint" + "_knife", consumer);

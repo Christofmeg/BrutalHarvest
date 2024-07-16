@@ -69,6 +69,11 @@ public class TagRegistry {
 //        public static TagKey<Item> ONION = forgeTag("vegetables/onion");
 //        public static TagKey<Item> CHILI_PEPPER = forgeTag("vegetables/chili_pepper");
 
+        public static TagKey<Item> FRUITS = forgeTag("fruits");
+        public static TagKey<Item> STRAWBERRY = forgeTag("fruits/strawberry");
+        public static TagKey<Item> BLUEBERRY = forgeTag("fruits/blueberry");
+
+
         public static TagKey<Item> CROPS = forgeTag("crops");
         public static TagKey<Item> CROPS_TOMATO = forgeTag("crops/tomato");
         public static TagKey<Item> CROPS_LETTUCE = forgeTag("crops/lettuce");

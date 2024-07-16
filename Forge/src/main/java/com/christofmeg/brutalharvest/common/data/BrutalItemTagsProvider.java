@@ -79,6 +79,13 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
 //        tag(TagRegistry.Items.ONION).add(ItemRegistry.ONION.get());
 //        tag(TagRegistry.Items.CHILI_PEPPER).add(ItemRegistry.CHILI_PEPPER.get());
 
+        tag(TagRegistry.Items.FRUITS)
+                .addTag(TagRegistry.Items.STRAWBERRY)
+                .addTag(TagRegistry.Items.BLUEBERRY);
+
+        tag(TagRegistry.Items.STRAWBERRY).add(ItemRegistry.STRAWBERRY.get());
+        tag(TagRegistry.Items.BLUEBERRY).add(ItemRegistry.BLUEBERRY.get());
+
         tag(TagRegistry.Items.CROPS)
                 .addTag(TagRegistry.Items.CROPS_TOMATO)
                 .addTag(TagRegistry.Items.CROPS_LETTUCE)
