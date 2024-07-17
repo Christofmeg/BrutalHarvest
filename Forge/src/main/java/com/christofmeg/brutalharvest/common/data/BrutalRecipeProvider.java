@@ -53,6 +53,13 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .unlockedBy("has_cotton", has(ItemRegistry.COTTON.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.SEED_SATCHEL.get())));
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.JAR.get())
+                .define('G', Tags.Items.GLASS_COLORLESS)
+                .pattern("G G")
+                .pattern("GGG")
+                .unlockedBy("has_glass", has(Tags.Items.GLASS_COLORLESS))
+                .save(consumer, modLoc(getItemName(ItemRegistry.JAR.get())));
+
 /*        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.SUSHI.get())
                 .define('K', Items.DRIED_KELP)
                 .define('R', ItemRegistry.RICE.get())
@@ -159,6 +166,18 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .requires(TagRegistry.Items.BUCKETS_WATER)
                 .unlockedBy("fabric", has(ItemRegistry.FABRIC.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.FABRIC.get()) + "_cleaning"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.HONEY_JAR.get())
+                .requires(ItemRegistry.JAR.get())
+                .requires(Items.HONEY_BOTTLE, 6)
+                .unlockedBy("has_honey_bottle", has(Items.HONEY_BOTTLE))
+                .save(consumer, modLoc(getItemName(ItemRegistry.HONEY_JAR.get())));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.HONEY_BOTTLE, 6)
+                .requires(ItemRegistry.HONEY_JAR.get())
+                .requires(Items.GLASS_BOTTLE, 6)
+                .unlockedBy("has_honey_bottle", has(Items.HONEY_BOTTLE))
+                .save(consumer, modLoc(getItemName(Items.HONEY_BOTTLE)));
     }
 
     private void addSmithingRecipes(Consumer<FinishedRecipe> consumer) {
