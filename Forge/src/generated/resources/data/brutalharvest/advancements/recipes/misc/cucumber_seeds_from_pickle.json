@@ -1,34 +1,34 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "brutalharvest:tomato_seeds_from_tomato"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "tomato": {
+    "cucumber_seeds": {
       "conditions": {
         "items": [
           {
             "items": [
-              "brutalharvest:tomato"
+              "brutalharvest:cucumber_seeds"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "brutalharvest:cucumber_seeds_from_pickle"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "tomato",
+      "cucumber_seeds",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "brutalharvest:tomato_seeds_from_tomato"
+      "brutalharvest:cucumber_seeds_from_pickle"
     ]
   },
   "sends_telemetry_event": false

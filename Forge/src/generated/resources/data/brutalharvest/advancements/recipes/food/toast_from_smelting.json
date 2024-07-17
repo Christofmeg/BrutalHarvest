@@ -3,16 +3,16 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "brutalharvest:tomato_seeds_from_tomato"
+        "recipe": "brutalharvest:toast_from_smelting"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "tomato": {
+    "has_toast_loaf": {
       "conditions": {
         "items": [
           {
             "items": [
-              "brutalharvest:tomato"
+              "brutalharvest:toast_loaf"
             ]
           }
         ]
@@ -22,13 +22,13 @@
   },
   "requirements": [
     [
-      "tomato",
+      "has_toast_loaf",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "brutalharvest:tomato_seeds_from_tomato"
+      "brutalharvest:toast_from_smelting"
     ]
   },
   "sends_telemetry_event": false

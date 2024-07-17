@@ -88,19 +88,19 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
     private void addShapelessRecipes(Consumer<FinishedRecipe> consumer) {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_SEEDS.get())
                 .requires(ItemRegistry.UNRIPE_TOMATO.get())
-                .unlockedBy("tomato_seeds", has(ItemRegistry.TOMATO_SEEDS.get()))
+                .unlockedBy(getItemName(ItemRegistry.TOMATO.get()), has(ItemRegistry.TOMATO.get()))
                 .save(consumer, modLoc("tomato_seeds_from_green_tomato"));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_SEEDS.get(), 3)
                 .requires(ItemRegistry.TOMATO.get())
-                .unlockedBy("tomato_seeds", has(ItemRegistry.TOMATO_SEEDS.get()))
+                .unlockedBy(getItemName(ItemRegistry.TOMATO.get()), has(ItemRegistry.TOMATO.get()))
                 .save(consumer, modLoc("tomato_seeds_from_tomato"));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_SEEDS.get())
                 .requires(ItemRegistry.ROTTEN_TOMATO.get())
-                .unlockedBy("tomato_seeds", has(ItemRegistry.TOMATO_SEEDS.get()))
+                .unlockedBy(getItemName(ItemRegistry.TOMATO.get()), has(ItemRegistry.TOMATO.get()))
                 .save(consumer, modLoc("tomato_seeds_from_rotten_tomato"));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_SEEDS.get(), 2)
                 .requires(ItemRegistry.TOMATO_SLICE.get())
-                .unlockedBy("tomato_seeds", has(ItemRegistry.TOMATO_SEEDS.get()))
+                .unlockedBy(getItemName(ItemRegistry.TOMATO.get()), has(ItemRegistry.TOMATO.get()))
                 .save(consumer, modLoc("tomato_seeds_from_tomato_slice"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.PICKLE.get())
@@ -110,12 +110,17 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .unlockedBy("cucumber_seeds", has(ItemRegistry.CUCUMBER_SEEDS.get()))
                 .save(consumer, modLoc("pickle"));
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.CUCUMBER_SEEDS.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.CUCUMBER_SEEDS.get(), 3)
                 .requires(ItemRegistry.CUCUMBER.get())
                 .unlockedBy("cucumber_seeds", has(ItemRegistry.CUCUMBER_SEEDS.get()))
-                .save(consumer, modLoc("cucumber_seeds"));
+                .save(consumer, modLoc("cucumber_seeds_from_cucumber"));
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.CORN_SEEDS.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.CUCUMBER_SEEDS.get(), 2)
+                .requires(ItemRegistry.PICKLE.get())
+                .unlockedBy("cucumber_seeds", has(ItemRegistry.CUCUMBER_SEEDS.get()))
+                .save(consumer, modLoc("cucumber_seeds_from_pickle"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.CORN_SEEDS.get(), 4)
                 .requires(ItemRegistry.CORN.get())
                 .unlockedBy("corn_seeds", has(ItemRegistry.CORN_SEEDS.get()))
                 .save(consumer, modLoc("corn_seeds"));
@@ -124,7 +129,6 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .requires(ItemRegistry.SUGAR_BEET.get())
                 .unlockedBy("sugar_beet", has(ItemRegistry.SUGAR_BEET.get()))
                 .save(consumer, modLoc("sugar"));
-
 
         fabricRecipeBuilder(ItemRegistry.BLACK_FABRIC.get(), Tags.Items.DYES_BLACK, consumer);
         fabricRecipeBuilder(ItemRegistry.BLUE_FABRIC.get(), Tags.Items.DYES_BLUE, consumer);

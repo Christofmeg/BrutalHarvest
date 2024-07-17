@@ -1,6 +1,7 @@
 {
   "values": [
     "#forge:fruits/strawberry",
+    "#forge:fruits/unripe_strawberry",
     "#forge:fruits/blueberry"
   ]
 }

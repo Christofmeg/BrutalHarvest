@@ -7,12 +7,12 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "tomato_seeds": {
+    "tomato": {
       "conditions": {
         "items": [
           {
             "items": [
-              "brutalharvest:tomato_seeds"
+              "brutalharvest:tomato"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "tomato_seeds",
+      "tomato",
       "has_the_recipe"
     ]
   ],

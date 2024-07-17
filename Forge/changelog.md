@@ -1,4 +1,4 @@
-1.7.0:
+1.7.1:
 * Added craft for cucumber seeds
 * Added craft for corn seeds
 * Added Unripe Strawberry food item
