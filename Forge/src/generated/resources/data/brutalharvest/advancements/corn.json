@@ -1,0 +1,38 @@
+{
+  "parent": "brutalharvest:corn_seeds",
+  "criteria": {
+    "0": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "brutalharvest:corn"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "brutalharvest.advancement.corn.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "brutalharvest:corn"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "brutalharvest.advancement.corn"
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

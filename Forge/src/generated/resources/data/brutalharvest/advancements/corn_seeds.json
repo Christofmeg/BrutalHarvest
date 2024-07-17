@@ -1,0 +1,37 @@
+{
+  "parent": "brutalharvest:root",
+  "criteria": {
+    "0": {
+      "conditions": {
+        "location": [
+          {
+            "block": "brutalharvest:corn",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "brutalharvest.advancement.corn_seeds.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "brutalharvest:corn_seeds"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "brutalharvest.advancement.corn_seeds"
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
