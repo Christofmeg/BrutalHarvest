@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "brutalharvest:corn"
+    }
+  ],
+  "result": {
+    "item": "brutalharvest:corn_seeds"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "brutalharvest:honey_jar"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "jar": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "brutalharvest:jar"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "jar",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "brutalharvest:honey_jar"
+    ]
+  },
+  "sends_telemetry_event": false
+}

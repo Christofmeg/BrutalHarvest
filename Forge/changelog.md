@@ -4,3 +4,6 @@
 * Added Unripe Strawberry food item
 * Added Strawberry Seeds
 * Added Sugar Beets food properties
+* Added Recipes for Toast with eggs
+* Added Recipes for Toast with Jam
+* Added Recipe for Honey Jar
