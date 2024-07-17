@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "tag": "forge:glass/colorless"
+    }
+  },
+  "pattern": [
+    "G G",
+    "GGG"
+  ],
+  "result": {
+    "item": "brutalharvest:jar"
+  },
+  "show_notification": true
+}

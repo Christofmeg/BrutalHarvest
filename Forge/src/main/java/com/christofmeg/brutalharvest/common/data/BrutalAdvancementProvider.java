@@ -2,16 +2,19 @@ package com.christofmeg.brutalharvest.common.data;
 
 import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.advancement.TomatoProjectileTrigger;
+import com.christofmeg.brutalharvest.common.init.BlockRegistry;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.advancements.critereon.ItemUsedOnLocationTrigger;
 import net.minecraft.advancements.critereon.RecipeCraftedTrigger;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.ForgeAdvancementProvider;
 
@@ -60,6 +63,26 @@ public class BrutalAdvancementProvider extends ForgeAdvancementProvider {
                     .parent(root)
                     .addCriterion("0", RecipeCraftedTrigger.TriggerInstance.craftedItem(ItemRegistry.STONE_SCYTHE.getId()))
                     .save(consumer, getNameId("grim_reaper"));
+
+            Advancement corn_seeds = Advancement.Builder.advancement()
+                    .display(ItemRegistry.CORN_SEEDS.get(),
+                            Component.translatable(CommonConstants.MOD_ID + "." + "advancement.corn_seeds"),
+                            Component.translatable(CommonConstants.MOD_ID + "." + "advancement.corn_seeds.desc"),
+                            null,
+                            FrameType.TASK, true, true, false)
+                    .parent(root)
+                    .addCriterion("0", ItemUsedOnLocationTrigger.TriggerInstance.placedBlock(BlockRegistry.CORN.get()))
+                    .save(consumer, getNameId("corn_seeds"));
+
+            Advancement.Builder.advancement()
+                    .display(ItemRegistry.CORN.get(),
+                            Component.translatable(CommonConstants.MOD_ID + "." + "advancement.corn"),
+                            Component.translatable(CommonConstants.MOD_ID + "." + "advancement.corn.desc"),
+                            null,
+                            FrameType.TASK, true, true, false)
+                    .parent(corn_seeds)
+                    .addCriterion("0", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.CORN.get()))
+                    .save(consumer, getNameId("corn"));
         }
 
         private String getNameId(String id) {

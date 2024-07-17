@@ -1,4 +1,8 @@
 {
+  "brutalharvest.advancement.corn": "IT'S CORN",
+  "brutalharvest.advancement.corn.desc": "Obtain some corn",
+  "brutalharvest.advancement.corn_seeds": "Colonel Cornelius Cornwall",
+  "brutalharvest.advancement.corn_seeds.desc": "Plant a Corn Seed (Kernel)",
   "brutalharvest.advancement.grim_reaper": "Grim Reaper",
   "brutalharvest.advancement.grim_reaper.desc": "Craft a scythe",
   "brutalharvest.advancement.root.desc": "Obtain some tomatoes",
