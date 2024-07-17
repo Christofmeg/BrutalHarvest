@@ -35,8 +35,8 @@ public class BrutalFoods {
     public static final FoodProperties SUSHI = builder(3, 2.3F).build();
     public static final FoodProperties CUCUMBER_SUSHI = builder(3, 2.3F).build();
     public static final FoodProperties LOBSTER_SUSHI = builder(4, 2.3F).build();
-
      */
+
     public static final FoodProperties FRIED_EGG = builder(4, 3.7F).build();
     public static final FoodProperties SCRAMBLED_EGG = builder(4, 2.8F).build();
     public static final FoodProperties BOILED_EGG = builder(4, 2.3F).build();
