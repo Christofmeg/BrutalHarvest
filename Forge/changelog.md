@@ -7,3 +7,4 @@
 * Added Advancement for Corn and Corn Seeds
 * Added Jar recipe
 * Added Honey Jar recipe
+* Fixed Tomato Crop not breaking properly
