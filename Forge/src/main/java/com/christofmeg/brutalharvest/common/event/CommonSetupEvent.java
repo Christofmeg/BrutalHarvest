@@ -41,8 +41,8 @@ public class CommonSetupEvent {
         });
     }
 
-    private float compost(RegistryObject<Item> item, float value) {
-        return ComposterBlock.COMPOSTABLES.put(item.get(), value);
+    private void compost(RegistryObject<Item> item, float value) {
+        ComposterBlock.COMPOSTABLES.put(item.get(), value);
     }
 
 }

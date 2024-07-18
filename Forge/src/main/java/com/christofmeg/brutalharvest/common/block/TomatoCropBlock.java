@@ -32,7 +32,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class TomatoCropBlock extends CropBlock {
+public class TomatoCropBlock extends BaseCropBlock {
 
     public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 8);
     private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[] {
@@ -77,11 +77,6 @@ public class TomatoCropBlock extends CropBlock {
     @Override
     public boolean isRandomlyTicking(@NotNull BlockState pState) {
         return this.getAge(pState) < this.getMaxAge() + 1;
-    }
-
-    @Override
-    protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter blockGetter, @NotNull BlockPos pos) {
-        return state.is(Blocks.FARMLAND) || state.getBlock() instanceof FarmBlock;
     }
 
     @Override

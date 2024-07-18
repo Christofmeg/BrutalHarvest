@@ -34,7 +34,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class CornCropBlock extends CropBlock {
+public class CornCropBlock extends BaseCropBlock {
 
     public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 13);
     private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[] {
@@ -81,11 +81,6 @@ public class CornCropBlock extends CropBlock {
                 }
             }
         }
-    }
-
-    @Override
-    protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter blockGetter, @NotNull BlockPos pos) {
-        return state.is(Blocks.FARMLAND) || state.getBlock() instanceof FarmBlock;
     }
 
     @Override

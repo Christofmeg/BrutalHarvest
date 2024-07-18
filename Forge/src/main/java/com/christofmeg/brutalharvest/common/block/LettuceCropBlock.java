@@ -17,9 +17,6 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.CropBlock;
-import net.minecraft.world.level.block.FarmBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
@@ -29,7 +26,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
-public class LettuceCropBlock extends CropBlock {
+public class LettuceCropBlock extends BaseCropBlock {
 
     public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 5);
     private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[] {
@@ -71,11 +68,6 @@ public class LettuceCropBlock extends CropBlock {
     @Override
     public boolean isRandomlyTicking(@NotNull BlockState pState) {
         return this.getAge(pState) < this.getMaxAge() + 1;
-    }
-
-    @Override
-    protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter blockGetter, @NotNull BlockPos pos) {
-        return state.is(Blocks.FARMLAND) || state.getBlock() instanceof FarmBlock;
     }
 
     @Override

@@ -27,12 +27,16 @@ import java.util.Random;
 
 public class TomatoProjectileEntity extends ThrowableItemProjectile {
 
+    Level level;
+
     public TomatoProjectileEntity(EntityType<? extends ThrowableItemProjectile> entityType, Level level) {
         super(entityType, level);
+        this.level = level;
     }
 
-    public TomatoProjectileEntity(Level pLevel, LivingEntity livingEntity) {
-        super(EntityTypeRegistry.TOMATO_PROJECTILE.get(), livingEntity, pLevel);
+    public TomatoProjectileEntity(Level level, LivingEntity livingEntity) {
+        super(EntityTypeRegistry.TOMATO_PROJECTILE.get(), livingEntity, level);
+        this.level = level;
     }
 
     protected @NotNull Item getDefaultItem() {
@@ -51,7 +55,7 @@ public class TomatoProjectileEntity extends ThrowableItemProjectile {
         if (p_37402_ == 3) {
             ParticleOptions particleOptions = this.getParticle();
             for(int i = 0; i < 8; ++i) {
-                this.level().addParticle(particleOptions, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
+                level.addParticle(particleOptions, this.getX(), this.getY(), this.getZ(), 0.0, 0.0, 0.0);
             }
         }
     }
@@ -60,7 +64,7 @@ public class TomatoProjectileEntity extends ThrowableItemProjectile {
         super.onHitEntity(entityHitResult);
         Entity entity = entityHitResult.getEntity();
         this.playSound(SoundRegistry.TOMATO_SPLAT.get(), 0.5F, 0.8F);
-        if (!entity.level().isClientSide) {
+        if (!level.isClientSide) {
             entity.hurt(this.damageSources().thrown(this, this.getOwner()), 0);
             if (this.getOwner() instanceof ServerPlayer serverPlayer) {
                 if (entity instanceof Villager) {
@@ -85,8 +89,8 @@ public class TomatoProjectileEntity extends ThrowableItemProjectile {
     protected void onHit(@NotNull HitResult hitResult) {
         super.onHit(hitResult);
         this.playSound(SoundRegistry.TOMATO_SPLAT.get(), 0.5F, 0.8F);
-        if (!this.level().isClientSide) {
-            this.level().broadcastEntityEvent(this, (byte)3);
+        if (!level.isClientSide) {
+            level.broadcastEntityEvent(this, (byte)3);
             this.discard();
         }
     }
