@@ -53,7 +53,7 @@ public abstract class BaseCropBlock extends CropBlock {
             if (matureAge) {
                 popResource(level, pos, this.getBaseItemStack());
                 level.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
-                BlockState newBlockState = this.getStateForAge(age - 1);
+                BlockState newBlockState = this.getStateForAge(age - 2);
                 level.setBlock(pos, newBlockState, 2);
                 level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, newBlockState));
                 stack.hurtAndBreak(1, player, (livingEntity) -> livingEntity.broadcastBreakEvent(interactionHand));

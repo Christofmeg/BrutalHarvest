@@ -5,4 +5,5 @@
 * Added Strawberry Seeds
 * Added Sugar Beets food properties
 * Added final stage to Sugar Beets
-* Started rework on all crops 
+* Rework Sugar Beet Crop
+* Rework Lettuce Crop

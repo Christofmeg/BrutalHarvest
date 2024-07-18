@@ -28,6 +28,7 @@ public class SugarBeetCropBlock extends BaseCropBlock {
         super(properties);
     }
 
+    @Override
     @NotNull
     public IntegerProperty getAgeProperty() {
         return AGE;
@@ -54,8 +55,8 @@ public class SugarBeetCropBlock extends BaseCropBlock {
     }
 
     @Override
-    public @NotNull VoxelShape getShape(@NotNull BlockState pState, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos, @NotNull CollisionContext pContext) {
-        return SHAPE_BY_AGE[this.getAge(pState)];
+    public @NotNull VoxelShape getShape(@NotNull BlockState blockState, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
+        return SHAPE_BY_AGE[this.getAge(blockState)];
     }
 
 }
