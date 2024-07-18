@@ -4,3 +4,5 @@
 * Added Unripe Strawberry food item
 * Added Strawberry Seeds
 * Added Sugar Beets food properties
+* Added final stage to Sugar Beets
+* Started rework on all crops 
