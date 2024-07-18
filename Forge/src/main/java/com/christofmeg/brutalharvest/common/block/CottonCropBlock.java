@@ -30,7 +30,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class CottonCropBlock extends CropBlock {
+public class CottonCropBlock extends BaseCropBlock {
 
     public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 5);
     private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[] {
@@ -50,11 +50,6 @@ public class CottonCropBlock extends CropBlock {
     @Override
     public @NotNull VoxelShape getShape(@NotNull BlockState state, @NotNull BlockGetter blockGetter, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return SHAPE_BY_AGE[this.getAge(state)];
-    }
-
-    @Override
-    protected boolean mayPlaceOn(BlockState state, @NotNull BlockGetter blockGetter, @NotNull BlockPos pos) {
-        return state.is(Blocks.FARMLAND) || state.getBlock() instanceof FarmBlock;
     }
 
     @Override
@@ -91,13 +86,13 @@ public class CottonCropBlock extends CropBlock {
     }
 
     @Override
-    public boolean isValidBonemealTarget(@NotNull LevelReader levelReader, @NotNull BlockPos pos, BlockState state, boolean $$3) {
+    public boolean isValidBonemealTarget(@NotNull LevelReader levelReader, @NotNull BlockPos pos, @NotNull BlockState state, boolean $$3) {
         return state.getValue(AGE) < 4;
     }
 
     @SuppressWarnings("deprecation")
     @Override
-    public @NotNull InteractionResult use(BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
+    public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
         int age = state.getValue(AGE);
         boolean reachedCottonAge = age == 5;
         if (!reachedCottonAge && player.getItemInHand(interactionHand).is(Items.BONE_MEAL)) {

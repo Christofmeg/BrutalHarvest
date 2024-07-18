@@ -98,13 +98,13 @@ public class LettuceCropBlock extends BaseCropBlock {
     }
 
     @Override
-    public boolean isValidBonemealTarget(@NotNull LevelReader levelReader, @NotNull BlockPos pos, BlockState state, boolean $$3) {
+    public boolean isValidBonemealTarget(@NotNull LevelReader levelReader, @NotNull BlockPos pos, @NotNull BlockState state, boolean $$3) {
         return state.getValue(AGE) < this.getMaxAge();
     }
 
     @SuppressWarnings("deprecation")
     @Override
-    public @NotNull InteractionResult use(BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
+    public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
         int age = state.getValue(AGE);
         boolean reachedHarvestAge = age == this.getMaxAge();
         if (!reachedHarvestAge && player.getItemInHand(interactionHand).is(Items.BONE_MEAL)) {

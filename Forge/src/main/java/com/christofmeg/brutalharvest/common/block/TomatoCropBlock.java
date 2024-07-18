@@ -63,7 +63,7 @@ public class TomatoCropBlock extends BaseCropBlock {
         if (age < 8 && $$3.nextInt(5) == 0 && $$1.getRawBrightness($$2.above(), 0) >= 9) {
             BlockState $$5 = state;
             if (age == 7) {
-                if ($$3.nextInt(4) == 0) { // 25% chance
+                if ($$3.nextInt(20) == 0) { // 5% chance
                     $$5 = state.setValue(AGE, age + 1);
                 }
             } else {
@@ -123,13 +123,13 @@ public class TomatoCropBlock extends BaseCropBlock {
     }
 
     @Override
-    public boolean isValidBonemealTarget(@NotNull LevelReader levelReader, @NotNull BlockPos pos, BlockState state, boolean $$3) {
+    public boolean isValidBonemealTarget(@NotNull LevelReader levelReader, @NotNull BlockPos pos, @NotNull BlockState state, boolean $$3) {
         return state.getValue(AGE) < 6;
     }
 
     @SuppressWarnings("deprecation")
     @Override
-    public @NotNull InteractionResult use(BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
+    public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
         int age = state.getValue(AGE);
         boolean reachedTomatoAge = age == 4;
         if (!reachedTomatoAge && player.getItemInHand(interactionHand).is(Items.BONE_MEAL)) {

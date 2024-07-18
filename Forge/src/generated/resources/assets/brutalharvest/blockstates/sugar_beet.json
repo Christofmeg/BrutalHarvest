@@ -11,6 +11,9 @@
     },
     "age=3": {
       "model": "brutalharvest:block/sugar_beet_stage3"
+    },
+    "age=4": {
+      "model": "brutalharvest:block/sugar_beet_stage4"
     }
   }
 }

@@ -65,7 +65,7 @@ public class CornCropBlock extends BaseCropBlock {
     }
 
     @SuppressWarnings("deprecation")
-    public void randomTick(@NotNull BlockState pState, ServerLevel pLevel, @NotNull BlockPos pPos, @NotNull RandomSource pRandom) {
+    public void randomTick(@NotNull BlockState pState, @NotNull ServerLevel pLevel, @NotNull BlockPos pPos, @NotNull RandomSource pRandom) {
         if (pLevel.isAreaLoaded(pPos, 1)) {
             if (pLevel.getRawBrightness(pPos, 0) >= 9) {
                 int age = this.getAge(pState);
@@ -150,7 +150,7 @@ public class CornCropBlock extends BaseCropBlock {
     }
 
     @Override
-    public boolean isValidBonemealTarget(@NotNull LevelReader levelReader, @NotNull BlockPos pos, BlockState state, boolean $$3) {
+    public boolean isValidBonemealTarget(@NotNull LevelReader levelReader, @NotNull BlockPos pos, @NotNull BlockState state, boolean $$3) {
         return state.getValue(AGE) < 6 || state.getValue(AGE) > 7 && state.getValue(AGE) < 12;
     }
 
@@ -183,7 +183,7 @@ public class CornCropBlock extends BaseCropBlock {
 
     @SuppressWarnings("deprecation")
     @Override
-    public @NotNull InteractionResult use(BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
+    public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
         int age = state.getValue(AGE);
         boolean reachedCornAge = age == 7 || age == 13;
         if (!reachedCornAge && player.getItemInHand(interactionHand).is(Items.BONE_MEAL)) {

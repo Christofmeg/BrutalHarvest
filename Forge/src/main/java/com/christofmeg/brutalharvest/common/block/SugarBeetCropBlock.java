@@ -1,15 +1,41 @@
 package com.christofmeg.brutalharvest.common.block;
 
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.BeetrootBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
-public class SugarBeetCropBlock extends BeetrootBlock {
+public class SugarBeetCropBlock extends BaseCropBlock {
+
+    public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 4);
+    private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[] {
+            Block.box(0.0, 0.0, 0.0, 16.0, 3.0, 16.0),
+            Block.box(0.0, 0.0, 0.0, 16.0, 5.0, 16.0),
+            Block.box(0.0, 0.0, 0.0, 16.0, 7.0, 16.0),
+            Block.box(0.0, 0.0, 0.0, 16.0, 9.0, 16.0),
+            Block.box(0.0, 0.0, 0.0, 16.0, 9.0, 16.0)
+    };
 
     public SugarBeetCropBlock(Properties properties) {
         super(properties);
+    }
+
+    @NotNull
+    public IntegerProperty getAgeProperty() {
+        return AGE;
+    }
+
+    @Override
+    public int getMaxAge() {
+        return 3;
     }
 
     @Override
@@ -18,9 +44,18 @@ public class SugarBeetCropBlock extends BeetrootBlock {
     }
 
     @Override
-    @NotNull
-    public IntegerProperty getAgeProperty() {
-        return AGE;
+    protected ItemStack getBaseItemStack() {
+        return new ItemStack(ItemRegistry.SUGAR_BEET.get(), 3);
+    }
+
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
+        pBuilder.add(AGE);
+    }
+
+    @Override
+    public @NotNull VoxelShape getShape(@NotNull BlockState pState, @NotNull BlockGetter pLevel, @NotNull BlockPos pPos, @NotNull CollisionContext pContext) {
+        return SHAPE_BY_AGE[this.getAge(pState)];
     }
 
 }
