@@ -1,11 +1,8 @@
 package com.christofmeg.brutalharvest.client.data;
 
 import com.christofmeg.brutalharvest.CommonConstants;
-import com.christofmeg.brutalharvest.common.block.CottonCropBlock;
+import com.christofmeg.brutalharvest.common.block.*;
 // import com.christofmeg.brutalharvest.common.block.OnionCropBlock;
-import com.christofmeg.brutalharvest.common.block.LettuceCropBlock;
-import com.christofmeg.brutalharvest.common.block.SugarBeetCropBlock;
-import com.christofmeg.brutalharvest.common.block.TomatoCropBlock;
 import com.christofmeg.brutalharvest.common.init.BlockRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;

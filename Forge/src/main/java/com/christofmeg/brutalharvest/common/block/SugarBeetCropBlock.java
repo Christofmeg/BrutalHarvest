@@ -50,6 +50,11 @@ public class SugarBeetCropBlock extends BaseCropBlock {
     }
 
     @Override
+    protected int getAgeAfterKnife() {
+        return 1;
+    }
+
+    @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(AGE);
     }

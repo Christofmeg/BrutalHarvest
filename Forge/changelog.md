@@ -1,4 +1,4 @@
-1.7.0:
+1.8.0:
 * Added craft for cucumber seeds
 * Added craft for corn seeds
 * Added Unripe Strawberry food item
@@ -7,3 +7,5 @@
 * Added final stage to Sugar Beets
 * Rework Sugar Beet Crop
 * Rework Lettuce Crop
+* Added final stage to Cotton
+* Rework Cotton Crop

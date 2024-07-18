@@ -1,5 +1,6 @@
 package com.christofmeg.brutalharvest.common.data.loot;
 
+import com.christofmeg.brutalharvest.common.block.CottonCropBlock;
 import com.christofmeg.brutalharvest.common.block.LettuceCropBlock;
 import com.christofmeg.brutalharvest.common.block.SugarBeetCropBlock;
 import com.christofmeg.brutalharvest.common.init.BlockRegistry;
@@ -8,6 +9,7 @@ import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -31,7 +33,7 @@ public class BrutalBlockLootTables extends BlockLootSubProvider {
     @Override
     protected void generate() {
 
-        //TODO block loot to Corn, Tomato, Cotton
+        //TODO block loot to Corn, Tomato
 
         LootItemCondition.Builder lettuceCondition1 = LootItemBlockStatePropertyCondition
                 .hasBlockStateProperties(BlockRegistry.LETTUCE.get())
@@ -61,6 +63,20 @@ public class BrutalBlockLootTables extends BlockLootSubProvider {
                 sugarBeetCondition2
         ));
 
+        LootItemCondition.Builder cottonCondition1 = LootItemBlockStatePropertyCondition
+                .hasBlockStateProperties(BlockRegistry.COTTON.get())
+                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CottonCropBlock.AGE, 5));
+        LootItemCondition.Builder cottonCondition2 = LootItemBlockStatePropertyCondition
+                .hasBlockStateProperties(BlockRegistry.COTTON.get())
+                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CottonCropBlock.AGE, 6));
+        this.add(BlockRegistry.COTTON.get(), createCottonCropDrops(
+                BlockRegistry.COTTON.get(),
+                ItemRegistry.COTTON.get(),
+                ItemRegistry.COTTON_SEEDS.get(),
+                cottonCondition1,
+                cottonCondition2
+        ));
+
     }
 
     @Override
@@ -68,7 +84,8 @@ public class BrutalBlockLootTables extends BlockLootSubProvider {
         return BlockRegistry.BLOCKS.getEntries().stream().map(RegistryObject::get)
                 .filter(block ->
                         block instanceof SugarBeetCropBlock ||
-                        block instanceof LettuceCropBlock
+                        block instanceof LettuceCropBlock ||
+                        block instanceof CottonCropBlock
                 )
                 ::iterator;
     }
@@ -113,6 +130,30 @@ public class BrutalBlockLootTables extends BlockLootSubProvider {
                                 .when(LootItemRandomChanceCondition.randomChance(0.25F))))
                 .withPool(LootPool.lootPool()
                         .when(pDropGrownCropConditionAge3.invert().and(pDropGrownCropConditionAge4.invert()))
+                        .add(LootItem.lootTableItem(pSeedsItem))
+                )
+        );
+    }
+
+    protected LootTable.Builder createCottonCropDrops(Block pCropBlock, Item pGrownCropItem, Item pSeedsItem, LootItemCondition.Builder pDropGrownCropConditionAge5, LootItemCondition.Builder pDropGrownCropConditionAge6) {
+        return this.applyExplosionDecay(pCropBlock, LootTable.lootTable()
+                .withPool(LootPool.lootPool()
+                        .when(pDropGrownCropConditionAge5)
+                        .add(LootItem.lootTableItem(pGrownCropItem))
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 5.0F)))
+                )
+                .withPool(LootPool.lootPool()
+                        .when(pDropGrownCropConditionAge5)
+                        .add(LootItem.lootTableItem(pSeedsItem)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 3.0F))))
+                )
+                .withPool(LootPool.lootPool()
+                        .when(pDropGrownCropConditionAge6.and(LootItemRandomChanceCondition.randomChance(0.25F)))
+                        .add(LootItem.lootTableItem(pSeedsItem).setWeight(1))
+                        .add(LootItem.lootTableItem(Items.STICK).setWeight(1))
+                )
+                .withPool(LootPool.lootPool()
+                        .when(pDropGrownCropConditionAge5.invert().and(pDropGrownCropConditionAge6.invert()))
                         .add(LootItem.lootTableItem(pSeedsItem))
                 )
         );
