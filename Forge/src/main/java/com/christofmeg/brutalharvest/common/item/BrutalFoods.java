@@ -6,13 +6,13 @@ import net.minecraft.world.food.FoodProperties;
 
 @SuppressWarnings("unused")
 public class BrutalFoods {
-    public static final FoodProperties UNRIPE_TOMATO = builder(1, 1F).effect(() -> new MobEffectInstance(MobEffects.POISON, 100), 0.2F).build();
+    public static final FoodProperties UNRIPE_TOMATO = builder(1, 1F).effect(() -> new MobEffectInstance(MobEffects.POISON, 100), 0.6F).build();
     public static final FoodProperties TOMATO = builder(3, 2.5F).build();
     public static final FoodProperties ROTTEN_TOMATO = builder(-2, 1.2F).effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 200), 0.5F).build();
     public static final FoodProperties TOMATO_SLICE = builder(2, 1.7F).build();
 
     public static final FoodProperties LETTUCE = builder(3, 5F).build();
-    public static final FoodProperties SLICED_LETTUCE = builder(2, 3.5F).build();
+    public static final FoodProperties SLICED_LETTUCE = builder(1, 3.5F).build();
 
     public static final FoodProperties STRAWBERRY = builder(3, 2.4F).build();
     public static final FoodProperties UNRIPE_STRAWBERRY = builder(1, 1.3F).build();

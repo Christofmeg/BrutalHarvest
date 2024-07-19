@@ -76,8 +76,8 @@ public class TomatoProjectileEntity extends ThrowableItemProjectile {
            if (randomInt == 0) {
                 if (this.getItem().getItem() == ItemRegistry.ROTTEN_TOMATO.get()) {
                     if (entity instanceof LivingEntity livingEntity) {
-                        MobEffectInstance poison = new MobEffectInstance(MobEffects.POISON, 40);
-                        MobEffectInstance blindness = new MobEffectInstance(MobEffects.BLINDNESS, 40);
+                        MobEffectInstance poison = new MobEffectInstance(MobEffects.POISON, 80);
+                        MobEffectInstance blindness = new MobEffectInstance(MobEffects.BLINDNESS, 80);
                         livingEntity.addEffect(poison);
                         livingEntity.addEffect(blindness);
                     }
