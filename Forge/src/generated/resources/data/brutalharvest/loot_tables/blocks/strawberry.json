@@ -13,6 +13,36 @@
           "block": "brutalharvest:strawberry",
           "condition": "minecraft:block_state_property",
           "properties": {
+            "age": "5"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "brutalharvest:unripe_strawberry"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": {
+            "type": "minecraft:uniform",
+            "max": 4.0,
+            "min": 1.0
+          },
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "brutalharvest:strawberry",
+          "condition": "minecraft:block_state_property",
+          "properties": {
             "age": "6"
           }
         }
@@ -103,19 +133,34 @@
                 "block": "brutalharvest:strawberry",
                 "condition": "minecraft:block_state_property",
                 "properties": {
-                  "age": "6"
+                  "age": "5"
                 }
               }
             },
             {
-              "condition": "minecraft:inverted",
-              "term": {
-                "block": "brutalharvest:strawberry",
-                "condition": "minecraft:block_state_property",
-                "properties": {
-                  "age": "7"
+              "condition": "minecraft:all_of",
+              "terms": [
+                {
+                  "condition": "minecraft:inverted",
+                  "term": {
+                    "block": "brutalharvest:strawberry",
+                    "condition": "minecraft:block_state_property",
+                    "properties": {
+                      "age": "6"
+                    }
+                  }
+                },
+                {
+                  "condition": "minecraft:inverted",
+                  "term": {
+                    "block": "brutalharvest:strawberry",
+                    "condition": "minecraft:block_state_property",
+                    "properties": {
+                      "age": "7"
+                    }
+                  }
                 }
-              }
+              ]
             }
           ]
         }

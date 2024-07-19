@@ -1,0 +1,251 @@
+{
+  "type": "minecraft:block",
+  "functions": [
+    {
+      "function": "minecraft:explosion_decay"
+    }
+  ],
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:any_of",
+          "terms": [
+            {
+              "block": "brutalharvest:tomato",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "age": "4"
+              }
+            },
+            {
+              "block": "brutalharvest:tomato",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "age": "5"
+              }
+            },
+            {
+              "block": "brutalharvest:tomato",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "age": "6"
+              }
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "brutalharvest:unripe_tomato"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": {
+            "type": "minecraft:uniform",
+            "max": 6.0,
+            "min": 3.0
+          },
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "brutalharvest:tomato",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "age": "7"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "brutalharvest:tomato"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": {
+            "type": "minecraft:uniform",
+            "max": 6.0,
+            "min": 3.0
+          },
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "brutalharvest:tomato",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "age": "7"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 2.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "brutalharvest:tomato_seeds"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "brutalharvest:tomato",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "age": "8"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "brutalharvest:rotten_tomato"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": {
+            "type": "minecraft:uniform",
+            "max": 6.0,
+            "min": 3.0
+          },
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "brutalharvest:tomato",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "age": "8"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "brutalharvest:tomato_seeds"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": {
+            "type": "minecraft:uniform",
+            "max": 1.0,
+            "min": 0.0
+          },
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:all_of",
+          "terms": [
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:any_of",
+                "terms": [
+                  {
+                    "block": "brutalharvest:tomato",
+                    "condition": "minecraft:block_state_property",
+                    "properties": {
+                      "age": "4"
+                    }
+                  },
+                  {
+                    "block": "brutalharvest:tomato",
+                    "condition": "minecraft:block_state_property",
+                    "properties": {
+                      "age": "5"
+                    }
+                  },
+                  {
+                    "block": "brutalharvest:tomato",
+                    "condition": "minecraft:block_state_property",
+                    "properties": {
+                      "age": "6"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "condition": "minecraft:all_of",
+              "terms": [
+                {
+                  "condition": "minecraft:inverted",
+                  "term": {
+                    "block": "brutalharvest:tomato",
+                    "condition": "minecraft:block_state_property",
+                    "properties": {
+                      "age": "7"
+                    }
+                  }
+                },
+                {
+                  "condition": "minecraft:inverted",
+                  "term": {
+                    "block": "brutalharvest:tomato",
+                    "condition": "minecraft:block_state_property",
+                    "properties": {
+                      "age": "8"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "brutalharvest:tomato_seeds"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "brutalharvest:blocks/tomato"
+}

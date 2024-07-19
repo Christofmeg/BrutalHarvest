@@ -12,3 +12,7 @@
 * Added Strawberry Crop
 * Adjust Unripe Tomato food properties
 * Adjust Sliced Lettuce food properties
+* Rework Tomato Crop
+* Added Unripe Strawberries
+* Rework blockstate generator
+* Rework block loot generator

@@ -15,7 +15,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
@@ -68,11 +67,6 @@ public class StrawberryCropBlock extends BaseCropBlock {
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(AGE);
-    }
-
-    @Override
     public @NotNull VoxelShape getShape(@NotNull BlockState blockState, @NotNull BlockGetter level, @NotNull BlockPos pos, @NotNull CollisionContext context) {
         return SHAPE_BY_AGE[this.getAge(blockState)];
     }
@@ -80,14 +74,18 @@ public class StrawberryCropBlock extends BaseCropBlock {
     @Override
     public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand interactionHand, @NotNull BlockHitResult blockHitResult) {
         int age = this.getAge(state);
+        boolean unripeAge = age == this.getMaxAge() - 1;
         boolean matureAge = age == this.getMaxAge();
         boolean deadAge = age == this.getMaxAge() + 1;
         ItemStack stack = player.getItemInHand(interactionHand);
         if (stack.getItem() instanceof KnifeItem && !level.isClientSide) {
-            if (!matureAge && !deadAge) {
+            if (!unripeAge && !matureAge && !deadAge) {
                 return InteractionResult.sidedSuccess(false);
             }
-            if (matureAge) {
+            if (unripeAge) {
+                state = this.getStateForAge(getAgeAfterKnife());
+                popResource(level, pos, new ItemStack(ItemRegistry.UNRIPE_STRAWBERRY.get(), 1 + level.random.nextInt(2)));
+            } else if (matureAge) {
                 state = this.getStateForAge(getAgeAfterKnife());
                 popResource(level, pos, new ItemStack(this.getBaseItemStack().getItem(), 1 + level.random.nextInt(2)));
             } else {

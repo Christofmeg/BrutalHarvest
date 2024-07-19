@@ -7,6 +7,7 @@ import com.christofmeg.brutalharvest.common.init.BlockRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -31,8 +32,8 @@ public class BrutalBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
 
-        makeTomatoCrop(BlockRegistry.TOMATO.get());
-        makeLettuceCrop(BlockRegistry.LETTUCE.get());
+        makeCrop(BlockRegistry.TOMATO.get(), TomatoCropBlock.AGE);
+        makeCrop(BlockRegistry.LETTUCE.get(), LettuceCropBlock.AGE);
 
         cornBlockCrop(BlockRegistry.CORN.get(), "0");
         cornBlockCrop(BlockRegistry.CORN.get(), "1");
@@ -49,10 +50,10 @@ public class BrutalBlockStateProvider extends BlockStateProvider {
         cornBlockCrop(BlockRegistry.CORN.get(), "7_lower");
         cornBlockFull(BlockRegistry.CORN.get(), "7_upper");
 
-        makeCottonCrop(BlockRegistry.COTTON.get());
-        makeSugarBeetCrop(BlockRegistry.SUGAR_BEET.get());
-        makeStrawberryCrop(BlockRegistry.STRAWBERRY.get());
-    //    makeOnionCrop(BlockRegistry.ONION.get());
+        makeCrop(BlockRegistry.COTTON.get(), CottonCropBlock.AGE);
+        makeCrop(BlockRegistry.SUGAR_BEET.get(), SugarBeetCropBlock.AGE);
+        makeCrop(BlockRegistry.STRAWBERRY.get(), StrawberryCropBlock.AGE);
+    //    makeCrop(BlockRegistry.ONION.get(), OnionCropBlock.AGE);
     }
 
     private void cornBlockFull(Block block, String name) {
@@ -70,60 +71,14 @@ public class BrutalBlockStateProvider extends BlockStateProvider {
         return Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath();
     }
 
-    public void makeTomatoCrop(Block block) {
+    public void makeCrop(Block block, IntegerProperty ageProperty) {
+        String name = block.getDescriptionId().replace("block.brutalharvest.", "");
         getVariantBuilder(block).forAllStates(state -> {
-            String modelName = "tomato_stage" + state.getValue(((TomatoCropBlock) block).getAgeProperty());
+            String modelName = name + "_stage" + state.getValue(ageProperty);
             ResourceLocation textureLocation = new ResourceLocation(CommonConstants.MOD_ID, "block/" + modelName);
             ConfiguredModel model = new ConfiguredModel(models().crop(modelName, textureLocation).renderType(CUTOUT));
             return new ConfiguredModel[]{model};
         });
     }
-
-    public void makeLettuceCrop(Block block) {
-        getVariantBuilder(block).forAllStates(state -> {
-            String modelName = "lettuce_stage" + state.getValue(((LettuceCropBlock) block).getAgeProperty());
-            ResourceLocation textureLocation = new ResourceLocation(CommonConstants.MOD_ID, "block/" + modelName);
-            ConfiguredModel model = new ConfiguredModel(models().crop(modelName, textureLocation).renderType(CUTOUT));
-            return new ConfiguredModel[]{model};
-        });
-    }
-
-    public void makeCottonCrop(Block block) {
-        getVariantBuilder(block).forAllStates(state -> {
-            String modelName = "cotton_stage" + state.getValue(((CottonCropBlock) block).getAgeProperty());
-            ResourceLocation textureLocation = new ResourceLocation(CommonConstants.MOD_ID, "block/" + modelName);
-            ConfiguredModel model = new ConfiguredModel(models().crop(modelName, textureLocation).renderType(CUTOUT));
-            return new ConfiguredModel[]{model};
-        });
-    }
-
-    public void makeSugarBeetCrop(Block block) {
-        getVariantBuilder(block).forAllStates(state -> {
-            String modelName = "sugar_beet_stage" + state.getValue(((SugarBeetCropBlock) block).getAgeProperty());
-            ResourceLocation textureLocation = new ResourceLocation(CommonConstants.MOD_ID, "block/" + modelName);
-            ConfiguredModel model = new ConfiguredModel(models().crop(modelName, textureLocation).renderType(CUTOUT));
-            return new ConfiguredModel[]{model};
-        });
-    }
-
-    public void makeStrawberryCrop(Block block) {
-        getVariantBuilder(block).forAllStates(state -> {
-            String modelName = "strawberry_stage" + state.getValue(((StrawberryCropBlock) block).getAgeProperty());
-            ResourceLocation textureLocation = new ResourceLocation(CommonConstants.MOD_ID, "block/" + modelName);
-            ConfiguredModel model = new ConfiguredModel(models().crop(modelName, textureLocation).renderType(CUTOUT));
-            return new ConfiguredModel[]{model};
-        });
-    }
-
-   /* public void makeOnionCrop(Block block) {
-        getVariantBuilder(block).forAllStates(state -> {
-            String modelName = "onion_stage" + state.getValue(((OnionCropBlock) block).getAgeProperty());
-            ResourceLocation textureLocation = new ResourceLocation(CommonConstants.MOD_ID, "block/" + modelName);
-            ConfiguredModel model = new ConfiguredModel(models().crop(modelName, textureLocation).renderType(CUTOUT));
-            return new ConfiguredModel[]{model};
-        });
-    }
-
-    */
 
 }
