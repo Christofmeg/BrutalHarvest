@@ -27,6 +27,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> CORN;
     public static final RegistryObject<Block> COTTON;
     public static final RegistryObject<Block> SUGAR_BEET;
+    public static final RegistryObject<Block> STRAWBERRY;
 //    public static final RegistryObject<Block> ONION;
 //    public static final RegistryObject<Block> RUBBER_CAULDRON;
 //    public static final RegistryObject<Block> MILLSTONE;
@@ -47,6 +48,7 @@ public class BlockRegistry {
         CORN = BLOCKS.register("corn", () -> new CornCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
         COTTON = BLOCKS.register("cotton", () -> new CottonCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
         SUGAR_BEET = BLOCKS.register("sugar_beet", () -> new SugarBeetCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
+        STRAWBERRY = BLOCKS.register("strawberry", () -> new StrawberryCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
 //        ONION = BLOCKS.register("onion", () -> new OnionCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
 //        RUBBER_CAULDRON = BLOCKS.register("rubber_cauldron", () -> new LayeredCauldronBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON), LayeredCauldronBlock.RAIN, CauldronInteraction.WATER));
 

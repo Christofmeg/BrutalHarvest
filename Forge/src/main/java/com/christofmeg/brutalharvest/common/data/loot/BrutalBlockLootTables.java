@@ -2,6 +2,7 @@ package com.christofmeg.brutalharvest.common.data.loot;
 
 import com.christofmeg.brutalharvest.common.block.CottonCropBlock;
 import com.christofmeg.brutalharvest.common.block.LettuceCropBlock;
+import com.christofmeg.brutalharvest.common.block.StrawberryCropBlock;
 import com.christofmeg.brutalharvest.common.block.SugarBeetCropBlock;
 import com.christofmeg.brutalharvest.common.init.BlockRegistry;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
@@ -35,46 +36,52 @@ public class BrutalBlockLootTables extends BlockLootSubProvider {
 
         //TODO block loot to Corn, Tomato
 
-        LootItemCondition.Builder lettuceCondition1 = LootItemBlockStatePropertyCondition
-                .hasBlockStateProperties(BlockRegistry.LETTUCE.get())
-                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LettuceCropBlock.AGE, 4));
-        LootItemCondition.Builder lettuceCondition2 = LootItemBlockStatePropertyCondition
-                .hasBlockStateProperties(BlockRegistry.LETTUCE.get())
-                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LettuceCropBlock.AGE, 5));
         this.add(BlockRegistry.LETTUCE.get(), createLettuceCropDrops(
                 BlockRegistry.LETTUCE.get(),
                 ItemRegistry.LETTUCE.get(),
                 ItemRegistry.LETTUCE_SEEDS.get(),
-                lettuceCondition1,
-                lettuceCondition2
+                LootItemBlockStatePropertyCondition
+                        .hasBlockStateProperties(BlockRegistry.LETTUCE.get())
+                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LettuceCropBlock.AGE, 4)),
+                LootItemBlockStatePropertyCondition
+                        .hasBlockStateProperties(BlockRegistry.LETTUCE.get())
+                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LettuceCropBlock.AGE, 5))
         ));
 
-        LootItemCondition.Builder sugarBeetCondition1 = LootItemBlockStatePropertyCondition
-                .hasBlockStateProperties(BlockRegistry.SUGAR_BEET.get())
-                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SugarBeetCropBlock.AGE, 3));
-        LootItemCondition.Builder sugarBeetCondition2 = LootItemBlockStatePropertyCondition
-                .hasBlockStateProperties(BlockRegistry.SUGAR_BEET.get())
-                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SugarBeetCropBlock.AGE, 4));
-        this.add(BlockRegistry.SUGAR_BEET.get(), createSugarBeetCropDrops(
+        this.add(BlockRegistry.SUGAR_BEET.get(), createGenericCropDrops(
                 BlockRegistry.SUGAR_BEET.get(),
-                ItemRegistry.SUGAR_BEET.get(),
-                ItemRegistry.SUGAR_BEET_SEEDS.get(),
-                sugarBeetCondition1,
-                sugarBeetCondition2
+                ItemRegistry.SUGAR_BEET.get(), 1.0F, 3.0F,
+                ItemRegistry.SUGAR_BEET_SEEDS.get(), 2.0F, 3.0F,
+                LootItemBlockStatePropertyCondition
+                        .hasBlockStateProperties(BlockRegistry.SUGAR_BEET.get())
+                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SugarBeetCropBlock.AGE, 3)),
+                LootItemBlockStatePropertyCondition
+                        .hasBlockStateProperties(BlockRegistry.SUGAR_BEET.get())
+                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SugarBeetCropBlock.AGE, 4))
         ));
 
-        LootItemCondition.Builder cottonCondition1 = LootItemBlockStatePropertyCondition
-                .hasBlockStateProperties(BlockRegistry.COTTON.get())
-                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CottonCropBlock.AGE, 5));
-        LootItemCondition.Builder cottonCondition2 = LootItemBlockStatePropertyCondition
-                .hasBlockStateProperties(BlockRegistry.COTTON.get())
-                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CottonCropBlock.AGE, 6));
         this.add(BlockRegistry.COTTON.get(), createCottonCropDrops(
                 BlockRegistry.COTTON.get(),
                 ItemRegistry.COTTON.get(),
                 ItemRegistry.COTTON_SEEDS.get(),
-                cottonCondition1,
-                cottonCondition2
+                LootItemBlockStatePropertyCondition
+                        .hasBlockStateProperties(BlockRegistry.COTTON.get())
+                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CottonCropBlock.AGE, 5)),
+                LootItemBlockStatePropertyCondition
+                        .hasBlockStateProperties(BlockRegistry.COTTON.get())
+                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CottonCropBlock.AGE, 6))
+        ));
+
+        this.add(BlockRegistry.STRAWBERRY.get(), createGenericCropDrops(
+                BlockRegistry.STRAWBERRY.get(),
+                ItemRegistry.STRAWBERRY.get(), 1.0F, 4.0F,
+                ItemRegistry.STRAWBERRY_SEEDS.get(), 1.0F, 2.0F,
+                LootItemBlockStatePropertyCondition
+                        .hasBlockStateProperties(BlockRegistry.STRAWBERRY.get())
+                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(StrawberryCropBlock.AGE, 6)),
+                LootItemBlockStatePropertyCondition
+                        .hasBlockStateProperties(BlockRegistry.STRAWBERRY.get())
+                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(StrawberryCropBlock.AGE, 7))
         ));
 
     }
@@ -85,7 +92,8 @@ public class BrutalBlockLootTables extends BlockLootSubProvider {
                 .filter(block ->
                         block instanceof SugarBeetCropBlock ||
                         block instanceof LettuceCropBlock ||
-                        block instanceof CottonCropBlock
+                        block instanceof CottonCropBlock ||
+                        block instanceof StrawberryCropBlock
                 )
                 ::iterator;
     }
@@ -112,29 +120,6 @@ public class BrutalBlockLootTables extends BlockLootSubProvider {
         );
     }
 
-    protected LootTable.Builder createSugarBeetCropDrops(Block pCropBlock, Item pGrownCropItem, Item pSeedsItem, LootItemCondition.Builder pDropGrownCropConditionAge3, LootItemCondition.Builder pDropGrownCropConditionAge4) {
-        return this.applyExplosionDecay(pCropBlock, LootTable.lootTable()
-                .withPool(LootPool.lootPool()
-                        .when(pDropGrownCropConditionAge3)
-                        .add(LootItem.lootTableItem(pGrownCropItem))
-                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F)))
-                )
-                .withPool(LootPool.lootPool()
-                        .when(pDropGrownCropConditionAge3)
-                        .add(LootItem.lootTableItem(pSeedsItem)
-                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 3.0F))))
-                )
-                .withPool(LootPool.lootPool()
-                        .when(pDropGrownCropConditionAge4)
-                        .add(LootItem.lootTableItem(pSeedsItem)
-                                .when(LootItemRandomChanceCondition.randomChance(0.25F))))
-                .withPool(LootPool.lootPool()
-                        .when(pDropGrownCropConditionAge3.invert().and(pDropGrownCropConditionAge4.invert()))
-                        .add(LootItem.lootTableItem(pSeedsItem))
-                )
-        );
-    }
-
     protected LootTable.Builder createCottonCropDrops(Block pCropBlock, Item pGrownCropItem, Item pSeedsItem, LootItemCondition.Builder pDropGrownCropConditionAge5, LootItemCondition.Builder pDropGrownCropConditionAge6) {
         return this.applyExplosionDecay(pCropBlock, LootTable.lootTable()
                 .withPool(LootPool.lootPool()
@@ -154,6 +139,29 @@ public class BrutalBlockLootTables extends BlockLootSubProvider {
                 )
                 .withPool(LootPool.lootPool()
                         .when(pDropGrownCropConditionAge5.invert().and(pDropGrownCropConditionAge6.invert()))
+                        .add(LootItem.lootTableItem(pSeedsItem))
+                )
+        );
+    }
+
+    protected LootTable.Builder createGenericCropDrops(Block pCropBlock, Item pGrownCropItem, float minCropItem, float maxCropItem, Item pSeedsItem, float minSeedItem, float maxSeedItem, LootItemCondition.Builder matureCondition, LootItemCondition.Builder deadCondition) {
+        return this.applyExplosionDecay(pCropBlock, LootTable.lootTable()
+                .withPool(LootPool.lootPool()
+                        .when(matureCondition)
+                        .add(LootItem.lootTableItem(pGrownCropItem))
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(minCropItem, maxCropItem)))
+                )
+                .withPool(LootPool.lootPool()
+                        .when(matureCondition)
+                        .add(LootItem.lootTableItem(pSeedsItem)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(minSeedItem, maxSeedItem))))
+                )
+                .withPool(LootPool.lootPool()
+                        .when(deadCondition)
+                        .add(LootItem.lootTableItem(pSeedsItem)
+                                .when(LootItemRandomChanceCondition.randomChance(0.25F))))
+                .withPool(LootPool.lootPool()
+                        .when(matureCondition.invert().and(deadCondition.invert()))
                         .add(LootItem.lootTableItem(pSeedsItem))
                 )
         );

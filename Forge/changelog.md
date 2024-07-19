@@ -9,3 +9,6 @@
 * Rework Lettuce Crop
 * Added final stage to Cotton
 * Rework Cotton Crop
+* Added Strawberry Crop
+* Adjust Unripe Tomato food properties
+* Adjust Sliced Lettuce food properties

@@ -169,7 +169,7 @@ public class ItemRegistry {
         CUCUMBER_SEEDS = ITEMS.register("cucumber_seeds", () -> new Item(new Item.Properties()));
         COTTON_SEEDS = ITEMS.register("cotton_seeds", () -> new ItemNameBlockItem(BlockRegistry.COTTON.get(), new Item.Properties()));
         RAPESEEDS = ITEMS.register("rapeseeds", () -> new Item(new Item.Properties()));
-        STRAWBERRY_SEEDS = ITEMS.register("strawberry_seeds", () -> new Item(new Item.Properties()));
+        STRAWBERRY_SEEDS = ITEMS.register("strawberry_seeds", () -> new ItemNameBlockItem(BlockRegistry.STRAWBERRY.get(), new Item.Properties()));
         SUGAR_BEET_SEEDS = ITEMS.register("sugar_beet_seeds", () -> new ItemNameBlockItem(BlockRegistry.SUGAR_BEET.get(), new Item.Properties()));
 
         // ALL BELOW IN 2.0 OR 3.0

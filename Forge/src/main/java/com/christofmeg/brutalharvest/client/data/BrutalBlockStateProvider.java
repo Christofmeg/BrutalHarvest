@@ -51,6 +51,7 @@ public class BrutalBlockStateProvider extends BlockStateProvider {
 
         makeCottonCrop(BlockRegistry.COTTON.get());
         makeSugarBeetCrop(BlockRegistry.SUGAR_BEET.get());
+        makeStrawberryCrop(BlockRegistry.STRAWBERRY.get());
     //    makeOnionCrop(BlockRegistry.ONION.get());
     }
 
@@ -99,6 +100,15 @@ public class BrutalBlockStateProvider extends BlockStateProvider {
     public void makeSugarBeetCrop(Block block) {
         getVariantBuilder(block).forAllStates(state -> {
             String modelName = "sugar_beet_stage" + state.getValue(((SugarBeetCropBlock) block).getAgeProperty());
+            ResourceLocation textureLocation = new ResourceLocation(CommonConstants.MOD_ID, "block/" + modelName);
+            ConfiguredModel model = new ConfiguredModel(models().crop(modelName, textureLocation).renderType(CUTOUT));
+            return new ConfiguredModel[]{model};
+        });
+    }
+
+    public void makeStrawberryCrop(Block block) {
+        getVariantBuilder(block).forAllStates(state -> {
+            String modelName = "strawberry_stage" + state.getValue(((StrawberryCropBlock) block).getAgeProperty());
             ResourceLocation textureLocation = new ResourceLocation(CommonConstants.MOD_ID, "block/" + modelName);
             ConfiguredModel model = new ConfiguredModel(models().crop(modelName, textureLocation).renderType(CUTOUT));
             return new ConfiguredModel[]{model};

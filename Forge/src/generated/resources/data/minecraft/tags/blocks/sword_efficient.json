@@ -1,8 +1,10 @@
 {
   "values": [
     "brutalharvest:tomato",
+    "brutalharvest:lettuce",
     "brutalharvest:corn",
     "brutalharvest:cotton",
-    "brutalharvest:sugar_beet"
+    "brutalharvest:sugar_beet",
+    "brutalharvest:strawberry"
   ]
 }

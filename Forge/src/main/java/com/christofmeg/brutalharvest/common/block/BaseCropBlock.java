@@ -53,20 +53,22 @@ public abstract class BaseCropBlock extends CropBlock {
         boolean matureAge = age == this.getMaxAge();
         boolean deadAge = age == this.getMaxAge() + 1;
         ItemStack stack = player.getItemInHand(interactionHand);
-        if (stack.getItem() instanceof KnifeItem) {
-            if (matureAge) {
-                popResource(level, pos, this.getBaseItemStack());
-                level.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
-                BlockState newBlockState = this.getStateForAge(getAgeAfterKnife());
-                level.setBlock(pos, newBlockState, 2);
-                level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, newBlockState));
-                stack.hurtAndBreak(1, player, (livingEntity) -> livingEntity.broadcastBreakEvent(interactionHand));
-            } else if (deadAge) {
-                popResource(level, pos, new ItemStack(this.getBaseSeedId(), level.random.nextInt(2)));
-                level.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
-                level.setBlock(pos, Blocks.AIR.defaultBlockState(), 2);
-                stack.hurtAndBreak(1, player, (livingEntity) -> livingEntity.broadcastBreakEvent(interactionHand));
+        if (stack.getItem() instanceof KnifeItem && !level.isClientSide) {
+            if (!matureAge && !deadAge) {
+                return InteractionResult.sidedSuccess(false);
             }
+            if (matureAge) {
+                state = this.getStateForAge(getAgeAfterKnife());
+                popResource(level, pos, this.getBaseItemStack());
+            } else {
+                state = Blocks.AIR.defaultBlockState();
+                popResource(level, pos, new ItemStack(this.getBaseSeedId(), level.random.nextInt(2)));
+            }
+            level.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
+            level.setBlock(pos, state, 2);
+            level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, state));
+            stack.hurtAndBreak(1, player, (livingEntity) -> livingEntity.broadcastBreakEvent(interactionHand));
+            return InteractionResult.sidedSuccess(false);
         }
         return super.use(state, level, pos, player, interactionHand, blockHitResult);
     }
