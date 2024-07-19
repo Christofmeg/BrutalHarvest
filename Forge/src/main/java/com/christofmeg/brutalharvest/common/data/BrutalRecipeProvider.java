@@ -8,7 +8,6 @@ import net.minecraft.data.recipes.*;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraftforge.common.Tags;
 import org.jetbrains.annotations.NotNull;
 
@@ -28,7 +27,6 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
         this.addSmithingRecipes(consumer);
         this.addCookingRecipes(consumer);
     }
-
 
     private void addShapedRecipes(Consumer<FinishedRecipe> consumer) {
         knifeBuilder(ItemRegistry.FLINT_KNIFE.get(), Ingredient.of(Items.FLINT), "flint" + "_knife", consumer);
@@ -52,6 +50,23 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .pattern("FFF")
                 .unlockedBy("has_cotton", has(ItemRegistry.COTTON.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.SEED_SATCHEL.get())));
+
+        woolRecipeBuilder(TagRegistry.Items.WOOLS_BLACK, Items.BLACK_BANNER, Items.BLACK_BED, Items.BLACK_CARPET, consumer);
+        woolRecipeBuilder(TagRegistry.Items.WOOLS_BLUE, Items.BLUE_BANNER, Items.BLUE_BED, Items.BLUE_CARPET, consumer);
+        woolRecipeBuilder(TagRegistry.Items.WOOLS_BROWN, Items.BROWN_BANNER, Items.BROWN_BED, Items.BROWN_CARPET, consumer);
+        woolRecipeBuilder(TagRegistry.Items.WOOLS_CYAN, Items.CYAN_BANNER, Items.CYAN_BED, Items.CYAN_CARPET, consumer);
+        woolRecipeBuilder(TagRegistry.Items.WOOLS_GRAY, Items.GRAY_BANNER, Items.GRAY_BED, Items.GRAY_CARPET, consumer);
+        woolRecipeBuilder(TagRegistry.Items.WOOLS_GREEN, Items.GREEN_BANNER, Items.GREEN_BED, Items.GREEN_CARPET, consumer);
+        woolRecipeBuilder(TagRegistry.Items.WOOLS_LIGHT_BLUE, Items.LIGHT_BLUE_BANNER, Items.LIGHT_BLUE_BED, Items.LIGHT_BLUE_CARPET, consumer);
+        woolRecipeBuilder(TagRegistry.Items.WOOLS_LIGHT_GRAY, Items.LIGHT_GRAY_BANNER, Items.LIGHT_GRAY_BED, Items.LIGHT_GRAY_CARPET, consumer);
+        woolRecipeBuilder(TagRegistry.Items.WOOLS_LIME, Items.LIME_BANNER, Items.LIME_BED, Items.LIME_CARPET, consumer);
+        woolRecipeBuilder(TagRegistry.Items.WOOLS_MAGENTA, Items.MAGENTA_BANNER, Items.MAGENTA_BED, Items.MAGENTA_CARPET, consumer);
+        woolRecipeBuilder(TagRegistry.Items.WOOLS_ORANGE, Items.ORANGE_BANNER, Items.ORANGE_BED, Items.ORANGE_CARPET, consumer);
+        woolRecipeBuilder(TagRegistry.Items.WOOLS_PINK, Items.PINK_BANNER, Items.PINK_BED, Items.PINK_CARPET, consumer);
+        woolRecipeBuilder(TagRegistry.Items.WOOLS_PURPLE, Items.PURPLE_BANNER, Items.PURPLE_BED, Items.PURPLE_CARPET, consumer);
+        woolRecipeBuilder(TagRegistry.Items.WOOLS_RED, Items.RED_BANNER, Items.RED_BED, Items.RED_CARPET, consumer);
+        woolRecipeBuilder(TagRegistry.Items.WOOLS_WHITE, Items.WHITE_BANNER, Items.WHITE_BED, Items.WHITE_CARPET, consumer);
+        woolRecipeBuilder(TagRegistry.Items.WOOLS_YELLOW, Items.YELLOW_BANNER, Items.YELLOW_BED, Items.YELLOW_CARPET, consumer);
 
 /*        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.SUSHI.get())
                 .define('K', Items.DRIED_KELP)
@@ -124,7 +139,6 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .requires(ItemRegistry.SUGAR_BEET.get())
                 .unlockedBy("sugar_beet", has(ItemRegistry.SUGAR_BEET.get()))
                 .save(consumer, modLoc("sugar"));
-
 
         fabricRecipeBuilder(ItemRegistry.BLACK_FABRIC.get(), Tags.Items.DYES_BLACK, consumer);
         fabricRecipeBuilder(ItemRegistry.BLUE_FABRIC.get(), Tags.Items.DYES_BLUE, consumer);

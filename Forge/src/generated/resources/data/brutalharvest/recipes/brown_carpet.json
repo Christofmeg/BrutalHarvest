@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "forge:wools/brown"
+    }
+  },
+  "pattern": [
+    "##"
+  ],
+  "result": {
+    "item": "minecraft:brown_carpet"
+  },
+  "show_notification": true
+}

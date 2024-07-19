@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "forge:wools/magenta"
+    }
+  },
+  "pattern": [
+    "##"
+  ],
+  "result": {
+    "item": "minecraft:magenta_carpet"
+  },
+  "show_notification": true
+}

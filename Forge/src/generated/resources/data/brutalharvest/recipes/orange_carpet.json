@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "forge:wools/orange"
+    }
+  },
+  "pattern": [
+    "##"
+  ],
+  "result": {
+    "item": "minecraft:orange_carpet"
+  },
+  "show_notification": true
+}

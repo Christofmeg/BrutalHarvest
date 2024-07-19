@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "forge:wools/blue"
+    }
+  },
+  "pattern": [
+    "##"
+  ],
+  "result": {
+    "item": "minecraft:blue_carpet"
+  },
+  "show_notification": true
+}

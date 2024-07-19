@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "forge:wools/green"
+    }
+  },
+  "pattern": [
+    "##"
+  ],
+  "result": {
+    "item": "minecraft:green_carpet"
+  },
+  "show_notification": true
+}

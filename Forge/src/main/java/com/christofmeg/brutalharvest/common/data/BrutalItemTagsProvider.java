@@ -106,7 +106,7 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
         tag(TagRegistry.Items.CROPS_STRAWBERRY).add(ItemRegistry.STRAWBERRY.get());
 //        tag(TagRegistry.Items.CROPS_ONION).add(ItemRegistry.ONION.get());
 
-        tag(TagRegistry.Items.FOOD)
+        tag(TagRegistry.Items.FOODS)
 //              .addTag(TagRegistry.Items.LOBSTER)
 //              .addTag(TagRegistry.Items.RAW_LOBSTER)
 //              .addTag(TagRegistry.Items.SUSHI)
@@ -179,9 +179,7 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
             tag(TagRegistry.Items.KNIVES).add(item);
             tag(TagRegistry.Items.FARMERS_DELIGHT_KNIVES).add(item);
         });
-        ItemRegistry.ITEMS.getEntries().stream().map(RegistryObject::get).filter(item -> item instanceof ScytheItem).forEach(item -> {
-            tag(TagRegistry.Items.SCYTHES).add(item);
-        });
+        ItemRegistry.ITEMS.getEntries().stream().map(RegistryObject::get).filter(item -> item instanceof ScytheItem).forEach(item -> tag(TagRegistry.Items.SCYTHES).add(item));
 
         tag(TagRegistry.Items.ITEMS)
                 .addTag(TagRegistry.Items.SEED_SATCHEL)
@@ -222,6 +220,25 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
                 .add(ItemRegistry.RED_FABRIC.get())
                 .add(ItemRegistry.WHITE_FABRIC.get())
                 .add(ItemRegistry.YELLOW_FABRIC.get());
+
+        tag(ItemTags.WOOL).addTag(TagRegistry.Items.FABRICS);
+
+        tag(TagRegistry.Items.WOOLS_BLACK).add(Items.BLACK_WOOL).add(ItemRegistry.BLACK_FABRIC.get());
+        tag(TagRegistry.Items.WOOLS_BLUE).add(Items.BLUE_WOOL).add(ItemRegistry.BLUE_FABRIC.get());
+        tag(TagRegistry.Items.WOOLS_BROWN).add(Items.BROWN_WOOL).add(ItemRegistry.BROWN_FABRIC.get());
+        tag(TagRegistry.Items.WOOLS_CYAN).add(Items.CYAN_WOOL).add(ItemRegistry.CYAN_FABRIC.get());
+        tag(TagRegistry.Items.WOOLS_GRAY).add(Items.GRAY_WOOL).add(ItemRegistry.GRAY_FABRIC.get());
+        tag(TagRegistry.Items.WOOLS_GREEN).add(Items.GREEN_WOOL).add(ItemRegistry.GREEN_FABRIC.get());
+        tag(TagRegistry.Items.WOOLS_LIGHT_BLUE).add(Items.LIGHT_BLUE_WOOL).add(ItemRegistry.LIGHT_BLUE_FABRIC.get());
+        tag(TagRegistry.Items.WOOLS_LIGHT_GRAY).add(Items.LIGHT_GRAY_WOOL).add(ItemRegistry.LIGHT_GRAY_FABRIC.get());
+        tag(TagRegistry.Items.WOOLS_LIME).add(Items.LIME_WOOL).add(ItemRegistry.LIME_FABRIC.get());
+        tag(TagRegistry.Items.WOOLS_MAGENTA).add(Items.MAGENTA_WOOL).add(ItemRegistry.MAGENTA_FABRIC.get());
+        tag(TagRegistry.Items.WOOLS_ORANGE).add(Items.ORANGE_WOOL).add(ItemRegistry.ORANGE_FABRIC.get());
+        tag(TagRegistry.Items.WOOLS_PINK).add(Items.PINK_WOOL).add(ItemRegistry.PINK_FABRIC.get());
+        tag(TagRegistry.Items.WOOLS_PURPLE).add(Items.PURPLE_WOOL).add(ItemRegistry.PURPLE_FABRIC.get());
+        tag(TagRegistry.Items.WOOLS_RED).add(Items.RED_WOOL).add(ItemRegistry.RED_FABRIC.get());
+        tag(TagRegistry.Items.WOOLS_WHITE).add(Items.WHITE_WOOL).add(ItemRegistry.WHITE_FABRIC.get());
+        tag(TagRegistry.Items.WOOLS_YELLOW).add(Items.YELLOW_WOOL).add(ItemRegistry.YELLOW_FABRIC.get());
 
     }
 }

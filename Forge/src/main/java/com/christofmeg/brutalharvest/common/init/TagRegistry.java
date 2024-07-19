@@ -84,34 +84,34 @@ public class TagRegistry {
 //        public static TagKey<Item> CROPS_ONION = forgeTag("crops/onion");
 //        public static TagKey<Item> RICE = forgeTag("crops/rice");
 
-        public static TagKey<Item> FOOD = forgeTag("food");
-//        public static TagKey<Item> LOBSTER = forgeTag("food/lobster");
-//        public static TagKey<Item> RAW_LOBSTER = forgeTag("food/raw_lobster");
-//        public static TagKey<Item> SUSHI = forgeTag("food/sushi");
-//        public static TagKey<Item> CUCUMBER_SUSHI = forgeTag("food/cucumber_shushi");
-//        public static TagKey<Item> LOBSTER_SUSHI = forgeTag("food/lobster_sushi");
-        public static TagKey<Item> FRIED_EGG = forgeTag("food/fried_egg");
-        public static TagKey<Item> SCRAMBLED_EGG = forgeTag("food/scrambled_egg");
-        public static TagKey<Item> BOILED_EGG = forgeTag("food/boiled_egg");
+        public static TagKey<Item> FOODS = forgeTag("foods");
+//        public static TagKey<Item> LOBSTER = forgeTag("foods/lobster");
+//        public static TagKey<Item> RAW_LOBSTER = forgeTag("foods/raw_lobster");
+//        public static TagKey<Item> SUSHI = forgeTag("foods/sushi");
+//        public static TagKey<Item> CUCUMBER_SUSHI = forgeTag("foods/cucumber_shushi");
+//        public static TagKey<Item> LOBSTER_SUSHI = forgeTag("foods/lobster_sushi");
+        public static TagKey<Item> FRIED_EGG = forgeTag("foods/fried_egg");
+        public static TagKey<Item> SCRAMBLED_EGG = forgeTag("foods/scrambled_egg");
+        public static TagKey<Item> BOILED_EGG = forgeTag("foods/boiled_egg");
 
-        public static TagKey<Item> TOAST_HONEY = forgeTag("food/toast_honey");
-        public static TagKey<Item> TOAST_STRAWBERRY = forgeTag("food/toast_strawberry");
-        public static TagKey<Item> TOAST_BLUEBERRY = forgeTag("food/toast_blueberry");
+        public static TagKey<Item> TOAST_HONEY = forgeTag("foods/toast_honey");
+        public static TagKey<Item> TOAST_STRAWBERRY = forgeTag("foods/toast_strawberry");
+        public static TagKey<Item> TOAST_BLUEBERRY = forgeTag("foods/toast_blueberry");
 
-        public static TagKey<Item> HONEY_JAR = forgeTag("food/honey_jar");
-        public static TagKey<Item> STRAWBERRY_JAM = forgeTag("food/strawberry_jam");
-        public static TagKey<Item> BLUEBERRY_JAM = forgeTag("food/blueberry_jam");
+        public static TagKey<Item> HONEY_JAR = forgeTag("foods/honey_jar");
+        public static TagKey<Item> STRAWBERRY_JAM = forgeTag("foods/strawberry_jam");
+        public static TagKey<Item> BLUEBERRY_JAM = forgeTag("foods/blueberry_jam");
 
-        public static TagKey<Item> TOAST_FRIED_EGG = forgeTag("food/toast_fried_egg");
-        public static TagKey<Item> TOAST_SCRAMBLED_EGG = forgeTag("food/toast_scrambled_egg");
-        public static TagKey<Item> TOAST_BOILED_EGG = forgeTag("food/toast_boiled_egg");
+        public static TagKey<Item> TOAST_FRIED_EGG = forgeTag("foods/toast_fried_egg");
+        public static TagKey<Item> TOAST_SCRAMBLED_EGG = forgeTag("foods/toast_scrambled_egg");
+        public static TagKey<Item> TOAST_BOILED_EGG = forgeTag("foods/toast_boiled_egg");
 
-        public static TagKey<Item> TOAST_LOAF = forgeTag("food/toast_loaf");
-        public static TagKey<Item> TOAST = forgeTag("food/toast");
-        public static TagKey<Item> TOAST_SLICE = forgeTag("food/toast_slice");
+        public static TagKey<Item> TOAST_LOAF = forgeTag("foods/toast_loaf");
+        public static TagKey<Item> TOAST = forgeTag("foods/toast");
+        public static TagKey<Item> TOAST_SLICE = forgeTag("foods/toast_slice");
 
-        public static TagKey<Item> CORN_KERNEL_BOWL = forgeTag("food/corn_kernel_bowl");
-        public static TagKey<Item> POPCORN = forgeTag("food/popcorn");
+        public static TagKey<Item> CORN_KERNEL_BOWL = forgeTag("foods/corn_kernel_bowl");
+        public static TagKey<Item> POPCORN = forgeTag("foods/popcorn");
 
         public static TagKey<Item> SALAD_INGREDIENTS = forgeTag("salad_ingredients");
         public static TagKey<Item> SALAD_INGREDIENTS_LETTUCE = forgeTag("salad_ingredients/lettuce");
@@ -133,6 +133,23 @@ public class TagRegistry {
 
         public static TagKey<Item> FABRICS = modTag("fabrics");
         public static TagKey<Item> FABRICS_COLORED = modTag("fabrics_colored");
+
+        public static TagKey<Item> WOOLS_WHITE = forgeTag("wools/" + "white");
+        public static TagKey<Item> WOOLS_ORANGE = forgeTag("wools/" + "orange");
+        public static TagKey<Item> WOOLS_MAGENTA = forgeTag("wools/" + "magenta");
+        public static TagKey<Item> WOOLS_LIGHT_BLUE = forgeTag("wools/" + "light_blue");
+        public static TagKey<Item> WOOLS_YELLOW = forgeTag("wools/" + "yellow");
+        public static TagKey<Item> WOOLS_LIME = forgeTag("wools/" + "lime");
+        public static TagKey<Item> WOOLS_PINK = forgeTag("wools/" + "pink");
+        public static TagKey<Item> WOOLS_GRAY = forgeTag("wools/" + "gray");
+        public static TagKey<Item> WOOLS_LIGHT_GRAY = forgeTag("wools/" + "light_gray");
+        public static TagKey<Item> WOOLS_CYAN = forgeTag("wools/" + "cyan");
+        public static TagKey<Item> WOOLS_PURPLE = forgeTag("wools/" + "purple");
+        public static TagKey<Item> WOOLS_BLUE = forgeTag("wools/" + "blue");
+        public static TagKey<Item> WOOLS_BROWN = forgeTag("wools/" + "brown");
+        public static TagKey<Item> WOOLS_GREEN = forgeTag("wools/" + "green");
+        public static TagKey<Item> WOOLS_RED = forgeTag("wools/" + "red");
+        public static TagKey<Item> WOOLS_BLACK = forgeTag("wools/" + "black");
 
     }
 

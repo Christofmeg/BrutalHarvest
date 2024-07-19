@@ -16,3 +16,5 @@
 * Added Unripe Strawberries
 * Rework blockstate generator
 * Rework block loot generator
+* Change forge:food/... into forge:foods/...
+* Added fabric recipes
