@@ -12,11 +12,10 @@ import java.util.function.Supplier;
 
 public enum BrutalArmorMaterials implements ArmorMaterial {
 
-    GARDENERS_HAT("gardeners_hat", 0, new int[] { 0, 0, 0, 0 }, 0,
+    GARDENERS_HAT("gardeners_hat", new int[] { 0, 0, 0, 0 }, 0,
     SoundEvents.ARMOR_EQUIP_GENERIC, 0, 0, () -> Ingredient.EMPTY);
 
     private final String name;
-    private final int durabilityMultiplier;
     private final int[] protectionAmounts;
     private final int enchantmentValue;
     private final SoundEvent equipSound;
@@ -24,12 +23,9 @@ public enum BrutalArmorMaterials implements ArmorMaterial {
     private final float knockbackResistance;
     private final Supplier<Ingredient> repairIngredient;
 
-    private static final int[] BASE_DURABILITY = { 11, 16, 16, 13 };
-
-    BrutalArmorMaterials(String name, int durabilityMultiplier, int[] protectionAmounts, int enchantmentValue, SoundEvent equipSound,
-                      float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
+    BrutalArmorMaterials(String name, int[] protectionAmounts, int enchantmentValue, SoundEvent equipSound,
+                         float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
         this.name = name;
-        this.durabilityMultiplier = durabilityMultiplier;
         this.protectionAmounts = protectionAmounts;
         this.enchantmentValue = enchantmentValue;
         this.equipSound = equipSound;
@@ -39,8 +35,8 @@ public enum BrutalArmorMaterials implements ArmorMaterial {
     }
 
     @Override
-    public int getDurabilityForType(ArmorItem.Type pType) {
-        return BASE_DURABILITY[pType.ordinal()] * this.durabilityMultiplier;
+    public int getDurabilityForType(ArmorItem.@NotNull Type pType) {
+        return 0;
     }
 
     @Override
