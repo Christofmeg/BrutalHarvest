@@ -1,6 +1,6 @@
 package com.christofmeg.brutalharvest.common.item;
 
-import com.christofmeg.brutalharvest.common.entity.armor.GardenersHatRenderer;
+import com.christofmeg.brutalharvest.client.entity.armor.GardenersHatRenderer;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;

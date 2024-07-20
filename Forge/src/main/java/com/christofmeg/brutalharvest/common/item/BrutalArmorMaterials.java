@@ -12,7 +12,7 @@ import java.util.function.Supplier;
 
 public enum BrutalArmorMaterials implements ArmorMaterial {
 
-    GARDENERS_HAT("gardeners_hat", new int[] { 0, 0, 0, 0 }, 0,
+    COSMETIC("cosmetic", new int[] { 0, 0, 0, 0 }, 0,
     SoundEvents.ARMOR_EQUIP_GENERIC, 0, 0, () -> Ingredient.EMPTY);
 
     private final String name;

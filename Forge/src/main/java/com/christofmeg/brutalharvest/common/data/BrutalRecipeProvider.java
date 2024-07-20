@@ -75,6 +75,13 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .unlockedBy("has_wheat", has(Tags.Items.CROPS_WHEAT))
                 .save(consumer, modLoc(getItemName(ItemRegistry.GARDENERS_HAT.get())));
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.CHEFS_HAT.get())
+                .define('W', ItemRegistry.FABRIC.get())
+                .pattern("W W")
+                .pattern("WWW")
+                .unlockedBy("has_fabric", has(ItemRegistry.FABRIC.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.CHEFS_HAT.get())));
+
 /*        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.SUSHI.get())
                 .define('K', Items.DRIED_KELP)
                 .define('R', ItemRegistry.RICE.get())
