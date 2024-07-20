@@ -49,6 +49,7 @@ public class BrutalLootTablesProvider extends LootTableProvider {
                     .add(createEntry(ItemRegistry.STRAWBERRY_SEEDS.get(), 10,1, 5))
             //        .add(createEntry(ItemRegistry.ONION_SEEDS.get(), 10,1, 5))
             //        .add(createEntry(ItemRegistry.CHILI_PEPPER_SEEDS.get(), 10,1, 5))
+            //        .add(createEntry(ItemRegistry.RED_CHILI_PEPPET.get(), 10,1, 5))
                     .add(createEntry(ItemRegistry.BLUEBERRY.get(), 10,1, 5))
 
                     .add(EmptyLootItem.emptyItem().setWeight(10));
