@@ -134,6 +134,7 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CHEFS_HAT;
     public static final RegistryObject<Item> BLUE_DUNGAREE;
     public static final RegistryObject<Item> OLD_DUNGAREE;
+    public static final RegistryObject<Item> BOOTS;
 
     public static void init(@Nonnull IEventBus modEventBus) {
         ITEMS.register(modEventBus);
@@ -257,6 +258,7 @@ public class ItemRegistry {
         CHEFS_HAT = ITEMS.register("chefs_hat", () -> new ChefsHatItem(BrutalArmorMaterials.CHEFS_HAT, ArmorItem.Type.HELMET, new Item.Properties()));
         BLUE_DUNGAREE = ITEMS.register("blue_dungaree", () -> new DungareeItem(BrutalArmorMaterials.BLUE_DUNGAREE, ArmorItem.Type.LEGGINGS, new Item.Properties(), "blue"));
         OLD_DUNGAREE = ITEMS.register("old_dungaree", () -> new DungareeItem(BrutalArmorMaterials.OLD_DUNGAREE, ArmorItem.Type.LEGGINGS, new Item.Properties(), "old"));
+        BOOTS = ITEMS.register("boots", () -> new ArmorItem(BrutalArmorMaterials.BOOTS, ArmorItem.Type.BOOTS, new Item.Properties()));
 
     }
 

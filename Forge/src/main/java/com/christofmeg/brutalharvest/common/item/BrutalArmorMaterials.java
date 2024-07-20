@@ -22,7 +22,10 @@ public enum BrutalArmorMaterials implements ArmorMaterial {
     SoundEvents.ARMOR_EQUIP_GENERIC, 0, 0, () -> Ingredient.EMPTY),
 
     OLD_DUNGAREE("old_dungaree", new int[] { 0, 0, 0, 0 }, 0,
-    SoundEvents.ARMOR_EQUIP_GENERIC, 0, 0, () -> Ingredient.EMPTY);
+    SoundEvents.ARMOR_EQUIP_GENERIC, 0, 0, () -> Ingredient.EMPTY),
+
+    BOOTS("boots", new int[] { 0, 0, 0, 0 }, 0,
+            SoundEvents.ARMOR_EQUIP_GENERIC, 0, 0, () -> Ingredient.EMPTY);
 
     private final String name;
     private final int[] protectionAmounts;
