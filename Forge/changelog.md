@@ -13,3 +13,5 @@
 * Tweaked craft for gardener's hat
 * Tweaked craft for chef's hat
 * Added Dungaree
+* Reduced tomato slice to 1 tomato seed
+* Commented out Rubber and Rubber Bucket

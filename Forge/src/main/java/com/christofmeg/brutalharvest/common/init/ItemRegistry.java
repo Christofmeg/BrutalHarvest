@@ -90,8 +90,8 @@ public class ItemRegistry {
     public static final RegistryObject<Item> FLOUR;
     public static final RegistryObject<Item> DOUGH;
 
-    public static final RegistryObject<Item> RUBBER_BUCKET;
-    public static final RegistryObject<Item> RUBBER;
+//    public static final RegistryObject<Item> RUBBER_BUCKET;
+//    public static final RegistryObject<Item> RUBBER;
 
     public static final RegistryObject<Item> FLINT_KNIFE;
     public static final RegistryObject<Item> WOODEN_KNIFE;
@@ -215,8 +215,8 @@ public class ItemRegistry {
         FLOUR = ITEMS.register("flour", () -> new Item(new Item.Properties()));
         DOUGH = ITEMS.register("dough", () -> new Item(new Item.Properties()));
 
-        RUBBER_BUCKET = ITEMS.register("rubber_bucket", () -> new Item(new Item.Properties().craftRemainder(Items.BUCKET))); //TODO implement
-        RUBBER = ITEMS.register("rubber", () -> new Item(new Item.Properties()));
+//        RUBBER_BUCKET = ITEMS.register("rubber_bucket", () -> new Item(new Item.Properties().craftRemainder(Items.BUCKET))); //TODO implement
+//        RUBBER = ITEMS.register("rubber", () -> new Item(new Item.Properties()));
 
         FLINT_KNIFE = ITEMS.register("flint_knife", () -> new KnifeItem(BrutalTiers.FLINT, 1, new Item.Properties()));
         WOODEN_KNIFE = ITEMS.register("wooden_knife", () -> new KnifeItem(Tiers.WOOD, 1, new Item.Properties()));
