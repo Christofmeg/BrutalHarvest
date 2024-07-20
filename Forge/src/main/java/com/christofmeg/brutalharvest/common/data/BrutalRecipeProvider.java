@@ -79,11 +79,27 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .save(consumer, modLoc(getItemName(ItemRegistry.GARDENERS_HAT.get())));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.CHEFS_HAT.get())
-                .define('W', ItemRegistry.FABRIC.get())
+                .define('W', ItemRegistry.WHITE_FABRIC.get())
                 .pattern("WWW")
                 .pattern("W W")
                 .unlockedBy("has_fabric", has(ItemRegistry.FABRIC.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.CHEFS_HAT.get())));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.BLUE_DUNGAREE.get())
+                .define('W', ItemRegistry.BLUE_FABRIC.get())
+                .pattern("WWW")
+                .pattern("W W")
+                .pattern("W W")
+                .unlockedBy("has_fabric", has(ItemRegistry.FABRIC.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.BLUE_DUNGAREE.get())));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.OLD_DUNGAREE.get())
+                .define('W', ItemRegistry.BROWN_FABRIC.get())
+                .pattern("WWW")
+                .pattern("W W")
+                .pattern("W W")
+                .unlockedBy("has_fabric", has(ItemRegistry.FABRIC.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.OLD_DUNGAREE.get())));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.DOUGH.get())
                 .define('F', ItemRegistry.FLOUR.get())

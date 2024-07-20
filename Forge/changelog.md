@@ -12,3 +12,4 @@
 * Added craft for toast with jam
 * Tweaked craft for gardener's hat
 * Tweaked craft for chef's hat
+* Added Dungaree

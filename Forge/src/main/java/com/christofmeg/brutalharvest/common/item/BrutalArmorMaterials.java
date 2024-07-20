@@ -12,7 +12,16 @@ import java.util.function.Supplier;
 
 public enum BrutalArmorMaterials implements ArmorMaterial {
 
-    COSMETIC("cosmetic", new int[] { 0, 0, 0, 0 }, 0,
+    GARDENERS_HAT("gardeners_hat", new int[] { 0, 0, 0, 0 }, 0,
+    SoundEvents.ARMOR_EQUIP_GENERIC, 0, 0, () -> Ingredient.EMPTY),
+
+    CHEFS_HAT("chefs_hat", new int[] { 0, 0, 0, 0 }, 0,
+    SoundEvents.ARMOR_EQUIP_GENERIC, 0, 0, () -> Ingredient.EMPTY),
+
+    BLUE_DUNGAREE("blue_dungaree", new int[] { 0, 0, 0, 0 }, 0,
+    SoundEvents.ARMOR_EQUIP_GENERIC, 0, 0, () -> Ingredient.EMPTY),
+
+    OLD_DUNGAREE("old_dungaree", new int[] { 0, 0, 0, 0 }, 0,
     SoundEvents.ARMOR_EQUIP_GENERIC, 0, 0, () -> Ingredient.EMPTY);
 
     private final String name;

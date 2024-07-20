@@ -3,15 +3,16 @@
   "category": "misc",
   "key": {
     "W": {
-      "item": "brutalharvest:white_fabric"
+      "item": "brutalharvest:blue_fabric"
     }
   },
   "pattern": [
     "WWW",
+    "W W",
     "W W"
   ],
   "result": {
-    "item": "brutalharvest:chefs_hat"
+    "item": "brutalharvest:blue_dungaree"
   },
   "show_notification": true
 }

@@ -132,6 +132,8 @@ public class ItemRegistry {
 
     public static final RegistryObject<Item> GARDENERS_HAT;
     public static final RegistryObject<Item> CHEFS_HAT;
+    public static final RegistryObject<Item> BLUE_DUNGAREE;
+    public static final RegistryObject<Item> OLD_DUNGAREE;
 
     public static void init(@Nonnull IEventBus modEventBus) {
         ITEMS.register(modEventBus);
@@ -251,8 +253,10 @@ public class ItemRegistry {
         WHITE_FABRIC = ITEMS.register("white" + "_" + "fabric", () -> new Item(new Item.Properties()));
         YELLOW_FABRIC = ITEMS.register("yellow" + "_" + "fabric", () -> new Item(new Item.Properties()));
 
-        GARDENERS_HAT = ITEMS.register("gardeners_hat", () -> new GardenersHatItem(BrutalArmorMaterials.COSMETIC, ArmorItem.Type.HELMET, new Item.Properties()));
-        CHEFS_HAT = ITEMS.register("chefs_hat", () -> new ChefsHatItem(BrutalArmorMaterials.COSMETIC, ArmorItem.Type.HELMET, new Item.Properties()));
+        GARDENERS_HAT = ITEMS.register("gardeners_hat", () -> new GardenersHatItem(BrutalArmorMaterials.GARDENERS_HAT, ArmorItem.Type.HELMET, new Item.Properties()));
+        CHEFS_HAT = ITEMS.register("chefs_hat", () -> new ChefsHatItem(BrutalArmorMaterials.CHEFS_HAT, ArmorItem.Type.HELMET, new Item.Properties()));
+        BLUE_DUNGAREE = ITEMS.register("blue_dungaree", () -> new DungareeItem(BrutalArmorMaterials.BLUE_DUNGAREE, ArmorItem.Type.LEGGINGS, new Item.Properties(), "blue"));
+        OLD_DUNGAREE = ITEMS.register("old_dungaree", () -> new DungareeItem(BrutalArmorMaterials.OLD_DUNGAREE, ArmorItem.Type.LEGGINGS, new Item.Properties(), "old"));
 
     }
 
