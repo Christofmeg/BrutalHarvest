@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "W": {
+      "item": "brutalharvest:brown_fabric"
+    }
+  },
+  "pattern": [
+    "W W",
+    "W W"
+  ],
+  "result": {
+    "item": "brutalharvest:boots"
+  },
+  "show_notification": true
+}

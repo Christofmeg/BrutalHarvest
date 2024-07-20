@@ -101,6 +101,14 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .unlockedBy("has_fabric", has(ItemRegistry.FABRIC.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.OLD_DUNGAREE.get())));
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.BOOTS.get())
+                .define('W', ItemRegistry.BROWN_FABRIC.get())
+                .pattern("W W")
+                .pattern("W W")
+                .unlockedBy("has_fabric", has(ItemRegistry.FABRIC.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.BOOTS.get())));
+
+
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.DOUGH.get())
                 .define('F', ItemRegistry.FLOUR.get())
                 .define('E', Items.EGG)
