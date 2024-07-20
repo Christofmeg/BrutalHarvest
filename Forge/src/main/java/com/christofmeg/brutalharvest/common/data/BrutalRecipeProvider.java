@@ -191,7 +191,7 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .unlockedBy("tomato_seeds", has(ItemRegistry.TOMATO_SEEDS.get()))
                 .save(consumer, modLoc("tomato_seeds_from_rotten_tomato"));
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_SEEDS.get(), 2)
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_SEEDS.get())
                 .requires(ItemRegistry.TOMATO_SLICE.get())
                 .unlockedBy("tomato_seeds", has(ItemRegistry.TOMATO_SEEDS.get()))
                 .save(consumer, modLoc("tomato_seeds_from_tomato_slice"));
