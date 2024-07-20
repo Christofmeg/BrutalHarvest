@@ -1,11 +1,15 @@
 package com.christofmeg.brutalharvest.common.event;
 
+import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.ComposterBlock;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.RegistryObject;
 
+
+@Mod.EventBusSubscriber(modid = CommonConstants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class CommonSetupEvent {
 
     public void commonSetupEvent(final FMLCommonSetupEvent event) {
@@ -44,5 +48,22 @@ public class CommonSetupEvent {
     private void compost(RegistryObject<Item> item, float value) {
         ComposterBlock.COMPOSTABLES.put(item.get(), value);
     }
+
+    /*
+    @SubscribeEvent
+    public static void onLivingSpecialSpawn(final MobSpawnEvent.FinalizeSpawn event) {
+        LivingEntity entity = event.getEntity();
+        if (entity instanceof Zombie && !(entity instanceof Drowned) && !(entity instanceof Husk) && !(entity instanceof ZombifiedPiglin) && !(entity instanceof ZombieVillager)) {
+            RandomSource random = event.getLevel().getRandom();
+            float randomF = random.nextFloat();
+            if (randomF < 0.05F) {
+                if (entity.getItemBySlot(EquipmentSlot.HEAD).isEmpty()) {
+                    ItemStack stack = ItemRegistry.GARDENERS_HAT.get().getDefaultInstance();
+                    entity.setItemSlot(EquipmentSlot.HEAD, stack);
+                }
+            }
+        }
+    }
+     */
 
 }
