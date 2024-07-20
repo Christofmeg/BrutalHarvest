@@ -18,7 +18,7 @@
             }
           ],
           "name": "brutalharvest:tomato_seeds",
-          "weight": 5
+          "weight": 10
         },
         {
           "type": "minecraft:item",
@@ -34,7 +34,7 @@
             }
           ],
           "name": "brutalharvest:lettuce_seeds",
-          "weight": 5
+          "weight": 10
         },
         {
           "type": "minecraft:item",
@@ -43,7 +43,7 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 5.0,
+                "max": 4.0,
                 "min": 1.0
               },
               "function": "minecraft:set_count"
@@ -66,7 +66,7 @@
             }
           ],
           "name": "brutalharvest:cucumber_seeds",
-          "weight": 5
+          "weight": 10
         },
         {
           "type": "minecraft:item",
@@ -82,7 +82,7 @@
             }
           ],
           "name": "brutalharvest:cotton_seeds",
-          "weight": 5
+          "weight": 10
         },
         {
           "type": "minecraft:item",
@@ -98,7 +98,7 @@
             }
           ],
           "name": "brutalharvest:rapeseeds",
-          "weight": 5
+          "weight": 10
         },
         {
           "type": "minecraft:item",
@@ -114,7 +114,39 @@
             }
           ],
           "name": "brutalharvest:sugar_beet_seeds",
-          "weight": 5
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 5.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "brutalharvest:strawberry_seeds",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 5.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "brutalharvest:blueberry",
+          "weight": 10
         },
         {
           "type": "minecraft:empty",

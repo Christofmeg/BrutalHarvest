@@ -31,23 +31,23 @@ public class ItemRegistry {
     public static final RegistryObject<Item> CORN_SEEDS;
 
     public static final RegistryObject<Item> CUCUMBER;
-    public static final RegistryObject<Item> CUCUMBER_SLICES;
+    public static final RegistryObject<Item> CUCUMBER_SLICE;
     public static final RegistryObject<Item> PICKLE;
     public static final RegistryObject<Item> CUCUMBER_SEEDS;
 
     public static final RegistryObject<Item> COTTON;
     public static final RegistryObject<Item> COTTON_SEEDS;
 
+    public static final RegistryObject<Item> RAPESEEDS;
+
     public static final RegistryObject<Item> SUGAR_BEET;
     public static final RegistryObject<Item> SUGAR_BEET_SEEDS;
 
-    public static final RegistryObject<Item> RAPESEEDS;
-
-    public static final RegistryObject<Item> STRAWBERRY;
     public static final RegistryObject<Item> UNRIPE_STRAWBERRY;
-    public static final RegistryObject<Item> BLUEBERRY;
-
+    public static final RegistryObject<Item> STRAWBERRY;
     public static final RegistryObject<Item> STRAWBERRY_SEEDS;
+
+    public static final RegistryObject<Item> BLUEBERRY;
 
     // ALL BELOW IN 2.0 OR 3.0
     // public static final RegistryObject<Item> ONION_SEEDS;
@@ -154,7 +154,7 @@ public class ItemRegistry {
         CORN = ITEMS.register("corn", () -> new Item(new Item.Properties().food(BrutalFoods.CORN)));
 
         CUCUMBER = ITEMS.register("cucumber", () -> new Item(new Item.Properties().food(BrutalFoods.CUCUMBER)));
-        CUCUMBER_SLICES = ITEMS.register("cucumber_slice", () -> new Item(new Item.Properties().food(BrutalFoods.CUCUMBER_SLICE)));
+        CUCUMBER_SLICE = ITEMS.register("cucumber_slice", () -> new Item(new Item.Properties().food(BrutalFoods.CUCUMBER_SLICE)));
         PICKLE = ITEMS.register("pickle", () -> new Item(new Item.Properties().food(BrutalFoods.PICKLE)));
 
         COTTON = ITEMS.register("cotton", () -> new Item(new Item.Properties()));

@@ -25,7 +25,7 @@ public class CommonSetupEvent {
             compost(ItemRegistry.CORN, 0.65F);
 
             compost(ItemRegistry.CUCUMBER, 0.65F);
-            compost(ItemRegistry.CUCUMBER_SLICES, 0.50F);
+            compost(ItemRegistry.CUCUMBER_SLICE, 0.50F);
             compost(ItemRegistry.PICKLE, 0.65F);
 
 //            compost(ItemRegistry.ONION, 0.65F);
