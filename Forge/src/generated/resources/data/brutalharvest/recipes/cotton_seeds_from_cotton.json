@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "brutalharvest:cotton"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "brutalharvest:cotton_seeds"
+  }
+}

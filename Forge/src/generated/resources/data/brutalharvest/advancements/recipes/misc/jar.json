@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "brutalharvest:jar"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_toast": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "brutalharvest:toast"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_toast",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "brutalharvest:jar"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -6,7 +6,10 @@ import com.christofmeg.brutalharvest.common.init.TagRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.Tags;
 import org.jetbrains.annotations.NotNull;
@@ -70,17 +73,59 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.GARDENERS_HAT.get())
                 .define('W', Tags.Items.CROPS_WHEAT)
-                .pattern("W W")
                 .pattern("WWW")
+                .pattern("W W")
                 .unlockedBy("has_wheat", has(Tags.Items.CROPS_WHEAT))
                 .save(consumer, modLoc(getItemName(ItemRegistry.GARDENERS_HAT.get())));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.CHEFS_HAT.get())
                 .define('W', ItemRegistry.FABRIC.get())
-                .pattern("W W")
                 .pattern("WWW")
+                .pattern("W W")
                 .unlockedBy("has_fabric", has(ItemRegistry.FABRIC.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.CHEFS_HAT.get())));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.DOUGH.get())
+                .define('F', ItemRegistry.FLOUR.get())
+                .define('E', Items.EGG)
+                .define('O', Items.WATER_BUCKET)
+                .pattern("FF ")
+                .pattern("EO ")
+                .unlockedBy("has_flour", has(ItemRegistry.FLOUR.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.DOUGH.get())));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.DOUGH.get())
+                .define('F', ItemRegistry.FLOUR.get())
+                .define('E', Items.EGG)
+                .define('O', Items.MILK_BUCKET)
+                .pattern("FF ")
+                .pattern("EO ")
+                .unlockedBy("has_flour", has(ItemRegistry.FLOUR.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.DOUGH.get())  + "_from_" + "milk"  ));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.DOUGH.get())
+                .define('F', ItemRegistry.FLOUR.get())
+                .define('E', Items.EGG)
+                .define('O', PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER).getItem())
+                .pattern("FF ")
+                .pattern("EO ")
+                .unlockedBy("has_flour", has(ItemRegistry.FLOUR.get()))
+                .save(consumer, modLoc(getItemName(  ItemRegistry.DOUGH.get()) + "_from_" + "water_bottle"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.TOAST_LOAF.get())
+                .define('D', ItemRegistry.DOUGH.get())
+                .pattern("DDD")
+                .pattern("DDD")
+                .unlockedBy("has_dough", has(ItemRegistry.DOUGH.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.TOAST_LOAF.get())));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.JAR.get())
+                .define('G', Items.GLASS)
+                .pattern("G G")
+                .pattern("G G")
+                .pattern("GGG")
+                .unlockedBy("has_toast", has(ItemRegistry.TOAST.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.JAR.get())));
 
 /*        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.SUSHI.get())
                 .define('K', Items.DRIED_KELP)
@@ -119,18 +164,36 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .requires(ItemRegistry.UNRIPE_TOMATO.get())
                 .unlockedBy("tomato_seeds", has(ItemRegistry.TOMATO_SEEDS.get()))
                 .save(consumer, modLoc("tomato_seeds_from_green_tomato"));
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_SEEDS.get(), 3)
                 .requires(ItemRegistry.TOMATO.get())
                 .unlockedBy("tomato_seeds", has(ItemRegistry.TOMATO_SEEDS.get()))
                 .save(consumer, modLoc("tomato_seeds_from_tomato"));
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_SEEDS.get())
                 .requires(ItemRegistry.ROTTEN_TOMATO.get())
                 .unlockedBy("tomato_seeds", has(ItemRegistry.TOMATO_SEEDS.get()))
                 .save(consumer, modLoc("tomato_seeds_from_rotten_tomato"));
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_SEEDS.get(), 2)
                 .requires(ItemRegistry.TOMATO_SLICE.get())
                 .unlockedBy("tomato_seeds", has(ItemRegistry.TOMATO_SEEDS.get()))
                 .save(consumer, modLoc("tomato_seeds_from_tomato_slice"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.LETTUCE_SEEDS.get(), 2)
+                .requires(ItemRegistry.LETTUCE.get())
+                .unlockedBy("lettuce_seeds", has(ItemRegistry.LETTUCE_SEEDS.get()))
+                .save(consumer, modLoc("lettuce_seeds_from_lettuce"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.COTTON_SEEDS.get(), 2)
+                .requires(ItemRegistry.COTTON.get())
+                .unlockedBy("cotton_seeds", has(ItemRegistry.COTTON_SEEDS.get()))
+                .save(consumer, modLoc("cotton_seeds_from_cotton"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.STRAWBERRY_SEEDS.get(), 3)
+                .requires(ItemRegistry.STRAWBERRY.get())
+                .unlockedBy("strawberry_seeds", has(ItemRegistry.STRAWBERRY_SEEDS.get()))
+                .save(consumer, modLoc("strawberry_seeds_from_strawberry"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.PICKLE.get())
                 .requires(ItemRegistry.CUCUMBER.get())
@@ -153,6 +216,43 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .requires(ItemRegistry.SUGAR_BEET.get())
                 .unlockedBy("sugar_beet", has(ItemRegistry.SUGAR_BEET.get()))
                 .save(consumer, modLoc("sugar"));
+
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOAST_SCRAMBLED_EGG.get())
+                .requires(ItemRegistry.SCRAMBLED_EGG.get())
+                .requires(ItemRegistry.TOAST.get())
+                .unlockedBy("toast", has(ItemRegistry.TOAST.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.TOAST_SCRAMBLED_EGG.get())));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOAST_BOILED_EGG.get())
+                .requires(ItemRegistry.BOILED_EGG.get())
+                .requires(ItemRegistry.TOAST.get())
+                .unlockedBy("toast", has(ItemRegistry.TOAST.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.TOAST_BOILED_EGG.get())));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOAST_FRIED_EGG.get())
+                .requires(ItemRegistry.FRIED_EGG.get())
+                .requires(ItemRegistry.TOAST.get())
+                .unlockedBy("toast", has(ItemRegistry.TOAST.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.TOAST_FRIED_EGG.get())));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOAST_HONEY.get())
+                .requires(ItemRegistry.HONEY_JAR.get())
+                .requires(ItemRegistry.TOAST.get())
+                .unlockedBy("toast", has(ItemRegistry.TOAST.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.TOAST_HONEY.get())));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOAST_STRAWBERRY.get())
+                .requires(ItemRegistry.STRAWBERRY_JAM.get())
+                .requires(ItemRegistry.TOAST.get())
+                .unlockedBy("toast", has(ItemRegistry.TOAST.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.TOAST_STRAWBERRY.get())));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOAST_BLUEBERRY.get())
+                .requires(ItemRegistry.BLUEBERRY_JAM.get())
+                .requires(ItemRegistry.TOAST.get())
+                .unlockedBy("toast", has(ItemRegistry.TOAST.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.TOAST_BLUEBERRY.get())));
 
         fabricRecipeBuilder(ItemRegistry.BLACK_FABRIC.get(), Tags.Items.DYES_BLACK, consumer);
         fabricRecipeBuilder(ItemRegistry.BLUE_FABRIC.get(), Tags.Items.DYES_BLUE, consumer);

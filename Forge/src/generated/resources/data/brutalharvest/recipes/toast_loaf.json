@@ -2,16 +2,16 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": {
-      "item": "brutalharvest:fabric"
+    "D": {
+      "item": "brutalharvest:dough"
     }
   },
   "pattern": [
-    "WWW",
-    "W W"
+    "DDD",
+    "DDD"
   ],
   "result": {
-    "item": "brutalharvest:chefs_hat"
+    "item": "brutalharvest:toast_loaf"
   },
   "show_notification": true
 }

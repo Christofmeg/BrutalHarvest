@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "cotton_seeds": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "brutalharvest:cotton_seeds"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "brutalharvest:cotton_seeds_from_cotton"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "cotton_seeds",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "brutalharvest:cotton_seeds_from_cotton"
+    ]
+  },
+  "sends_telemetry_event": false
+}

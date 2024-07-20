@@ -2,16 +2,17 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "W": {
-      "item": "brutalharvest:fabric"
+    "G": {
+      "item": "minecraft:glass"
     }
   },
   "pattern": [
-    "WWW",
-    "W W"
+    "G G",
+    "G G",
+    "GGG"
   ],
   "result": {
-    "item": "brutalharvest:chefs_hat"
+    "item": "brutalharvest:jar"
   },
   "show_notification": true
 }

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "brutalharvest:strawberry_seeds_from_strawberry"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "strawberry_seeds": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "brutalharvest:strawberry_seeds"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "strawberry_seeds",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "brutalharvest:strawberry_seeds_from_strawberry"
+    ]
+  },
+  "sends_telemetry_event": false
+}

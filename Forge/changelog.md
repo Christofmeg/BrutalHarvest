@@ -3,3 +3,12 @@
 * Added more compost values
 * Updated rapeseed textures
 * Added Chefs Hat
+* Added crafts for dough
+* Added craft for jar
+* Added craft for lettuce seeds
+* Added craft for cotton seeds
+* Added craft for strawberry seeds
+* Added craft for toast with eggs
+* Added craft for toast with jam
+* Tweaked craft for gardener's hat
+* Tweaked craft for chef's hat
