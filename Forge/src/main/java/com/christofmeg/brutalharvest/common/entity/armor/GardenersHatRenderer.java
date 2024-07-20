@@ -1,11 +1,30 @@
 package com.christofmeg.brutalharvest.common.entity.armor;
 
+import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.item.GardenersHatItem;
+import net.minecraft.resources.ResourceLocation;
+import software.bernie.geckolib.model.DefaultedItemGeoModel;
+import software.bernie.geckolib.renderer.GeoArmorRenderer;
 
-public class GardenersHatRenderer extends BrutalGeoArmorDefualRenderer<GardenersHatItem> {
+public class GardenersHatRenderer extends GeoArmorRenderer<GardenersHatItem> {
 
     public GardenersHatRenderer() {
-        super(new GardenersHatModel());
+        super(new DefaultedItemGeoModel<>(new ResourceLocation(CommonConstants.MOD_ID, "textures/models/armor/gardeners_hat_layer_1.png")) {
+            @Override
+            public ResourceLocation getModelResource(GardenersHatItem object) {
+                return new ResourceLocation(CommonConstants.MOD_ID, "geo/gardeners_hat.geo.json");
+            }
+
+            @Override
+            public ResourceLocation getTextureResource(GardenersHatItem object) {
+                return new ResourceLocation(CommonConstants.MOD_ID, "textures/models/armor/gardeners_hat_layer_1.png");
+            }
+
+            @Override
+            public ResourceLocation getAnimationResource(GardenersHatItem animatable) {
+                return new ResourceLocation(CommonConstants.MOD_ID, "animations/armor.animation.json");
+            }
+        });
     }
 
 }

@@ -1,6 +1,6 @@
 package com.christofmeg.brutalharvest.common.item;
 
-import com.christofmeg.brutalharvest.common.entity.armor.BrutalGeoArmorDefualRenderer;
+import com.christofmeg.brutalharvest.common.entity.armor.GardenersHatRenderer;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -49,7 +49,7 @@ public abstract class CosmeticItem extends ArmorItem implements GeoItem {
     }
 
     @OnlyIn(Dist.CLIENT)
-    protected abstract BrutalGeoArmorDefualRenderer<?> getRenderer();
+    protected abstract GardenersHatRenderer getRenderer();
 
     @Override
     public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {

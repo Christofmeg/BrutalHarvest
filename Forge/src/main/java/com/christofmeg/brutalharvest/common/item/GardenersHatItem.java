@@ -1,6 +1,5 @@
 package com.christofmeg.brutalharvest.common.item;
 
-import com.christofmeg.brutalharvest.common.entity.armor.BrutalGeoArmorDefualRenderer;
 import com.christofmeg.brutalharvest.common.entity.armor.GardenersHatRenderer;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraftforge.api.distmarker.Dist;
@@ -14,7 +13,7 @@ public class GardenersHatItem extends CosmeticItem {
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    protected BrutalGeoArmorDefualRenderer<?> getRenderer() {
+    protected GardenersHatRenderer getRenderer() {
         return new GardenersHatRenderer();
     }
 
