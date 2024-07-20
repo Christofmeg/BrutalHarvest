@@ -38,19 +38,19 @@ public class BrutalLootTablesProvider extends LootTableProvider {
         public void generate(BiConsumer<ResourceLocation, LootTable.Builder> consumer) {
             LootPool.Builder commonPool = LootPool.lootPool();
             commonPool.setRolls(UniformGenerator.between(3, 8))
-                    .add(createEntry(ItemRegistry.TOMATO_SEEDS.get(), 10,1, 5))
-                    .add(createEntry(ItemRegistry.LETTUCE_SEEDS.get(), 10,1, 5))
-                    .add(createEntry(ItemRegistry.CORN_SEEDS.get(), 5,1, 4))
-                    .add(createEntry(ItemRegistry.CUCUMBER_SEEDS.get(), 10,1, 5))
-                    .add(createEntry(ItemRegistry.COTTON_SEEDS.get(), 10,1, 5))
-            //        .add(createEntry(ItemRegistry.COFFEE_CHERRY.get(), 10,1, 5))
-                    .add(createEntry(ItemRegistry.RAPESEEDS.get(), 10,1, 5))
-                    .add(createEntry(ItemRegistry.SUGAR_BEET_SEEDS.get(), 10,1, 5))
-                    .add(createEntry(ItemRegistry.STRAWBERRY_SEEDS.get(), 10,1, 5))
-            //        .add(createEntry(ItemRegistry.ONION_SEEDS.get(), 10,1, 5))
-            //        .add(createEntry(ItemRegistry.CHILI_PEPPER_SEEDS.get(), 10,1, 5))
-            //        .add(createEntry(ItemRegistry.RED_CHILI_PEPPET.get(), 10,1, 5))
-                    .add(createEntry(ItemRegistry.BLUEBERRY.get(), 10,1, 5))
+                    .add(createEntry(ItemRegistry.TOMATO_SEEDS.get(), 10, 1, 5))
+                    .add(createEntry(ItemRegistry.LETTUCE_SEEDS.get(), 10, 1, 5))
+                    .add(createEntry(ItemRegistry.CORN_SEEDS.get(), 5, 1, 8))
+                    .add(createEntry(ItemRegistry.CUCUMBER_SEEDS.get(), 10, 1, 5))
+                    .add(createEntry(ItemRegistry.COTTON_SEEDS.get(), 10, 1, 5))
+            //        .add(createEntry(ItemRegistry.COFFEE_CHERRY.get(), 10, 1, 5))
+                    .add(createEntry(ItemRegistry.RAPESEEDS.get(), 10, 1, 5))
+                    .add(createEntry(ItemRegistry.SUGAR_BEET_SEEDS.get(), 10, 1, 5))
+                    .add(createEntry(ItemRegistry.STRAWBERRY_SEEDS.get(), 10, 1, 5))
+            //        .add(createEntry(ItemRegistry.ONION_SEEDS.get(), 10, 1, 5))
+            //        .add(createEntry(ItemRegistry.CHILI_PEPPER_SEEDS.get(), 10, 1, 5))
+            //        .add(createEntry(ItemRegistry.RED_CHILI_PEPPET.get(), 10, 1, 5))
+                    .add(createEntry(ItemRegistry.BLUEBERRY.get(), 10, 1, 5))
 
                     .add(EmptyLootItem.emptyItem().setWeight(10));
             LootTable.Builder commonTable = LootTable.lootTable();
