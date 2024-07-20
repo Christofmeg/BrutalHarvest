@@ -68,6 +68,13 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
         woolRecipeBuilder(TagRegistry.Items.WOOLS_WHITE, Items.WHITE_BANNER, Items.WHITE_BED, Items.WHITE_CARPET, consumer);
         woolRecipeBuilder(TagRegistry.Items.WOOLS_YELLOW, Items.YELLOW_BANNER, Items.YELLOW_BED, Items.YELLOW_CARPET, consumer);
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.GARDENERS_HAT.get())
+                .define('W', Tags.Items.CROPS_WHEAT)
+                .pattern("W W")
+                .pattern("WWW")
+                .unlockedBy("has_wheat", has(Tags.Items.CROPS_WHEAT))
+                .save(consumer, modLoc(getItemName(ItemRegistry.GARDENERS_HAT.get())));
+
 /*        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.SUSHI.get())
                 .define('K', Items.DRIED_KELP)
                 .define('R', ItemRegistry.RICE.get())
@@ -169,6 +176,7 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .requires(TagRegistry.Items.BUCKETS_WATER)
                 .unlockedBy("fabric", has(ItemRegistry.FABRIC.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.FABRIC.get()) + "_cleaning"));
+
     }
 
     private void addSmithingRecipes(Consumer<FinishedRecipe> consumer) {

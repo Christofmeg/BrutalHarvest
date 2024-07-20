@@ -18,3 +18,4 @@
 * Rework block loot generator
 * Change forge:food/... into forge:foods/...
 * Added fabric recipes
+* Added Gardener's Hat

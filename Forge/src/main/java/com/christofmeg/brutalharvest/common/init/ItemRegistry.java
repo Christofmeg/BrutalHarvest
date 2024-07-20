@@ -3,10 +3,7 @@ package com.christofmeg.brutalharvest.common.init;
 import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.item.*;
 import net.minecraft.world.food.Foods;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemNameBlockItem;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.Tiers;
+import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -133,6 +130,8 @@ public class ItemRegistry {
     public static final RegistryObject<Item> WHITE_FABRIC;
     public static final RegistryObject<Item> YELLOW_FABRIC;
 
+    public static final RegistryObject<Item> GARDENERS_HAT;
+
     public static void init(@Nonnull IEventBus modEventBus) {
         ITEMS.register(modEventBus);
     }
@@ -250,6 +249,8 @@ public class ItemRegistry {
         RED_FABRIC = ITEMS.register("red" + "_" + "fabric", () -> new Item(new Item.Properties()));
         WHITE_FABRIC = ITEMS.register("white" + "_" + "fabric", () -> new Item(new Item.Properties()));
         YELLOW_FABRIC = ITEMS.register("yellow" + "_" + "fabric", () -> new Item(new Item.Properties()));
+
+        GARDENERS_HAT = ITEMS.register("gardeners_hat", () -> new GardenersHatItem(BrutalArmorMaterials.GARDENERS_HAT, ArmorItem.Type.HELMET, new Item.Properties()));
 
     }
 

@@ -131,7 +131,7 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:appleskin-248787:4770828")
 //    runtimeOnly fg.deobf("curse.maven:just-enough-effect-descriptions-jeed-532286:5186339")
 //    runtimeOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:5057220") //TODO look into adding village loot to JER pages
-
+    implementation fg.deobf("maven.modrinth:geckolib:rF4Es4hd")
 
 }
 
@@ -167,6 +167,7 @@ tasks.register('publishCurseForge', TaskPublishCurseForge) {
         mainFile.addGameVersion("${it}")
     }
     mainFile.addModLoader('Forge', 'NeoForge')
+    mainFile.addRequirement("geckolib")
     mainFile.addOptional("catalogue")
     mainFile.addOptional("farmers-delight")
 }
@@ -185,6 +186,7 @@ modrinth {
     uploadFile = file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar")
     gameVersions = "${forge_release_versions}".split(",") as List<String>
     dependencies {
+        required.project "geckolib"
         optional.project "farmers-delight"
     }
     loaders = "forge,neoforge".split(",") as List<String>

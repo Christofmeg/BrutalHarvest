@@ -7,6 +7,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import software.bernie.geckolib.GeckoLib;
 
 import javax.annotation.Nonnull;
 
@@ -16,6 +17,7 @@ public class BrutalHarvest {
 
     public BrutalHarvest() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+        GeckoLib.initialize();
         init(bus);
         bus.addListener(new ClientSetupEvent()::clientSetupEvent);
         bus.addListener(new CommonSetupEvent()::commonSetupEvent);

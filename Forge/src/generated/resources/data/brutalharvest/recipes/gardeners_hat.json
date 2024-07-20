@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "W": {
+      "tag": "forge:crops/wheat"
+    }
+  },
+  "pattern": [
+    "W W",
+    "WWW"
+  ],
+  "result": {
+    "item": "brutalharvest:gardeners_hat"
+  },
+  "show_notification": true
+}
