@@ -154,8 +154,8 @@ public class ItemRegistry {
         CORN = ITEMS.register("corn", () -> new Item(new Item.Properties().food(BrutalFoods.CORN)));
 
         CUCUMBER = ITEMS.register("cucumber", () -> new Item(new Item.Properties().food(BrutalFoods.CUCUMBER)));
-        CUCUMBER_SLICES = ITEMS.register("cucumber_slices", () -> new Item(new Item.Properties().food(BrutalFoods.CUCUMBER_SLICES)));
-        PICKLE = ITEMS.register("pickle", () -> new Item(new Item.Properties().food(BrutalFoods.PICKLES)));
+        CUCUMBER_SLICES = ITEMS.register("cucumber_slice", () -> new Item(new Item.Properties().food(BrutalFoods.CUCUMBER_SLICE)));
+        PICKLE = ITEMS.register("pickle", () -> new Item(new Item.Properties().food(BrutalFoods.PICKLE)));
 
         COTTON = ITEMS.register("cotton", () -> new Item(new Item.Properties()));
         SUGAR_BEET = ITEMS.register("sugar_beet", () -> new Item(new Item.Properties().food(Foods.BEETROOT)));

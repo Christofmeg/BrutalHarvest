@@ -88,7 +88,7 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.SUSHI.get())
                 .define('K', Items.DRIED_KELP)
                 .define('R', ItemRegistry.RICE.get())
-                .define('C', ItemRegistry.CUCUMBER_SLICES.get())
+                .define('C', ItemRegistry.CUCUMBER_SLICE.get())
                 .pattern("KRK")
                 .pattern("RCR")
                 .pattern("KRK")
