@@ -61,12 +61,17 @@ public abstract class BaseCropBlock extends CropBlock {
             }
             if (matureAge) {
                 state = this.getStateForAge(getAgeAfterKnife());
+                level.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
                 popResource(level, pos, this.getBaseItemStack());
             } else {
+                level.playSound(null, pos, SoundEvents.CROP_BREAK, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
                 state = Blocks.AIR.defaultBlockState();
-                popResource(level, pos, new ItemStack(this.getBaseSeedId(), level.random.nextInt(2)));
+                int random = level.random.nextInt(2);
+                if (random == 0) {
+                    level.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
+                    popResource(level, pos, new ItemStack(this.getBaseSeedId(), random));
+                }
             }
-            level.playSound(null, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
             level.setBlock(pos, state, 2);
             level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, state));
             stack.hurtAndBreak(1, player, (livingEntity) -> livingEntity.broadcastBreakEvent(interactionHand));
