@@ -6,7 +6,7 @@ import net.minecraft.world.food.FoodProperties;
 
 @SuppressWarnings("unused")
 public class BrutalFoods {
-    
+
     public static final FoodProperties UNRIPE_TOMATO = builder(1, 1F).effect(() -> new MobEffectInstance(MobEffects.POISON, 100), 0.6F).build();
     public static final FoodProperties TOMATO = builder(3, 2.5F).build();
     public static final FoodProperties ROTTEN_TOMATO = builder(-2, 1.2F).effect(() -> new MobEffectInstance(MobEffects.CONFUSION, 200), 0.5F).build();
