@@ -16,3 +16,4 @@
 * Reduced tomato slice to 1 tomato seed
 * Commented out Rubber and Rubber Bucket
 * Added crop knife sounds
+* Changed Lettuce to drop Sliced Lettuce when right clicked

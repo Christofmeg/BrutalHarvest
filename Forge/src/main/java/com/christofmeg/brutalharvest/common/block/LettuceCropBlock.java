@@ -46,7 +46,7 @@ public class LettuceCropBlock extends BaseCropBlock {
 
     @Override
     protected ItemStack getBaseItemStack() {
-        return ItemRegistry.LETTUCE.get().getDefaultInstance();
+        return ItemRegistry.SLICED_LETTUCE.get().getDefaultInstance();
     }
 
     @Override
