@@ -1,2 +1,3 @@
 1.8.1:
-* Add more seeds to village loot
+* Added more seeds to village loot
+* Added more compost values
