@@ -1,0 +1,193 @@
+{
+  "type": "minecraft:block",
+  "functions": [
+    {
+      "function": "minecraft:explosion_decay"
+    }
+  ],
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:any_of",
+          "terms": [
+            {
+              "block": "brutalharvest:cucumber",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "age": "5"
+              }
+            },
+            {
+              "block": "brutalharvest:cucumber",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "age": "8"
+              }
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "brutalharvest:cucumber"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": {
+            "type": "minecraft:uniform",
+            "max": 4.0,
+            "min": 3.0
+          },
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:any_of",
+          "terms": [
+            {
+              "block": "brutalharvest:cucumber",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "age": "5"
+              }
+            },
+            {
+              "block": "brutalharvest:cucumber",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "age": "8"
+              }
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 2.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "brutalharvest:cucumber_seeds"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:any_of",
+          "terms": [
+            {
+              "block": "brutalharvest:cucumber",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "age": "6"
+              }
+            },
+            {
+              "block": "brutalharvest:cucumber",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "age": "9"
+              }
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "chance": 0.25,
+              "condition": "minecraft:random_chance"
+            }
+          ],
+          "name": "brutalharvest:cucumber_seeds"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:all_of",
+          "terms": [
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:any_of",
+                "terms": [
+                  {
+                    "block": "brutalharvest:cucumber",
+                    "condition": "minecraft:block_state_property",
+                    "properties": {
+                      "age": "5"
+                    }
+                  },
+                  {
+                    "block": "brutalharvest:cucumber",
+                    "condition": "minecraft:block_state_property",
+                    "properties": {
+                      "age": "8"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:any_of",
+                "terms": [
+                  {
+                    "block": "brutalharvest:cucumber",
+                    "condition": "minecraft:block_state_property",
+                    "properties": {
+                      "age": "6"
+                    }
+                  },
+                  {
+                    "block": "brutalharvest:cucumber",
+                    "condition": "minecraft:block_state_property",
+                    "properties": {
+                      "age": "9"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "brutalharvest:cucumber_seeds"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "brutalharvest:blocks/cucumber"
+}

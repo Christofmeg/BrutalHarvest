@@ -87,6 +87,24 @@ public class BrutalBlockLootTables extends BlockLootSubProvider {
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(StrawberryCropBlock.AGE, 13)))
         ));
 
+        this.add(BlockRegistry.CUCUMBER.get(), createTallCropDrops(
+                BlockRegistry.CUCUMBER.get(),
+                ItemRegistry.CUCUMBER.get(),
+                ItemRegistry.CUCUMBER_SEEDS.get(),
+                LootItemBlockStatePropertyCondition
+                        .hasBlockStateProperties(BlockRegistry.CUCUMBER.get())
+                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CornCropBlock.AGE, 5))
+                        .or(LootItemBlockStatePropertyCondition
+                                .hasBlockStateProperties(BlockRegistry.CUCUMBER.get())
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(StrawberryCropBlock.AGE, 8))),
+                LootItemBlockStatePropertyCondition
+                        .hasBlockStateProperties(BlockRegistry.CUCUMBER.get())
+                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LettuceCropBlock.AGE, 6))
+                        .or(LootItemBlockStatePropertyCondition
+                                .hasBlockStateProperties(BlockRegistry.CUCUMBER.get())
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(StrawberryCropBlock.AGE, 9)))
+        ));
+
         this.add(BlockRegistry.SUGAR_BEET.get(), createGenericCropDrops(
                 BlockRegistry.SUGAR_BEET.get(),
                 ItemRegistry.SUGAR_BEET.get(), 1.0F, 3.0F,
@@ -155,6 +173,7 @@ public class BrutalBlockLootTables extends BlockLootSubProvider {
                         block instanceof TomatoCropBlock ||
                         block instanceof LettuceCropBlock ||
                         block instanceof CornCropBlock ||
+                        block instanceof CucumberCropBlock ||
                         block instanceof SugarBeetCropBlock ||
                         block instanceof CottonCropBlock ||
                         block instanceof StrawberryCropBlock ||

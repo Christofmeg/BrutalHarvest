@@ -1,5 +1,6 @@
 package com.christofmeg.brutalharvest.common.block;
 
+import com.christofmeg.brutalharvest.common.block.base.BaseCropBlock;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
 import com.christofmeg.brutalharvest.common.item.KnifeItem;
 import net.minecraft.core.BlockPos;

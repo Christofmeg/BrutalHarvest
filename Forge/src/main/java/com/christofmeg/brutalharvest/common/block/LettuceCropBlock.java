@@ -1,5 +1,6 @@
 package com.christofmeg.brutalharvest.common.block;
 
+import com.christofmeg.brutalharvest.common.block.base.BaseCropBlock;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;

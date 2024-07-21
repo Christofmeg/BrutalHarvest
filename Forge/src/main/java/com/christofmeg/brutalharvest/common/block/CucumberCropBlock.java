@@ -14,27 +14,23 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
 
-public class CornCropBlock extends BaseDoubleCropBlock {
+public class CucumberCropBlock extends BaseDoubleCropBlock {
 
-    public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 13);
+    public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 9);
     private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[] {
             Block.box(0.0, 0.0, 0.0, 16.0, 5.0, 16.0),
-            Block.box(0.0, 0.0, 0.0, 16.0, 10.0, 16.0),
+            Block.box(0.0, 0.0, 0.0, 16.0, 9.0, 16.0),
+            Block.box(0.0, 0.0, 0.0, 16.0, 12.0, 16.0),
+            Block.box(0.0, 0.0, 0.0, 16.0, 14.0, 16.0),
             Shapes.block(),
             Shapes.block(),
             Shapes.block(),
-            Shapes.block(),
-            Shapes.block(),
-            Shapes.block(),
-            Block.box(0.0, 0.0, 0.0, 16.0, 3.0, 16.0),
+            Block.box(0.0, 0.0, 0.0, 16.0, 4.0, 16.0),
             Block.box(0.0, 0.0, 0.0, 16.0, 8.0, 16.0),
-            Block.box(0.0, 0.0, 0.0, 16.0, 8.0, 16.0),
-            Block.box(0.0, 0.0, 0.0, 16.0, 11.0, 16.0),
-            Block.box(0.0, 0.0, 0.0, 16.0, 11.0, 16.0),
-            Block.box(0.0, 0.0, 0.0, 16.0, 11.0, 16.0),
+            Block.box(0.0, 0.0, 0.0, 16.0, 5.0, 16.0)
     };
 
-    public CornCropBlock(Properties pProperties) {
+    public CucumberCropBlock(Properties pProperties) {
         super(pProperties);
     }
 
@@ -45,22 +41,22 @@ public class CornCropBlock extends BaseDoubleCropBlock {
 
     @Override
     public int getMaxAge() {
-        return 6; //TODO JADE/TOP/WTHIT override
+        return 5; //TODO JADE/TOP/WTHIT override
     }
 
     @Override
     protected int getMaxAgeDifference() {
-        return 6;
+        return 3;
     }
 
     @Override
     protected @NotNull ItemLike getBaseSeedId() {
-        return ItemRegistry.CORN_SEEDS.get();
+        return ItemRegistry.CUCUMBER_SEEDS.get();
     }
 
     @Override
     protected ItemStack getBaseItemStack() {
-        return ItemRegistry.CORN.get().getDefaultInstance();
+        return ItemRegistry.CUCUMBER.get().getDefaultInstance();
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.christofmeg.brutalharvest.common.block;
+package com.christofmeg.brutalharvest.common.block.base;
 
 import com.christofmeg.brutalharvest.common.item.KnifeItem;
 import net.minecraft.core.BlockPos;

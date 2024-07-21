@@ -2,6 +2,7 @@ package com.christofmeg.brutalharvest.client.data;
 
 import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.block.*;
+import com.christofmeg.brutalharvest.common.block.base.BaseDoubleCropBlock;
 import com.christofmeg.brutalharvest.common.init.BlockRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -30,7 +31,8 @@ public class BrutalBlockStateProvider extends BlockStateProvider {
 
         makeCrop(BlockRegistry.TOMATO.get(), TomatoCropBlock.AGE);
         makeCrop(BlockRegistry.LETTUCE.get(), LettuceCropBlock.AGE);
-        makeCorn(BlockRegistry.CORN.get(), 8, 2);
+        makeDoubleCrop(BlockRegistry.CORN.get(), 8, 2);
+        makeDoubleCrop(BlockRegistry.CUCUMBER.get(), 7, 4);
 
         makeCrop(BlockRegistry.COTTON.get(), CottonCropBlock.AGE);
         makeCrop(BlockRegistry.SUGAR_BEET.get(), SugarBeetCropBlock.AGE);
@@ -49,9 +51,9 @@ public class BrutalBlockStateProvider extends BlockStateProvider {
         });
     }
 
-    public void makeCorn(Block block, int growthStages, int firstStageWithLowerUpper) {
+    public void makeDoubleCrop(Block block, int growthStages, int firstStageWithLowerUpper) {
         String name = block.getDescriptionId().replace("block.brutalharvest.", "");
-        if (block instanceof BaseCropBlock baseCropBlock) {
+        if (block instanceof BaseDoubleCropBlock baseCropBlock) {
             getVariantBuilder(block).forAllStates(state -> {
                 int age = baseCropBlock.getAge(state);
                 String modelName = name + "_stage" + age;
