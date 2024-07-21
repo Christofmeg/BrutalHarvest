@@ -109,6 +109,25 @@ public class BrutalBlockLootTables extends BlockLootSubProvider {
                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(StrawberryCropBlock.AGE, 7))
         ));
 
+        this.add(BlockRegistry.BLUEBERRY.get(), this.applyExplosionDecay(BlockRegistry.BLUEBERRY.get(), LootTable.lootTable()
+                        .withPool(LootPool.lootPool()
+                                .when(LootItemBlockStatePropertyCondition
+                                        .hasBlockStateProperties(BlockRegistry.BLUEBERRY.get())
+                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlueberryBushBlock.AGE, 3)))
+                                .add(LootItem.lootTableItem(ItemRegistry.BLUEBERRY.get()))
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F)))
+                        )
+                        .withPool(LootPool.lootPool()
+                                .when(LootItemBlockStatePropertyCondition
+                                        .hasBlockStateProperties(BlockRegistry.BLUEBERRY.get())
+                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlueberryBushBlock.AGE, 3)).invert()
+                                        .and(LootItemBlockStatePropertyCondition
+                                                .hasBlockStateProperties(BlockRegistry.BLUEBERRY.get())
+                                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlueberryBushBlock.AGE, 4)).invert()))
+                                .add(LootItem.lootTableItem(ItemRegistry.BLUEBERRY.get()))
+                        )
+                ));
+
     }
 
     @Override
@@ -119,7 +138,8 @@ public class BrutalBlockLootTables extends BlockLootSubProvider {
                         block instanceof LettuceCropBlock ||
                         block instanceof SugarBeetCropBlock ||
                         block instanceof CottonCropBlock ||
-                        block instanceof StrawberryCropBlock
+                        block instanceof StrawberryCropBlock ||
+                        block instanceof BlueberryBushBlock
                 )
                 ::iterator;
     }

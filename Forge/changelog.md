@@ -19,3 +19,4 @@
 * Changed Lettuce to drop Sliced Lettuce when right clicked
 * Village loot can have up to 8 corn seeds in one stack
 * Added boots
+* Added Blueberry bush

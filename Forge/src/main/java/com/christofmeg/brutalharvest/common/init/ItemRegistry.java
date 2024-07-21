@@ -153,7 +153,7 @@ public class ItemRegistry {
 
         STRAWBERRY = ITEMS.register("strawberry", () -> new Item(new Item.Properties().food(BrutalFoods.STRAWBERRY)));
         UNRIPE_STRAWBERRY = ITEMS.register("unripe_strawberry", () -> new Item(new Item.Properties().food(BrutalFoods.UNRIPE_STRAWBERRY)));
-        BLUEBERRY = ITEMS.register("blueberry", () -> new Item(new Item.Properties().food(BrutalFoods.BLUEBERRY)));
+        BLUEBERRY = ITEMS.register("blueberry", () -> new ItemNameBlockItem(BlockRegistry.BLUEBERRY.get(), new Item.Properties().food(BrutalFoods.BLUEBERRY)));
 
         CORN = ITEMS.register("corn", () -> new Item(new Item.Properties().food(BrutalFoods.CORN)));
 
