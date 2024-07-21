@@ -1,7 +1,7 @@
 {
-  "parent": "brutalharvest:block/lowered_cross",
+  "parent": "minecraft:block/crop",
   "render_type": "minecraft:cutout",
   "textures": {
-    "cross": "brutalharvest:block/corn_stage5_lower"
+    "crop": "brutalharvest:block/corn_stage5_lower"
   }
 }

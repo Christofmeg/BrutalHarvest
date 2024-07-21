@@ -10,10 +10,7 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.Objects;
 
 public class BrutalBlockStateProvider extends BlockStateProvider {
 
@@ -33,42 +30,13 @@ public class BrutalBlockStateProvider extends BlockStateProvider {
 
         makeCrop(BlockRegistry.TOMATO.get(), TomatoCropBlock.AGE);
         makeCrop(BlockRegistry.LETTUCE.get(), LettuceCropBlock.AGE);
-
-        cornBlockCrop(BlockRegistry.CORN.get(), "0");
-        cornBlockCrop(BlockRegistry.CORN.get(), "1");
-        cornBlockCrop(BlockRegistry.CORN.get(), "2_lower");
-        cornBlockFull(BlockRegistry.CORN.get(), "2_upper");
-        cornBlockCrop(BlockRegistry.CORN.get(), "3_lower");
-        cornBlockFull(BlockRegistry.CORN.get(), "3_upper");
-        cornBlockCrop(BlockRegistry.CORN.get(), "4_lower");
-        cornBlockFull(BlockRegistry.CORN.get(), "4_upper");
-        cornBlockCrop(BlockRegistry.CORN.get(), "5_lower");
-        cornBlockFull(BlockRegistry.CORN.get(), "5_upper");
-        cornBlockCrop(BlockRegistry.CORN.get(), "6_lower");
-        cornBlockFull(BlockRegistry.CORN.get(), "6_upper");
-        cornBlockCrop(BlockRegistry.CORN.get(), "7_lower");
-        cornBlockFull(BlockRegistry.CORN.get(), "7_upper");
+        makeCorn(BlockRegistry.CORN.get(), 8, 2);
 
         makeCrop(BlockRegistry.COTTON.get(), CottonCropBlock.AGE);
         makeCrop(BlockRegistry.SUGAR_BEET.get(), SugarBeetCropBlock.AGE);
         makeCrop(BlockRegistry.STRAWBERRY.get(), StrawberryCropBlock.AGE);
     //    makeCrop(BlockRegistry.ONION.get(), OnionCropBlock.AGE);
         makeBush(BlockRegistry.BLUEBERRY.get(), BlueberryBushBlock.AGE);
-    }
-
-    private void cornBlockFull(Block block, String name) {
-        this.models().cross(name(block) + "_stage" + name,
-                new ResourceLocation(CommonConstants.MOD_ID,
-                        "block/" + name(block) + "_stage" + name)).renderType(CUTOUT);
-    }
-
-    private void cornBlockCrop(Block block, String name) {
-        this.models().singleTexture(name(block) + "_stage" + name,  new ResourceLocation(CommonConstants.MOD_ID + ":" + "block/lowered_cross"), "cross", new ResourceLocation(CommonConstants.MOD_ID,
-                "block/" + name(block) + "_stage" + name)).renderType(CUTOUT);
-    }
-
-    private String name(Block block) {
-        return Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath();
     }
 
     public void makeCrop(Block block, IntegerProperty ageProperty) {
@@ -79,6 +47,26 @@ public class BrutalBlockStateProvider extends BlockStateProvider {
             ConfiguredModel model = new ConfiguredModel(models().crop(modelName, textureLocation).renderType(CUTOUT));
             return new ConfiguredModel[]{model};
         });
+    }
+
+    public void makeCorn(Block block, int growthStages, int firstStageWithLowerUpper) {
+        String name = block.getDescriptionId().replace("block.brutalharvest.", "");
+        if (block instanceof BaseCropBlock baseCropBlock) {
+            getVariantBuilder(block).forAllStates(state -> {
+                int age = baseCropBlock.getAge(state);
+                String modelName = name + "_stage" + age;
+                if (age >= firstStageWithLowerUpper) {
+                    if (age < growthStages) {
+                        modelName = name + "_stage" + age + "_lower";
+                    } else {
+                        modelName = name + "_stage" + (age - growthStages + firstStageWithLowerUpper) + "_upper";
+                    }
+                }
+                ResourceLocation textureLocation = new ResourceLocation(CommonConstants.MOD_ID, "block/" + modelName);
+                ConfiguredModel model = new ConfiguredModel(models().crop(modelName, textureLocation).renderType(CUTOUT));
+                return new ConfiguredModel[]{model};
+            });
+        }
     }
 
     public void makeBush(Block block, IntegerProperty ageProperty) {

@@ -20,3 +20,5 @@
 * Village loot can have up to 8 corn seeds in one stack
 * Added boots
 * Added Blueberry bush
+* Fixed Corn Crop not working as intended
+* Moved Corn blockstate over to data gen

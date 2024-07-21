@@ -6,6 +6,18 @@
     "age=1": {
       "model": "brutalharvest:block/corn_stage1"
     },
+    "age=10": {
+      "model": "brutalharvest:block/corn_stage4_upper"
+    },
+    "age=11": {
+      "model": "brutalharvest:block/corn_stage5_upper"
+    },
+    "age=12": {
+      "model": "brutalharvest:block/corn_stage6_upper"
+    },
+    "age=13": {
+      "model": "brutalharvest:block/corn_stage7_upper"
+    },
     "age=2": {
       "model": "brutalharvest:block/corn_stage2_lower"
     },
@@ -29,18 +41,6 @@
     },
     "age=9": {
       "model": "brutalharvest:block/corn_stage3_upper"
-    },
-    "age=10": {
-      "model": "brutalharvest:block/corn_stage4_upper"
-    },
-    "age=11": {
-      "model": "brutalharvest:block/corn_stage5_upper"
-    },
-    "age=12": {
-      "model": "brutalharvest:block/corn_stage6_upper"
-    },
-    "age=13": {
-      "model": "brutalharvest:block/corn_stage7_upper"
     }
   }
 }
