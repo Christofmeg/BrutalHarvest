@@ -24,3 +24,4 @@
 * Moved Corn blockstate over to data gen
 * Added Cucumber Crop
 * Relocated some backround files
+* Fix Corn and Cucumber knife interaction
