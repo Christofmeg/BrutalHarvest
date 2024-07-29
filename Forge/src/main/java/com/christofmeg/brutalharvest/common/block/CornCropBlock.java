@@ -108,18 +108,27 @@ public class CornCropBlock extends BaseDoubleCropBlock {
                     popResource(level, pos, new ItemStack(this.getBaseSeedId()));
                 }
             }
-//TODO fix dead age not working
+
             if (level.getBlockState(pos.above()).getBlock() instanceof BaseDoubleCropBlock) {
-                BlockState newBlockState = state;
-                newBlockState.setValue(AGE, state.getValue(AGE) + this.getMaxAgeDifference());
-                level.setBlock(pos.above(), newBlockState, 2);
+                if (!state.isAir()) {
+                    BlockState newBlockState = state.setValue(AGE, state.getValue(AGE) + this.getMaxAgeDifference());
+                    level.setBlock(pos.above(), newBlockState, 2);
+                } else {
+                    level.setBlock(pos.above(), state, 2);
+                }
                 level.setBlock(pos, state, 2);
             } else if (level.getBlockState(pos.below()).getBlock() instanceof BaseDoubleCropBlock) {
-                BlockState newBlockState = hasTopBlockAfterKnife(prevState) ?
-                        state.setValue(AGE, state.getValue(AGE) + this.getMaxAgeDifference()) :
-                        Blocks.AIR.defaultBlockState();
+                if (!state.isAir()) {
+                    BlockState newBlockState = hasTopBlockAfterKnife(prevState) ?
+                            state.setValue(AGE, state.getValue(AGE) + this.getMaxAgeDifference()) :
+                            Blocks.AIR.defaultBlockState();
+                    level.setBlock(pos, newBlockState, 2);
+                } else {
+                    level.setBlock(pos, state, 2);
+                }
                 level.setBlock(pos.below(), state, 2);
-                level.setBlock(pos, newBlockState, 2);
+            } else {
+                level.setBlock(pos, state, 2);
             }
 
             level.gameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Context.of(player, state));
