@@ -5,3 +5,4 @@
 * Tweaked Jar recipe
 * Made Dough recipes shapeless
 * Added Tomato Dough
+* Rotten Tomato and Sliced Tomato can no longer craft Tomato Seeds
