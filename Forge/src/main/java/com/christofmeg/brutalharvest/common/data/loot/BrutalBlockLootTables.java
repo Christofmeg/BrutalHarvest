@@ -356,7 +356,6 @@ public class BrutalBlockLootTables extends BlockLootSubProvider {
 
     protected LootTable.Builder createRapeseedCropDrops(Block pCropBlock, Item pSeedsItem, LootItemCondition.Builder grownCropMatureCondtion, LootItemCondition.Builder grownCropRottenConditon) {
         return this.applyExplosionDecay(pCropBlock, LootTable.lootTable()
-
                 .withPool(LootPool.lootPool()
                         .when(grownCropMatureCondtion)
                         .add(LootItem.lootTableItem(pSeedsItem)
@@ -368,7 +367,6 @@ public class BrutalBlockLootTables extends BlockLootSubProvider {
                                 .setWeight(3)
                         )
                 )
-
                 .withPool(LootPool.lootPool()
                         .when(grownCropRottenConditon)
                         .add(LootItem.lootTableItem(pSeedsItem)
