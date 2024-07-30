@@ -1,4 +1,4 @@
-1.8.1:
+1.9.0:
 * Added more seeds to village loot
 * Added more compost values
 * Updated rapeseed textures
