@@ -143,24 +143,23 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
         tag(TagRegistry.Items.SCRAMBLED_EGG).add(ItemRegistry.SCRAMBLED_EGG.get());
         tag(TagRegistry.Items.BOILED_EGG).add(ItemRegistry.BOILED_EGG.get());
 
-        tag(TagRegistry.Items.TOAST_HONEY).add(ItemRegistry.TOAST_WITH_HONEY.get());
-        tag(TagRegistry.Items.TOAST_STRAWBERRY).add(ItemRegistry.TOAST_WITH_STRAWBERRY_JAM.get());
-        tag(TagRegistry.Items.TOAST_BLUEBERRY).add(ItemRegistry.TOAST_WITH_BLUEBERRY_JAM.get());
+        tag(TagRegistry.Items.TOAST_HONEY).add(ItemRegistry.HONEY_TOAST.get());
+        tag(TagRegistry.Items.TOAST_STRAWBERRY).add(ItemRegistry.STRAWBERRY_TOAST.get());
+        tag(TagRegistry.Items.TOAST_BLUEBERRY).add(ItemRegistry.BLUEBERRY_TOAST.get());
 
         tag(TagRegistry.Items.HONEY_JAR).add(ItemRegistry.HONEY_JAR.get());
         tag(TagRegistry.Items.STRAWBERRY_JAM).add(ItemRegistry.STRAWBERRY_JAM.get());
         tag(TagRegistry.Items.BLUEBERRY_JAM).add(ItemRegistry.BLUEBERRY_JAM.get());
 
-        tag(TagRegistry.Items.TOAST_FRIED_EGG).add(ItemRegistry.TOAST_FRIED_EGG.get());
-        tag(TagRegistry.Items.TOAST_SCRAMBLED_EGG).add(ItemRegistry.TOAST_SCRAMBLED_EGG.get());
-        tag(TagRegistry.Items.TOAST_BOILED_EGG).add(ItemRegistry.TOAST_BOILED_EGG.get());
+        tag(TagRegistry.Items.TOAST_FRIED_EGG).add(ItemRegistry.FRIED_EGG_TOAST.get());
+        tag(TagRegistry.Items.TOAST_SCRAMBLED_EGG).add(ItemRegistry.SCRAMBLED_EGG_TOAST.get());
+        tag(TagRegistry.Items.TOAST_BOILED_EGG).add(ItemRegistry.BOILED_EGG_TOAST.get());
 
         tag(TagRegistry.Items.TOAST_LOAF).add(ItemRegistry.TOAST_LOAF.get());
         tag(TagRegistry.Items.TOAST).add(ItemRegistry.TOAST.get());
         tag(TagRegistry.Items.TOAST_SLICE).add(ItemRegistry.TOAST_SLICE.get());
 
         tag(TagRegistry.Items.POPCORN).add(ItemRegistry.POPCORN.get());
-
 
         tag(ItemTags.VILLAGER_PLANTABLE_SEEDS)
                 .add(ItemRegistry.TOMATO_SEEDS.get())
@@ -202,6 +201,8 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
 
         tag(TagRegistry.Items.BUCKETS_WATER).add(Items.WATER_BUCKET);
         tag(TagRegistry.Items.BUCKETS_MILK).add(Items.MILK_BUCKET);
+        tag(TagRegistry.Items.BOTTLES_MILK).addTag(TagRegistry.Items.MILK_MILK_BOTTLES);
+        tag(TagRegistry.Items.MILK_MILK_BOTTLES);
 
         tag(TagRegistry.Items.FABRICS)
                 .add(ItemRegistry.FABRIC.get())

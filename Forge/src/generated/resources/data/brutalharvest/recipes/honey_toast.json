@@ -3,13 +3,13 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "brutalharvest:strawberry_jam"
+      "item": "brutalharvest:honey_jar"
     },
     {
       "item": "brutalharvest:toast_slice"
     }
   ],
   "result": {
-    "item": "brutalharvest:toast_with_strawberry_jam"
+    "item": "brutalharvest:honey_toast"
   }
 }

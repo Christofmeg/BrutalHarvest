@@ -1,34 +1,34 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "brutalharvest:toast_boiled_egg"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "toast": {
+    "flour": {
       "conditions": {
         "items": [
           {
             "items": [
-              "brutalharvest:toast"
+              "brutalharvest:flour"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "brutalharvest:dough_from_milk_bottle"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "toast",
+      "flour",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "brutalharvest:toast_boiled_egg"
+      "brutalharvest:dough_from_milk_bottle"
     ]
   },
   "sends_telemetry_event": false

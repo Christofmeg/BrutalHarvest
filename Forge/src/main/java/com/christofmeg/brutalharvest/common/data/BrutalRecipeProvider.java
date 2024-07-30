@@ -3,6 +3,7 @@ package com.christofmeg.brutalharvest.common.data;
 import com.christofmeg.brutalharvest.common.data.base.BaseRecipeProvider;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
 import com.christofmeg.brutalharvest.common.init.TagRegistry;
+import com.christofmeg.brutalharvest.common.util.NBTIngredient;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.tags.ItemTags;
@@ -203,41 +204,41 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .save(consumer, modLoc("sugar"));
 
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOAST_SCRAMBLED_EGG.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.SCRAMBLED_EGG_TOAST.get())
                 .requires(ItemRegistry.SCRAMBLED_EGG.get())
                 .requires(ItemRegistry.TOAST_SLICE.get())
                 .unlockedBy("toast", has(ItemRegistry.TOAST.get()))
-                .save(consumer, modLoc(getItemName(ItemRegistry.TOAST_SCRAMBLED_EGG.get())));
+                .save(consumer, modLoc(getItemName(ItemRegistry.SCRAMBLED_EGG_TOAST.get())));
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOAST_BOILED_EGG.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.BOILED_EGG_TOAST.get())
                 .requires(ItemRegistry.BOILED_EGG.get())
                 .requires(ItemRegistry.TOAST_SLICE.get())
                 .unlockedBy("toast", has(ItemRegistry.TOAST.get()))
-                .save(consumer, modLoc(getItemName(ItemRegistry.TOAST_BOILED_EGG.get())));
+                .save(consumer, modLoc(getItemName(ItemRegistry.BOILED_EGG_TOAST.get())));
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOAST_FRIED_EGG.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.FRIED_EGG_TOAST.get())
                 .requires(ItemRegistry.FRIED_EGG.get())
                 .requires(ItemRegistry.TOAST_SLICE.get())
                 .unlockedBy("toast", has(ItemRegistry.TOAST.get()))
-                .save(consumer, modLoc(getItemName(ItemRegistry.TOAST_FRIED_EGG.get())));
+                .save(consumer, modLoc(getItemName(ItemRegistry.FRIED_EGG_TOAST.get())));
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOAST_WITH_HONEY.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.HONEY_TOAST.get())
                 .requires(ItemRegistry.HONEY_JAR.get())
                 .requires(ItemRegistry.TOAST_SLICE.get())
                 .unlockedBy("toast", has(ItemRegistry.TOAST.get()))
-                .save(consumer, modLoc(getItemName(ItemRegistry.TOAST_WITH_HONEY.get())));
+                .save(consumer, modLoc(getItemName(ItemRegistry.HONEY_TOAST.get())));
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOAST_WITH_STRAWBERRY_JAM.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.STRAWBERRY_TOAST.get())
                 .requires(ItemRegistry.STRAWBERRY_JAM.get())
                 .requires(ItemRegistry.TOAST_SLICE.get())
                 .unlockedBy("toast", has(ItemRegistry.TOAST.get()))
-                .save(consumer, modLoc(getItemName(ItemRegistry.TOAST_WITH_STRAWBERRY_JAM.get())));
+                .save(consumer, modLoc(getItemName(ItemRegistry.STRAWBERRY_TOAST.get())));
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOAST_WITH_BLUEBERRY_JAM.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.BLUEBERRY_TOAST.get())
                 .requires(ItemRegistry.BLUEBERRY_JAM.get())
                 .requires(ItemRegistry.TOAST_SLICE.get())
                 .unlockedBy("toast", has(ItemRegistry.TOAST.get()))
-                .save(consumer, modLoc(getItemName(ItemRegistry.TOAST_WITH_BLUEBERRY_JAM.get())));
+                .save(consumer, modLoc(getItemName(ItemRegistry.BLUEBERRY_TOAST.get())));
 
         fabricRecipeBuilder(ItemRegistry.BLACK_FABRIC.get(), Tags.Items.DYES_BLACK, consumer);
         fabricRecipeBuilder(ItemRegistry.BLUE_FABRIC.get(), Tags.Items.DYES_BLUE, consumer);
@@ -284,9 +285,15 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.DOUGH.get())
                 .requires(Ingredient.of(TagRegistry.Items.FLOUR), 2)
                 .requires(Tags.Items.EGGS)
-                .requires(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER).getItem())
+                .requires(new NBTIngredient(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER)))
                 .unlockedBy("flour", has(ItemRegistry.FLOUR.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.DOUGH.get()) + "_from_" + "water_bottle"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.DOUGH.get())
+                .requires(Ingredient.of(TagRegistry.Items.FLOUR), 2)
+                .requires(Tags.Items.EGGS)
+                .requires(TagRegistry.Items.BOTTLES_MILK)
+                .unlockedBy("flour", has(ItemRegistry.FLOUR.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.DOUGH.get()) + "_from_" + "milk_bottle"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_DOUGH.get())
                 .requires(TagRegistry.Items.FLOUR)
@@ -306,9 +313,15 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .requires(TagRegistry.Items.FLOUR)
                 .requires(TagRegistry.Items.TOMATO)
                 .requires(Tags.Items.EGGS)
-                .requires(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER).getItem())
+                .requires(new NBTIngredient(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER)))
                 .unlockedBy("flour", has(ItemRegistry.FLOUR.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.TOMATO_DOUGH.get()) + "_from_" + "water_bottle"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_DOUGH.get())
+                .requires(Ingredient.of(TagRegistry.Items.FLOUR), 2)
+                .requires(Tags.Items.EGGS)
+                .requires(TagRegistry.Items.BOTTLES_MILK)
+                .unlockedBy("flour", has(ItemRegistry.FLOUR.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.TOMATO_DOUGH.get()) + "_from_" + "milk_bottle"));
 
     }
 

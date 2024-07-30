@@ -131,7 +131,9 @@ public class TagRegistry {
         public static TagKey<Item> SCYTHES = forgeTag("tools/scythes");
 
         public static TagKey<Item> BUCKETS_WATER = forgeTag("buckets/water");
-        public static TagKey<Item> BUCKETS_MILK= forgeTag("buckets/milk");
+        public static TagKey<Item> BUCKETS_MILK = forgeTag("buckets/milk");
+        public static TagKey<Item> BOTTLES_MILK = forgeTag("bottles/milk");
+        public static TagKey<Item> MILK_MILK_BOTTLES = forgeTag("milk/milk_bottle");
 
         public static TagKey<Item> FABRICS = modTag("fabrics");
         public static TagKey<Item> FABRICS_COLORED = modTag("fabrics_colored");

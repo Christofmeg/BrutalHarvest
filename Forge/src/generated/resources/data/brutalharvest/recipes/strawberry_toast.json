@@ -3,13 +3,13 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "brutalharvest:blueberry_jam"
+      "item": "brutalharvest:strawberry_jam"
     },
     {
       "item": "brutalharvest:toast_slice"
     }
   ],
   "result": {
-    "item": "brutalharvest:toast_with_blueberry_jam"
+    "item": "brutalharvest:strawberry_toast"
   }
 }

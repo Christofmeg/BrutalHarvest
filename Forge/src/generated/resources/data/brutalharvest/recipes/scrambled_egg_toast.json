@@ -3,13 +3,13 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "brutalharvest:honey_jar"
+      "item": "brutalharvest:scrambled_egg"
     },
     {
       "item": "brutalharvest:toast_slice"
     }
   ],
   "result": {
-    "item": "brutalharvest:toast_with_honey"
+    "item": "brutalharvest:scrambled_egg_toast"
   }
 }

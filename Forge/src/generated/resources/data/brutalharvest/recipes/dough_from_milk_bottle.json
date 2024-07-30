@@ -6,19 +6,16 @@
       "tag": "forge:items/flour"
     },
     {
-      "tag": "forge:vegetables/tomato"
+      "tag": "forge:items/flour"
     },
     {
       "tag": "forge:eggs"
     },
     {
-      "type": "forge:nbt",
-      "count": 1,
-      "item": "minecraft:potion",
-      "nbt": "{Potion:\"minecraft:water\"}"
+      "tag": "forge:bottles/milk"
     }
   ],
   "result": {
-    "item": "brutalharvest:tomato_dough"
+    "item": "brutalharvest:dough"
   }
 }

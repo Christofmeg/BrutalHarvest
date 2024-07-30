@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "brutalharvest:boiled_egg_toast"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "toast": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "brutalharvest:toast"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "toast",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "brutalharvest:boiled_egg_toast"
+    ]
+  },
+  "sends_telemetry_event": false
+}

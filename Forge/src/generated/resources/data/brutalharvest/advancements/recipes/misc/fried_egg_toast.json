@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "brutalharvest:toast_with_blueberry_jam"
+        "recipe": "brutalharvest:fried_egg_toast"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "brutalharvest:toast_with_blueberry_jam"
+      "brutalharvest:fried_egg_toast"
     ]
   },
   "sends_telemetry_event": false

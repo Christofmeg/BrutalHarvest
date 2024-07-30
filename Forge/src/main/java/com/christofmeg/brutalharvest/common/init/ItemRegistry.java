@@ -71,17 +71,17 @@ public class ItemRegistry {
     public static final RegistryObject<Item> SCRAMBLED_EGG;
     public static final RegistryObject<Item> BOILED_EGG;
 
-    public static final RegistryObject<Item> TOAST_WITH_HONEY;
-    public static final RegistryObject<Item> TOAST_WITH_STRAWBERRY_JAM;
-    public static final RegistryObject<Item> TOAST_WITH_BLUEBERRY_JAM;
+    public static final RegistryObject<Item> HONEY_TOAST;
+    public static final RegistryObject<Item> STRAWBERRY_TOAST;
+    public static final RegistryObject<Item> BLUEBERRY_TOAST;
 
     public static final RegistryObject<Item> HONEY_JAR;
     public static final RegistryObject<Item> STRAWBERRY_JAM;
     public static final RegistryObject<Item> BLUEBERRY_JAM;
 
-    public static final RegistryObject<Item> TOAST_FRIED_EGG;
-    public static final RegistryObject<Item> TOAST_SCRAMBLED_EGG;
-    public static final RegistryObject<Item> TOAST_BOILED_EGG;
+    public static final RegistryObject<Item> FRIED_EGG_TOAST;
+    public static final RegistryObject<Item> SCRAMBLED_EGG_TOAST;
+    public static final RegistryObject<Item> BOILED_EGG_TOAST;
 
     public static final RegistryObject<Item> TOAST_LOAF;
     public static final RegistryObject<Item> TOAST;
@@ -199,9 +199,9 @@ public class ItemRegistry {
         SCRAMBLED_EGG = ITEMS.register("scrambled_egg", () -> new Item(new Item.Properties().food(BrutalFoods.SCRAMBLED_EGG)));
         BOILED_EGG = ITEMS.register("boiled_egg", () -> new Item(new Item.Properties().food(BrutalFoods.BOILED_EGG)));
 
-        TOAST_WITH_HONEY = ITEMS.register("toast_with_honey", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST_WITH_HONEY)));
-        TOAST_WITH_STRAWBERRY_JAM = ITEMS.register("toast_with_strawberry_jam", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST_WITH_STRAWBERRY_JAM)));
-        TOAST_WITH_BLUEBERRY_JAM = ITEMS.register("toast_with_blueberry_jam", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST_WITH_BLUEBERRY_JAM)));
+        HONEY_TOAST = ITEMS.register("honey_toast", () -> new Item(new Item.Properties().food(BrutalFoods.HONEY_TOAST)));
+        STRAWBERRY_TOAST = ITEMS.register("strawberry_toast", () -> new Item(new Item.Properties().food(BrutalFoods.STRAWBERRY_TOAST)));
+        BLUEBERRY_TOAST = ITEMS.register("blueberry_toast", () -> new Item(new Item.Properties().food(BrutalFoods.BLUEBERRY_TOAST)));
 
         SEED_SATCHEL = ITEMS.register("seed_satchel", () -> new Item(new Item.Properties()));
         JAR = ITEMS.register("jar", () -> new Item(new Item.Properties()));
@@ -210,9 +210,9 @@ public class ItemRegistry {
         STRAWBERRY_JAM = ITEMS.register("strawberry_jam", () -> new Item(new Item.Properties().food(BrutalFoods.STRAWBERRY_JAM).craftRemainder(ItemRegistry.JAR.get())));
         BLUEBERRY_JAM = ITEMS.register("blueberry_jam", () -> new Item(new Item.Properties().food(BrutalFoods.BLUEBERRY_JAM).craftRemainder(ItemRegistry.JAR.get())));
 
-        TOAST_FRIED_EGG = ITEMS.register("toast_fried_egg", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST_FRIED_EGG)));
-        TOAST_SCRAMBLED_EGG = ITEMS.register("toast_scrambled_egg", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST_SCRAMBLED_EGG)));
-        TOAST_BOILED_EGG = ITEMS.register("toast_boiled_egg", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST_BOILED_EGG)));
+        FRIED_EGG_TOAST = ITEMS.register("fried_egg_toast", () -> new Item(new Item.Properties().food(BrutalFoods.FRIED_EGG_TOAST)));
+        SCRAMBLED_EGG_TOAST = ITEMS.register("scrambled_egg_toast", () -> new Item(new Item.Properties().food(BrutalFoods.SCRAMBLED_EGG_TOAST)));
+        BOILED_EGG_TOAST = ITEMS.register("boiled_egg_toast", () -> new Item(new Item.Properties().food(BrutalFoods.BOILED_EGG_TOAST)));
 
         TOAST_LOAF = ITEMS.register("toast_loaf", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST_LOAF)));
         TOAST = ITEMS.register("toast", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST)));

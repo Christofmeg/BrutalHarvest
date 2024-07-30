@@ -68,13 +68,13 @@ public class BrutalFoods {
     public static final FoodProperties TOAST = builder(3, 3.5F).build();
     public static final FoodProperties TOAST_SLICE = builder(1, 1.9F).build();
 
-    public static final FoodProperties TOAST_SCRAMBLED_EGG = builder(5, 3.5F).build();
-    public static final FoodProperties TOAST_BOILED_EGG = builder(5, 2.7F).build();
-    public static final FoodProperties TOAST_FRIED_EGG = builder(5, 1.3F).build();
+    public static final FoodProperties SCRAMBLED_EGG_TOAST = builder(5, 3.5F).build();
+    public static final FoodProperties BOILED_EGG_TOAST = builder(5, 2.7F).build();
+    public static final FoodProperties FRIED_EGG_TOAST = builder(5, 1.3F).build();
 
-    public static final FoodProperties TOAST_WITH_HONEY = builder(4, 2.4F).build();
-    public static final FoodProperties TOAST_WITH_STRAWBERRY_JAM = builder(3, 2.4F).build();
-    public static final FoodProperties TOAST_WITH_BLUEBERRY_JAM = builder(3, 2.4F).build();
+    public static final FoodProperties HONEY_TOAST = builder(4, 2.4F).build();
+    public static final FoodProperties STRAWBERRY_TOAST = builder(3, 2.4F).build();
+    public static final FoodProperties BLUEBERRY_TOAST = builder(3, 2.4F).build();
 
     public static final FoodProperties PASTA = builder(1, 2.6F).build();
     public static final FoodProperties SPAGHETTI = builder(4, 3.6F).build();
