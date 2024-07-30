@@ -32,7 +32,7 @@ public class CommonSetupEvent {
             compost(ItemRegistry.DRIED_COFFEE_BEANS, 0.30F);
             compost(ItemRegistry.COFFEE_POWDER, 0.30F);
 */
-//          compost(ItemRegistry.RAPESEED_BEANS, 0.30F);
+            compost(ItemRegistry.RAPESEED_BEANS, 0.50F);
 
             compost(ItemRegistry.SUGAR_BEET, 0.65F);
 

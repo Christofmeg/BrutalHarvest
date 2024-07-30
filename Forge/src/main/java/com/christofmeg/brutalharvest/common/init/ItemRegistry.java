@@ -38,7 +38,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> COTTON;
     public static final RegistryObject<Item> COTTON_SEEDS;
 
+    public static final RegistryObject<Item> RAPESEED_BEANS;
     public static final RegistryObject<Item> RAPESEEDS;
+    public static final RegistryObject<Item> RAPESEED_OIL;
 
     public static final RegistryObject<Item> SUGAR_BEET;
     public static final RegistryObject<Item> SUGAR_BEET_SEEDS;
@@ -162,6 +164,10 @@ public class ItemRegistry {
         PICKLE = ITEMS.register("pickle", () -> new Item(new Item.Properties().food(BrutalFoods.PICKLE)));
 
         COTTON = ITEMS.register("cotton", () -> new Item(new Item.Properties()));
+
+        RAPESEED_BEANS = ITEMS.register("rapeseed_beans", () -> new Item(new Item.Properties()));
+        RAPESEED_OIL = ITEMS.register("rapeseed_oil", () -> new Item(new Item.Properties()));
+
         SUGAR_BEET = ITEMS.register("sugar_beet", () -> new Item(new Item.Properties().food(Foods.BEETROOT)));
         // ONION = ITEMS.register("onion", () -> new Item(new Item.Properties().food(BrutalFoods.ONION)));
         // CHILI_PEPPER = ITEMS.register("chili_pepper", () -> new Item(new Item.Properties().food(BrutalFoods.CHILI_PEPPER)));
@@ -171,7 +177,7 @@ public class ItemRegistry {
         CORN_SEEDS = ITEMS.register("corn_seeds", () -> new ItemNameBlockItem(BlockRegistry.CORN.get(), new Item.Properties()));
         CUCUMBER_SEEDS = ITEMS.register("cucumber_seeds", () -> new ItemNameBlockItem(BlockRegistry.CUCUMBER.get(), new Item.Properties()));
         COTTON_SEEDS = ITEMS.register("cotton_seeds", () -> new ItemNameBlockItem(BlockRegistry.COTTON.get(), new Item.Properties()));
-        RAPESEEDS = ITEMS.register("rapeseeds", () -> new Item(new Item.Properties()));
+        RAPESEEDS = ITEMS.register("rapeseeds", () -> new ItemNameBlockItem(BlockRegistry.RAPESEED.get(), new Item.Properties()));
         STRAWBERRY_SEEDS = ITEMS.register("strawberry_seeds", () -> new ItemNameBlockItem(BlockRegistry.STRAWBERRY.get(), new Item.Properties()));
         SUGAR_BEET_SEEDS = ITEMS.register("sugar_beet_seeds", () -> new ItemNameBlockItem(BlockRegistry.SUGAR_BEET.get(), new Item.Properties()));
 

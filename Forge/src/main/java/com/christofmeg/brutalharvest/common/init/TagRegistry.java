@@ -79,6 +79,7 @@ public class TagRegistry {
         public static TagKey<Item> CROPS_CORN = forgeTag("crops/corn");
         public static TagKey<Item> CROPS_CUCUMBER = forgeTag("crops/cucumber");
         public static TagKey<Item> CROPS_COTTON = forgeTag("crops/cotton");
+        public static TagKey<Item> CROPS_RAPESEED = forgeTag("crops/rapeseed");
         public static TagKey<Item> CROPS_SUGAR_BEET = forgeTag("crops/sugar_beet");
         public static TagKey<Item> CROPS_STRAWBERRY = forgeTag("crops/strawberry");
 //        public static TagKey<Item> CROPS_ONION = forgeTag("crops/onion");

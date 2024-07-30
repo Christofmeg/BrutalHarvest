@@ -20,6 +20,7 @@ import javax.annotation.Nonnull;
 public class BlockRegistry {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, CommonConstants.MOD_ID);
+    public static BlockBehaviour. Properties cropPropeties = BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY);
 
 //    public static final RegistryObject<Block> CROP_SUPPORT;
     public static final RegistryObject<Block> TOMATO;
@@ -27,6 +28,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> CORN;
     public static final RegistryObject<Block> CUCUMBER;
     public static final RegistryObject<Block> COTTON;
+    public static final RegistryObject<Block> RAPESEED;
     public static final RegistryObject<Block> SUGAR_BEET;
     public static final RegistryObject<Block> STRAWBERRY;
 //    public static final RegistryObject<Block> ONION;
@@ -45,14 +47,15 @@ public class BlockRegistry {
 //        CROP_SUPPORT = BLOCKS.register("crop_support", () -> new CropSupportBlock(BlockBehaviour.Properties.of().noCollission().instabreak().sound(SoundType.BAMBOO_WOOD).pushReaction(PushReaction.DESTROY)));
 //        ItemRegistry.ITEMS.register("crop_support", () -> new BlockItem(CROP_SUPPORT.get(), new Item.Properties()));
 
-        TOMATO = BLOCKS.register("tomato", () -> new TomatoCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
-        LETTUCE = BLOCKS.register("lettuce", () -> new LettuceCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
-        CORN = BLOCKS.register("corn", () -> new CornCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
-        CUCUMBER = BLOCKS.register("cucumber", () -> new CucumberCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
-        COTTON = BLOCKS.register("cotton", () -> new CottonCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
-        SUGAR_BEET = BLOCKS.register("sugar_beet", () -> new SugarBeetCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
-        STRAWBERRY = BLOCKS.register("strawberry", () -> new StrawberryCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
-//        ONION = BLOCKS.register("onion", () -> new OnionCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
+        TOMATO = BLOCKS.register("tomato", () -> new TomatoCropBlock(cropPropeties));
+        LETTUCE = BLOCKS.register("lettuce", () -> new LettuceCropBlock(cropPropeties));
+        CORN = BLOCKS.register("corn", () -> new CornCropBlock(cropPropeties));
+        CUCUMBER = BLOCKS.register("cucumber", () -> new CucumberCropBlock(cropPropeties));
+        COTTON = BLOCKS.register("cotton", () -> new CottonCropBlock(cropPropeties));
+        RAPESEED = BLOCKS.register("rapeseed", () -> new RapeseedCropBlock(cropPropeties));
+        SUGAR_BEET = BLOCKS.register("sugar_beet", () -> new SugarBeetCropBlock(cropPropeties));
+        STRAWBERRY = BLOCKS.register("strawberry", () -> new StrawberryCropBlock(cropPropeties));
+//        ONION = BLOCKS.register("onion", () -> new OnionCropBlock(cropPropeties));
         BLUEBERRY = BLOCKS.register("blueberry", () -> new BlueberryBushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY)));
 //        RUBBER_CAULDRON = BLOCKS.register("rubber_cauldron", () -> new LayeredCauldronBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON), LayeredCauldronBlock.RAIN, CauldronInteraction.WATER));
 

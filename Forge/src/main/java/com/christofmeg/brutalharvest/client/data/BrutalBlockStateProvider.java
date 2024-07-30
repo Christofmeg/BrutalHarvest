@@ -35,6 +35,7 @@ public class BrutalBlockStateProvider extends BlockStateProvider {
         makeDoubleCrop(BlockRegistry.CUCUMBER.get(), 7, 4);
 
         makeCrop(BlockRegistry.COTTON.get(), CottonCropBlock.AGE);
+        makeDoubleCrop(BlockRegistry.RAPESEED.get(), 8, 4);
         makeCrop(BlockRegistry.SUGAR_BEET.get(), SugarBeetCropBlock.AGE);
         makeCrop(BlockRegistry.STRAWBERRY.get(), StrawberryCropBlock.AGE);
     //    makeCrop(BlockRegistry.ONION.get(), OnionCropBlock.AGE);
