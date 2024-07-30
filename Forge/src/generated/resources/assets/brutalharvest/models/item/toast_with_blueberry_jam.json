@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "brutalharvest:item/toast_honey"
+    "layer0": "brutalharvest:item/toast_with_blueberry_jam"
   }
 }

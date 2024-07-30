@@ -244,39 +244,39 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOAST_SCRAMBLED_EGG.get())
                 .requires(ItemRegistry.SCRAMBLED_EGG.get())
-                .requires(ItemRegistry.TOAST.get())
+                .requires(ItemRegistry.TOAST_SLICE.get())
                 .unlockedBy("toast", has(ItemRegistry.TOAST.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.TOAST_SCRAMBLED_EGG.get())));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOAST_BOILED_EGG.get())
                 .requires(ItemRegistry.BOILED_EGG.get())
-                .requires(ItemRegistry.TOAST.get())
+                .requires(ItemRegistry.TOAST_SLICE.get())
                 .unlockedBy("toast", has(ItemRegistry.TOAST.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.TOAST_BOILED_EGG.get())));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOAST_FRIED_EGG.get())
                 .requires(ItemRegistry.FRIED_EGG.get())
-                .requires(ItemRegistry.TOAST.get())
+                .requires(ItemRegistry.TOAST_SLICE.get())
                 .unlockedBy("toast", has(ItemRegistry.TOAST.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.TOAST_FRIED_EGG.get())));
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOAST_HONEY.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOAST_WITH_HONEY.get())
                 .requires(ItemRegistry.HONEY_JAR.get())
-                .requires(ItemRegistry.TOAST.get())
+                .requires(ItemRegistry.TOAST_SLICE.get())
                 .unlockedBy("toast", has(ItemRegistry.TOAST.get()))
-                .save(consumer, modLoc(getItemName(ItemRegistry.TOAST_HONEY.get())));
+                .save(consumer, modLoc(getItemName(ItemRegistry.TOAST_WITH_HONEY.get())));
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOAST_STRAWBERRY.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOAST_WITH_STRAWBERRY_JAM.get())
                 .requires(ItemRegistry.STRAWBERRY_JAM.get())
-                .requires(ItemRegistry.TOAST.get())
+                .requires(ItemRegistry.TOAST_SLICE.get())
                 .unlockedBy("toast", has(ItemRegistry.TOAST.get()))
-                .save(consumer, modLoc(getItemName(ItemRegistry.TOAST_STRAWBERRY.get())));
+                .save(consumer, modLoc(getItemName(ItemRegistry.TOAST_WITH_STRAWBERRY_JAM.get())));
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOAST_BLUEBERRY.get())
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOAST_WITH_BLUEBERRY_JAM.get())
                 .requires(ItemRegistry.BLUEBERRY_JAM.get())
-                .requires(ItemRegistry.TOAST.get())
+                .requires(ItemRegistry.TOAST_SLICE.get())
                 .unlockedBy("toast", has(ItemRegistry.TOAST.get()))
-                .save(consumer, modLoc(getItemName(ItemRegistry.TOAST_BLUEBERRY.get())));
+                .save(consumer, modLoc(getItemName(ItemRegistry.TOAST_WITH_BLUEBERRY_JAM.get())));
 
         fabricRecipeBuilder(ItemRegistry.BLACK_FABRIC.get(), Tags.Items.DYES_BLACK, consumer);
         fabricRecipeBuilder(ItemRegistry.BLUE_FABRIC.get(), Tags.Items.DYES_BLUE, consumer);

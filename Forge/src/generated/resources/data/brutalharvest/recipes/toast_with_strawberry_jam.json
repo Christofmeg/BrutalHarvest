@@ -6,10 +6,10 @@
       "item": "brutalharvest:strawberry_jam"
     },
     {
-      "item": "brutalharvest:toast"
+      "item": "brutalharvest:toast_slice"
     }
   ],
   "result": {
-    "item": "brutalharvest:toast_strawberry"
+    "item": "brutalharvest:toast_with_strawberry_jam"
   }
 }

@@ -71,9 +71,9 @@ public class ItemRegistry {
     public static final RegistryObject<Item> SCRAMBLED_EGG;
     public static final RegistryObject<Item> BOILED_EGG;
 
-    public static final RegistryObject<Item> TOAST_HONEY;
-    public static final RegistryObject<Item> TOAST_STRAWBERRY;
-    public static final RegistryObject<Item> TOAST_BLUEBERRY;
+    public static final RegistryObject<Item> TOAST_WITH_HONEY;
+    public static final RegistryObject<Item> TOAST_WITH_STRAWBERRY_JAM;
+    public static final RegistryObject<Item> TOAST_WITH_BLUEBERRY_JAM;
 
     public static final RegistryObject<Item> HONEY_JAR;
     public static final RegistryObject<Item> STRAWBERRY_JAM;
@@ -198,9 +198,9 @@ public class ItemRegistry {
         SCRAMBLED_EGG = ITEMS.register("scrambled_egg", () -> new Item(new Item.Properties().food(BrutalFoods.SCRAMBLED_EGG)));
         BOILED_EGG = ITEMS.register("boiled_egg", () -> new Item(new Item.Properties().food(BrutalFoods.BOILED_EGG)));
 
-        TOAST_HONEY = ITEMS.register("toast_honey", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST_HONEY)));
-        TOAST_STRAWBERRY = ITEMS.register("toast_strawberry", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST_STRAWBERRY)));
-        TOAST_BLUEBERRY = ITEMS.register("toast_blueberry", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST_BLUEBERRY)));
+        TOAST_WITH_HONEY = ITEMS.register("toast_with_honey", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST_WITH_HONEY)));
+        TOAST_WITH_STRAWBERRY_JAM = ITEMS.register("toast_with_strawberry_jam", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST_WITH_STRAWBERRY_JAM)));
+        TOAST_WITH_BLUEBERRY_JAM = ITEMS.register("toast_with_blueberry_jam", () -> new Item(new Item.Properties().food(BrutalFoods.TOAST_WITH_BLUEBERRY_JAM)));
 
         SEED_SATCHEL = ITEMS.register("seed_satchel", () -> new Item(new Item.Properties()));
         JAR = ITEMS.register("jar", () -> new Item(new Item.Properties()));

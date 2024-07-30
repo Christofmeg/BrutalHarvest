@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "brutalharvest:toast_blueberry"
+        "recipe": "brutalharvest:toast_with_honey"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "brutalharvest:toast_blueberry"
+      "brutalharvest:toast_with_honey"
     ]
   },
   "sends_telemetry_event": false

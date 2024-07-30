@@ -143,9 +143,9 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
         tag(TagRegistry.Items.SCRAMBLED_EGG).add(ItemRegistry.SCRAMBLED_EGG.get());
         tag(TagRegistry.Items.BOILED_EGG).add(ItemRegistry.BOILED_EGG.get());
 
-        tag(TagRegistry.Items.TOAST_HONEY).add(ItemRegistry.TOAST_HONEY.get());
-        tag(TagRegistry.Items.TOAST_STRAWBERRY).add(ItemRegistry.TOAST_STRAWBERRY.get());
-        tag(TagRegistry.Items.TOAST_BLUEBERRY).add(ItemRegistry.TOAST_BLUEBERRY.get());
+        tag(TagRegistry.Items.TOAST_HONEY).add(ItemRegistry.TOAST_WITH_HONEY.get());
+        tag(TagRegistry.Items.TOAST_STRAWBERRY).add(ItemRegistry.TOAST_WITH_STRAWBERRY_JAM.get());
+        tag(TagRegistry.Items.TOAST_BLUEBERRY).add(ItemRegistry.TOAST_WITH_BLUEBERRY_JAM.get());
 
         tag(TagRegistry.Items.HONEY_JAR).add(ItemRegistry.HONEY_JAR.get());
         tag(TagRegistry.Items.STRAWBERRY_JAM).add(ItemRegistry.STRAWBERRY_JAM.get());
