@@ -146,7 +146,6 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.JAR.get())
                 .define('G', Items.GLASS)
                 .pattern("G G")
-                .pattern("G G")
                 .pattern("GGG")
                 .unlockedBy("has_toast", has(ItemRegistry.TOAST.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.JAR.get())));
