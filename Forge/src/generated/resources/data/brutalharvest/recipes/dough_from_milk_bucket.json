@@ -12,7 +12,7 @@
       "tag": "forge:eggs"
     },
     {
-      "item": "minecraft:potion"
+      "tag": "forge:buckets/milk"
     }
   ],
   "result": {

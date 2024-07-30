@@ -201,6 +201,7 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
         tag(ItemTags.PIGLIN_LOVED).add(ItemRegistry.GOLDEN_KNIFE.get()).add(ItemRegistry.GOLDEN_SCYTHE.get());
 
         tag(TagRegistry.Items.BUCKETS_WATER).add(Items.WATER_BUCKET);
+        tag(TagRegistry.Items.BUCKETS_MILK).add(Items.MILK_BUCKET);
 
         tag(TagRegistry.Items.FABRICS)
                 .add(ItemRegistry.FABRIC.get())

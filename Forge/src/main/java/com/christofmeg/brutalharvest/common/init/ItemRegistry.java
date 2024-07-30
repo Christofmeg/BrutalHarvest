@@ -91,6 +91,7 @@ public class ItemRegistry {
 
     public static final RegistryObject<Item> FLOUR;
     public static final RegistryObject<Item> DOUGH;
+    public static final RegistryObject<Item> TOMATO_DOUGH;
 
 //    public static final RegistryObject<Item> RUBBER_BUCKET;
 //    public static final RegistryObject<Item> RUBBER;
@@ -221,6 +222,7 @@ public class ItemRegistry {
 
         FLOUR = ITEMS.register("flour", () -> new Item(new Item.Properties()));
         DOUGH = ITEMS.register("dough", () -> new Item(new Item.Properties()));
+        TOMATO_DOUGH = ITEMS.register("tomato_dough", () -> new Item(new Item.Properties()));
 
 //        RUBBER_BUCKET = ITEMS.register("rubber_bucket", () -> new Item(new Item.Properties().craftRemainder(Items.BUCKET))); //TODO implement
 //        RUBBER = ITEMS.register("rubber", () -> new Item(new Item.Properties()));

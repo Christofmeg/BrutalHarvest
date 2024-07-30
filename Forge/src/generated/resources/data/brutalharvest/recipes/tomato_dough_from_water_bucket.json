@@ -6,16 +6,16 @@
       "tag": "forge:items/flour"
     },
     {
-      "tag": "forge:items/flour"
+      "tag": "forge:vegetables/tomato"
     },
     {
       "tag": "forge:eggs"
     },
     {
-      "item": "minecraft:potion"
+      "tag": "forge:buckets/water"
     }
   ],
   "result": {
-    "item": "brutalharvest:dough"
+    "item": "brutalharvest:tomato_dough"
   }
 }

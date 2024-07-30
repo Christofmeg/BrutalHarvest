@@ -108,34 +108,6 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .unlockedBy("has_fabric", has(ItemRegistry.FABRIC.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.BOOTS.get())));
 
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.DOUGH.get())
-                .define('F', ItemRegistry.FLOUR.get())
-                .define('E', Items.EGG)
-                .define('O', Items.WATER_BUCKET)
-                .pattern("FF ")
-                .pattern("EO ")
-                .unlockedBy("has_flour", has(ItemRegistry.FLOUR.get()))
-                .save(consumer, modLoc(getItemName(ItemRegistry.DOUGH.get())));
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.DOUGH.get())
-                .define('F', ItemRegistry.FLOUR.get())
-                .define('E', Items.EGG)
-                .define('O', Items.MILK_BUCKET)
-                .pattern("FF ")
-                .pattern("EO ")
-                .unlockedBy("has_flour", has(ItemRegistry.FLOUR.get()))
-                .save(consumer, modLoc(getItemName(ItemRegistry.DOUGH.get())  + "_from_" + "milk"  ));
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.DOUGH.get())
-                .define('F', ItemRegistry.FLOUR.get())
-                .define('E', Items.EGG)
-                .define('O', PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER).getItem())
-                .pattern("FF ")
-                .pattern("EO ")
-                .unlockedBy("has_flour", has(ItemRegistry.FLOUR.get()))
-                .save(consumer, modLoc(getItemName(  ItemRegistry.DOUGH.get()) + "_from_" + "water_bottle"));
-
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.TOAST_LOAF.get())
                 .define('D', ItemRegistry.DOUGH.get())
                 .pattern("DDD")
@@ -143,7 +115,7 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .unlockedBy("has_dough", has(ItemRegistry.DOUGH.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.TOAST_LOAF.get())));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.JAR.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.JAR.get(), 3)
                 .define('G', Items.GLASS)
                 .pattern("G G")
                 .pattern("GGG")
@@ -306,6 +278,47 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .requires(TagRegistry.Items.BUCKETS_WATER)
                 .unlockedBy("fabric", has(ItemRegistry.FABRIC.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.FABRIC.get()) + "_cleaning"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.DOUGH.get())
+                .requires(Ingredient.of(TagRegistry.Items.FLOUR), 2)
+                .requires(Tags.Items.EGGS)
+                .requires(TagRegistry.Items.BUCKETS_WATER)
+                .unlockedBy("flour", has(ItemRegistry.FLOUR.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.DOUGH.get()) + "_from_" + "water_bucket"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.DOUGH.get())
+                .requires(Ingredient.of(TagRegistry.Items.FLOUR), 2)
+                .requires(Tags.Items.EGGS)
+                .requires(TagRegistry.Items.BUCKETS_MILK)
+                .unlockedBy("flour", has(ItemRegistry.FLOUR.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.DOUGH.get()) + "_from_" + "milk_bucket"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.DOUGH.get())
+                .requires(Ingredient.of(TagRegistry.Items.FLOUR), 2)
+                .requires(Tags.Items.EGGS)
+                .requires(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER).getItem())
+                .unlockedBy("flour", has(ItemRegistry.FLOUR.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.DOUGH.get()) + "_from_" + "water_bottle"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_DOUGH.get())
+                .requires(TagRegistry.Items.FLOUR)
+                .requires(TagRegistry.Items.TOMATO)
+                .requires(Tags.Items.EGGS)
+                .requires(TagRegistry.Items.BUCKETS_WATER)
+                .unlockedBy("flour", has(ItemRegistry.FLOUR.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.TOMATO_DOUGH.get()) + "_from_" + "water_bucket"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_DOUGH.get())
+                .requires(TagRegistry.Items.FLOUR)
+                .requires(TagRegistry.Items.TOMATO)
+                .requires(Tags.Items.EGGS)
+                .requires(TagRegistry.Items.BUCKETS_MILK)
+                .unlockedBy("flour", has(ItemRegistry.FLOUR.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.TOMATO_DOUGH.get()) + "_from_" + "milk_bucket"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_DOUGH.get())
+                .requires(TagRegistry.Items.FLOUR)
+                .requires(TagRegistry.Items.TOMATO)
+                .requires(Tags.Items.EGGS)
+                .requires(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER).getItem())
+                .unlockedBy("flour", has(ItemRegistry.FLOUR.get()))
+                .save(consumer, modLoc(getItemName(ItemRegistry.TOMATO_DOUGH.get()) + "_from_" + "water_bottle"));
 
     }
 

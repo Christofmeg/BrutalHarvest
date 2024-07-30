@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_flour": {
+    "flour": {
       "conditions": {
         "items": [
           {
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "brutalharvest:dough"
+        "recipe": "brutalharvest:tomato_dough_from_milk_bucket"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_flour",
+      "flour",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "brutalharvest:dough"
+      "brutalharvest:tomato_dough_from_milk_bucket"
     ]
   },
   "sends_telemetry_event": false

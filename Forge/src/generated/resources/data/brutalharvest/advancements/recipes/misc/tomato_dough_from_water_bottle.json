@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "brutalharvest:dough_from_water_bottle"
+        "recipe": "brutalharvest:tomato_dough_from_water_bottle"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "brutalharvest:dough_from_water_bottle"
+      "brutalharvest:tomato_dough_from_water_bottle"
     ]
   },
   "sends_telemetry_event": false

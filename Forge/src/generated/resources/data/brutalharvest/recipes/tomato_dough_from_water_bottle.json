@@ -6,7 +6,7 @@
       "tag": "forge:items/flour"
     },
     {
-      "tag": "forge:items/flour"
+      "tag": "forge:vegetables/tomato"
     },
     {
       "tag": "forge:eggs"
@@ -16,6 +16,6 @@
     }
   ],
   "result": {
-    "item": "brutalharvest:dough"
+    "item": "brutalharvest:tomato_dough"
   }
 }

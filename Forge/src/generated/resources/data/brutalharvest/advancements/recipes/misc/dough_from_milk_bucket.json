@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "brutalharvest:dough_from_water_bottle"
+        "recipe": "brutalharvest:dough_from_milk_bucket"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "brutalharvest:dough_from_water_bottle"
+      "brutalharvest:dough_from_milk_bucket"
     ]
   },
   "sends_telemetry_event": false

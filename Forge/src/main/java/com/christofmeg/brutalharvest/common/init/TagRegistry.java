@@ -111,7 +111,6 @@ public class TagRegistry {
         public static TagKey<Item> TOAST = forgeTag("foods/toast");
         public static TagKey<Item> TOAST_SLICE = forgeTag("foods/toast_slice");
 
-        public static TagKey<Item> CORN_KERNEL_BOWL = forgeTag("foods/corn_kernel_bowl");
         public static TagKey<Item> POPCORN = forgeTag("foods/popcorn");
 
         public static TagKey<Item> SALAD_INGREDIENTS = forgeTag("salad_ingredients");
@@ -124,6 +123,7 @@ public class TagRegistry {
 
         public static TagKey<Item> FLOUR = forgeTag("items/flour");
         public static TagKey<Item> DOUGH = forgeTag("items/dough");
+        public static TagKey<Item> TOMATO_DOUGH = forgeTag("items/tomato_dough");
 
         public static TagKey<Item> TOOLS = forgeTag("tools");
         public static TagKey<Item> KNIVES = forgeTag("tools/knives");
@@ -131,6 +131,7 @@ public class TagRegistry {
         public static TagKey<Item> SCYTHES = forgeTag("tools/scythes");
 
         public static TagKey<Item> BUCKETS_WATER = forgeTag("buckets/water");
+        public static TagKey<Item> BUCKETS_MILK= forgeTag("buckets/milk");
 
         public static TagKey<Item> FABRICS = modTag("fabrics");
         public static TagKey<Item> FABRICS_COLORED = modTag("fabrics_colored");
