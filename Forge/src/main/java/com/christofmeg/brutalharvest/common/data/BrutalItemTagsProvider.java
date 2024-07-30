@@ -93,6 +93,8 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
                 .addTag(TagRegistry.Items.CROPS_LETTUCE)
                 .addTag(TagRegistry.Items.CROPS_CORN)
                 .addTag(TagRegistry.Items.CROPS_CUCUMBER)
+                .addTag(TagRegistry.Items.CROPS_COTTON)
+                .addTag(TagRegistry.Items.CROPS_RAPESEED)
                 .addTag(TagRegistry.Items.CROPS_SUGAR_BEET)
                 .addTag(TagRegistry.Items.CROPS_STRAWBERRY)
 //                .addTag(TagRegistry.Items.CROPS_ONION)

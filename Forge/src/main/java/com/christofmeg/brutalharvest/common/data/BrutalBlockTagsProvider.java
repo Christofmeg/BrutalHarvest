@@ -30,9 +30,9 @@ public class BrutalBlockTagsProvider extends BlockTagsProvider {
                 .add(BlockRegistry.TOMATO.get())
                 .add(BlockRegistry.LETTUCE.get())
                 .add(BlockRegistry.CORN.get())
-//                .add(BlockRegistry.CUCUMBER.get())
+                .add(BlockRegistry.CUCUMBER.get())
                 .add(BlockRegistry.COTTON.get())
-//                .add(BlockRegistry.RAPESEED.get())
+                .add(BlockRegistry.RAPESEED.get())
                 .add(BlockRegistry.SUGAR_BEET.get())
                 .add(BlockRegistry.STRAWBERRY.get());
 //                .add(BlockRegistry.ONION.get());
