@@ -1,0 +1,159 @@
+{
+  "type": "minecraft:block",
+  "functions": [
+    {
+      "function": "minecraft:explosion_decay"
+    }
+  ],
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:any_of",
+          "terms": [
+            {
+              "block": "brutalharvest:rapeseed",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "age": "6"
+              }
+            },
+            {
+              "block": "brutalharvest:rapeseed",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "age": "10"
+              }
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "brutalharvest:rapeseeds"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "brutalharvest:rapeseeds",
+          "weight": 3
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:any_of",
+          "terms": [
+            {
+              "block": "brutalharvest:rapeseed",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "age": "7"
+              }
+            },
+            {
+              "block": "brutalharvest:rapeseed",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "age": "11"
+              }
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "chance": 0.25,
+              "condition": "minecraft:random_chance"
+            }
+          ],
+          "name": "brutalharvest:rapeseeds"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:all_of",
+          "terms": [
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:any_of",
+                "terms": [
+                  {
+                    "block": "brutalharvest:rapeseed",
+                    "condition": "minecraft:block_state_property",
+                    "properties": {
+                      "age": "6"
+                    }
+                  },
+                  {
+                    "block": "brutalharvest:rapeseed",
+                    "condition": "minecraft:block_state_property",
+                    "properties": {
+                      "age": "10"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:any_of",
+                "terms": [
+                  {
+                    "block": "brutalharvest:rapeseed",
+                    "condition": "minecraft:block_state_property",
+                    "properties": {
+                      "age": "7"
+                    }
+                  },
+                  {
+                    "block": "brutalharvest:rapeseed",
+                    "condition": "minecraft:block_state_property",
+                    "properties": {
+                      "age": "11"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "brutalharvest:rapeseeds"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "brutalharvest:blocks/rapeseed"
+}

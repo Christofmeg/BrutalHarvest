@@ -16,6 +16,7 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
@@ -30,8 +31,6 @@ public class BrutalBlockLootTables extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-
-        //TODO block loot to Corn, Tomato
 
         this.add(BlockRegistry.TOMATO.get(), createGenericUnripeRottenCropDrops(
                 BlockRegistry.TOMATO.get(),
@@ -129,6 +128,23 @@ public class BrutalBlockLootTables extends BlockLootSubProvider {
                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CottonCropBlock.AGE, 6))
         ));
 
+        this.add(BlockRegistry.RAPESEED.get(), createRapeseedCropDrops(
+                BlockRegistry.RAPESEED.get(),
+                ItemRegistry.RAPESEEDS.get(),
+                LootItemBlockStatePropertyCondition
+                        .hasBlockStateProperties(BlockRegistry.RAPESEED.get())
+                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CornCropBlock.AGE, 6))
+                        .or(LootItemBlockStatePropertyCondition
+                                .hasBlockStateProperties(BlockRegistry.RAPESEED.get())
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(StrawberryCropBlock.AGE, 10))),
+                LootItemBlockStatePropertyCondition
+                        .hasBlockStateProperties(BlockRegistry.RAPESEED.get())
+                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LettuceCropBlock.AGE, 7))
+                        .or(LootItemBlockStatePropertyCondition
+                                .hasBlockStateProperties(BlockRegistry.RAPESEED.get())
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(StrawberryCropBlock.AGE, 11)))
+        ));
+
         this.add(BlockRegistry.STRAWBERRY.get(), createGenericUnripeCropDrops(
                 BlockRegistry.STRAWBERRY.get(),
                 ItemRegistry.UNRIPE_STRAWBERRY.get(), 1.0F, 4.0F,
@@ -174,6 +190,7 @@ public class BrutalBlockLootTables extends BlockLootSubProvider {
                         block instanceof LettuceCropBlock ||
                         block instanceof CornCropBlock ||
                         block instanceof CucumberCropBlock ||
+                        block instanceof RapeseedCropBlock ||
                         block instanceof SugarBeetCropBlock ||
                         block instanceof CottonCropBlock ||
                         block instanceof StrawberryCropBlock ||
@@ -332,6 +349,34 @@ public class BrutalBlockLootTables extends BlockLootSubProvider {
                                 .when(LootItemRandomChanceCondition.randomChance(0.25F))))
                 .withPool(LootPool.lootPool()
                         .when(unripeConditon.invert().and(matureCondition.invert().and(deadCondition.invert())))
+                        .add(LootItem.lootTableItem(pSeedsItem))
+                )
+        );
+    }
+
+    protected LootTable.Builder createRapeseedCropDrops(Block pCropBlock, Item pSeedsItem, LootItemCondition.Builder grownCropMatureCondtion, LootItemCondition.Builder grownCropRottenConditon) {
+        return this.applyExplosionDecay(pCropBlock, LootTable.lootTable()
+
+                .withPool(LootPool.lootPool()
+                        .when(grownCropMatureCondtion)
+                        .add(LootItem.lootTableItem(pSeedsItem)
+                                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(3)))
+                                .setWeight(1)
+                        )
+                        .add(LootItem.lootTableItem(pSeedsItem)
+                                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(2)))
+                                .setWeight(3)
+                        )
+                )
+
+                .withPool(LootPool.lootPool()
+                        .when(grownCropRottenConditon)
+                        .add(LootItem.lootTableItem(pSeedsItem)
+                                .when(LootItemRandomChanceCondition.randomChance(0.25F))
+                        )
+                )
+                .withPool(LootPool.lootPool()
+                        .when(grownCropMatureCondtion.invert().and(grownCropRottenConditon.invert()))
                         .add(LootItem.lootTableItem(pSeedsItem))
                 )
         );
