@@ -7,3 +7,5 @@
 * Added Tomato Dough
 * Rotten Tomato and Sliced Tomato can no longer craft Tomato Seeds
 * Fix Water Bottle recipe not showing with nbt in recipe viewers
+* Fix bug where no blocks could be placed against Blueberry Bushes
+* Made Blueberry bushes go back to age 0 instead of 2 when a knife is used on them

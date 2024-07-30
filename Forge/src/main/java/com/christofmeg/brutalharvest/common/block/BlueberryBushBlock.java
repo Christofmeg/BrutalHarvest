@@ -33,13 +33,15 @@ import org.jetbrains.annotations.NotNull;
 public class BlueberryBushBlock extends BushBlock implements BonemealableBlock {
 
     public static final int MAX_AGE = 3;
-    public static final int AGE_AFTER_KNIFE = 2;
+    public static final int AGE_AFTER_KNIFE = 0;
     public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 4);
 
     public BlueberryBushBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(AGE, 0));
     }
+
+    //TODO adde TOP/JADE age or growth information like crops have
 
     @SuppressWarnings("deprecation")
     @Override
@@ -68,7 +70,8 @@ public class BlueberryBushBlock extends BushBlock implements BonemealableBlock {
             return InteractionResult.PASS;
         } else if (!level.isClientSide) {
             if (!matureAge && !deadAge) {
-                return InteractionResult.sidedSuccess(false);
+        //        return InteractionResult.sidedSuccess(false);
+                return super.use(state, level, pos, player, interactionHand, blockHitResult);
             }
             if (matureAge) {
                 state = state.setValue(AGE, AGE_AFTER_KNIFE);
