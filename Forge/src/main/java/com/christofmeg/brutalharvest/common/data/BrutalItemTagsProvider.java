@@ -116,6 +116,7 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
 //              .addTag(TagRegistry.Items.CUCUMBER_SUSHI)
 //              .addTag(TagRegistry.Items.LOBSTER_SUSHI)
                 .addTag(TagRegistry.Items.FRIED_EGG)
+                .addTag(TagRegistry.Items.SCRAMBLED_EGG)
                 .addTag(TagRegistry.Items.BOILED_EGG)
 
                 .addTag(TagRegistry.Items.TOAST_HONEY)
@@ -184,15 +185,21 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
 
         tag(TagRegistry.Items.ITEMS)
                 .addTag(TagRegistry.Items.SEED_SATCHEL)
-                .addTag(TagRegistry.Items.JAR);
+
+                .addTag(TagRegistry.Items.JAR)
+
+                .addTag(TagRegistry.Items.FLOUR)
+                .addTag(TagRegistry.Items.DOUGH);
 
         tag(TagRegistry.Items.SEED_SATCHEL).add(ItemRegistry.SEED_SATCHEL.get());
         tag(TagRegistry.Items.JAR).add(ItemRegistry.JAR.get());
+        tag(TagRegistry.Items.FLOUR).add(ItemRegistry.FLOUR.get());
+        tag(TagRegistry.Items.DOUGH).add(ItemRegistry.DOUGH.get());
+
 
         tag(ItemTags.PIGLIN_LOVED).add(ItemRegistry.GOLDEN_KNIFE.get()).add(ItemRegistry.GOLDEN_SCYTHE.get());
 
         tag(TagRegistry.Items.BUCKETS_WATER).add(Items.WATER_BUCKET);
-
         tag(TagRegistry.Items.BUCKETS_MILK).add(Items.MILK_BUCKET);
         tag(TagRegistry.Items.BOTTLES_MILK).addTag(TagRegistry.Items.MILK_MILK_BOTTLES);
         tag(TagRegistry.Items.MILK_MILK_BOTTLES);
