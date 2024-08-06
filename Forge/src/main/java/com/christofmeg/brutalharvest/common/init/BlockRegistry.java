@@ -5,6 +5,8 @@ import com.christofmeg.brutalharvest.common.block.*;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
@@ -33,6 +35,14 @@ public class BlockRegistry {
     public static final RegistryObject<Block> STRAWBERRY;
 //    public static final RegistryObject<Block> ONION;
     public static final RegistryObject<Block> BLUEBERRY;
+    public static final RegistryObject<Block> RUBBER_SAPLING;
+    public static final RegistryObject<Block> RUBBER_LOG;
+    public static final RegistryObject<Block> RUBBER_WOOD;
+    public static final RegistryObject<Block> STRIPPED_RUBBER_LOG;
+    public static final RegistryObject<Block> STRIPPED_RUBBER_WOOD;
+    public static final RegistryObject<Block> RUBBER_PLANKS;
+    public static final RegistryObject<Block> RUBBER_LEAVES;
+
 //    public static final RegistryObject<Block> RUBBER_CAULDRON;
 //    public static final RegistryObject<Block> MILLSTONE;
 
@@ -57,7 +67,19 @@ public class BlockRegistry {
         STRAWBERRY = BLOCKS.register("strawberry", () -> new StrawberryCropBlock(cropPropeties));
 //        ONION = BLOCKS.register("onion", () -> new OnionCropBlock(cropPropeties));
         BLUEBERRY = BLOCKS.register("blueberry", () -> new BlueberryBushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY)));
-//        RUBBER_CAULDRON = BLOCKS.register("rubber_cauldron", () -> new LayeredCauldronBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON), LayeredCauldronBlock.RAIN, CauldronInteraction.WATER));
+
+        RUBBER_SAPLING = block("rubber_sapling", BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING));
+        RUBBER_LOG = block("rubber_log", BlockBehaviour.Properties.copy(Blocks.OAK_LOG));
+        RUBBER_WOOD = block("rubber_wood", BlockBehaviour.Properties.copy(Blocks.OAK_WOOD));
+        STRIPPED_RUBBER_LOG = block("stripped_rubber_log", BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG));
+        STRIPPED_RUBBER_WOOD = block("stripped_rubber_wood", BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD));
+        RUBBER_PLANKS = block("rubber_planks", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS));
+        RUBBER_LEAVES = BLOCKS.register("rubber_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
+
+
+
+
+        //        RUBBER_CAULDRON = BLOCKS.register("rubber_cauldron", () -> new LayeredCauldronBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON), LayeredCauldronBlock.RAIN, CauldronInteraction.WATER));
 
     }
 
