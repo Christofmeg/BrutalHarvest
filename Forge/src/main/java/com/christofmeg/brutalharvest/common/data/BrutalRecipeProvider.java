@@ -1,12 +1,17 @@
 package com.christofmeg.brutalharvest.common.data;
 
 import com.christofmeg.brutalharvest.common.data.base.BaseRecipeProvider;
+import com.christofmeg.brutalharvest.common.data.builder.CustomShapelessRecipeBuilder;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
 import com.christofmeg.brutalharvest.common.init.TagRegistry;
+import com.christofmeg.brutalharvest.common.util.NBTIngredient;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.Tags;
 import org.jetbrains.annotations.NotNull;
@@ -278,14 +283,12 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .requires(TagRegistry.Items.BUCKETS_MILK)
                 .unlockedBy("flour", has(ItemRegistry.FLOUR.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.DOUGH.get()) + "_from_" + "milk_bucket"));
-        /*
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.DOUGH.get())
+        CustomShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.DOUGH.get())
                 .requires(Ingredient.of(TagRegistry.Items.FLOUR), 2)
                 .requires(Tags.Items.EGGS)
                 .requires(new NBTIngredient(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER)))
                 .unlockedBy("flour", has(ItemRegistry.FLOUR.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.DOUGH.get()) + "_from_" + "water_bottle"));
-         */
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.DOUGH.get())
                 .requires(Ingredient.of(TagRegistry.Items.FLOUR), 2)
                 .requires(Tags.Items.EGGS)
@@ -307,16 +310,13 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .requires(TagRegistry.Items.BUCKETS_MILK)
                 .unlockedBy("flour", has(ItemRegistry.FLOUR.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.TOMATO_DOUGH.get()) + "_from_" + "milk_bucket"));
-        /*
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_DOUGH.get())
+        CustomShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_DOUGH.get())
                 .requires(TagRegistry.Items.FLOUR)
                 .requires(TagRegistry.Items.TOMATO)
                 .requires(Tags.Items.EGGS)
                 .requires(new NBTIngredient(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER)))
                 .unlockedBy("flour", has(ItemRegistry.FLOUR.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.TOMATO_DOUGH.get()) + "_from_" + "water_bottle"));
-        */
-
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_DOUGH.get())
                 .requires(Ingredient.of(TagRegistry.Items.FLOUR), 2)
                 .requires(Tags.Items.EGGS)
