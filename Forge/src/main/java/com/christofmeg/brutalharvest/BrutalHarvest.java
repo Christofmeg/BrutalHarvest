@@ -32,6 +32,8 @@ public class BrutalHarvest {
         AdvancementRegistry.register();
         LootModifierRegistry.init(modEventBus);
         SoundRegistry.init(modEventBus);
+        RecipeSerializerRegistry.init(modEventBus);
+        RecipeTyperRegistry.init(modEventBus);
     }
 
     /*TODO

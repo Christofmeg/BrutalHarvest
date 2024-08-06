@@ -10,3 +10,4 @@
 * Fix bug where no blocks could be placed against Blueberry Bushes
 * Made Blueberry bushes go back to age 0 instead of 2 when a knife is used on them
 * Fix block cross crop models on Corn, Cucumber, Cotton, Rapeseed, Strawberry and Tomato
+* Fix Dough not returning Glass Bottle when (auto)crafted with Water Bottle

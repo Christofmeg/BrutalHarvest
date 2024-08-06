@@ -2,18 +2,8 @@ package com.christofmeg.brutalharvest.common.event;
 
 import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
-import com.christofmeg.brutalharvest.common.util.NBTIngredient;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.PotionItem;
-import net.minecraft.world.item.alchemy.PotionUtils;
-import net.minecraft.world.item.alchemy.Potions;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.ComposterBlock;
-import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.RegistryObject;
@@ -73,31 +63,6 @@ public class CommonSetupEvent {
             compost(ItemRegistry.BLUEBERRY, 0.50F);
 
         });
-    }
-
-    @SubscribeEvent
-    public static void onCraft(final PlayerEvent.ItemCraftedEvent event) {
-        Player player = event.getEntity();
-        if (player != null) {
-            Level level = event.getEntity().getCommandSenderWorld();
-            if (!level.isClientSide) {
-                ItemStack stack = event.getCrafting();
-                Item item = stack.getItem();
-
-                if (item == ItemRegistry.DOUGH.get() || item == ItemRegistry.TOMATO_DOUGH.get()) {
-                    for (int i = 0; i < event.getInventory().getContainerSize(); i++) {
-                        ItemStack ingredient = event.getInventory().getItem(i);
-                        if (ingredient.getItem() instanceof PotionItem) {
-                            // Replace the potion with a glass bottle
-                            ItemStack glassBottle = new ItemStack(Items.GLASS_BOTTLE);
-                            player.getInventory().setItem(i, glassBottle);
-                        }
-                    }
-                    System.out.println("A potion was used in the crafting recipe!");
-                    //TODO test with AE2 autocrafting
-                }
-            }
-        }
     }
 
     private void compost(RegistryObject<Item> item, float value) {
