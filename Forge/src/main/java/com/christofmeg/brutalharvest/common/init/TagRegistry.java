@@ -31,6 +31,8 @@ public class TagRegistry {
 
         public static TagKey<Block> AE2_GROWTH_ACCELERATABLE = BlockTags.create(new ResourceLocation("ae2", "growth_acceleratable"));
 
+        public static TagKey<Block> RUBBER_LOGS = modTag("rubber_logs");
+
     }
 
     public static final class Items {
@@ -156,6 +158,8 @@ public class TagRegistry {
         public static TagKey<Item> WOOLS_GREEN = forgeTag("wools/" + "green");
         public static TagKey<Item> WOOLS_RED = forgeTag("wools/" + "red");
         public static TagKey<Item> WOOLS_BLACK = forgeTag("wools/" + "black");
+
+        public static TagKey<Item> RUBBER_LOGS = modTag("rubber_logs");
 
     }
 

@@ -9,6 +9,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
@@ -244,6 +245,12 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
         tag(TagRegistry.Items.WOOLS_RED).add(Items.RED_WOOL).add(ItemRegistry.RED_FABRIC.get());
         tag(TagRegistry.Items.WOOLS_WHITE).add(Items.WHITE_WOOL).add(ItemRegistry.WHITE_FABRIC.get());
         tag(TagRegistry.Items.WOOLS_YELLOW).add(Items.YELLOW_WOOL).add(ItemRegistry.YELLOW_FABRIC.get());
+
+        copy(BlockTags.SAPLINGS, ItemTags.SAPLINGS);
+        copy(BlockTags.LOGS, ItemTags.LOGS);
+        copy(BlockTags.LOGS_THAT_BURN, ItemTags.LOGS_THAT_BURN);
+        copy(TagRegistry.Blocks.RUBBER_LOGS, TagRegistry.Items.RUBBER_LOGS);
+        copy(BlockTags.PLANKS, ItemTags.PLANKS);
 
     }
 }

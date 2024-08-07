@@ -75,16 +75,16 @@ public class BrutalBlockTagsProvider extends BlockTagsProvider {
                 .add(BlockRegistry.RUBBER_SAPLING.get());
 
         tag(BlockTags.LOGS)
+                .addTag(TagRegistry.Blocks.RUBBER_LOGS);
+
+        tag(TagRegistry.Blocks.RUBBER_LOGS)
                 .add(BlockRegistry.RUBBER_LOG.get())
                 .add(BlockRegistry.RUBBER_WOOD.get())
                 .add(BlockRegistry.STRIPPED_RUBBER_LOG.get())
                 .add(BlockRegistry.STRIPPED_RUBBER_WOOD.get());
 
         tag(BlockTags.LOGS_THAT_BURN)
-                .add(BlockRegistry.RUBBER_LOG.get())
-                .add(BlockRegistry.RUBBER_WOOD.get())
-                .add(BlockRegistry.STRIPPED_RUBBER_LOG.get())
-                .add(BlockRegistry.STRIPPED_RUBBER_WOOD.get());
+                .addTag(TagRegistry.Blocks.RUBBER_LOGS);
 
         tag(BlockTags.OVERWORLD_NATURAL_LOGS)
                 .add(BlockRegistry.RUBBER_LOG.get());

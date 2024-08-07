@@ -2,6 +2,7 @@ package com.christofmeg.brutalharvest.common.data;
 
 import com.christofmeg.brutalharvest.common.data.base.BaseRecipeProvider;
 import com.christofmeg.brutalharvest.common.data.builder.CustomShapelessRecipeBuilder;
+import com.christofmeg.brutalharvest.common.init.BlockRegistry;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
 import com.christofmeg.brutalharvest.common.init.TagRegistry;
 import com.christofmeg.brutalharvest.common.util.NBTIngredient;
@@ -123,6 +124,20 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .pattern("GGG")
                 .unlockedBy("has_toast", has(ItemRegistry.TOAST.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.JAR.get())));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.RUBBER_WOOD.get(), 3)
+                .define('L', BlockRegistry.RUBBER_LOG.get())
+                .pattern("LL")
+                .pattern("LL")
+                .unlockedBy("has_rubber_log", has(TagRegistry.Items.RUBBER_LOGS))
+                .save(consumer, modLoc(getItemName(BlockRegistry.RUBBER_WOOD.get())));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.STRIPPED_RUBBER_WOOD.get(), 3)
+                .define('L', BlockRegistry.STRIPPED_RUBBER_LOG.get())
+                .pattern("LL")
+                .pattern("LL")
+                .unlockedBy("has_rubber_log", has(TagRegistry.Items.RUBBER_LOGS))
+                .save(consumer, modLoc(getItemName(BlockRegistry.STRIPPED_RUBBER_WOOD.get())));
 
 /*        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.SUSHI.get())
                 .define('K', Items.DRIED_KELP)
@@ -323,6 +338,11 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .requires(TagRegistry.Items.BOTTLES_MILK)
                 .unlockedBy("flour", has(ItemRegistry.FLOUR.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.TOMATO_DOUGH.get()) + "_from_" + "milk_bottle"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BlockRegistry.RUBBER_PLANKS.get(), 4)
+                .requires(TagRegistry.Items.RUBBER_LOGS)
+                .unlockedBy("has_rubber_log", has(TagRegistry.Items.RUBBER_LOGS))
+                .save(consumer, modLoc(getItemName(BlockRegistry.RUBBER_PLANKS.get())));
 
     }
 

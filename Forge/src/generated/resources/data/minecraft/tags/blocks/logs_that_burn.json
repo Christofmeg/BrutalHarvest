@@ -1,8 +1,5 @@
 {
   "values": [
-    "brutalharvest:rubber_log",
-    "brutalharvest:rubber_wood",
-    "brutalharvest:stripped_rubber_log",
-    "brutalharvest:stripped_rubber_wood"
+    "#brutalharvest:rubber_logs"
   ]
 }
