@@ -5,9 +5,12 @@ import com.christofmeg.brutalharvest.common.init.BlockRegistry;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
+import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
@@ -34,6 +37,7 @@ public class BrutalItemModelProvider extends ItemModelProvider {
                 .filter(item -> (item instanceof ItemNameBlockItem))
                 .forEach(this::basicItem);
 
+        saplingItem(BlockRegistry.RUBBER_SAPLING);
 //        withExistingParent(getItemName(BlockRegistry.RUBBER_SAPLING.get()), modLoc("block/" + getItemName(BlockRegistry.RUBBER_SAPLING.get())));
         withExistingParent(getItemName(BlockRegistry.RUBBER_LOG.get()), modLoc("block/" + getItemName(BlockRegistry.RUBBER_LOG.get())));
         withExistingParent(getItemName(BlockRegistry.RUBBER_WOOD.get()), modLoc("block/" + getItemName(BlockRegistry.RUBBER_WOOD.get())));
@@ -47,6 +51,12 @@ public class BrutalItemModelProvider extends ItemModelProvider {
     @SuppressWarnings("deprecation")
     private String getItemName(ItemLike pItemLike) {
         return BuiltInRegistries.ITEM.getKey(pItemLike.asItem()).getPath();
+    }
+
+    private ItemModelBuilder saplingItem(RegistryObject<Block> item) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(CommonConstants.MOD_ID,"block/" + item.getId().getPath()));
     }
 
 }

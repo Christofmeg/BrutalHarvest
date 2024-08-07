@@ -29,6 +29,8 @@ public class TagRegistry {
         public static TagKey<Block> NEEDS_FLINT_TOOL = forgeTag("needs_flint_tool");
         public static TagKey<Block> NEEDS_COPPER_TOOL = forgeTag("needs_copper_tool");
 
+        public static TagKey<Block> AE2_GROWTH_ACCELERATABLE = BlockTags.create(new ResourceLocation("ae2", "growth_acceleratable"));
+
     }
 
     public static final class Items {

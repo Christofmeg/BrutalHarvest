@@ -2,6 +2,7 @@ package com.christofmeg.brutalharvest.common.data;
 
 import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.init.BlockRegistry;
+import com.christofmeg.brutalharvest.common.init.TagRegistry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
@@ -41,45 +42,66 @@ public class BrutalBlockTagsProvider extends BlockTagsProvider {
                 .add(BlockRegistry.TOMATO.get())
                 .add(BlockRegistry.LETTUCE.get())
                 .add(BlockRegistry.CORN.get())
-//                .add(BlockRegistry.CUCUMBER.get())
+                .add(BlockRegistry.CUCUMBER.get())
                 .add(BlockRegistry.COTTON.get())
-//                .add(BlockRegistry.RAPESEED.get())
+                .add(BlockRegistry.RAPESEED.get())
                 .add(BlockRegistry.SUGAR_BEET.get())
-                .add(BlockRegistry.STRAWBERRY.get());
-//                .add(BlockRegistry.ONION.get());
+                .add(BlockRegistry.STRAWBERRY.get())
+//                .add(BlockRegistry.ONION.get())
+                .add(BlockRegistry.BLUEBERRY.get())
+        ;
 
         tag(BlockTags.MAINTAINS_FARMLAND)
                 .add(BlockRegistry.TOMATO.get())
                 .add(BlockRegistry.LETTUCE.get())
                 .add(BlockRegistry.CORN.get())
-//                .add(BlockRegistry.CUCUMBER.get())
+                .add(BlockRegistry.CUCUMBER.get())
                 .add(BlockRegistry.COTTON.get())
-//                .add(BlockRegistry.RAPESEED.get())
+                .add(BlockRegistry.RAPESEED.get())
                 .add(BlockRegistry.SUGAR_BEET.get())
                 .add(BlockRegistry.STRAWBERRY.get());
 //                .add(BlockRegistry.ONION.get());
 
         tag(BlockTags.BEE_GROWABLES)
-                .add(BlockRegistry.TOMATO.get())
-                .add(BlockRegistry.LETTUCE.get())
-                .add(BlockRegistry.CORN.get())
-//                .add(BlockRegistry.CUCUMBER.get())
-                .add(BlockRegistry.COTTON.get())
-//                .add(BlockRegistry.RAPESEED.get())
-                .add(BlockRegistry.SUGAR_BEET.get())
-                .add(BlockRegistry.STRAWBERRY.get());
-//                .add(BlockRegistry.ONION.get());
-
+                .add(BlockRegistry.BLUEBERRY.get());
+        tag(BlockTags.FALL_DAMAGE_RESETTING)
+                .add(BlockRegistry.BLUEBERRY.get());
         tag(BlockTags.SWORD_EFFICIENT)
-                .add(BlockRegistry.TOMATO.get())
-                .add(BlockRegistry.LETTUCE.get())
-                .add(BlockRegistry.CORN.get())
-//                .add(BlockRegistry.CUCUMBER.get())
-                .add(BlockRegistry.COTTON.get())
-//                .add(BlockRegistry.RAPESEED.get())
-                .add(BlockRegistry.SUGAR_BEET.get())
-                .add(BlockRegistry.STRAWBERRY.get());
-//                .add(BlockRegistry.ONION.get());
+                .add(BlockRegistry.BLUEBERRY.get());
+        tag(TagRegistry.Blocks.AE2_GROWTH_ACCELERATABLE)
+                .add(BlockRegistry.BLUEBERRY.get());
+
+        tag(BlockTags.SAPLINGS)
+                .add(BlockRegistry.RUBBER_SAPLING.get());
+
+        tag(BlockTags.LOGS)
+                .add(BlockRegistry.RUBBER_LOG.get())
+                .add(BlockRegistry.RUBBER_WOOD.get())
+                .add(BlockRegistry.STRIPPED_RUBBER_LOG.get())
+                .add(BlockRegistry.STRIPPED_RUBBER_WOOD.get());
+
+        tag(BlockTags.LOGS_THAT_BURN)
+                .add(BlockRegistry.RUBBER_LOG.get())
+                .add(BlockRegistry.RUBBER_WOOD.get())
+                .add(BlockRegistry.STRIPPED_RUBBER_LOG.get())
+                .add(BlockRegistry.STRIPPED_RUBBER_WOOD.get());
+
+        tag(BlockTags.OVERWORLD_NATURAL_LOGS)
+                .add(BlockRegistry.RUBBER_LOG.get());
+
+        tag(BlockTags.SNAPS_GOAT_HORN)
+                .add(BlockRegistry.RUBBER_LOG.get());
+
+        tag(BlockTags.PLANKS)
+                .add(BlockRegistry.RUBBER_PLANKS.get());
+
+        tag(BlockTags.LEAVES)
+                .add(BlockRegistry.RUBBER_LEAVES.get());
+
+        tag(BlockTags.MINEABLE_WITH_HOE)
+                .add(BlockRegistry.RUBBER_LEAVES.get());
+
+
 
     }
 }

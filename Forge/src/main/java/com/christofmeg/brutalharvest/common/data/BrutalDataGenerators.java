@@ -41,6 +41,7 @@ public class BrutalDataGenerators {
             gen.addProvider(event.includeServer(), new BrutalAdvancementProvider(output, lookupProvider, existingFileHelper));
             gen.addProvider(event.includeServer(), new BrutalGlobalLootModifierProvider(gen));
             gen.addProvider(event.includeServer(), new BrutalLootTablesProvider(gen));
+            gen.addProvider(event.includeServer(), new BrutalWorldGenProvider(output, lookupProvider));
         }
 
         for (String locale : LOCALE_CODES) {

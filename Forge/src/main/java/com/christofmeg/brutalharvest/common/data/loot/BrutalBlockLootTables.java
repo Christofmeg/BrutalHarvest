@@ -180,22 +180,21 @@ public class BrutalBlockLootTables extends BlockLootSubProvider {
                         )
                 ));
 
+        this.dropSelf(BlockRegistry.RUBBER_SAPLING.get());
+        this.dropSelf(BlockRegistry.RUBBER_LOG.get());
+        this.dropSelf(BlockRegistry.RUBBER_WOOD.get());
+        this.dropSelf(BlockRegistry.STRIPPED_RUBBER_LOG.get());
+        this.dropSelf(BlockRegistry.STRIPPED_RUBBER_WOOD.get());
+        this.dropSelf(BlockRegistry.RUBBER_PLANKS.get());
+        this.add(BlockRegistry.RUBBER_LEAVES.get(), block ->
+                createLeavesDrops(block, BlockRegistry.RUBBER_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+        //NORMAL_LEAVES_SAPLING_CHANCES = new float[]{0.05F, 0.0625F, 0.083333336F, 0.1F};
+
     }
 
     @Override
     protected @NotNull Iterable<Block> getKnownBlocks() {
         return BlockRegistry.BLOCKS.getEntries().stream().map(RegistryObject::get)
-                .filter(block ->
-                        block instanceof TomatoCropBlock ||
-                        block instanceof LettuceCropBlock ||
-                        block instanceof CornCropBlock ||
-                        block instanceof CucumberCropBlock ||
-                        block instanceof RapeseedCropBlock ||
-                        block instanceof SugarBeetCropBlock ||
-                        block instanceof CottonCropBlock ||
-                        block instanceof StrawberryCropBlock ||
-                        block instanceof BlueberryBushBlock
-                )
                 ::iterator;
     }
 
