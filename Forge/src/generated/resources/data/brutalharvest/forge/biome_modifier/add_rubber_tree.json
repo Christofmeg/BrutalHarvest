@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#forge:is_hot/overworld",
+  "features": "brutalharvest:rubber_placed",
+  "step": "vegetal_decoration"
+}

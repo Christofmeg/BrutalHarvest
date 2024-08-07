@@ -4,8 +4,6 @@ import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.init.BlockRegistry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
-import net.minecraft.data.worldgen.features.TreeFeatures;
-import net.minecraft.data.worldgen.placement.TreePlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.valueproviders.ConstantInt;
