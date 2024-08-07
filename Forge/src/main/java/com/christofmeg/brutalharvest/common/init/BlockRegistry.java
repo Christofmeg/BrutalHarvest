@@ -4,10 +4,8 @@ import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.block.*;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.LeavesBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.grower.OakTreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
@@ -68,14 +66,39 @@ public class BlockRegistry {
 //        ONION = BLOCKS.register("onion", () -> new OnionCropBlock(cropPropeties));
         BLUEBERRY = BLOCKS.register("blueberry", () -> new BlueberryBushBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.SWEET_BERRY_BUSH).pushReaction(PushReaction.DESTROY)));
 
-        RUBBER_SAPLING = block("rubber_sapling", BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING));
-        RUBBER_LOG = block("rubber_log", BlockBehaviour.Properties.copy(Blocks.OAK_LOG));
-        RUBBER_WOOD = block("rubber_wood", BlockBehaviour.Properties.copy(Blocks.OAK_WOOD));
-        STRIPPED_RUBBER_LOG = block("stripped_rubber_log", BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG));
-        STRIPPED_RUBBER_WOOD = block("stripped_rubber_wood", BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD));
-        RUBBER_PLANKS = block("rubber_planks", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS));
-        RUBBER_LEAVES = BLOCKS.register("rubber_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
+        RUBBER_SAPLING = BLOCKS.register("rubber_sapling", () -> new SaplingBlock(new OakTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
+        ItemRegistry.ITEMS.register("rubber_sapling", () -> new BlockItem(RUBBER_SAPLING.get(), new Item.Properties()));
 
+        RUBBER_LOG = BLOCKS.register("rubber_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)));
+        ItemRegistry.ITEMS.register("rubber_log", () -> new BlockItem(RUBBER_LOG.get(), new Item.Properties()));
+
+        RUBBER_WOOD = BLOCKS.register("rubber_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));
+        ItemRegistry.ITEMS.register("rubber_wood", () -> new BlockItem(RUBBER_WOOD.get(), new Item.Properties()));
+
+        STRIPPED_RUBBER_LOG = BLOCKS.register("stripped_rubber_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG)));
+        ItemRegistry.ITEMS.register("stripped_rubber_log", () -> new BlockItem(STRIPPED_RUBBER_LOG.get(), new Item.Properties()));
+
+        STRIPPED_RUBBER_WOOD = BLOCKS.register("stripped_rubber_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD)));
+        ItemRegistry.ITEMS.register("stripped_rubber_wood", () -> new BlockItem(STRIPPED_RUBBER_WOOD.get(), new Item.Properties()));
+
+        RUBBER_PLANKS = block("rubber_planks", BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS));
+
+        RUBBER_LEAVES = BLOCKS.register("rubber_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
+        ItemRegistry.ITEMS.register("rubber_leaves", () -> new BlockItem(RUBBER_LEAVES.get(), new Item.Properties()));
+
+        // BIRCH_SIGN,
+        // BIRCH_WALL_SIGN,
+        // BIRCH_HANGING_SIGN,
+        // BIRCH_WALL_HANGING_SIGN,
+        // BIRCH_PRESSURE_PLATE,
+        // BIRCH_TRAPDOOR,
+        // BIRCH_STAIRS,
+        // POTTED_BIRCH_SAPLING,
+        // BIRCH_BUTTON,
+        // BIRCH_SLAB,
+        // BIRCH_FENCE_GATE,
+        // BIRCH_FENCE,
+        // BIRCH_DOOR
 
 
 

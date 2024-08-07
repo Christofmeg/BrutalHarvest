@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "brutalharvest:block/rubber_log_top",
+    "side": "brutalharvest:block/rubber_log"
+  }
+}
