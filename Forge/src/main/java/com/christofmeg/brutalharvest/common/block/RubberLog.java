@@ -69,10 +69,7 @@ public class RubberLog extends Block {
     @Override
     public @Nullable BlockState getToolModifiedState(BlockState state, UseOnContext context, ToolAction toolAction, boolean simulate) {
         if (context.getItemInHand().getItem() instanceof AxeItem) {
-            if (state.is(BlockRegistry.RUBBER_LOG.get())) {
-                return BlockRegistry.STRIPPED_RUBBER_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
-            }
-            if (state.is(BlockRegistry.RUBBER_LOG.get())) {
+            if (state.is(BlockRegistry.RUBBER_LOG_GENERATED.get())) {
                 return BlockRegistry.STRIPPED_RUBBER_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
             }
         }

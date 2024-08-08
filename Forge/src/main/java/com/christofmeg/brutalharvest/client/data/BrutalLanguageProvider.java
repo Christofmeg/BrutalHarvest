@@ -31,7 +31,7 @@ public class BrutalLanguageProvider extends LanguageProvider {
             ));
 
             addItem(ItemRegistry.CORN_SEEDS, "Corn Seeds (Kernel)");
-            add("rubber_log_generated", "Rubber Log");
+            add("block." + CommonConstants.MOD_ID + "." + "rubber_log_generated", "Rubber Log");
 
             add(CommonConstants.MOD_ID + "." + "advancement" + "." + "root" + ".desc", "Obtain some tomatoes");
             add(CommonConstants.MOD_ID + "." + "advancement" + "." + "rotten_tomatoes", "Rotten Tomatoes");

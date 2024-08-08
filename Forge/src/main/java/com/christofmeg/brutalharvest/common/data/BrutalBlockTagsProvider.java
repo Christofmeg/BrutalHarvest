@@ -81,16 +81,19 @@ public class BrutalBlockTagsProvider extends BlockTagsProvider {
                 .add(BlockRegistry.RUBBER_LOG.get())
                 .add(BlockRegistry.RUBBER_WOOD.get())
                 .add(BlockRegistry.STRIPPED_RUBBER_LOG.get())
-                .add(BlockRegistry.STRIPPED_RUBBER_WOOD.get());
+                .add(BlockRegistry.STRIPPED_RUBBER_WOOD.get())
+                .add(BlockRegistry.RUBBER_LOG_GENERATED.get());
 
         tag(BlockTags.LOGS_THAT_BURN)
                 .addTag(TagRegistry.Blocks.RUBBER_LOGS);
 
         tag(BlockTags.OVERWORLD_NATURAL_LOGS)
-                .add(BlockRegistry.RUBBER_LOG.get());
+                .add(BlockRegistry.RUBBER_LOG.get())
+                .add(BlockRegistry.RUBBER_LOG_GENERATED.get());
 
         tag(BlockTags.SNAPS_GOAT_HORN)
-                .add(BlockRegistry.RUBBER_LOG.get());
+                .add(BlockRegistry.RUBBER_LOG.get())
+                .add(BlockRegistry.RUBBER_LOG_GENERATED.get());
 
         tag(BlockTags.PLANKS)
                 .add(BlockRegistry.RUBBER_PLANKS.get());
