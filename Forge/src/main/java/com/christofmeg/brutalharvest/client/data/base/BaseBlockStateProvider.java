@@ -1,4 +1,4 @@
-package com.christofmeg.brutalharvest.client.base;
+package com.christofmeg.brutalharvest.client.data.base;
 
 import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.block.base.BaseDoubleCropBlock;

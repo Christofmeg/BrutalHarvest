@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "drained=false,open=false": {
+      "model": "brutalharvest:block/rubber_log"
+    },
+    "drained=false,open=true": {
+      "model": "brutalharvest:block/rubber_log_open"
+    },
+    "drained=true,open=false": {
+      "model": "brutalharvest:block/rubber_log"
+    },
+    "drained=true,open=true": {
+      "model": "brutalharvest:block/rubber_log_drained"
+    }
+  }
+}

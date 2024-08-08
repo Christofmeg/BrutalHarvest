@@ -1,6 +1,7 @@
 package com.christofmeg.brutalharvest.client.data;
 
 import com.christofmeg.brutalharvest.CommonConstants;
+import com.christofmeg.brutalharvest.common.init.BlockRegistry;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
@@ -20,7 +21,7 @@ public class BrutalLanguageProvider extends LanguageProvider {
             add("itemGroup." + CommonConstants.MOD_ID, CommonConstants.MOD_NAME);
 
             ItemRegistry.ITEMS.getEntries().stream().map(RegistryObject::get)
-                .filter(item -> !(item == ItemRegistry.CORN_SEEDS.get()))
+                .filter(item -> !(item == ItemRegistry.CORN_SEEDS.get()) && !(item == BlockRegistry.RUBBER_LOG_GENERATED.get().asItem()))
                 .forEach(item -> addItem(() -> item,
                 StringUtils.capitaliseAllWords(item.getDescription().getString()
                     .replace("item." + CommonConstants.MOD_ID + ".", "")
@@ -30,6 +31,7 @@ public class BrutalLanguageProvider extends LanguageProvider {
             ));
 
             addItem(ItemRegistry.CORN_SEEDS, "Corn Seeds (Kernel)");
+            add("rubber_log_generated", "Rubber Log");
 
             add(CommonConstants.MOD_ID + "." + "advancement" + "." + "root" + ".desc", "Obtain some tomatoes");
             add(CommonConstants.MOD_ID + "." + "advancement" + "." + "rotten_tomatoes", "Rotten Tomatoes");

@@ -1,11 +1,14 @@
 package com.christofmeg.brutalharvest.client.data;
 
 import com.christofmeg.brutalharvest.CommonConstants;
-import com.christofmeg.brutalharvest.client.base.BaseBlockStateProvider;
+import com.christofmeg.brutalharvest.client.data.base.BaseBlockStateProvider;
 import com.christofmeg.brutalharvest.common.block.*;
 import com.christofmeg.brutalharvest.common.init.BlockRegistry;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
 
@@ -42,6 +45,26 @@ public class BrutalBlockStateProvider extends BaseBlockStateProvider {
         axisBlock((RotatedPillarBlock) BlockRegistry.STRIPPED_RUBBER_WOOD.get(), blockTexture(BlockRegistry.STRIPPED_RUBBER_LOG.get()), blockTexture(BlockRegistry.STRIPPED_RUBBER_LOG.get()));
         simpleBlock(BlockRegistry.RUBBER_PLANKS.get());
         leavesBlock(BlockRegistry.RUBBER_LEAVES);
+
+        Block rubberLog = BlockRegistry.RUBBER_LOG_GENERATED.get();
+
+
+        ModelFile normal = models().withExistingParent("rubber_log", "minecraft:block/cube_column")
+                .texture("end", modLoc("block/rubber_log_top"))
+                .texture("side", modLoc("block/rubber_log"));
+        ModelFile open = models().withExistingParent("rubber_log_open", "minecraft:block/cube_column")
+                .texture("end", modLoc("block/rubber_log_top"))
+                .texture("side", modLoc("block/rubber_log_open"));
+        ModelFile drained = models().withExistingParent("rubber_log_drained", "minecraft:block/cube_column")
+                .texture("end", modLoc("block/rubber_log_top"))
+                .texture("side", modLoc("block/rubber_log_drained"));
+
+        getVariantBuilder(rubberLog)
+                .partialState().with(RubberLog.OPEN, true).with(RubberLog.DRAINED, true).modelForState().modelFile(drained).addModel()
+                .partialState().with(RubberLog.OPEN, true).with(RubberLog.DRAINED, false).modelForState().modelFile(open).addModel()
+                .partialState().with(RubberLog.OPEN, false).with(RubberLog.DRAINED, true).modelForState().modelFile(normal).addModel()
+                .partialState().with(RubberLog.OPEN, false).with(RubberLog.DRAINED, false).modelForState().modelFile(normal).addModel();
+        
     }
 
 }

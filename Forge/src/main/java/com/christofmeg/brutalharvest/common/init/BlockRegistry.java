@@ -45,6 +45,7 @@ public class BlockRegistry {
     public static final RegistryObject<Block> STRIPPED_RUBBER_WOOD;
     public static final RegistryObject<Block> RUBBER_PLANKS;
     public static final RegistryObject<Block> RUBBER_LEAVES;
+    public static final RegistryObject<Block> RUBBER_LOG_GENERATED;
 
 //    public static final RegistryObject<Block> RUBBER_CAULDRON;
 //    public static final RegistryObject<Block> MILLSTONE;
@@ -110,6 +111,9 @@ public class BlockRegistry {
 
         RUBBER_LEAVES = BLOCKS.register("rubber_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
         ItemRegistry.ITEMS.register("rubber_leaves", () -> new BlockItem(RUBBER_LEAVES.get(), new Item.Properties()));
+
+        RUBBER_LOG_GENERATED = BLOCKS.register("rubber_log_generated", () -> new RubberLog(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)));
+        ItemRegistry.ITEMS.register("rubber_log_generated", () -> new BlockItem(RUBBER_LOG_GENERATED.get(), new Item.Properties()));
 
         // BIRCH_SIGN,
         // BIRCH_WALL_SIGN,
