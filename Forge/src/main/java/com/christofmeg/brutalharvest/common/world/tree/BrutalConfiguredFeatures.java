@@ -1,4 +1,4 @@
-package com.christofmeg.brutalharvest.common.word.tree;
+package com.christofmeg.brutalharvest.common.world.tree;
 
 import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.init.BlockRegistry;
@@ -28,21 +28,13 @@ public class BrutalConfiguredFeatures {
     }
 
     private static TreeConfiguration.TreeConfigurationBuilder createStraightBlobTree(Block pLogBlock, Block pLeavesBlock, int pBaseHeight, int pHeightRandA, int pHeightRandB, int pRadius) {
-        return new TreeConfiguration.TreeConfigurationBuilder(BlockStateProvider.simple(pLogBlock),
-                new StraightTrunkPlacer(pBaseHeight, pHeightRandA, pHeightRandB), BlockStateProvider.simple(pLeavesBlock),
-                new BlobFoliagePlacer(ConstantInt.of(pRadius), ConstantInt.of(0), 3),
-                new TwoLayersFeatureSize(1, 0, 1));
-    }
-/*
-    private static TreeConfiguration.TreeConfigurationBuilder createStraightBlobTree2(Block pLogBlock, Block pLeavesBlock, int pBaseHeight, int pHeightRandA, int pHeightRandB, int pRadius) {
         return new TreeConfiguration.TreeConfigurationBuilder(
                 new RubberTreeBlockStateProvider(pLogBlock.defaultBlockState()),
                 new StraightTrunkPlacer(pBaseHeight, pHeightRandA, pHeightRandB), BlockStateProvider.simple(pLeavesBlock),
                 new BlobFoliagePlacer(ConstantInt.of(pRadius), ConstantInt.of(0), 3),
-                new TwoLayersFeatureSize(1, 0, 1)
-        );
+                new TwoLayersFeatureSize(1, 0, 1));
     }
- */
+
     public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(CommonConstants.MOD_ID, name));
     }

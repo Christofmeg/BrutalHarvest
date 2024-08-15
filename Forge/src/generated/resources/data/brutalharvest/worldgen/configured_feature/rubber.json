@@ -44,7 +44,7 @@
       "state": {
         "Name": "brutalharvest:rubber_log_generated",
         "Properties": {
-          "cut": "false",
+          "cut": "true",
           "facing": "north",
           "open": "false"
         }

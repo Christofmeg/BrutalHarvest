@@ -2,7 +2,7 @@ package com.christofmeg.brutalharvest.common.init;
 
 import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.block.*;
-import com.christofmeg.brutalharvest.common.word.tree.RubberTreeGrower;
+import com.christofmeg.brutalharvest.common.world.tree.RubberTreeGrower;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;

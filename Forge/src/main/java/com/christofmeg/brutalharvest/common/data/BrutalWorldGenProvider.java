@@ -1,9 +1,9 @@
 package com.christofmeg.brutalharvest.common.data;
 
 import com.christofmeg.brutalharvest.CommonConstants;
-import com.christofmeg.brutalharvest.common.word.tree.BrutalBiomeModifiers;
-import com.christofmeg.brutalharvest.common.word.tree.BrutalConfiguredFeatures;
-import com.christofmeg.brutalharvest.common.word.tree.BrutalPlacedFeatures;
+import com.christofmeg.brutalharvest.common.world.tree.BrutalBiomeModifiers;
+import com.christofmeg.brutalharvest.common.world.tree.BrutalConfiguredFeatures;
+import com.christofmeg.brutalharvest.common.world.tree.BrutalPlacedFeatures;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;

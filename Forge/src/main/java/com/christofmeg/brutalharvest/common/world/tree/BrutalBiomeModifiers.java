@@ -1,4 +1,4 @@
-package com.christofmeg.brutalharvest.common.word.tree;
+package com.christofmeg.brutalharvest.common.world.tree;
 
 import com.christofmeg.brutalharvest.CommonConstants;
 import net.minecraft.core.HolderSet;

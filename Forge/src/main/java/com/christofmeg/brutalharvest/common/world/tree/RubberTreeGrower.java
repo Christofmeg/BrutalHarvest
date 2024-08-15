@@ -1,4 +1,4 @@
-package com.christofmeg.brutalharvest.common.word.tree;
+package com.christofmeg.brutalharvest.common.world.tree;
 
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.RandomSource;
