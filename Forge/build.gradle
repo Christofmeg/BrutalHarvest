@@ -11,7 +11,6 @@ plugins {
 archivesBaseName = "${mod_id}-forge-${forge_supported_versions}"
 
 minecraft {
-//    mappings channel: 'official', version: forge_minecraft_version
     mappings channel: 'parchment', version: parchment_version
 
     runs {

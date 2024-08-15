@@ -1,6 +1,7 @@
 package com.christofmeg.brutalharvest.common.event;
 
 import com.christofmeg.brutalharvest.CommonConstants;
+import com.christofmeg.brutalharvest.common.init.BlockRegistry;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.ComposterBlock;
@@ -62,11 +63,16 @@ public class CommonSetupEvent {
 
             compost(ItemRegistry.BLUEBERRY, 0.50F);
 
+            compost(BlockRegistry.RUBBER_SAPLING.get().asItem(), 0.30F);
         });
     }
 
     private void compost(RegistryObject<Item> item, float value) {
-        ComposterBlock.COMPOSTABLES.put(item.get(), value);
+        compost(item.get(), value);
+    }
+
+    private void compost(Item item, float value) {
+        ComposterBlock.COMPOSTABLES.put(item, value);
     }
 
     /*

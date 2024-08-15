@@ -1,4 +1,4 @@
-1.9.1:
+1.10.0:
 * Added some missing crop tags
 * Rename toasts with honey jam and eggs
 * Tweaked recipes that used toast to use toast slice instead
@@ -13,3 +13,4 @@
 * Fix Dough not returning Glass Bottle when (auto)crafted with Water Bottle
 * Moved dough_from_water_bottle and tomato_dough_from_water_bottle to data gen
 * Rename Chef's Hat
+* Added Rubber Trees

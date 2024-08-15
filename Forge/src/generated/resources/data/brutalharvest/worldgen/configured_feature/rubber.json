@@ -34,7 +34,7 @@
       "upper_size": 1
     },
     "trunk_placer": {
-      "type": "minecraft:straight_trunk_placer",
+      "type": "brutalharvest:rubber_trunk_placer",
       "base_height": 4,
       "height_rand_a": 2,
       "height_rand_b": 0
@@ -44,7 +44,7 @@
       "state": {
         "Name": "brutalharvest:rubber_log_generated",
         "Properties": {
-          "cut": "true",
+          "cut": "false",
           "facing": "north",
           "open": "false"
         }

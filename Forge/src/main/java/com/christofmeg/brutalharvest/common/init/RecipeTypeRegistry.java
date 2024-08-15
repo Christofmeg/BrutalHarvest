@@ -11,7 +11,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 import javax.annotation.Nonnull;
 
-public class RecipeTyperRegistry {
+public class RecipeTypeRegistry {
 
     public static void init(@Nonnull IEventBus modEventBus) {
         RECIPE_TYPES.register(modEventBus);

@@ -24,7 +24,9 @@ public class CreativeModeTabRegistry {
             .title(Component.translatable("itemGroup." + CommonConstants.MOD_ID)).icon(
                     () -> new ItemStack(ItemRegistry.TOMATO.get()))
             .displayItems((parameters, tabData) ->
-                    ItemRegistry.ITEMS.getEntries().stream().map(RegistryObject::get).forEach(tabData::accept))
+                    ItemRegistry.ITEMS.getEntries().stream().map(RegistryObject::get)
+                            .filter(item -> !(item == BlockRegistry.RUBBER_LOG_GENERATED.get().asItem()))
+                            .forEach(tabData::accept))
             .build());
 
 }
