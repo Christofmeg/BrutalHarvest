@@ -66,7 +66,7 @@ public class BaseBlockStateProvider extends BlockStateProvider {
         }
     }
 
-    public void makeDoubleCrop(Block block, int growthStages, int firstStageWithLowerUpper, ResourceLocation customModel) {
+    public void makeDoubleCrop(Block block, int growthStages, int firstStageWithLowerUpper, ResourceLocation lowerModel, ResourceLocation upperModel) {
         String name = block.getDescriptionId().replace("block.brutalharvest.", "");
         if (block instanceof BaseDoubleCropBlock baseCropBlock) {
             getVariantBuilder(block).forAllStates(state -> {
@@ -75,12 +75,18 @@ public class BaseBlockStateProvider extends BlockStateProvider {
                 if (age >= firstStageWithLowerUpper) {
                     if (age < growthStages) {
                         modelName = name + "_stage" + age + "_lower";
+                        ResourceLocation textureLocation = new ResourceLocation(CommonConstants.MOD_ID, "block/" + modelName);
+                        ConfiguredModel model = new ConfiguredModel(models().withExistingParent(modelName, lowerModel).texture("cross", textureLocation).renderType(CUTOUT));
+                        return new ConfiguredModel[]{model};
                     } else {
                         modelName = name + "_stage" + (age - growthStages + firstStageWithLowerUpper) + "_upper";
+                        ResourceLocation textureLocation = new ResourceLocation(CommonConstants.MOD_ID, "block/" + modelName);
+                        ConfiguredModel model = new ConfiguredModel(models().withExistingParent(modelName, upperModel).texture("cross", textureLocation).renderType(CUTOUT));
+                        return new ConfiguredModel[]{model};
                     }
                 }
                 ResourceLocation textureLocation = new ResourceLocation(CommonConstants.MOD_ID, "block/" + modelName);
-                ConfiguredModel model = new ConfiguredModel(models().withExistingParent(modelName, customModel).texture("cross", textureLocation).renderType(CUTOUT));
+                ConfiguredModel model = new ConfiguredModel(models().withExistingParent(modelName, lowerModel).texture("cross", textureLocation).renderType(CUTOUT));
                 return new ConfiguredModel[]{model};
             });
         }

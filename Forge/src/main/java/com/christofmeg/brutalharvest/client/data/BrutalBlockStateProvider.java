@@ -28,11 +28,11 @@ public class BrutalBlockStateProvider extends BaseBlockStateProvider {
 
         makeCrop(BlockRegistry.TOMATO.get(), TomatoCropBlock.AGE, modLoc("block/lowered_cross"));
         makeCrop(BlockRegistry.LETTUCE.get(), LettuceCropBlock.AGE);
-        makeDoubleCrop(BlockRegistry.CORN.get(), 8, 2, modLoc("block/lowered_cross"));
-        makeDoubleCrop(BlockRegistry.CUCUMBER.get(), 7, 4, modLoc("block/lowered_cross"));
+        makeDoubleCrop(BlockRegistry.CORN.get(), 8, 2, modLoc("block/lowered_cross"), mcLoc("block/cross"));
+        makeDoubleCrop(BlockRegistry.CUCUMBER.get(), 7, 4, modLoc("block/lowered_cross"), mcLoc("block/cross"));
 
         makeCrop(BlockRegistry.COTTON.get(), CottonCropBlock.AGE, modLoc("block/lowered_cross"));
-        makeDoubleCrop(BlockRegistry.RAPESEED.get(), 8, 4, modLoc("block/lowered_cross"));
+        makeDoubleCrop(BlockRegistry.RAPESEED.get(), 8, 4, modLoc("block/lowered_cross"), mcLoc("block/cross"));
         makeCrop(BlockRegistry.SUGAR_BEET.get(), SugarBeetCropBlock.AGE);
         makeCrop(BlockRegistry.STRAWBERRY.get(), StrawberryCropBlock.AGE, modLoc("block/lowered_cross"));
     //    makeCrop(BlockRegistry.ONION.get(), OnionCropBlock.AGE);
