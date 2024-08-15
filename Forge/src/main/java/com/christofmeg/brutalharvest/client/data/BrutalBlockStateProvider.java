@@ -4,8 +4,8 @@ import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.client.data.base.BaseBlockStateProvider;
 import com.christofmeg.brutalharvest.common.block.*;
 import com.christofmeg.brutalharvest.common.init.BlockRegistry;
+import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -47,24 +47,51 @@ public class BrutalBlockStateProvider extends BaseBlockStateProvider {
         leavesBlock(BlockRegistry.RUBBER_LEAVES);
 
         Block rubberLog = BlockRegistry.RUBBER_LOG_GENERATED.get();
-
-
         ModelFile normal = models().withExistingParent("rubber_log", "minecraft:block/cube_column")
                 .texture("end", modLoc("block/rubber_log_top"))
                 .texture("side", modLoc("block/rubber_log"));
-        ModelFile open = models().withExistingParent("rubber_log_open", "minecraft:block/cube_column")
+        ModelFile uncut = models().withExistingParent("rubber_log_drained", "minecraft:block/cube_column_horizontal")
                 .texture("end", modLoc("block/rubber_log_top"))
-                .texture("side", modLoc("block/rubber_log_open"));
-        ModelFile drained = models().withExistingParent("rubber_log_drained", "minecraft:block/cube_column")
+                .texture("north", modLoc("block/rubber_log_drained"))
+                .texture("south", modLoc("block/rubber_log"))
+                .texture("east", modLoc("block/rubber_log"))
+                .texture("west", modLoc("block/rubber_log"))
+                .texture("particle", modLoc("block/rubber_log_drained"));
+        ModelFile cut = models().withExistingParent("rubber_log_open", "minecraft:block/cube_column_horizontal")
                 .texture("end", modLoc("block/rubber_log_top"))
-                .texture("side", modLoc("block/rubber_log_drained"));
-
+                .texture("north", modLoc("block/rubber_log_open"))
+                .texture("south", modLoc("block/rubber_log"))
+                .texture("east", modLoc("block/rubber_log"))
+                .texture("west", modLoc("block/rubber_log"))
+                .texture("particle", modLoc("block/rubber_log_open"));
         getVariantBuilder(rubberLog)
-                .partialState().with(RubberLog.OPEN, true).with(RubberLog.DRAINED, true).modelForState().modelFile(drained).addModel()
-                .partialState().with(RubberLog.OPEN, true).with(RubberLog.DRAINED, false).modelForState().modelFile(open).addModel()
-                .partialState().with(RubberLog.OPEN, false).with(RubberLog.DRAINED, true).modelForState().modelFile(normal).addModel()
-                .partialState().with(RubberLog.OPEN, false).with(RubberLog.DRAINED, false).modelForState().modelFile(normal).addModel();
-        
+
+                .partialState().with(RubberLogGeneratedBlock.OPEN, false).with(RubberLogGeneratedBlock.CUT, false).modelForState().modelFile(normal).addModel()
+                .partialState().with(RubberLogGeneratedBlock.OPEN, false).with(RubberLogGeneratedBlock.CUT, true).modelForState().modelFile(normal).addModel()
+                /*
+                .partialState().with(RubberLogGeneratedBlock.OPEN, false).with(RubberLogGeneratedBlock.CUT, false).with(RubberLogGeneratedBlock.FACING, Direction.NORTH).modelForState().modelFile(normal).addModel()
+                .partialState().with(RubberLogGeneratedBlock.OPEN, false).with(RubberLogGeneratedBlock.CUT, false).with(RubberLogGeneratedBlock.FACING, Direction.SOUTH).modelForState().modelFile(normal).addModel()
+                .partialState().with(RubberLogGeneratedBlock.OPEN, false).with(RubberLogGeneratedBlock.CUT, false).with(RubberLogGeneratedBlock.FACING, Direction.EAST).modelForState().modelFile(normal).addModel()
+                .partialState().with(RubberLogGeneratedBlock.OPEN, false).with(RubberLogGeneratedBlock.CUT, false).with(RubberLogGeneratedBlock.FACING, Direction.WEST).modelForState().modelFile(normal).addModel()
+
+                .partialState().with(RubberLogGeneratedBlock.OPEN, false).with(RubberLogGeneratedBlock.CUT, true).with(RubberLogGeneratedBlock.FACING, Direction.NORTH).modelForState().modelFile(normal).addModel()
+                .partialState().with(RubberLogGeneratedBlock.OPEN, false).with(RubberLogGeneratedBlock.CUT, true).with(RubberLogGeneratedBlock.FACING, Direction.SOUTH).modelForState().modelFile(normal).addModel()
+                .partialState().with(RubberLogGeneratedBlock.OPEN, false).with(RubberLogGeneratedBlock.CUT, true).with(RubberLogGeneratedBlock.FACING, Direction.EAST).modelForState().modelFile(normal).addModel()
+                .partialState().with(RubberLogGeneratedBlock.OPEN, false).with(RubberLogGeneratedBlock.CUT, true).with(RubberLogGeneratedBlock.FACING, Direction.WEST).modelForState().modelFile(normal).addModel()
+                */
+                // CLOSED STATES
+                .partialState().with(RubberLogGeneratedBlock.OPEN, true).with(RubberLogGeneratedBlock.CUT, false).with(RubberLogGeneratedBlock.FACING, Direction.NORTH).modelForState().modelFile(uncut).rotationY(0).addModel()
+                .partialState().with(RubberLogGeneratedBlock.OPEN, true).with(RubberLogGeneratedBlock.CUT, false).with(RubberLogGeneratedBlock.FACING, Direction.SOUTH).modelForState().modelFile(uncut).rotationY(180).addModel()
+                .partialState().with(RubberLogGeneratedBlock.OPEN, true).with(RubberLogGeneratedBlock.CUT, false).with(RubberLogGeneratedBlock.FACING, Direction.EAST).modelForState().modelFile(uncut).rotationY(90).addModel()
+                .partialState().with(RubberLogGeneratedBlock.OPEN, true).with(RubberLogGeneratedBlock.CUT, false).with(RubberLogGeneratedBlock.FACING, Direction.WEST).modelForState().modelFile(uncut).rotationY(270).addModel()
+
+                // OPEN STATES
+                .partialState().with(RubberLogGeneratedBlock.OPEN, true).with(RubberLogGeneratedBlock.CUT, true).with(RubberLogGeneratedBlock.FACING, Direction.NORTH).modelForState().modelFile(cut).rotationY(0).addModel()
+                .partialState().with(RubberLogGeneratedBlock.OPEN, true).with(RubberLogGeneratedBlock.CUT, true).with(RubberLogGeneratedBlock.FACING, Direction.SOUTH).modelForState().modelFile(cut).rotationY(180).addModel()
+                .partialState().with(RubberLogGeneratedBlock.OPEN, true).with(RubberLogGeneratedBlock.CUT, true).with(RubberLogGeneratedBlock.FACING, Direction.EAST).modelForState().modelFile(cut).rotationY(90).addModel()
+                .partialState().with(RubberLogGeneratedBlock.OPEN, true).with(RubberLogGeneratedBlock.CUT, true).with(RubberLogGeneratedBlock.FACING, Direction.WEST).modelForState().modelFile(cut).rotationY(270).addModel();
+
+
     }
 
 }

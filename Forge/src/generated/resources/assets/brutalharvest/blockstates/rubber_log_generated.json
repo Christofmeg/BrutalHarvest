@@ -1,16 +1,40 @@
 {
   "variants": {
-    "drained=false,open=false": {
+    "cut=false,facing=east,open=true": {
+      "model": "brutalharvest:block/rubber_log_drained",
+      "y": 90
+    },
+    "cut=false,facing=north,open=true": {
+      "model": "brutalharvest:block/rubber_log_drained"
+    },
+    "cut=false,facing=south,open=true": {
+      "model": "brutalharvest:block/rubber_log_drained",
+      "y": 180
+    },
+    "cut=false,facing=west,open=true": {
+      "model": "brutalharvest:block/rubber_log_drained",
+      "y": 270
+    },
+    "cut=false,open=false": {
       "model": "brutalharvest:block/rubber_log"
     },
-    "drained=false,open=true": {
+    "cut=true,facing=east,open=true": {
+      "model": "brutalharvest:block/rubber_log_open",
+      "y": 90
+    },
+    "cut=true,facing=north,open=true": {
       "model": "brutalharvest:block/rubber_log_open"
     },
-    "drained=true,open=false": {
-      "model": "brutalharvest:block/rubber_log"
+    "cut=true,facing=south,open=true": {
+      "model": "brutalharvest:block/rubber_log_open",
+      "y": 180
     },
-    "drained=true,open=true": {
-      "model": "brutalharvest:block/rubber_log_drained"
+    "cut=true,facing=west,open=true": {
+      "model": "brutalharvest:block/rubber_log_open",
+      "y": 270
+    },
+    "cut=true,open=false": {
+      "model": "brutalharvest:block/rubber_log"
     }
   }
 }

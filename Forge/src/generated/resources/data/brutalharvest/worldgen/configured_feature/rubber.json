@@ -42,9 +42,11 @@
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "brutalharvest:rubber_log",
+        "Name": "brutalharvest:rubber_log_generated",
         "Properties": {
-          "axis": "y"
+          "cut": "false",
+          "facing": "north",
+          "open": "false"
         }
       }
     }

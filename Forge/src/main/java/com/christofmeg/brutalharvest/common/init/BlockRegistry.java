@@ -10,6 +10,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.common.ToolAction;
@@ -112,8 +113,10 @@ public class BlockRegistry {
         RUBBER_LEAVES = BLOCKS.register("rubber_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
         ItemRegistry.ITEMS.register("rubber_leaves", () -> new BlockItem(RUBBER_LEAVES.get(), new Item.Properties()));
 
-        RUBBER_LOG_GENERATED = BLOCKS.register("rubber_log_generated", () -> new RubberLog(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)));
+        RUBBER_LOG_GENERATED = BLOCKS.register("rubber_log_generated", () -> new RubberLogGeneratedBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava()));
         ItemRegistry.ITEMS.register("rubber_log_generated", () -> new BlockItem(RUBBER_LOG_GENERATED.get(), new Item.Properties()));
+
+
 
         // BIRCH_SIGN,
         // BIRCH_WALL_SIGN,

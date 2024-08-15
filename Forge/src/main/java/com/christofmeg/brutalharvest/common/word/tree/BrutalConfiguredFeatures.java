@@ -23,7 +23,7 @@ public class BrutalConfiguredFeatures {
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
 
-        register(context, RUBBER_KEY, Feature.TREE, createStraightBlobTree(BlockRegistry.RUBBER_LOG.get(), BlockRegistry.RUBBER_LEAVES.get(), 4, 2, 0, 2).ignoreVines().build());
+        register(context, RUBBER_KEY, Feature.TREE, createStraightBlobTree(BlockRegistry.RUBBER_LOG_GENERATED.get(), BlockRegistry.RUBBER_LEAVES.get(), 4, 2, 0, 2).ignoreVines().build());
 
     }
 
@@ -33,7 +33,16 @@ public class BrutalConfiguredFeatures {
                 new BlobFoliagePlacer(ConstantInt.of(pRadius), ConstantInt.of(0), 3),
                 new TwoLayersFeatureSize(1, 0, 1));
     }
-
+/*
+    private static TreeConfiguration.TreeConfigurationBuilder createStraightBlobTree2(Block pLogBlock, Block pLeavesBlock, int pBaseHeight, int pHeightRandA, int pHeightRandB, int pRadius) {
+        return new TreeConfiguration.TreeConfigurationBuilder(
+                new RubberTreeBlockStateProvider(pLogBlock.defaultBlockState()),
+                new StraightTrunkPlacer(pBaseHeight, pHeightRandA, pHeightRandB), BlockStateProvider.simple(pLeavesBlock),
+                new BlobFoliagePlacer(ConstantInt.of(pRadius), ConstantInt.of(0), 3),
+                new TwoLayersFeatureSize(1, 0, 1)
+        );
+    }
+ */
     public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(CommonConstants.MOD_ID, name));
     }

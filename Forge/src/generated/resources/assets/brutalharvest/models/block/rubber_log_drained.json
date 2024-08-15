@@ -1,7 +1,11 @@
 {
-  "parent": "minecraft:block/cube_column",
+  "parent": "minecraft:block/cube_column_horizontal",
   "textures": {
+    "east": "brutalharvest:block/rubber_log",
     "end": "brutalharvest:block/rubber_log_top",
-    "side": "brutalharvest:block/rubber_log_drained"
+    "north": "brutalharvest:block/rubber_log_drained",
+    "particle": "brutalharvest:block/rubber_log_drained",
+    "south": "brutalharvest:block/rubber_log",
+    "west": "brutalharvest:block/rubber_log"
   }
 }

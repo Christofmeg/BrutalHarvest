@@ -18,12 +18,12 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
-public class RubberLog extends Block {
+public class RubberLogBlock extends Block {
     public static final EnumProperty<Direction.Axis> AXIS = BlockStateProperties.AXIS;
     public static BooleanProperty OPEN = BooleanProperty.create("open");
     public static BooleanProperty DRAINED = BooleanProperty.create("drained");
 
-    public RubberLog(BlockBehaviour.Properties pProperties) {
+    public RubberLogBlock(BlockBehaviour.Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.defaultBlockState().setValue(AXIS, Direction.Axis.Y).setValue(OPEN, false).setValue(DRAINED, false));
     }

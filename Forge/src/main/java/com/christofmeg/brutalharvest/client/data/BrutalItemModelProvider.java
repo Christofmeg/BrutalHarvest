@@ -10,7 +10,6 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
@@ -38,13 +37,13 @@ public class BrutalItemModelProvider extends ItemModelProvider {
                 .forEach(this::basicItem);
 
         saplingItem(BlockRegistry.RUBBER_SAPLING);
-//        withExistingParent(getItemName(BlockRegistry.RUBBER_SAPLING.get()), modLoc("block/" + getItemName(BlockRegistry.RUBBER_SAPLING.get())));
         withExistingParent(getItemName(BlockRegistry.RUBBER_LOG.get()), modLoc("block/" + getItemName(BlockRegistry.RUBBER_LOG.get())));
         withExistingParent(getItemName(BlockRegistry.RUBBER_WOOD.get()), modLoc("block/" + getItemName(BlockRegistry.RUBBER_WOOD.get())));
         withExistingParent(getItemName(BlockRegistry.STRIPPED_RUBBER_LOG.get()), modLoc("block/" + getItemName(BlockRegistry.STRIPPED_RUBBER_LOG.get())));
         withExistingParent(getItemName(BlockRegistry.STRIPPED_RUBBER_WOOD.get()), modLoc("block/" + getItemName(BlockRegistry.STRIPPED_RUBBER_WOOD.get())));
         withExistingParent(getItemName(BlockRegistry.RUBBER_PLANKS.get()), modLoc("block/" + getItemName(BlockRegistry.RUBBER_PLANKS.get())));
         withExistingParent(getItemName(BlockRegistry.RUBBER_LEAVES.get()), modLoc("block/" + getItemName(BlockRegistry.RUBBER_LEAVES.get())));
+        withExistingParent(getItemName(BlockRegistry.RUBBER_LOG_GENERATED.get()), modLoc("block/" + getItemName(BlockRegistry.RUBBER_LOG.get())));
 
     }
 
@@ -53,10 +52,10 @@ public class BrutalItemModelProvider extends ItemModelProvider {
         return BuiltInRegistries.ITEM.getKey(pItemLike.asItem()).getPath();
     }
 
-    private ItemModelBuilder saplingItem(RegistryObject<Block> item) {
-        return withExistingParent(item.getId().getPath(),
+    private void saplingItem(RegistryObject<Block> item) {
+        withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(CommonConstants.MOD_ID,"block/" + item.getId().getPath()));
+                new ResourceLocation(CommonConstants.MOD_ID, "block/" + item.getId().getPath()));
     }
 
 }
