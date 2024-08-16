@@ -348,22 +348,22 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
 
     private void addSmithingRecipes(Consumer<FinishedRecipe> consumer) {
         SmithingTransformRecipeBuilder.smithing(
-                Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
-                Ingredient.of(ItemRegistry.DIAMOND_KNIFE.get()),
-                Ingredient.of(Items.NETHERITE_INGOT),
-                RecipeCategory.COMBAT,
-                ItemRegistry.NETHERITE_KNIFE.get())
-                .unlocks("has_netherite_ingot", has(Items.NETHERITE_INGOT))
-                .save(consumer, modLoc(getItemName(ItemRegistry.NETHERITE_KNIFE.get()) + "_smithing"));
+            Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
+            Ingredient.of(ItemRegistry.DIAMOND_KNIFE.get()),
+            Ingredient.of(Items.NETHERITE_INGOT),
+            RecipeCategory.COMBAT,
+            ItemRegistry.NETHERITE_KNIFE.get())
+            .unlocks("has_netherite_ingot", has(Items.NETHERITE_INGOT))
+            .save(consumer, modLoc(getItemName(ItemRegistry.NETHERITE_KNIFE.get()) + "_smithing"));
 
         SmithingTransformRecipeBuilder.smithing(
-                        Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
-                        Ingredient.of(ItemRegistry.DIAMOND_SCYTHE.get()),
-                        Ingredient.of(Items.NETHERITE_INGOT),
-                        RecipeCategory.COMBAT,
-                        ItemRegistry.NETHERITE_SCYTHE.get())
-                .unlocks("has_netherite_ingot", has(Items.NETHERITE_INGOT))
-                .save(consumer, modLoc(getItemName(ItemRegistry.NETHERITE_SCYTHE.get()) + "_smithing"));
+            Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
+            Ingredient.of(ItemRegistry.DIAMOND_SCYTHE.get()),
+            Ingredient.of(Items.NETHERITE_INGOT),
+            RecipeCategory.COMBAT,
+            ItemRegistry.NETHERITE_SCYTHE.get())
+            .unlocks("has_netherite_ingot", has(Items.NETHERITE_INGOT))
+            .save(consumer, modLoc(getItemName(ItemRegistry.NETHERITE_SCYTHE.get()) + "_smithing"));
     }
 
     private void addCookingRecipes(Consumer<FinishedRecipe> consumer) {
