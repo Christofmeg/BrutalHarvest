@@ -106,7 +106,7 @@ public abstract class BaseCropBlock extends CropBlock {
 
     @Override
     public boolean isValidBonemealTarget(@NotNull LevelReader levelReader, @NotNull BlockPos pos, @NotNull BlockState state, boolean $$3) {
-        return this.getAge(state) < this.getMaxAge() - 1;
+        return this.getAge(state) < this.getMaxAge();
     }
 
     @Override

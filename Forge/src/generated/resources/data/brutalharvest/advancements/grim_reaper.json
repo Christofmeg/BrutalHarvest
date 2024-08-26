@@ -6,6 +6,36 @@
         "recipe_id": "brutalharvest:stone_scythe"
       },
       "trigger": "minecraft:recipe_crafted"
+    },
+    "1": {
+      "conditions": {
+        "recipe_id": "brutalharvest:copper_scythe"
+      },
+      "trigger": "minecraft:recipe_crafted"
+    },
+    "2": {
+      "conditions": {
+        "recipe_id": "brutalharvest:iron_scythe"
+      },
+      "trigger": "minecraft:recipe_crafted"
+    },
+    "3": {
+      "conditions": {
+        "recipe_id": "brutalharvest:golden_scythe"
+      },
+      "trigger": "minecraft:recipe_crafted"
+    },
+    "4": {
+      "conditions": {
+        "recipe_id": "brutalharvest:diamond_scythe"
+      },
+      "trigger": "minecraft:recipe_crafted"
+    },
+    "5": {
+      "conditions": {
+        "recipe_id": "brutalharvest:netherite_scythe"
+      },
+      "trigger": "minecraft:recipe_crafted"
     }
   },
   "display": {
@@ -26,7 +56,12 @@
   },
   "requirements": [
     [
-      "0"
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
     ]
   ],
   "sends_telemetry_event": true

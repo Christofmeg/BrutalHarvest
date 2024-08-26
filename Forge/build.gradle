@@ -3,7 +3,7 @@ import net.darkhax.curseforgegradle.TaskPublishCurseForge
 plugins {
     id 'net.minecraftforge.gradle' version '6.+'
     id 'idea'
-    id 'net.darkhax.curseforgegradle' version '1.+'
+    id 'net.darkhax.curseforgegradle' version '1.1.15'
     id 'com.modrinth.minotaur' version '2.+'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
@@ -91,37 +91,9 @@ dependencies {
 
     // JEI
     if (project.hasProperty('jei_version')) {
-        compileOnly(fg.deobf("mezz.jei:jei-${forge_minecraft_version}-common-api:${jei_version}"))
-        compileOnly(fg.deobf("mezz.jei:jei-${forge_minecraft_version}-forge-api:${jei_version}"))
-        compileOnly fg.deobf("me.shedaniel:REIPluginCompatibilities-forge-annotations:${rei_version}")
         if (project.hasProperty('enable_jei') && project.enable_jei.toBoolean()) {
             runtimeOnly(fg.deobf("mezz.jei:jei-${forge_minecraft_version}-forge:${jei_version}"))
 //            implementation fg.deobf("curse.maven:just-enough-resources-jer-240630:${jer_version}")
-        }
-    }
-
-    // REI
-    if (project.hasProperty('rei_version') &&
-            project.hasProperty('cloth_config_version') &&
-            project.hasProperty('architectury_version')) {
-        compileOnly fg.deobf("me.shedaniel:RoughlyEnoughItems-api-forge:${rei_version}")
-        compileOnly fg.deobf("me.shedaniel:RoughlyEnoughItems-default-plugin-forge:${rei_version}")
-        compileOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}")
-        compileOnly fg.deobf("dev.architectury:architectury-forge:${architectury_version}")
-        if (project.hasProperty('enable_rei') && project.enable_rei.toBoolean()) {
-            runtimeOnly fg.deobf("me.shedaniel:RoughlyEnoughItems-forge:${rei_version}")
-            runtimeOnly fg.deobf("me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}")
-            runtimeOnly fg.deobf("dev.architectury:architectury-forge:${architectury_version}")
-        }
-    }
-
-    // EMI
-    if (project.hasProperty('emi_version')) {
-        compileOnly fg.deobf("curse.maven:emi-580555:${emi_version}")
-        //    compileOnly "dev.emi:emi-forge:${emi_version}+${forge_minecraft_version}"
-        if (project.hasProperty('enable_emi') && project.enable_emi.toBoolean()) {
-            //        runtimeOnly "dev.emi:emi-forge:${emi_version}+${forge_minecraft_version}"
-            runtimeOnly fg.deobf("curse.maven:emi-580555:${emi_version}")
         }
     }
 
@@ -137,6 +109,10 @@ dependencies {
 //    runtimeOnly fg.deobf("curse.maven:just-enough-effect-descriptions-jeed-532286:5186339")
 //    runtimeOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:5057220") //TODO look into adding village loot to JER pages
     implementation fg.deobf("maven.modrinth:geckolib:rF4Es4hd")
+
+//    runtimeOnly fg.deobf("curse.maven:rightclickharvest-452834:4690530") // 17,381,453
+//    runtimeOnly fg.deobf("curse.maven:right-click-get-crops-552442:4970693") // TeamCOFH 2,188,596
+//    runtimeOnly fg.deobf("curse.maven:harvest-with-ease-602171:5480617")  //12,519,644
 
 }
 

@@ -3,17 +3,23 @@ package com.christofmeg.brutalharvest.client.data;
 import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.init.BlockRegistry;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
+import com.christofmeg.brutalharvest.common.item.ScytheItem;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Objects;
 
 public class BrutalItemModelProvider extends ItemModelProvider {
 
@@ -29,12 +35,16 @@ public class BrutalItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         ItemRegistry.ITEMS.getEntries().stream().map(RegistryObject::get)
-                .filter(item -> (!(item instanceof BlockItem)))
+                .filter(item -> (!(item instanceof BlockItem)) && (!(item instanceof ScytheItem)))
                 .forEach(this::basicItem);
 
         ItemRegistry.ITEMS.getEntries().stream().map(RegistryObject::get)
                 .filter(item -> (item instanceof ItemNameBlockItem))
                 .forEach(this::basicItem);
+
+        ItemRegistry.ITEMS.getEntries().stream().map(RegistryObject::get)
+                .filter(item -> (item instanceof ScytheItem))
+                .forEach(this::handHeldItem);
 
         saplingItem(BlockRegistry.RUBBER_SAPLING);
         withExistingParent(getItemName(BlockRegistry.RUBBER_LOG.get()), modLoc("block/" + getItemName(BlockRegistry.RUBBER_LOG.get())));
@@ -56,6 +66,14 @@ public class BrutalItemModelProvider extends ItemModelProvider {
         withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(CommonConstants.MOD_ID, "block/" + item.getId().getPath()));
+    }
+
+    private void handHeldItem(Item item) {
+        this.handHeldItem(Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item)));
+    }
+
+    private void handHeldItem(ResourceLocation item) {
+        this.getBuilder(item.toString()).parent(new ModelFile.UncheckedModelFile("item/handheld")).texture("layer0", new ResourceLocation(item.getNamespace(), "item/" + item.getPath()));
     }
 
 }

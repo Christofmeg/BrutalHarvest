@@ -63,7 +63,7 @@ public abstract class BaseDoubleCropBlock extends BaseCropBlock {
 
     @Override
     public boolean isValidBonemealTarget(@NotNull LevelReader levelReader, @NotNull BlockPos pos, @NotNull BlockState state, boolean $$3) {
-        return this.getAge(state) < this.getMaxAge() - 1 || this.getAge(state) > this.getMaxAge() + 1 && this.getAge(state) < this.getMaxAgeTop() - 1;
+        return this.getAge(state) < this.getMaxAge() || this.getAge(state) > this.getMaxAge() + 1 && this.getAge(state) < this.getMaxAgeTop();
     }
 
     @Override
@@ -116,9 +116,19 @@ public abstract class BaseDoubleCropBlock extends BaseCropBlock {
         if (below.is(this)) {
             int belowAge = this.getAge(below);
             int thisAge = this.getAge(state);
+
+            if (belowAge + getMaxAgeDifference() < thisAge) {
+                return false;
+            } else if (belowAge + getMaxAgeDifference() <= thisAge) {
+                return true;
+            }
+
+            /*
             if (belowAge + getMaxAgeDifference() <= thisAge) {
                 return true;
             }
+             */
+
         }
         return super.canSurvive(state, level, pos);
     }

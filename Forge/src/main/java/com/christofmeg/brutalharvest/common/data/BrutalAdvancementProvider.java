@@ -4,9 +4,11 @@ import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.advancement.TomatoProjectileTrigger;
 import com.christofmeg.brutalharvest.common.init.BlockRegistry;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
+import com.christofmeg.brutalharvest.common.init.TagRegistry;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.FrameType;
+import net.minecraft.advancements.RequirementsStrategy;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemUsedOnLocationTrigger;
 import net.minecraft.advancements.critereon.RecipeCraftedTrigger;
@@ -41,7 +43,10 @@ public class BrutalAdvancementProvider extends ForgeAdvancementProvider {
                             Component.translatable(CommonConstants.MOD_ID + "." + "advancement.root.desc"),
                             new ResourceLocation("minecraft:textures/block/rooted_dirt.png"),
                             FrameType.TASK, true, true, false)
-                    .addCriterion("0", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.TOMATO.get()))
+                    .addCriterion("0", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.UNRIPE_TOMATO.get()))
+                    .addCriterion("1", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.TOMATO.get()))
+                    .addCriterion("2", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.ROTTEN_TOMATO.get()))
+                    .requirements(RequirementsStrategy.OR)
                     .save(consumer, getNameId("root"));
 
             Advancement.Builder.advancement()
@@ -62,6 +67,12 @@ public class BrutalAdvancementProvider extends ForgeAdvancementProvider {
                             FrameType.TASK, true, true, false)
                     .parent(root)
                     .addCriterion("0", RecipeCraftedTrigger.TriggerInstance.craftedItem(ItemRegistry.STONE_SCYTHE.getId()))
+                    .addCriterion("1", RecipeCraftedTrigger.TriggerInstance.craftedItem(ItemRegistry.COPPER_SCYTHE.getId()))
+                    .addCriterion("2", RecipeCraftedTrigger.TriggerInstance.craftedItem(ItemRegistry.IRON_SCYTHE.getId()))
+                    .addCriterion("3", RecipeCraftedTrigger.TriggerInstance.craftedItem(ItemRegistry.GOLDEN_SCYTHE.getId()))
+                    .addCriterion("4", RecipeCraftedTrigger.TriggerInstance.craftedItem(ItemRegistry.DIAMOND_SCYTHE.getId()))
+                    .addCriterion("5", RecipeCraftedTrigger.TriggerInstance.craftedItem(ItemRegistry.NETHERITE_SCYTHE.getId()))
+                    .requirements(RequirementsStrategy.OR)
                     .save(consumer, getNameId("grim_reaper"));
 
             Advancement corn_seeds = Advancement.Builder.advancement()

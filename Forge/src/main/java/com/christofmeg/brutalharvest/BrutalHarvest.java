@@ -35,6 +35,7 @@ public class BrutalHarvest {
         RecipeSerializerRegistry.init(modEventBus);
         RecipeTypeRegistry.init(modEventBus);
         TrunkPlacerTypeRegistry.init(modEventBus);
+        EnchantmentRegistry.init(modEventBus);
     }
 
     /*TODO

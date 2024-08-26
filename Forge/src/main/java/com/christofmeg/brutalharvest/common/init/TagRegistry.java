@@ -161,6 +161,10 @@ public class TagRegistry {
 
         public static TagKey<Item> RUBBER_LOGS = modTag("rubber_logs");
 
+        public static TagKey<Item> HIGH_TIER_HOES = ItemTags.create(new ResourceLocation("rightclickharvest", "high_tier_hoes"));
+        public static TagKey<Item> MID_TIER_HOES = ItemTags.create(new ResourceLocation("rightclickharvest", "mid_tier_hoes"));
+        public static TagKey<Item> LOW_TIER_HOES = ItemTags.create(new ResourceLocation("rightclickharvest", "low_tier_hoes"));
+
     }
 
 }

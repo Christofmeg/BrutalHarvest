@@ -5,8 +5,8 @@ import net.minecraft.world.item.Tier;
 
 public class KnifeItem extends SwordItem {
 
-    public KnifeItem(Tier tier, int attackDamage, Properties properties) {
-        super(tier, attackDamage, -2, properties);
+    public KnifeItem(Tier tier, Properties properties) {
+        super(tier, 1, -2, properties);
     }
 
 }

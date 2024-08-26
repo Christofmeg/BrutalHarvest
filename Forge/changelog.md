@@ -1,2 +1,3 @@
-1.10.1:
-* Fix overlapping texture in tall crop models
+1.11.0:
+* Added Scythes
+* Crops can be bone mealed to mature age

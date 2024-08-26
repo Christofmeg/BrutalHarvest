@@ -227,21 +227,21 @@ public class ItemRegistry {
 //        RUBBER_BUCKET = ITEMS.register("rubber_bucket", () -> new Item(new Item.Properties().craftRemainder(Items.BUCKET))); //TODO implement
 //        RUBBER = ITEMS.register("rubber", () -> new Item(new Item.Properties()));
 
-        FLINT_KNIFE = ITEMS.register("flint_knife", () -> new KnifeItem(BrutalTiers.FLINT, 1, new Item.Properties()));
-        WOODEN_KNIFE = ITEMS.register("wooden_knife", () -> new KnifeItem(Tiers.WOOD, 1, new Item.Properties()));
-        STONE_KNIFE = ITEMS.register("stone_knife", () -> new KnifeItem(BrutalTiers.STONE, 1, new Item.Properties()));
-        COPPER_KNIFE = ITEMS.register("copper_knife", () -> new KnifeItem(BrutalTiers.COPPER,  1, new Item.Properties()));
-        IRON_KNIFE = ITEMS.register("iron_knife", () -> new KnifeItem(Tiers.IRON, 1, new Item.Properties()));
-        GOLDEN_KNIFE = ITEMS.register("golden_knife", () -> new KnifeItem(Tiers.GOLD, 1, new Item.Properties()));
-        DIAMOND_KNIFE = ITEMS.register("diamond_knife", () -> new KnifeItem(Tiers.DIAMOND, 1, new Item.Properties()));
-        NETHERITE_KNIFE = ITEMS.register("netherite_knife", () -> new KnifeItem(Tiers.NETHERITE, 1, new Item.Properties()));
+        FLINT_KNIFE = ITEMS.register("flint_knife", () -> new KnifeItem(BrutalTiers.FLINT, new Item.Properties()));
+        WOODEN_KNIFE = ITEMS.register("wooden_knife", () -> new KnifeItem(Tiers.WOOD, new Item.Properties()));
+        STONE_KNIFE = ITEMS.register("stone_knife", () -> new KnifeItem(BrutalTiers.STONE, new Item.Properties()));
+        COPPER_KNIFE = ITEMS.register("copper_knife", () -> new KnifeItem(BrutalTiers.COPPER, new Item.Properties()));
+        IRON_KNIFE = ITEMS.register("iron_knife", () -> new KnifeItem(Tiers.IRON, new Item.Properties()));
+        GOLDEN_KNIFE = ITEMS.register("golden_knife", () -> new KnifeItem(Tiers.GOLD, new Item.Properties()));
+        DIAMOND_KNIFE = ITEMS.register("diamond_knife", () -> new KnifeItem(Tiers.DIAMOND, new Item.Properties()));
+        NETHERITE_KNIFE = ITEMS.register("netherite_knife", () -> new KnifeItem(Tiers.NETHERITE, new Item.Properties()));
 
         STONE_SCYTHE = ITEMS.register("stone_scythe", () -> new ScytheItem(BrutalTiers.STONE, 1, new Item.Properties()));
-        COPPER_SCYTHE = ITEMS.register("copper_scythe", () -> new ScytheItem(BrutalTiers.COPPER,  1, new Item.Properties()));
-        IRON_SCYTHE = ITEMS.register("iron_scythe", () -> new ScytheItem(Tiers.IRON, 1, new Item.Properties()));
-        GOLDEN_SCYTHE = ITEMS.register("golden_scythe", () -> new ScytheItem(Tiers.GOLD, 1, new Item.Properties()));
-        DIAMOND_SCYTHE = ITEMS.register("diamond_scythe", () -> new ScytheItem(Tiers.DIAMOND, 1, new Item.Properties()));
-        NETHERITE_SCYTHE = ITEMS.register("netherite_scythe", () -> new ScytheItem(Tiers.NETHERITE, 1, new Item.Properties()));
+        COPPER_SCYTHE = ITEMS.register("copper_scythe", () -> new ScytheItem(BrutalTiers.COPPER, 1, new Item.Properties()));
+        IRON_SCYTHE = ITEMS.register("iron_scythe", () -> new ScytheItem(Tiers.IRON, 2, new Item.Properties()));
+        GOLDEN_SCYTHE = ITEMS.register("golden_scythe", () -> new ScytheItem(Tiers.GOLD, 2, new Item.Properties()));
+        DIAMOND_SCYTHE = ITEMS.register("diamond_scythe", () -> new ScytheItem(Tiers.DIAMOND, 3, new Item.Properties()));
+        NETHERITE_SCYTHE = ITEMS.register("netherite_scythe", () -> new ScytheItem(Tiers.NETHERITE, 3, new Item.Properties()));
 
         FABRIC = ITEMS.register("fabric", () -> new Item(new Item.Properties()));
 

@@ -252,5 +252,17 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
         copy(TagRegistry.Blocks.RUBBER_LOGS, TagRegistry.Items.RUBBER_LOGS);
         copy(BlockTags.PLANKS, ItemTags.PLANKS);
 
+        this.tag(TagRegistry.Items.HIGH_TIER_HOES)
+                .add(ItemRegistry.DIAMOND_SCYTHE.get())
+                .add(ItemRegistry.NETHERITE_SCYTHE.get());
+
+        this.tag(TagRegistry.Items.MID_TIER_HOES)
+                .add(ItemRegistry.GOLDEN_SCYTHE.get())
+                .add(ItemRegistry.IRON_SCYTHE.get());
+
+        this.tag(TagRegistry.Items.LOW_TIER_HOES)
+                .add(ItemRegistry.COPPER_SCYTHE.get())
+                .add(ItemRegistry.STONE_SCYTHE.get());
+
     }
 }

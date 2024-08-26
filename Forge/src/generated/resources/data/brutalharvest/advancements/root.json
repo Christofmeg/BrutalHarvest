@@ -5,7 +5,31 @@
         "items": [
           {
             "items": [
+              "brutalharvest:unripe_tomato"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "1": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
               "brutalharvest:tomato"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "2": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "brutalharvest:rotten_tomato"
             ]
           }
         ]
@@ -31,7 +55,9 @@
   },
   "requirements": [
     [
-      "0"
+      "0",
+      "1",
+      "2"
     ]
   ],
   "sends_telemetry_event": true
