@@ -2,6 +2,8 @@ package com.christofmeg.brutalharvest.client.data;
 
 import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.init.BlockRegistry;
+import com.christofmeg.brutalharvest.common.init.EnchantmentRegistry;
+import com.christofmeg.brutalharvest.common.init.EntityTypeRegistry;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
@@ -33,8 +35,6 @@ public class BrutalLanguageProvider extends LanguageProvider {
                 )
             ));
 
-
-
             addItem(ItemRegistry.CORN_SEEDS, "Corn Seeds (Kernel)");
             addItem(ItemRegistry.CHEFS_HAT, "Chef's Hat");
             add("block." + CommonConstants.MOD_ID + "." + "rubber_log_generated", "Rubber Log");
@@ -50,6 +50,16 @@ public class BrutalLanguageProvider extends LanguageProvider {
             add(CommonConstants.MOD_ID + "." + "advancement" + "." + "corn" + ".desc", "Obtain some corn");
 
             add("sounds." + CommonConstants.MOD_ID + "." + "tomato_splat", "Tomato Splat");
+
+            EnchantmentRegistry.ENCHANTMENTS.getEntries().stream().map(RegistryObject::get)
+                .forEach(enchantment -> addEnchantment(() -> enchantment,
+                    StringUtils.capitaliseAllWords(enchantment.getDescriptionId()
+                        .replace("enchantment." + CommonConstants.MOD_ID + ".", "")
+                    )
+                ));
+
+            addEntityType(EntityTypeRegistry.TOMATO_PROJECTILE, "Tomato");
+            addEntityType(EntityTypeRegistry.THROWN_SCYTHE, "Scythe");
 
         }
     }

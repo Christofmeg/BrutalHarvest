@@ -1,6 +1,7 @@
 package com.christofmeg.brutalharvest.common.init;
 
 import com.christofmeg.brutalharvest.CommonConstants;
+import com.christofmeg.brutalharvest.common.entity.ThrownScytheEntity;
 import com.christofmeg.brutalharvest.common.entity.TomatoProjectileEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -20,6 +21,7 @@ public class EntityTypeRegistry {
     }
 
     public static final RegistryObject<EntityType<TomatoProjectileEntity>> TOMATO_PROJECTILE;
+    public static final RegistryObject<EntityType<ThrownScytheEntity>> THROWN_SCYTHE;
 
     static {
 
@@ -27,6 +29,9 @@ public class EntityTypeRegistry {
                 ENTITY_TYPES.register("tomato_projectile", () -> EntityType.Builder.<TomatoProjectileEntity>of(TomatoProjectileEntity::new, MobCategory.MISC)
                         .clientTrackingRange(4).updateInterval(10).sized(0.25F, 0.25F).build("tomato_projectile"));
 
+        THROWN_SCYTHE =
+                ENTITY_TYPES.register("thrown_scythe", () -> EntityType.Builder.<ThrownScytheEntity>of(ThrownScytheEntity::new, MobCategory.MISC)
+                        .clientTrackingRange(4).updateInterval(10).sized(0.25F, 0.25F).build("thrown_scythe"));
     }
 
 }

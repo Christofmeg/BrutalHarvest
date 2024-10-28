@@ -20,6 +20,8 @@ public class BrutalHarvest {
         GeckoLib.initialize();
         init(bus);
         bus.addListener(new ClientSetupEvent()::clientSetupEvent);
+        bus.addListener(new ClientSetupEvent()::registerLayerDefinitions);
+
         bus.addListener(new CommonSetupEvent()::commonSetupEvent);
     }
 

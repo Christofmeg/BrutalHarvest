@@ -1,28 +1,37 @@
 package com.christofmeg.brutalharvest.common.item;
 
 import com.christofmeg.brutalharvest.CommonConstants;
+import com.christofmeg.brutalharvest.common.entity.ThrownScytheEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.block.GrassBlock;
+import net.minecraft.world.level.block.TallGrassBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import org.jetbrains.annotations.NotNull;
 
 @Mod.EventBusSubscriber(modid = CommonConstants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ScytheItem extends DiggerItem {
     protected Tier tier;
-    protected int harvestRadius;
+    public int harvestRadius;
 
     public ScytheItem(Tier tier, int harvestRadius, Item.Properties properties) {
         super(1, -2, tier, BlockTags.CROPS, properties);
@@ -53,7 +62,7 @@ public class ScytheItem extends DiggerItem {
         }
     }
 
-    private void harvest(ItemStack stack, LivingEntity livingEntity, Level level, BlockPos pos, int radius, BlockEvent.BreakEvent event) {
+    public void harvest(ItemStack stack, LivingEntity livingEntity, Level level, BlockPos pos, int radius, BlockEvent.BreakEvent event) {
         int start = -radius;
         int end = hasCenteredRadius() ? radius + 1 : radius;
 
@@ -71,7 +80,7 @@ public class ScytheItem extends DiggerItem {
     }
 
     private boolean hasCenteredRadius() {
-        return this.tier == BrutalTiers.COPPER || this.tier == Tiers.GOLD || this.tier == Tiers.NETHERITE;
+        return tier == BrutalTiers.COPPER || tier == Tiers.GOLD || tier == Tiers.NETHERITE;
     }
 
     private void harvestAtPos(Level level, BlockPos targetPos, LivingEntity livingEntity, ItemStack stack, BlockPos pos, BlockEvent.BreakEvent event) {
@@ -97,4 +106,44 @@ public class ScytheItem extends DiggerItem {
             }
         }
     }
+
+    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level level, Player player, @NotNull InteractionHand interactionHand) {
+        ItemStack $$3 = player.getItemInHand(interactionHand);
+        player.startUsingItem(interactionHand);
+        return InteractionResultHolder.consume($$3);
+    }
+
+    @Override
+    public int getUseDuration(@NotNull ItemStack stack) {
+        return 72000;
+    }
+
+    @Override
+    public void releaseUsing(@NotNull ItemStack stack, @NotNull Level level, @NotNull LivingEntity livingEntity, int pTimeLeft) {
+        if (livingEntity instanceof Player player) {
+            if (player.isShiftKeyDown()) {
+                int $$5 = this.getUseDuration(stack) - pTimeLeft;
+                if ($$5 >= 0) {
+                    if (!level.isClientSide) {
+                        stack.hurtAndBreak(1, player, (p_43388_) -> {
+                            p_43388_.broadcastBreakEvent(livingEntity.getUsedItemHand());
+                        });
+                        ThrownScytheEntity thrownScythe = new ThrownScytheEntity(level, player, stack, this.getDescriptionId());
+                        thrownScythe.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.5F, 1.0F);
+                        if (player.getAbilities().instabuild) {
+                            thrownScythe.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
+                        }
+                        level.addFreshEntity(thrownScythe);
+                        level.playSound(null, thrownScythe, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
+
+                        if (!player.getAbilities().instabuild) {
+                            player.getInventory().removeItem(stack);
+                        }
+                    }
+                    player.awardStat(Stats.ITEM_USED.get(this));
+                }
+            }
+        }
+    }
+
 }

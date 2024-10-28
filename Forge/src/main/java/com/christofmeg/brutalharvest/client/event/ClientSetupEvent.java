@@ -1,17 +1,28 @@
 package com.christofmeg.brutalharvest.client.event;
 
+import com.christofmeg.brutalharvest.client.model.ThrownScytheModel;
+import com.christofmeg.brutalharvest.client.renderer.RenderLayers;
+import com.christofmeg.brutalharvest.client.renderer.ThrownScytheRenderer;
 import com.christofmeg.brutalharvest.common.init.EntityTypeRegistry;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 @OnlyIn(Dist.CLIENT)
 public class ClientSetupEvent {
 
     public void clientSetupEvent(final FMLClientSetupEvent event) {
-        event.enqueueWork(() -> EntityRenderers.register(EntityTypeRegistry.TOMATO_PROJECTILE.get(), ThrownItemRenderer::new));
+        event.enqueueWork(() -> {
+            EntityRenderers.register(EntityTypeRegistry.TOMATO_PROJECTILE.get(), ThrownItemRenderer::new);
+            EntityRenderers.register(EntityTypeRegistry.THROWN_SCYTHE.get(), ThrownScytheRenderer::new);
+        });
+    }
+
+    public void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        event.registerLayerDefinition(RenderLayers.register("scythe"), ThrownScytheModel::createLayer);
     }
 
 }

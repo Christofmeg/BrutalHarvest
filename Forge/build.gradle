@@ -107,7 +107,7 @@ dependencies {
 //    runtimeOnly fg.deobf("curse.maven:immersive-engineering-231951:5224387")
     runtimeOnly fg.deobf("curse.maven:appleskin-248787:4770828")
 //    runtimeOnly fg.deobf("curse.maven:just-enough-effect-descriptions-jeed-532286:5186339")
-//    runtimeOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:5057220") //TODO look into adding village loot to JER pages
+    runtimeOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:5057220") //TODO look into adding village loot to JER pages
     implementation fg.deobf("maven.modrinth:geckolib:rF4Es4hd")
 
 //    runtimeOnly fg.deobf("curse.maven:rightclickharvest-452834:4690530") // 17,381,453
