@@ -44,6 +44,8 @@ public class BrutalLanguageProvider extends LanguageProvider {
             add(CommonConstants.MOD_ID + "." + "advancement" + "." + "rotten_tomatoes" + ".desc", "Throw a tomato at a villager");
             add(CommonConstants.MOD_ID + "." + "advancement" + "." + "grim_reaper", "Grim Reaper");
             add(CommonConstants.MOD_ID + "." + "advancement" + "." + "grim_reaper" + ".desc", "Craft a scythe");
+            add(CommonConstants.MOD_ID + "." + "advancement" + "." + "reaperang", "Reaparang");
+            add(CommonConstants.MOD_ID + "." + "advancement" + "." + "reaperang" + ".desc", "Launch a scythe with the Boomerang enchantment");
             add(CommonConstants.MOD_ID + "." + "advancement" + "." + "corn_seeds", "Colonel Cornelius Cornwall");
             add(CommonConstants.MOD_ID + "." + "advancement" + "." + "corn_seeds" + ".desc", "Plant a Corn Seed (Kernel)");
             add(CommonConstants.MOD_ID + "." + "advancement" + "." + "corn", "IT'S CORN");

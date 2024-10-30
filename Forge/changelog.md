@@ -1,4 +1,4 @@
-1.11.0:
-* Added Throwable Scythes
-* Added Boomerang enchantment
-* Crops can be bone mealed to mature age
+1.11.1:
+* Update Dough and Tomato Dough texture
+* Update Blueberry texture
+* Added Reperang advancement

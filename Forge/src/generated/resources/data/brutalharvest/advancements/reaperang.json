@@ -1,0 +1,121 @@
+{
+  "parent": "brutalharvest:grim_reaper",
+  "criteria": {
+    "0": {
+      "conditions": {
+        "item": {
+          "enchantments": [
+            {
+              "enchantment": "brutalharvest:boomerang"
+            }
+          ],
+          "items": [
+            "brutalharvest:stone_scythe"
+          ]
+        }
+      },
+      "trigger": "brutalharvest:reperang"
+    },
+    "1": {
+      "conditions": {
+        "item": {
+          "enchantments": [
+            {
+              "enchantment": "brutalharvest:boomerang"
+            }
+          ],
+          "items": [
+            "brutalharvest:copper_scythe"
+          ]
+        }
+      },
+      "trigger": "brutalharvest:reperang"
+    },
+    "2": {
+      "conditions": {
+        "item": {
+          "enchantments": [
+            {
+              "enchantment": "brutalharvest:boomerang"
+            }
+          ],
+          "items": [
+            "brutalharvest:iron_scythe"
+          ]
+        }
+      },
+      "trigger": "brutalharvest:reperang"
+    },
+    "3": {
+      "conditions": {
+        "item": {
+          "enchantments": [
+            {
+              "enchantment": "brutalharvest:boomerang"
+            }
+          ],
+          "items": [
+            "brutalharvest:golden_scythe"
+          ]
+        }
+      },
+      "trigger": "brutalharvest:reperang"
+    },
+    "4": {
+      "conditions": {
+        "item": {
+          "enchantments": [
+            {
+              "enchantment": "brutalharvest:boomerang"
+            }
+          ],
+          "items": [
+            "brutalharvest:diamond_scythe"
+          ]
+        }
+      },
+      "trigger": "brutalharvest:reperang"
+    },
+    "5": {
+      "conditions": {
+        "item": {
+          "enchantments": [
+            {
+              "enchantment": "brutalharvest:boomerang"
+            }
+          ],
+          "items": [
+            "brutalharvest:netherite_scythe"
+          ]
+        }
+      },
+      "trigger": "brutalharvest:reperang"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "brutalharvest.advancement.reaperang.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:enchanted_book"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "brutalharvest.advancement.reaperang"
+    }
+  },
+  "requirements": [
+    [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

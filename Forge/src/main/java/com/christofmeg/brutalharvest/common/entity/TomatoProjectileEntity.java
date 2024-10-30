@@ -39,6 +39,7 @@ public class TomatoProjectileEntity extends ThrowableItemProjectile {
         this.level = level;
     }
 
+    @Override
     protected @NotNull Item getDefaultItem() {
         return this.getItemRaw().getItem();
     }
@@ -51,6 +52,7 @@ public class TomatoProjectileEntity extends ThrowableItemProjectile {
         return new ItemParticleOption(ParticleTypes.ITEM, stack);
     }
 
+    @Override
     public void handleEntityEvent(byte p_37402_) {
         if (p_37402_ == 3) {
             ParticleOptions particleOptions = this.getParticle();
@@ -60,6 +62,7 @@ public class TomatoProjectileEntity extends ThrowableItemProjectile {
         }
     }
 
+    @Override
     protected void onHitEntity(@NotNull EntityHitResult entityHitResult) {
         super.onHitEntity(entityHitResult);
         Entity entity = entityHitResult.getEntity();
@@ -86,6 +89,7 @@ public class TomatoProjectileEntity extends ThrowableItemProjectile {
         }
     }
 
+    @Override
     protected void onHit(@NotNull HitResult hitResult) {
         super.onHit(hitResult);
         this.playSound(SoundRegistry.TOMATO_SPLAT.get(), 0.5F, 0.8F);

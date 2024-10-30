@@ -2,8 +2,11 @@ package com.christofmeg.brutalharvest.common.item;
 
 import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.entity.ThrownScytheEntity;
+import com.christofmeg.brutalharvest.common.init.AdvancementRegistry;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -19,8 +22,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
-import net.minecraft.world.level.block.GrassBlock;
-import net.minecraft.world.level.block.TallGrassBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.level.BlockEvent;
@@ -120,27 +121,27 @@ public class ScytheItem extends DiggerItem {
 
     @Override
     public void releaseUsing(@NotNull ItemStack stack, @NotNull Level level, @NotNull LivingEntity livingEntity, int pTimeLeft) {
-        if (livingEntity instanceof Player player) {
-            if (player.isShiftKeyDown()) {
+        if (livingEntity instanceof ServerPlayer serverPlayer) {
+            if (serverPlayer.isShiftKeyDown()) {
                 int $$5 = this.getUseDuration(stack) - pTimeLeft;
                 if ($$5 >= 0) {
                     if (!level.isClientSide) {
-                        stack.hurtAndBreak(1, player, (p_43388_) -> {
-                            p_43388_.broadcastBreakEvent(livingEntity.getUsedItemHand());
-                        });
-                        ThrownScytheEntity thrownScythe = new ThrownScytheEntity(level, player, stack, this.getDescriptionId());
-                        thrownScythe.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.5F, 1.0F);
-                        if (player.getAbilities().instabuild) {
+                        stack.hurtAndBreak(1, serverPlayer, (p_43388_) -> p_43388_.broadcastBreakEvent(livingEntity.getUsedItemHand()));
+                        ThrownScytheEntity thrownScythe = new ThrownScytheEntity(level, serverPlayer, stack);
+                        thrownScythe.shootFromRotation(serverPlayer, serverPlayer.getXRot(), serverPlayer.getYRot(), 0.0F, 2.5F, 1.0F);
+                        if (serverPlayer.getAbilities().instabuild) {
                             thrownScythe.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
                         }
                         level.addFreshEntity(thrownScythe);
                         level.playSound(null, thrownScythe, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
 
-                        if (!player.getAbilities().instabuild) {
-                            player.getInventory().removeItem(stack);
+                        AdvancementRegistry.REPERANG.trigger(serverPlayer, stack);
+
+                        if (!serverPlayer.getAbilities().instabuild) {
+                            serverPlayer.getInventory().removeItem(stack);
                         }
                     }
-                    player.awardStat(Stats.ITEM_USED.get(this));
+                    serverPlayer.awardStat(Stats.ITEM_USED.get(this));
                 }
             }
         }

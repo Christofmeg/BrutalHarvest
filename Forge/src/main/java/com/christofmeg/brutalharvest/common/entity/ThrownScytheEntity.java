@@ -38,19 +38,17 @@ public class ThrownScytheEntity extends AbstractArrow {
     private ItemStack scytheItem;
     private boolean dealtDamage;
     public int clientSideReturnTridentTickCount;
-    public String id;
     
     public ThrownScytheEntity(EntityType<? extends ThrownScytheEntity> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
 
-    public ThrownScytheEntity(Level level, LivingEntity livingEntity, ItemStack stack, String id) {
+    public ThrownScytheEntity(Level level, LivingEntity livingEntity, ItemStack stack) {
         super(EntityTypeRegistry.THROWN_SCYTHE.get(), livingEntity, level);
         this.livingEntity = livingEntity;
         this.scytheItem = stack.copy();
         this.entityData.set(ID_BOOMERANG, (byte) stack.getEnchantmentLevel(EnchantmentRegistry.BOOMERANG.get()));
-        this.id = id;
-        setItem(stack);
+        this.setItem(stack);
     }
 
     @Override
@@ -59,9 +57,9 @@ public class ThrownScytheEntity extends AbstractArrow {
             this.dealtDamage = true;
         }
 
-        Entity $$0 = this.getOwner();
+        Entity entity = this.getOwner();
         int $$1 = this.entityData.get(ID_BOOMERANG);
-        if ($$1 > 0 && (this.dealtDamage || this.isNoPhysics()) && $$0 != null) {
+        if ($$1 > 0 && (this.dealtDamage || this.isNoPhysics()) && entity != null) {
             if (!this.isAcceptibleReturnOwner()) {
                 if (!this.level().isClientSide && this.pickup == Pickup.ALLOWED) {
                     this.spawnAtLocation(this.getPickupItem(), 0.1F);
@@ -70,7 +68,7 @@ public class ThrownScytheEntity extends AbstractArrow {
                 this.discard();
             } else {
                 this.setNoPhysics(true);
-                Vec3 $$2 = $$0.getEyePosition().subtract(this.position());
+                Vec3 $$2 = entity.getEyePosition().subtract(this.position());
                 this.setPosRaw(this.getX(), this.getY() + $$2.y * 0.015 * (double)$$1, this.getZ());
                 if (this.level().isClientSide) {
                     this.yOld = this.getY();
@@ -100,7 +98,7 @@ public class ThrownScytheEntity extends AbstractArrow {
 
     @Override
     protected @NotNull ItemStack getPickupItem() {
-        return this.scytheItem.copy();
+        return this.getItem();
     }
 
     @Override
@@ -133,6 +131,8 @@ public class ThrownScytheEntity extends AbstractArrow {
                     EnchantmentHelper.doPostDamageEffects((LivingEntity)entity, living);
                 }
                 this.doPostHurtEffects(living);
+                //TODO fix jittering when breaking and falling on leaves
+                //TODO fix silk touch and fortune when breaking in radius
             }
         }
         this.setDeltaMovement(this.getDeltaMovement().multiply(-0.01, -0.1, -0.01));

@@ -1,22 +1,21 @@
 package com.christofmeg.brutalharvest.common.data;
 
 import com.christofmeg.brutalharvest.CommonConstants;
+import com.christofmeg.brutalharvest.common.advancement.ThrownScytheTrigger;
 import com.christofmeg.brutalharvest.common.advancement.TomatoProjectileTrigger;
 import com.christofmeg.brutalharvest.common.init.BlockRegistry;
+import com.christofmeg.brutalharvest.common.init.EnchantmentRegistry;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
-import com.christofmeg.brutalharvest.common.init.TagRegistry;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.RequirementsStrategy;
-import net.minecraft.advancements.critereon.InventoryChangeTrigger;
-import net.minecraft.advancements.critereon.ItemUsedOnLocationTrigger;
-import net.minecraft.advancements.critereon.RecipeCraftedTrigger;
+import net.minecraft.advancements.critereon.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.block.Block;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.ForgeAdvancementProvider;
 
@@ -59,7 +58,7 @@ public class BrutalAdvancementProvider extends ForgeAdvancementProvider {
                     .addCriterion("0", TomatoProjectileTrigger.TriggerInstance.simple())
                     .save(consumer, getNameId("rotten_tomatoes"));
 
-            Advancement.Builder.advancement()
+            Advancement grim_reaper = Advancement.Builder.advancement()
                     .display(ItemRegistry.STONE_SCYTHE.get(),
                             Component.translatable(CommonConstants.MOD_ID + "." + "advancement.grim_reaper"),
                             Component.translatable(CommonConstants.MOD_ID + "." + "advancement.grim_reaper.desc"),
@@ -74,6 +73,22 @@ public class BrutalAdvancementProvider extends ForgeAdvancementProvider {
                     .addCriterion("5", RecipeCraftedTrigger.TriggerInstance.craftedItem(ItemRegistry.NETHERITE_SCYTHE.getId()))
                     .requirements(RequirementsStrategy.OR)
                     .save(consumer, getNameId("grim_reaper"));
+
+            Advancement.Builder.advancement()
+                    .display(Items.ENCHANTED_BOOK,
+                            Component.translatable(CommonConstants.MOD_ID + "." + "advancement.reaperang"),
+                            Component.translatable(CommonConstants.MOD_ID + "." + "advancement.reaperang.desc"),
+                            null,
+                            FrameType.TASK, true, true, false)
+                    .parent(grim_reaper)
+                    .addCriterion("0", ThrownScytheTrigger.TriggerInstance.item(ItemPredicate.Builder.item().of(ItemRegistry.STONE_SCYTHE.get()).hasEnchantment(new EnchantmentPredicate(EnchantmentRegistry.BOOMERANG.get(), MinMaxBounds.Ints.ANY))))
+                    .addCriterion("1", ThrownScytheTrigger.TriggerInstance.item(ItemPredicate.Builder.item().of(ItemRegistry.COPPER_SCYTHE.get()).hasEnchantment(new EnchantmentPredicate(EnchantmentRegistry.BOOMERANG.get(), MinMaxBounds.Ints.ANY))))
+                    .addCriterion("2", ThrownScytheTrigger.TriggerInstance.item(ItemPredicate.Builder.item().of(ItemRegistry.IRON_SCYTHE.get()).hasEnchantment(new EnchantmentPredicate(EnchantmentRegistry.BOOMERANG.get(), MinMaxBounds.Ints.ANY))))
+                    .addCriterion("3", ThrownScytheTrigger.TriggerInstance.item(ItemPredicate.Builder.item().of(ItemRegistry.GOLDEN_SCYTHE.get()).hasEnchantment(new EnchantmentPredicate(EnchantmentRegistry.BOOMERANG.get(), MinMaxBounds.Ints.ANY))))
+                    .addCriterion("4", ThrownScytheTrigger.TriggerInstance.item(ItemPredicate.Builder.item().of(ItemRegistry.DIAMOND_SCYTHE.get()).hasEnchantment(new EnchantmentPredicate(EnchantmentRegistry.BOOMERANG.get(), MinMaxBounds.Ints.ANY))))
+                    .addCriterion("5", ThrownScytheTrigger.TriggerInstance.item(ItemPredicate.Builder.item().of(ItemRegistry.NETHERITE_SCYTHE.get()).hasEnchantment(new EnchantmentPredicate(EnchantmentRegistry.BOOMERANG.get(), MinMaxBounds.Ints.ANY))))
+                    .requirements(RequirementsStrategy.OR)
+                    .save(consumer, getNameId("reaperang"));
 
             Advancement corn_seeds = Advancement.Builder.advancement()
                     .display(ItemRegistry.CORN_SEEDS.get(),
