@@ -35,7 +35,6 @@ public class ThrownScytheEntity extends AbstractArrow {
     private static final EntityDataAccessor<Byte> ID_BOOMERANG = SynchedEntityData.defineId(ThrownScytheEntity.class, EntityDataSerializers.BYTE);
 
     private LivingEntity livingEntity;
-    private ItemStack scytheItem;
     private boolean dealtDamage;
     public int clientSideReturnTridentTickCount;
     
@@ -46,7 +45,6 @@ public class ThrownScytheEntity extends AbstractArrow {
     public ThrownScytheEntity(Level level, LivingEntity livingEntity, ItemStack stack) {
         super(EntityTypeRegistry.THROWN_SCYTHE.get(), livingEntity, level);
         this.livingEntity = livingEntity;
-        this.scytheItem = stack.copy();
         this.entityData.set(ID_BOOMERANG, (byte) stack.getEnchantmentLevel(EnchantmentRegistry.BOOMERANG.get()));
         this.setItem(stack);
     }
@@ -112,7 +110,7 @@ public class ThrownScytheEntity extends AbstractArrow {
         Entity resultEntity = pResult.getEntity();
         float damage = 8.0F;
         if (resultEntity instanceof LivingEntity living) {
-            ItemStack stack = this.scytheItem;
+            ItemStack stack = this.getItem();
             if (stack != null && !stack.isEmpty()) {
                 damage += EnchantmentHelper.getDamageBonus(stack, living.getMobType());
             }
@@ -133,6 +131,8 @@ public class ThrownScytheEntity extends AbstractArrow {
                 this.doPostHurtEffects(living);
                 //TODO fix jittering when breaking and falling on leaves
                 //TODO fix silk touch and fortune when breaking in radius
+                //TODO remove surrounding grass during flight
+                //TODO make leaves minable scythe
             }
         }
         this.setDeltaMovement(this.getDeltaMovement().multiply(-0.01, -0.1, -0.01));
@@ -152,9 +152,9 @@ public class ThrownScytheEntity extends AbstractArrow {
         Level level = this.level();
         if (!level.isClientSide) {
             BlockPos pos = blockHitResult.getBlockPos();
-            if (this.scytheItem.getItem() instanceof ScytheItem scythe) {
+            if (this.getItem().getItem() instanceof ScytheItem scythe) {
                 if (livingEntity instanceof ServerPlayer serverPlayer) {
-                    scythe.harvest(this.scytheItem, this.livingEntity, level, pos, scythe.harvestRadius, new BlockEvent.BreakEvent(level, pos, level.getBlockState(pos), serverPlayer));
+                    scythe.harvest(this.getItem(), this.livingEntity, level, pos, scythe.harvestRadius, new BlockEvent.BreakEvent(level, pos, level.getBlockState(pos), serverPlayer));
                 }
             }
         }

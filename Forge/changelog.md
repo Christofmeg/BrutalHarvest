@@ -1,4 +1,2 @@
-1.11.1:
-* Update Dough and Tomato Dough texture
-* Update Blueberry texture
-* Added Reperang advancement
+1.11.2:
+* Fix "this.scytheItem.getItem()" null pointer crash with Scythes
