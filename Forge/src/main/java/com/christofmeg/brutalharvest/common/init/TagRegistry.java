@@ -33,6 +33,8 @@ public class TagRegistry {
 
         public static TagKey<Block> RUBBER_LOGS = modTag("rubber_logs");
 
+        public static TagKey<Block> MINEABLE_WITH_SCYTHE = forgeTag("mineable/scythe");
+
     }
 
     public static final class Items {

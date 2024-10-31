@@ -3,7 +3,7 @@ package com.christofmeg.brutalharvest.common.item;
 import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.entity.ThrownScytheEntity;
 import com.christofmeg.brutalharvest.common.init.AdvancementRegistry;
-import net.minecraft.advancements.CriteriaTriggers;
+import com.christofmeg.brutalharvest.common.init.TagRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -35,7 +35,7 @@ public class ScytheItem extends DiggerItem {
     public int harvestRadius;
 
     public ScytheItem(Tier tier, int harvestRadius, Item.Properties properties) {
-        super(1, -2, tier, BlockTags.CROPS, properties);
+        super(1, -2, tier, TagRegistry.Blocks.MINEABLE_WITH_SCYTHE, properties);
         this.tier = tier;
         this.harvestRadius = harvestRadius;
     }

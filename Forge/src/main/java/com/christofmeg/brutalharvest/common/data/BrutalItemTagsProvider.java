@@ -56,7 +56,7 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
         tag(TagRegistry.Items.COTTON_SEEDS).add(ItemRegistry.COTTON_SEEDS.get());
         tag(TagRegistry.Items.RAPESEEDS).add(ItemRegistry.RAPESEEDS.get());
         tag(TagRegistry.Items.SUGAR_BEET_SEEDS).add(ItemRegistry.SUGAR_BEET_SEEDS.get());
-       tag(TagRegistry.Items.STRAWBERRY_SEEDS).add(ItemRegistry.STRAWBERRY_SEEDS.get());
+        tag(TagRegistry.Items.STRAWBERRY_SEEDS).add(ItemRegistry.STRAWBERRY_SEEDS.get());
 //      tag(TagRegistry.Items.ONION_SEEDS).add(ItemRegistry.ONION_SEEDS.get());
 //     tag(TagRegistry.Items.CHILI_PEPPER_SEEDS).add(ItemRegistry.CHILI_PEPPER_SEEDS.get());
 //      tag(TagRegistry.Items.RICE).add(ItemRegistry.RICE.get());
@@ -164,9 +164,9 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
 
         tag(ItemTags.VILLAGER_PLANTABLE_SEEDS)
                 .add(ItemRegistry.TOMATO_SEEDS.get())
-    //            .add(ItemRegistry.LETTUCE_SEEDS.get())
+                .add(ItemRegistry.LETTUCE_SEEDS.get())
                 .add(ItemRegistry.CORN_SEEDS.get())
-    //            .add(ItemRegistry.CUCUMBER_SEEDS.get())
+                .add(ItemRegistry.CUCUMBER_SEEDS.get())
     //            .add(ItemRegistry.COFFEE_SEEDS.get())
 //                .add(ItemRegistry.ONION_SEEDS.get())
 //                .add(ItemRegistry.CHILI_PEPPER_SEEDS.get())
@@ -252,15 +252,15 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
         copy(TagRegistry.Blocks.RUBBER_LOGS, TagRegistry.Items.RUBBER_LOGS);
         copy(BlockTags.PLANKS, ItemTags.PLANKS);
 
-        this.tag(TagRegistry.Items.HIGH_TIER_HOES)
+        tag(TagRegistry.Items.HIGH_TIER_HOES)
                 .add(ItemRegistry.DIAMOND_SCYTHE.get())
                 .add(ItemRegistry.NETHERITE_SCYTHE.get());
 
-        this.tag(TagRegistry.Items.MID_TIER_HOES)
+        tag(TagRegistry.Items.MID_TIER_HOES)
                 .add(ItemRegistry.GOLDEN_SCYTHE.get())
                 .add(ItemRegistry.IRON_SCYTHE.get());
 
-        this.tag(TagRegistry.Items.LOW_TIER_HOES)
+        tag(TagRegistry.Items.LOW_TIER_HOES)
                 .add(ItemRegistry.COPPER_SCYTHE.get())
                 .add(ItemRegistry.STONE_SCYTHE.get());
 

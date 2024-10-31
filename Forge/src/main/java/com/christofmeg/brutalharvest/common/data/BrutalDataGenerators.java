@@ -46,7 +46,6 @@ public class BrutalDataGenerators {
 
         for (String locale : LOCALE_CODES) {
             gen.addProvider(true, new BrutalLanguageProvider(output, locale));
-
         }
 
     }

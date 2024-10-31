@@ -105,5 +105,10 @@ public class BrutalBlockTagsProvider extends BlockTagsProvider {
         tag(BlockTags.MINEABLE_WITH_HOE)
                 .add(BlockRegistry.RUBBER_LEAVES.get());
 
+        tag(TagRegistry.Blocks.MINEABLE_WITH_SCYTHE)
+                .addTag(BlockTags.CROPS)
+                .addTag(BlockTags.FLOWERS)
+                .addTag(BlockTags.REPLACEABLE_BY_TREES);
+
     }
 }
