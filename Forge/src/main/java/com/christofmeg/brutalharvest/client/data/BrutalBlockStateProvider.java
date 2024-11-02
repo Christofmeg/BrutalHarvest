@@ -52,20 +52,20 @@ public class BrutalBlockStateProvider extends BaseBlockStateProvider {
         ModelFile farmland = vanillaModels().withExistingParent("farmland", mcLoc("block/farmland_moist"));
         ModelFile farmland_moist = vanillaModels().withExistingParent("farmland_moist", mcLoc("block/farmland_moist"));
         ModelFile farmland_slab = models().withExistingParent("farmland_slab", modLoc("block/lowered_slab"))
-                .texture("bottom", mcLoc("block/farmland"))
-                .texture("side", mcLoc("block/farmland"))
+                .texture("bottom", mcLoc("block/dirt"))
+                .texture("side", mcLoc("block/dirt"))
                 .texture("top", mcLoc("block/farmland"));
         ModelFile farmland_slab_top = models().withExistingParent("farmland_slab_top", modLoc("block/lowered_slab_top"))
-                .texture("bottom", mcLoc("block/farmland"))
-                .texture("side", mcLoc("block/farmland"))
+                .texture("bottom", mcLoc("block/dirt"))
+                .texture("side", mcLoc("block/dirt"))
                 .texture("top", mcLoc("block/farmland"));
         ModelFile farmland_slab_moist = models().withExistingParent("farmland_slab_moist", modLoc("block/lowered_slab"))
-                .texture("bottom", mcLoc("block/farmland"))
-                .texture("side", mcLoc("block/farmland"))
+                .texture("bottom", mcLoc("block/dirt"))
+                .texture("side", mcLoc("block/dirt"))
                 .texture("top", mcLoc("block/farmland_moist"));
         ModelFile farmland_slab_moist_top = models().withExistingParent("farmland_slab_moist_top", modLoc("block/lowered_slab_top"))
-                .texture("bottom", mcLoc("block/farmland"))
-                .texture("side", mcLoc("block/farmland"))
+                .texture("bottom", mcLoc("block/dirt"))
+                .texture("side", mcLoc("block/dirt"))
                 .texture("top", mcLoc("block/farmland_moist"));
         for (int moisture = 0; moisture <= 7; moisture++) {
             ModelFile bottomModel = farmland_slab;

@@ -1,101 +1,42 @@
 package com.christofmeg.brutalharvest.common.event;
 
 import com.christofmeg.brutalharvest.CommonConstants;
-import com.christofmeg.brutalharvest.common.init.BlockRegistry;
-import com.christofmeg.brutalharvest.common.init.ItemRegistry;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.HoeItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.ComposterBlock;
-import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.common.ToolAction;
+import net.minecraftforge.common.ToolActions;
+import net.minecraftforge.event.level.BlockEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.registries.RegistryObject;
 
+import java.util.Objects;
 
 @Mod.EventBusSubscriber(modid = CommonConstants.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class CommonSetupEvent {
 
     public void commonSetupEvent(final FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
-            compost(ItemRegistry.UNRIPE_TOMATO, 0.30F);
-            compost(ItemRegistry.TOMATO, 0.65F);
-            compost(ItemRegistry.ROTTEN_TOMATO, 0.85F);
-            compost(ItemRegistry.TOMATO_SLICE, 0.30F);
-
-            compost(ItemRegistry.LETTUCE, 0.65F);
-            compost(ItemRegistry.SLICED_LETTUCE, 0.50F);
-
-            compost(ItemRegistry.CORN, 0.65F);
-
-            compost(ItemRegistry.CUCUMBER, 0.65F);
-            compost(ItemRegistry.CUCUMBER_SLICE, 0.50F);
-            compost(ItemRegistry.PICKLE, 0.65F);
-/*
-            compost(ItemRegistry.COFFEE_BEANS, 0.30F);
-            compost(ItemRegistry.DRIED_COFFEE_BEANS, 0.30F);
-            compost(ItemRegistry.COFFEE_POWDER, 0.30F);
-*/
-            compost(ItemRegistry.RAPESEED_BEANS, 0.50F);
-
-            compost(ItemRegistry.SUGAR_BEET, 0.65F);
-
-            compost(ItemRegistry.UNRIPE_STRAWBERRY, 0.45F);
-            compost(ItemRegistry.STRAWBERRY, 0.65F);
-
-//          compost(ItemRegistry.ONION, 0.65F);
-/*
-            compost(ItemRegistry.GREEN_CHILI_PEPPER, 0.85F);
-            compost(ItemRegistry.YELLOW_CHILI_PEPPER, 0.85F);
-            compost(ItemRegistry.RED_PEPPER_SEEDS, 0.65F);
-*/
-//          compost(ItemRegistry.COOKED_RICE, 0.40F);
-
-            compost(ItemRegistry.TOMATO_SEEDS, 0.30F);
-            compost(ItemRegistry.LETTUCE_SEEDS, 0.30F);
-            compost(ItemRegistry.CORN_SEEDS, 0.30F);
-            compost(ItemRegistry.CUCUMBER_SEEDS, 0.30F);
-            compost(ItemRegistry.COTTON_SEEDS, 0.30F);
-//          compost(ItemRegistry.COFFEE_CHERRY, 0.30F);
-            compost(ItemRegistry.RAPESEEDS, 0.30F);
-            compost(ItemRegistry.SUGAR_BEET_SEEDS, 0.30F);
-            compost(ItemRegistry.STRAWBERRY_SEEDS, 0.30F);
-//          compost(ItemRegistry.ONION_SEEDS, 0.30F);
-//          compost(ItemRegistry.CHILI_PEPPER_SEEDS, 0.30F);
-//          compost(ItemRegistry.RICE, 0.30F);
-
-            compost(ItemRegistry.BLUEBERRY, 0.50F);
-
-            compost(BlockRegistry.RUBBER_SAPLING.get().asItem(), 0.30F);
+            ComposterBlockCompostables.registerCompostables();
+            HoeItemTillables.registerTillables();
         });
     }
 
-    private void compost(RegistryObject<Item> item, float value) {
-        compost(item.get(), value);
-    }
-
-    private void compost(Item item, float value) {
-        ComposterBlock.COMPOSTABLES.put(item, value);
-    }
-
     @SubscribeEvent
-    public static void onRightClickBlock(final PlayerInteractEvent.RightClickBlock event) {
-        Level level = event.getLevel();
-        if (!level.isClientSide) {
-            ItemStack stack = event.getItemStack();
-            if (stack.getItem() instanceof HoeItem) {
-                BlockPos pos = event.getPos();
-                BlockState state = level.getBlockState(pos);
-                if (state.getBlock() == BlockRegistry.DIRT_SLAB.get()) {
-                    level.setBlock(pos, BlockRegistry.FARMLAND_SLAB.get().defaultBlockState().setValue(SlabBlock.TYPE, state.getValue(SlabBlock.TYPE)), 2);
-                    stack.hurtAndBreak(1, event.getEntity(), e -> e.broadcastBreakEvent(EquipmentSlot.MAINHAND));
-                }
+    public static void tillFarmlandEvent(final BlockEvent.BlockToolModificationEvent event) {
+        BlockState state = event.getState();
+        ToolAction toolAction = event.getToolAction();
+        UseOnContext context = event.getContext();
+        if (!event.isSimulated() && toolAction == ToolActions.HOE_TILL) {
+            var pair = HoeItemTillables.TILLABLES.get(state.getBlock());
+            if (pair != null && pair.getFirst().test(context)) {
+                pair.getSecond().accept(context);
+                event.getLevel().playSound(event.getPlayer(), event.getPos(), SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);
+                event.setResult(Event.Result.ALLOW);
+                Objects.requireNonNull(event.getPlayer()).swing(context.getHand());
             }
         }
     }
