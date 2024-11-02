@@ -1,7 +1,8 @@
 package com.christofmeg.brutalharvest.common.data;
 
 import com.christofmeg.brutalharvest.common.data.base.BaseRecipeProvider;
-import com.christofmeg.brutalharvest.common.data.builder.CustomShapelessRecipeBuilder;
+import com.christofmeg.brutalharvest.common.data.builder.ShapelessDamageTool;
+import com.christofmeg.brutalharvest.common.data.builder.ShapelessWithRemainder;
 import com.christofmeg.brutalharvest.common.init.BlockRegistry;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
 import com.christofmeg.brutalharvest.common.init.TagRegistry;
@@ -14,6 +15,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 import org.jetbrains.annotations.NotNull;
 
@@ -138,6 +140,32 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .pattern("LL")
                 .unlockedBy("has_rubber_log", has(TagRegistry.Items.RUBBER_LOGS))
                 .save(consumer, modLoc(getItemName(BlockRegistry.STRIPPED_RUBBER_WOOD.get())));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.FARMLAND_SLAB.get(), 6)
+                .define('B', Blocks.FARMLAND)
+                .pattern("BBB")
+                .unlockedBy("has_dirt", has(ItemTags.DIRT))
+                .save(consumer, modLoc(getItemName(BlockRegistry.FARMLAND_SLAB.get())));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Blocks.FARMLAND)
+                .define('B', BlockRegistry.FARMLAND_SLAB.get())
+                .pattern("B")
+                .pattern("B")
+                .unlockedBy("has_dirt", has(ItemTags.DIRT))
+                .save(consumer, modLoc(getItemName(Blocks.FARMLAND)));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.DIRT_SLAB.get(), 6)
+                .define('B', Blocks.DIRT)
+                .pattern("BBB")
+                .unlockedBy("has_dirt", has(ItemTags.DIRT))
+                .save(consumer, modLoc(getItemName(BlockRegistry.DIRT_SLAB.get())));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Blocks.DIRT)
+                .define('B', BlockRegistry.DIRT_SLAB.get())
+                .pattern("B")
+                .pattern("B")
+                .unlockedBy("has_dirt", has(ItemTags.DIRT))
+                .save(consumer, modLoc(getItemName(Blocks.DIRT)));
 
 /*        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.SUSHI.get())
                 .define('K', Items.DRIED_KELP)
@@ -298,7 +326,7 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .requires(TagRegistry.Items.BUCKETS_MILK)
                 .unlockedBy("flour", has(ItemRegistry.FLOUR.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.DOUGH.get()) + "_from_" + "milk_bucket"));
-        CustomShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.DOUGH.get())
+        ShapelessWithRemainder.shapeless(RecipeCategory.MISC, ItemRegistry.DOUGH.get())
                 .requires(Ingredient.of(TagRegistry.Items.FLOUR), 2)
                 .requires(Tags.Items.EGGS)
                 .requires(new NBTIngredient(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER)))
@@ -325,7 +353,7 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .requires(TagRegistry.Items.BUCKETS_MILK)
                 .unlockedBy("flour", has(ItemRegistry.FLOUR.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.TOMATO_DOUGH.get()) + "_from_" + "milk_bucket"));
-        CustomShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_DOUGH.get())
+        ShapelessWithRemainder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_DOUGH.get())
                 .requires(TagRegistry.Items.FLOUR)
                 .requires(TagRegistry.Items.TOMATO)
                 .requires(Tags.Items.EGGS)
@@ -343,6 +371,18 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .requires(TagRegistry.Items.RUBBER_LOGS)
                 .unlockedBy("has_rubber_log", has(TagRegistry.Items.RUBBER_LOGS))
                 .save(consumer, modLoc(getItemName(BlockRegistry.RUBBER_PLANKS.get())));
+
+        ShapelessDamageTool.shapeless(RecipeCategory.MISC, Blocks.FARMLAND)
+                .requires(ItemTags.HOES)
+                .requires(Items.DIRT)
+                .unlockedBy("has_hoe", has(ItemTags.HOES))
+                .save(consumer, modLoc(getItemName(Blocks.FARMLAND) + "_from_hoe"));
+
+        ShapelessDamageTool.shapeless(RecipeCategory.MISC, BlockRegistry.FARMLAND_SLAB.get())
+                .requires(ItemTags.HOES)
+                .requires(BlockRegistry.DIRT_SLAB.get())
+                .unlockedBy("has_hoe", has(ItemTags.HOES))
+                .save(consumer, modLoc(getItemName(BlockRegistry.FARMLAND_SLAB.get()) + "_from_hoe"));
 
     }
 

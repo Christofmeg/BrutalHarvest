@@ -1,6 +1,7 @@
 package com.christofmeg.brutalharvest.common.data;
 
 import com.christofmeg.brutalharvest.CommonConstants;
+import com.christofmeg.brutalharvest.common.init.BlockRegistry;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
 import com.christofmeg.brutalharvest.common.init.TagRegistry;
 import com.christofmeg.brutalharvest.common.item.KnifeItem;
@@ -263,6 +264,8 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
         tag(TagRegistry.Items.LOW_TIER_HOES)
                 .add(ItemRegistry.COPPER_SCYTHE.get())
                 .add(ItemRegistry.STONE_SCYTHE.get());
+
+        tag(ItemTags.SLABS).add(BlockRegistry.DIRT_SLAB.get().asItem()).add(BlockRegistry.FARMLAND_SLAB.get().asItem());
 
     }
 }

@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
-public class CustomShapelessRecipeBuilder extends ShapelessRecipeBuilder {
+public class ShapelessDamageTool extends ShapelessRecipeBuilder {
 
     private final RecipeCategory category;
     private final Item result;
@@ -32,62 +32,60 @@ public class CustomShapelessRecipeBuilder extends ShapelessRecipeBuilder {
     private final Advancement.Builder advancement = Advancement.Builder.recipeAdvancement();
     @Nullable private String group;
 
-    public CustomShapelessRecipeBuilder(RecipeCategory pCategory, ItemLike pResult, int pCount) {
+    public ShapelessDamageTool(RecipeCategory pCategory, ItemLike pResult, int pCount) {
         super(pCategory, pResult, pCount);
         this.category = pCategory;
         this.result = pResult.asItem();
         this.count = pCount;
     }
 
-    public static CustomShapelessRecipeBuilder shapeless(@NotNull RecipeCategory pCategory, ItemLike pResult) {
-        return new CustomShapelessRecipeBuilder(pCategory, pResult, 1);
+    public static ShapelessDamageTool shapeless(@NotNull RecipeCategory pCategory, ItemLike pResult) {
+        return new ShapelessDamageTool(pCategory, pResult, 1);
     }
 
-    public static CustomShapelessRecipeBuilder shapeless(@NotNull RecipeCategory pCategory, ItemLike pResult, int pCount) {
-        return new CustomShapelessRecipeBuilder(pCategory, pResult, pCount);
+    public static ShapelessDamageTool shapeless(@NotNull RecipeCategory pCategory, ItemLike pResult, int pCount) {
+        return new ShapelessDamageTool(pCategory, pResult, pCount);
     }
 
     @Override
-    public @NotNull CustomShapelessRecipeBuilder requires(@NotNull TagKey<Item> pTag) {
+    public @NotNull ShapelessDamageTool requires(@NotNull TagKey<Item> pTag) {
         return this.requires(Ingredient.of(pTag));
     }
 
     @Override
-    public @NotNull CustomShapelessRecipeBuilder requires(@NotNull ItemLike pItem) {
-        return this.requires((ItemLike)pItem, 1);
+    public @NotNull ShapelessDamageTool requires(@NotNull ItemLike pItem) {
+        return this.requires(pItem, 1);
     }
 
     @Override
-    public @NotNull CustomShapelessRecipeBuilder requires(@NotNull ItemLike pItem, int pQuantity) {
+    public @NotNull ShapelessDamageTool requires(@NotNull ItemLike pItem, int pQuantity) {
         for(int $$2 = 0; $$2 < pQuantity; ++$$2) {
-            this.requires(Ingredient.of(new ItemLike[]{pItem}));
+            this.requires(Ingredient.of(pItem));
         }
-
         return this;
     }
 
     @Override
-    public @NotNull CustomShapelessRecipeBuilder requires(@NotNull Ingredient pIngredient) {
-        return this.requires((Ingredient)pIngredient, 1);
+    public @NotNull ShapelessDamageTool requires(@NotNull Ingredient pIngredient) {
+        return this.requires(pIngredient, 1);
     }
 
     @Override
-    public @NotNull CustomShapelessRecipeBuilder requires(@NotNull Ingredient pIngredient, int pQuantity) {
+    public @NotNull ShapelessDamageTool requires(@NotNull Ingredient pIngredient, int pQuantity) {
         for(int $$2 = 0; $$2 < pQuantity; ++$$2) {
             this.ingredients.add(pIngredient);
         }
-
         return this;
     }
 
     @Override
-    public @NotNull CustomShapelessRecipeBuilder unlockedBy(@NotNull String pCriterionName, @NotNull CriterionTriggerInstance pCriterionTrigger) {
+    public @NotNull ShapelessDamageTool unlockedBy(@NotNull String pCriterionName, @NotNull CriterionTriggerInstance pCriterionTrigger) {
         this.advancement.addCriterion(pCriterionName, pCriterionTrigger);
         return this;
     }
 
     @Override
-    public @NotNull CustomShapelessRecipeBuilder group(@Nullable String pGroupName) {
+    public @NotNull ShapelessDamageTool group(@Nullable String pGroupName) {
         this.group = pGroupName;
         return this;
     }
@@ -110,14 +108,14 @@ public class CustomShapelessRecipeBuilder extends ShapelessRecipeBuilder {
         }
     }
 
-    public static class CustomResult extends ShapelessRecipeBuilder.Result {
+    public static class CustomResult extends Result {
         public CustomResult(ResourceLocation pId, Item pResult, int pCount, String pGroup, CraftingBookCategory pCategory, List<Ingredient> pIngredients, Advancement.Builder pAdvancement, ResourceLocation pAdvancementId) {
             super(pId, pResult, pCount, pGroup, pCategory, pIngredients, pAdvancement, pAdvancementId);
         }
 
         @Override
         public @NotNull RecipeSerializer<?> getType() {
-            return RecipeSerializerRegistry.CUSTOM_SHAPELESS_RECIPE.get();
+            return RecipeSerializerRegistry.SHAPELESS_DAMAGE_TOOL.get();
         }
     }
 

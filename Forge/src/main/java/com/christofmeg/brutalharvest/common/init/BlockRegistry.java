@@ -3,10 +3,10 @@ package com.christofmeg.brutalharvest.common.init;
 import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.block.*;
 import com.christofmeg.brutalharvest.common.world.tree.RubberTreeGrower;
-import net.minecraft.world.item.AxeItem;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
@@ -50,6 +50,9 @@ public class BlockRegistry {
 
 //    public static final RegistryObject<Block> RUBBER_CAULDRON;
 //    public static final RegistryObject<Block> MILLSTONE;
+
+    public static final RegistryObject<Block> FARMLAND_SLAB;
+    public static final RegistryObject<Block> DIRT_SLAB;
 
     private BlockRegistry() {
     }
@@ -116,7 +119,11 @@ public class BlockRegistry {
         RUBBER_LOG_GENERATED = BLOCKS.register("rubber_log_generated", () -> new RubberLogGeneratedBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava()));
         ItemRegistry.ITEMS.register("rubber_log_generated", () -> new BlockItem(RUBBER_LOG_GENERATED.get(), new Item.Properties()));
 
+        FARMLAND_SLAB = BLOCKS.register("farmland_slab", () -> new FarmlandSlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).randomTicks().strength(0.6F).sound(SoundType.GRAVEL).isViewBlocking(BlockRegistry::always).isSuffocating(BlockRegistry::always)));
+        ItemRegistry.ITEMS.register("farmland_slab", () -> new BlockItem(FARMLAND_SLAB.get(), new Item.Properties()));
 
+        DIRT_SLAB = BLOCKS.register("dirt_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).strength(0.5F).sound(SoundType.GRAVEL)));
+        ItemRegistry.ITEMS.register("dirt_slab", () -> new BlockItem(DIRT_SLAB.get(), new Item.Properties()));
 
         // BIRCH_SIGN,
         // BIRCH_WALL_SIGN,
@@ -142,6 +149,10 @@ public class BlockRegistry {
         RegistryObject<Block> block = BLOCKS.register(name, () -> new Block(blockProperties));
         ItemRegistry.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
         return block;
+    }
+
+    private static boolean always(BlockState p_50775_, BlockGetter p_50776_, BlockPos p_50777_) {
+        return true;
     }
 
 }

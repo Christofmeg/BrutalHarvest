@@ -10,19 +10,14 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.inventory.CraftingContainer;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.PotionUtils;
-import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.*;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Iterator;
-
-public class CustomShapelessRecipe extends ShapelessRecipe {
+public class ShapelessRecipeDamageTool extends ShapelessRecipe {
 
     final ItemStack result;
 
-    public CustomShapelessRecipe(ResourceLocation id, String group, ItemStack result, NonNullList<Ingredient> ingredients) {
+    public ShapelessRecipeDamageTool(ResourceLocation id, String group, ItemStack result, NonNullList<Ingredient> ingredients) {
         super(id, group, CraftingBookCategory.MISC, result, ingredients);
         this.result = result;
     }
@@ -31,29 +26,29 @@ public class CustomShapelessRecipe extends ShapelessRecipe {
     public @NotNull NonNullList<ItemStack> getRemainingItems(CraftingContainer inv) {
         NonNullList<ItemStack> remainingItems = NonNullList.withSize(inv.getContainerSize(), ItemStack.EMPTY);
         for (int i = 0; i < remainingItems.size(); ++i) {
-            ItemStack itemstack = inv.getItem(i);
-            if (itemstack.getItem() == Items.POTION && PotionUtils.getPotion(itemstack) == Potions.WATER) {
-                remainingItems.set(i, new ItemStack(Items.GLASS_BOTTLE));
+            ItemStack stack = inv.getItem(i);
+            if (stack.isDamageableItem()) {
+                stack.setDamageValue(stack.getDamageValue() + 1);
+                remainingItems.set(i, stack.copy());
             } else {
                 super.getRemainingItems(inv);
             }
         }
-
         return remainingItems;
     }
 
     @Override
     public @NotNull RecipeSerializer<?> getSerializer() {
-        return RecipeSerializerRegistry.CUSTOM_SHAPELESS_RECIPE.get();
+        return RecipeSerializerRegistry.SHAPELESS_RECIPE_WITH_REMAINDER.get();
     }
 
-    public static class Serializer implements RecipeSerializer<CustomShapelessRecipe> {
+    public static class Serializer implements RecipeSerializer<ShapelessRecipeDamageTool> {
 
         public Serializer() {
         }
 
         @Override
-        public CustomShapelessRecipe fromJson(ResourceLocation pRecipeId, JsonObject pJson) {
+        public @NotNull ShapelessRecipeDamageTool fromJson(@NotNull ResourceLocation pRecipeId, @NotNull JsonObject pJson) {
             String s = GsonHelper.getAsString(pJson, "group", "");
             NonNullList<Ingredient> nonnulllist = itemsFromJson(GsonHelper.getAsJsonArray(pJson, "ingredients"));
             if (nonnulllist.isEmpty()) {
@@ -62,7 +57,7 @@ public class CustomShapelessRecipe extends ShapelessRecipe {
                 throw new JsonParseException("Too many ingredients for shapeless recipe. The maximum is " + 3 * 3);
             } else {
                 ItemStack itemstack = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pJson, "result"));
-                return new CustomShapelessRecipe(pRecipeId, s, itemstack, nonnulllist);
+                return new ShapelessRecipeDamageTool(pRecipeId, s, itemstack, nonnulllist);
             }
         }
 
@@ -78,32 +73,28 @@ public class CustomShapelessRecipe extends ShapelessRecipe {
         }
 
         @Override
-        public CustomShapelessRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
-            String s = pBuffer.readUtf();
-            int i = pBuffer.readVarInt();
+        public ShapelessRecipeDamageTool fromNetwork(@NotNull ResourceLocation pRecipeId, FriendlyByteBuf buf) {
+            String s = buf.readUtf();
+            int i = buf.readVarInt();
             NonNullList<Ingredient> nonnulllist = NonNullList.withSize(i, Ingredient.EMPTY);
 
-            for(int j = 0; j < nonnulllist.size(); ++j) {
-                nonnulllist.set(j, Ingredient.fromNetwork(pBuffer));
-            }
+            nonnulllist.replaceAll(ignored -> Ingredient.fromNetwork(buf));
 
-            ItemStack itemstack = pBuffer.readItem();
-            return new CustomShapelessRecipe(pRecipeId, s, itemstack, nonnulllist);
+            ItemStack itemstack = buf.readItem();
+            return new ShapelessRecipeDamageTool(pRecipeId, s, itemstack, nonnulllist);
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf pBuffer, CustomShapelessRecipe pRecipe) {
-            pBuffer.writeUtf(pRecipe.getGroup());
-            pBuffer.writeEnum(pRecipe.category());
-            pBuffer.writeVarInt(pRecipe.getIngredients().size());
-            Iterator var3 = pRecipe.getIngredients().iterator();
+        public void toNetwork(FriendlyByteBuf buf, ShapelessRecipeDamageTool pRecipe) {
+            buf.writeUtf(pRecipe.getGroup());
+            buf.writeEnum(pRecipe.category());
+            buf.writeVarInt(pRecipe.getIngredients().size());
 
-            while(var3.hasNext()) {
-                Ingredient ingredient = (Ingredient)var3.next();
-                ingredient.toNetwork(pBuffer);
+            for (Ingredient ingredient : pRecipe.getIngredients()) {
+                ingredient.toNetwork(buf);
             }
 
-            pBuffer.writeItem(pRecipe.result);
+            buf.writeItem(pRecipe.result);
         }
     }
 

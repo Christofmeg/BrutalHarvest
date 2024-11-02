@@ -1,7 +1,7 @@
 package com.christofmeg.brutalharvest.common.init;
 
 import com.christofmeg.brutalharvest.CommonConstants;
-import com.christofmeg.brutalharvest.common.recipe.CustomShapelessRecipe;
+import com.christofmeg.brutalharvest.common.recipe.ShapelessRecipeWithRemainder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -18,7 +18,7 @@ public class RecipeTypeRegistry {
     }
 
     public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(ForgeRegistries.RECIPE_TYPES, CommonConstants.MOD_ID);
-    public static final RegistryObject<RecipeType<CustomShapelessRecipe>> CUSTOM_SHAPELESS_RECIPE;
+    public static final RegistryObject<RecipeType<ShapelessRecipeWithRemainder>> CUSTOM_SHAPELESS_RECIPE;
 
     static {
         CUSTOM_SHAPELESS_RECIPE = RECIPE_TYPES.register("custom_shapeless",

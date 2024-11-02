@@ -9,9 +9,12 @@ import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.ApplyExplosionDecay;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
@@ -188,6 +191,29 @@ public class BrutalBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(BlockRegistry.RUBBER_PLANKS.get());
         this.add(BlockRegistry.RUBBER_LEAVES.get(), block -> createLeavesDrops(block, BlockRegistry.RUBBER_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
         this.dropOther(BlockRegistry.RUBBER_LOG_GENERATED.get(), BlockRegistry.RUBBER_LOG.get());
+
+        LootTable.Builder silktouch = LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+                        .when(HAS_SILK_TOUCH)
+                        .add(LootItem.lootTableItem(BlockRegistry.FARMLAND_SLAB.get())
+                                        .apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))
+                                                .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BlockRegistry.FARMLAND_SLAB.get())
+                                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SlabBlock.TYPE, SlabType.DOUBLE))))
+                                .apply(ApplyExplosionDecay.explosionDecay())
+                        )
+                )
+                .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+                        .when(HAS_NO_SILK_TOUCH)
+                        .add(LootItem.lootTableItem(BlockRegistry.DIRT_SLAB.get())
+                                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))
+                                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BlockRegistry.FARMLAND_SLAB.get())
+                                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SlabBlock.TYPE, SlabType.DOUBLE))))
+                                .apply(ApplyExplosionDecay.explosionDecay())
+                        )
+                );
+
+        this.add(BlockRegistry.FARMLAND_SLAB.get(), silktouch);
+        this.add(BlockRegistry.DIRT_SLAB.get(), this.createSlabItemTable(BlockRegistry.DIRT_SLAB.get()));
 
     }
 

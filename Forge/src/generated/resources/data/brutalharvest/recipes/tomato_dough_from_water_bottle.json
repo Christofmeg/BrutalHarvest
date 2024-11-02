@@ -1,5 +1,5 @@
 {
-  "type": "brutalharvest:custom_shapeless",
+  "type": "brutalharvest:shapeless_with_remainder",
   "category": "misc",
   "ingredients": [
     {

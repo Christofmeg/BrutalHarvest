@@ -1,0 +1,8 @@
+{
+  "parent": "brutalharvest:block/lowered_slab_top",
+  "textures": {
+    "bottom": "minecraft:block/farmland",
+    "side": "minecraft:block/farmland",
+    "top": "minecraft:block/farmland_moist"
+  }
+}

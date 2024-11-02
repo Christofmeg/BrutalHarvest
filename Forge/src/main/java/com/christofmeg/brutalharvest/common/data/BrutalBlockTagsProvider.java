@@ -6,7 +6,6 @@ import com.christofmeg.brutalharvest.common.init.TagRegistry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
@@ -109,6 +108,20 @@ public class BrutalBlockTagsProvider extends BlockTagsProvider {
                 .addTag(BlockTags.CROPS)
                 .addTag(BlockTags.FLOWERS)
                 .addTag(BlockTags.REPLACEABLE_BY_TREES);
+
+        tag(BlockTags.NETHER_CARVER_REPLACEABLES).add(BlockRegistry.DIRT_SLAB.get());
+        tag(BlockTags.SNIFFER_DIGGABLE_BLOCK).add(BlockRegistry.DIRT_SLAB.get());
+        tag(BlockTags.LUSH_GROUND_REPLACEABLE).add(BlockRegistry.DIRT_SLAB.get());
+        tag(BlockTags.ENDERMAN_HOLDABLE).add(BlockRegistry.DIRT_SLAB.get());
+        tag(BlockTags.MOSS_REPLACEABLE).add(BlockRegistry.DIRT_SLAB.get());
+        tag(BlockTags.MINEABLE_WITH_SHOVEL).add(BlockRegistry.DIRT_SLAB.get()).add(BlockRegistry.FARMLAND_SLAB.get());
+        tag(BlockTags.SCULK_REPLACEABLE_WORLD_GEN).add(BlockRegistry.DIRT_SLAB.get());
+        tag(BlockTags.AZALEA_ROOT_REPLACEABLE).add(BlockRegistry.DIRT_SLAB.get());
+        tag(BlockTags.CONVERTABLE_TO_MUD).add(BlockRegistry.DIRT_SLAB.get());
+        tag(BlockTags.SCULK_REPLACEABLE).add(BlockRegistry.DIRT_SLAB.get());
+        tag(BlockTags.OVERWORLD_CARVER_REPLACEABLES).add(BlockRegistry.DIRT_SLAB.get());
+        tag(BlockTags.DIRT).add(BlockRegistry.DIRT_SLAB.get());
+        tag(BlockTags.SLABS).add(BlockRegistry.DIRT_SLAB.get()).add(BlockRegistry.FARMLAND_SLAB.get());
 
     }
 }

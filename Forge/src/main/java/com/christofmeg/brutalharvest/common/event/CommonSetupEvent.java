@@ -3,8 +3,17 @@ package com.christofmeg.brutalharvest.common.event;
 import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.init.BlockRegistry;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.ComposterBlock;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.registries.RegistryObject;
@@ -73,6 +82,22 @@ public class CommonSetupEvent {
 
     private void compost(Item item, float value) {
         ComposterBlock.COMPOSTABLES.put(item, value);
+    }
+
+    @SubscribeEvent
+    public static void onRightClickBlock(final PlayerInteractEvent.RightClickBlock event) {
+        Level level = event.getLevel();
+        if (!level.isClientSide) {
+            ItemStack stack = event.getItemStack();
+            if (stack.getItem() instanceof HoeItem) {
+                BlockPos pos = event.getPos();
+                BlockState state = level.getBlockState(pos);
+                if (state.getBlock() == BlockRegistry.DIRT_SLAB.get()) {
+                    level.setBlock(pos, BlockRegistry.FARMLAND_SLAB.get().defaultBlockState().setValue(SlabBlock.TYPE, state.getValue(SlabBlock.TYPE)), 2);
+                    stack.hurtAndBreak(1, event.getEntity(), e -> e.broadcastBreakEvent(EquipmentSlot.MAINHAND));
+                }
+            }
+        }
     }
 
     /*
