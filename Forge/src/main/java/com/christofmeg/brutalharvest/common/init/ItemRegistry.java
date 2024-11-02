@@ -65,7 +65,8 @@ public class ItemRegistry {
     // public static final RegistryObject<Item> CUCUMBER_SUSHI;
     // public static final RegistryObject<Item> LOBSTER_SUSHI;
 
-    // public static final RegistryObject<Item> RICE;
+//    public static final RegistryObject<Item> RICE;
+//    public static final RegistryObject<Item> RICE_SEEDS;
 
     public static final RegistryObject<Item> FRIED_EGG;
     public static final RegistryObject<Item> SCRAMBLED_EGG;
@@ -193,7 +194,8 @@ public class ItemRegistry {
         // CUCUMBER_SUSHI = ITEMS.register("cucumber_sushi", () -> new Item(new Item.Properties().food(BrutalFoods.CUCUMBER_SUSHI)));
         // LOBSTER_SUSHI = ITEMS.register("lobster_sushi", () -> new Item(new Item.Properties().food(BrutalFoods.LOBSTER_SUSHI)));
 
-        // RICE = ITEMS.register("rice", () -> new Item(new Item.Properties().food(BrutalFoods.RICE)));
+//        RICE = ITEMS.register("rice", () -> new Item(new Item.Properties()));
+//        RICE_SEEDS = ITEMS.register("rice_seeds", () -> new ItemNameBlockItem(BlockRegistry.SUGAR_BEET.get(), new Item.Properties()));
 
         FRIED_EGG = ITEMS.register("fried_egg", () -> new Item(new Item.Properties().food(BrutalFoods.FRIED_EGG)));
         SCRAMBLED_EGG = ITEMS.register("scrambled_egg", () -> new Item(new Item.Properties().food(BrutalFoods.SCRAMBLED_EGG)));
