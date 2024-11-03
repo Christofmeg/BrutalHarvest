@@ -1,6 +1,7 @@
 package com.christofmeg.brutalharvest.common.data;
 
 import com.christofmeg.brutalharvest.CommonConstants;
+import com.christofmeg.brutalharvest.common.advancement.ThrownKnifeTrigger;
 import com.christofmeg.brutalharvest.common.advancement.ThrownScytheTrigger;
 import com.christofmeg.brutalharvest.common.advancement.TomatoProjectileTrigger;
 import com.christofmeg.brutalharvest.common.init.BlockRegistry;
@@ -39,7 +40,7 @@ public class BrutalAdvancementProvider extends ForgeAdvancementProvider {
             Advancement root = Advancement.Builder.advancement()
                     .display(ItemRegistry.TOMATO.get(),
                             Component.translatable(CommonConstants.MOD_NAME),
-                            Component.translatable(CommonConstants.MOD_ID + "." + "advancement.root.desc"),
+                            Component.translatable("advancement" + "." + CommonConstants.MOD_ID + "." + "root.desc"),
                             new ResourceLocation("minecraft:textures/block/rooted_dirt.png"),
                             FrameType.TASK, true, true, false)
                     .addCriterion("0", InventoryChangeTrigger.TriggerInstance.hasItems(ItemRegistry.UNRIPE_TOMATO.get()))
@@ -50,8 +51,8 @@ public class BrutalAdvancementProvider extends ForgeAdvancementProvider {
 
             Advancement.Builder.advancement()
                     .display(ItemRegistry.ROTTEN_TOMATO.get(),
-                            Component.translatable(CommonConstants.MOD_ID + "." + "advancement.rotten_tomatoes"),
-                            Component.translatable(CommonConstants.MOD_ID + "." + "advancement.rotten_tomatoes.desc"),
+                            Component.translatable("advancement" + "." + CommonConstants.MOD_ID + "." + "rotten_tomatoes"),
+                            Component.translatable("advancement" + "." + CommonConstants.MOD_ID + "." + "rotten_tomatoes.desc"),
                             null,
                             FrameType.TASK, true, true, false)
                     .parent(root)
@@ -60,8 +61,8 @@ public class BrutalAdvancementProvider extends ForgeAdvancementProvider {
 
             Advancement grim_reaper = Advancement.Builder.advancement()
                     .display(ItemRegistry.STONE_SCYTHE.get(),
-                            Component.translatable(CommonConstants.MOD_ID + "." + "advancement.grim_reaper"),
-                            Component.translatable(CommonConstants.MOD_ID + "." + "advancement.grim_reaper.desc"),
+                            Component.translatable("advancement" + "." + CommonConstants.MOD_ID + "." + "grim_reaper"),
+                            Component.translatable("advancement" + "." + CommonConstants.MOD_ID + "." + "grim_reaper.desc"),
                             null,
                             FrameType.TASK, true, true, false)
                     .parent(root)
@@ -76,8 +77,8 @@ public class BrutalAdvancementProvider extends ForgeAdvancementProvider {
 
             Advancement.Builder.advancement()
                     .display(Items.ENCHANTED_BOOK,
-                            Component.translatable(CommonConstants.MOD_ID + "." + "advancement.reaperang"),
-                            Component.translatable(CommonConstants.MOD_ID + "." + "advancement.reaperang.desc"),
+                            Component.translatable("advancement" + "." + CommonConstants.MOD_ID + "." + "reaperang"),
+                            Component.translatable("advancement" + "." + CommonConstants.MOD_ID + "." + "reaperang.desc"),
                             null,
                             FrameType.TASK, true, true, false)
                     .parent(grim_reaper)
@@ -90,10 +91,28 @@ public class BrutalAdvancementProvider extends ForgeAdvancementProvider {
                     .requirements(RequirementsStrategy.OR)
                     .save(consumer, getNameId("reaperang"));
 
+            Advancement.Builder.advancement()
+                    .display(ItemRegistry.FLINT_KNIFE.get(),
+                            Component.translatable("advancement" + "." + CommonConstants.MOD_ID + "." + "throwing_knives"),
+                            Component.translatable("advancement" + "." + CommonConstants.MOD_ID + "." + "throwing_knives.desc"),
+                            null,
+                            FrameType.TASK, true, true, false)
+                    .parent(root)
+                    .addCriterion("0", ThrownKnifeTrigger.TriggerInstance.item(ItemPredicate.Builder.item().of(ItemRegistry.FLINT_KNIFE.get()).hasEnchantment(new EnchantmentPredicate(EnchantmentRegistry.LAUNCH.get(), MinMaxBounds.Ints.ANY))))
+                    .addCriterion("1", ThrownKnifeTrigger.TriggerInstance.item(ItemPredicate.Builder.item().of(ItemRegistry.WOODEN_KNIFE.get()).hasEnchantment(new EnchantmentPredicate(EnchantmentRegistry.LAUNCH.get(), MinMaxBounds.Ints.ANY))))
+                    .addCriterion("2", ThrownKnifeTrigger.TriggerInstance.item(ItemPredicate.Builder.item().of(ItemRegistry.STONE_KNIFE.get()).hasEnchantment(new EnchantmentPredicate(EnchantmentRegistry.LAUNCH.get(), MinMaxBounds.Ints.ANY))))
+                    .addCriterion("3", ThrownKnifeTrigger.TriggerInstance.item(ItemPredicate.Builder.item().of(ItemRegistry.COPPER_KNIFE.get()).hasEnchantment(new EnchantmentPredicate(EnchantmentRegistry.LAUNCH.get(), MinMaxBounds.Ints.ANY))))
+                    .addCriterion("4", ThrownKnifeTrigger.TriggerInstance.item(ItemPredicate.Builder.item().of(ItemRegistry.IRON_KNIFE.get()).hasEnchantment(new EnchantmentPredicate(EnchantmentRegistry.LAUNCH.get(), MinMaxBounds.Ints.ANY))))
+                    .addCriterion("5", ThrownKnifeTrigger.TriggerInstance.item(ItemPredicate.Builder.item().of(ItemRegistry.GOLDEN_KNIFE.get()).hasEnchantment(new EnchantmentPredicate(EnchantmentRegistry.LAUNCH.get(), MinMaxBounds.Ints.ANY))))
+                    .addCriterion("6", ThrownKnifeTrigger.TriggerInstance.item(ItemPredicate.Builder.item().of(ItemRegistry.DIAMOND_KNIFE.get()).hasEnchantment(new EnchantmentPredicate(EnchantmentRegistry.LAUNCH.get(), MinMaxBounds.Ints.ANY))))
+                    .addCriterion("7", ThrownKnifeTrigger.TriggerInstance.item(ItemPredicate.Builder.item().of(ItemRegistry.NETHERITE_KNIFE.get()).hasEnchantment(new EnchantmentPredicate(EnchantmentRegistry.LAUNCH.get(), MinMaxBounds.Ints.ANY))))
+                    .requirements(RequirementsStrategy.OR)
+                    .save(consumer, getNameId("throwing_knives"));
+
             Advancement corn_seeds = Advancement.Builder.advancement()
                     .display(ItemRegistry.CORN_SEEDS.get(),
-                            Component.translatable(CommonConstants.MOD_ID + "." + "advancement.corn_seeds"),
-                            Component.translatable(CommonConstants.MOD_ID + "." + "advancement.corn_seeds.desc"),
+                            Component.translatable("advancement" + "." + CommonConstants.MOD_ID + "." + "corn_seeds"),
+                            Component.translatable("advancement" + "." + CommonConstants.MOD_ID + "." + "corn_seeds.desc"),
                             null,
                             FrameType.TASK, true, true, false)
                     .parent(root)
@@ -102,8 +121,8 @@ public class BrutalAdvancementProvider extends ForgeAdvancementProvider {
 
             Advancement.Builder.advancement()
                     .display(ItemRegistry.CORN.get(),
-                            Component.translatable(CommonConstants.MOD_ID + "." + "advancement.corn"),
-                            Component.translatable(CommonConstants.MOD_ID + "." + "advancement.corn.desc"),
+                            Component.translatable("advancement" + "." + CommonConstants.MOD_ID + "." + "corn"),
+                            Component.translatable("advancement" + "." + CommonConstants.MOD_ID + "." + "corn.desc"),
                             null,
                             FrameType.TASK, true, true, false)
                     .parent(corn_seeds)

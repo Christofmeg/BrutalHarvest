@@ -1,6 +1,7 @@
 package com.christofmeg.brutalharvest.common.init;
 
 import com.christofmeg.brutalharvest.CommonConstants;
+import com.christofmeg.brutalharvest.common.entity.ThrownKnifeEntity;
 import com.christofmeg.brutalharvest.common.entity.ThrownScytheEntity;
 import com.christofmeg.brutalharvest.common.entity.TomatoProjectileEntity;
 import net.minecraft.world.entity.EntityType;
@@ -22,9 +23,9 @@ public class EntityTypeRegistry {
 
     public static final RegistryObject<EntityType<TomatoProjectileEntity>> TOMATO_PROJECTILE;
     public static final RegistryObject<EntityType<ThrownScytheEntity>> THROWN_SCYTHE;
+    public static final RegistryObject<EntityType<ThrownKnifeEntity>> THROWN_KNIFE;
 
     static {
-
         TOMATO_PROJECTILE =
                 ENTITY_TYPES.register("tomato_projectile", () -> EntityType.Builder.<TomatoProjectileEntity>of(TomatoProjectileEntity::new, MobCategory.MISC)
                         .clientTrackingRange(4).updateInterval(10).sized(0.25F, 0.25F).build("tomato_projectile"));
@@ -32,6 +33,10 @@ public class EntityTypeRegistry {
         THROWN_SCYTHE =
                 ENTITY_TYPES.register("thrown_scythe", () -> EntityType.Builder.<ThrownScytheEntity>of(ThrownScytheEntity::new, MobCategory.MISC)
                         .clientTrackingRange(4).updateInterval(10).sized(0.25F, 0.25F).build("thrown_scythe"));
+
+        THROWN_KNIFE =
+                ENTITY_TYPES.register("thrown_knife", () -> EntityType.Builder.<ThrownKnifeEntity>of(ThrownKnifeEntity::new, MobCategory.MISC)
+                        .clientTrackingRange(4).updateInterval(10).sized(0.25F, 0.25F).build("thrown_knife"));
     }
 
 }

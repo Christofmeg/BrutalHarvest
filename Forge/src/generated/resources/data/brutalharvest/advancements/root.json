@@ -41,7 +41,7 @@
     "announce_to_chat": true,
     "background": "minecraft:textures/block/rooted_dirt.png",
     "description": {
-      "translate": "brutalharvest.advancement.root.desc"
+      "translate": "advancement.brutalharvest.root.desc"
     },
     "frame": "task",
     "hidden": false,

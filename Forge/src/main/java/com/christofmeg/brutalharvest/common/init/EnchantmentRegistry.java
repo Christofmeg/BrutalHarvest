@@ -2,6 +2,7 @@ package com.christofmeg.brutalharvest.common.init;
 
 import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.enchantment.BoomerangEnchantment;
+import com.christofmeg.brutalharvest.common.enchantment.LaunchEnchantment;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -19,9 +20,11 @@ public class EnchantmentRegistry {
     }
 
     public static final RegistryObject<Enchantment> BOOMERANG;
+    public static final RegistryObject<Enchantment> LAUNCH;
 
     static {
         BOOMERANG = ENCHANTMENTS.register("boomerang", BoomerangEnchantment::new);
+        LAUNCH = ENCHANTMENTS.register("launch", LaunchEnchantment::new);
     }
 
 }

@@ -41,7 +41,7 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "brutalharvest.advancement.grim_reaper.desc"
+      "translate": "advancement.brutalharvest.grim_reaper.desc"
     },
     "frame": "task",
     "hidden": false,
@@ -51,7 +51,7 @@
     },
     "show_toast": true,
     "title": {
-      "translate": "brutalharvest.advancement.grim_reaper"
+      "translate": "advancement.brutalharvest.grim_reaper"
     }
   },
   "requirements": [

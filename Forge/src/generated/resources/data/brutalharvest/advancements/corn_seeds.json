@@ -16,7 +16,7 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "brutalharvest.advancement.corn_seeds.desc"
+      "translate": "advancement.brutalharvest.corn_seeds.desc"
     },
     "frame": "task",
     "hidden": false,
@@ -25,7 +25,7 @@
     },
     "show_toast": true,
     "title": {
-      "translate": "brutalharvest.advancement.corn_seeds"
+      "translate": "advancement.brutalharvest.corn_seeds"
     }
   },
   "requirements": [

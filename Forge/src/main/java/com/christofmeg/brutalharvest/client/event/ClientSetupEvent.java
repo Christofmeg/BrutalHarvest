@@ -1,7 +1,9 @@
 package com.christofmeg.brutalharvest.client.event;
 
+import com.christofmeg.brutalharvest.client.model.ThrownKnifeModel;
 import com.christofmeg.brutalharvest.client.model.ThrownScytheModel;
 import com.christofmeg.brutalharvest.client.renderer.RenderLayers;
+import com.christofmeg.brutalharvest.client.renderer.ThrownKnifeRenderer;
 import com.christofmeg.brutalharvest.client.renderer.ThrownScytheRenderer;
 import com.christofmeg.brutalharvest.common.init.EntityTypeRegistry;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -18,11 +20,13 @@ public class ClientSetupEvent {
         event.enqueueWork(() -> {
             EntityRenderers.register(EntityTypeRegistry.TOMATO_PROJECTILE.get(), ThrownItemRenderer::new);
             EntityRenderers.register(EntityTypeRegistry.THROWN_SCYTHE.get(), ThrownScytheRenderer::new);
+            EntityRenderers.register(EntityTypeRegistry.THROWN_KNIFE.get(), ThrownKnifeRenderer::new);
         });
     }
 
     public void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(RenderLayers.register("scythe"), ThrownScytheModel::createLayer);
+        event.registerLayerDefinition(RenderLayers.register("knife"), ThrownKnifeModel::createLayer);
     }
 
 }

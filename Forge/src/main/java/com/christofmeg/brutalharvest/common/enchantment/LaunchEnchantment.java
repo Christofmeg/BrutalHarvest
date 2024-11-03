@@ -1,15 +1,15 @@
 package com.christofmeg.brutalharvest.common.enchantment;
 
-import com.christofmeg.brutalharvest.common.item.ScytheItem;
+import com.christofmeg.brutalharvest.common.item.KnifeItem;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
 
-public class BoomerangEnchantment extends Enchantment {
+public class LaunchEnchantment extends Enchantment {
 
-    public BoomerangEnchantment() {
-        super(Rarity.COMMON, EnchantmentCategory.create("boomerang", item -> item instanceof ScytheItem), new EquipmentSlot[] {EquipmentSlot.MAINHAND});
+    public LaunchEnchantment() {
+        super(Rarity.COMMON, EnchantmentCategory.create("launch", item -> item instanceof KnifeItem), new EquipmentSlot[] {EquipmentSlot.MAINHAND});
     }
 
     @Override
@@ -19,7 +19,7 @@ public class BoomerangEnchantment extends Enchantment {
 
     @Override
     public boolean canEnchant(ItemStack stack) {
-        return stack.getItem() instanceof ScytheItem && super.canEnchant(stack);
+        return stack.getItem() instanceof KnifeItem && super.canEnchant(stack);
     }
 
 }

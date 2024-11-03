@@ -97,7 +97,7 @@ dependencies {
         }
     }
 
-    implementation fg.deobf("maven.modrinth:tag-tooltips:a0H0FGkF")
+    runtimeOnly fg.deobf("maven.modrinth:tag-tooltips:a0H0FGkF")
 
 //    runtimeOnly fg.deobf("maven.modrinth:ae2:kF3whRqC")
 
@@ -113,6 +113,9 @@ dependencies {
 //    runtimeOnly fg.deobf("curse.maven:rightclickharvest-452834:4690530") // 17,381,453
 //    runtimeOnly fg.deobf("curse.maven:right-click-get-crops-552442:4970693") // TeamCOFH 2,188,596
 //    runtimeOnly fg.deobf("curse.maven:harvest-with-ease-602171:5480617")  //12,519,644
+
+//    runtimeOnly fg.deobf("curse.maven:enchantment-descriptions-250419:5855251")
+//        runtimeOnly fg.deobf("curse.maven:bookshelf-228525:5423987")
 
 }
 

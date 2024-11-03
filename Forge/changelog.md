@@ -1,4 +1,7 @@
-1.12.1
-* Farmland Slab now uses the correct side and bottom texture
-* Changed to thread safe Composting and Hoe Tilling
-* Fixed tilling sound on Dirt Slab
+1.13.0
+* Fix uv on farmland slab
+* Added Launch enchantment for Knives
+* Made knives throwable
+* Adjusted lang file format on advancements and enchantments
+* Added enchantment descriptons
+* Added Throwing Knives? advancement

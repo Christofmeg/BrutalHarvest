@@ -1,0 +1,154 @@
+{
+  "parent": "brutalharvest:root",
+  "criteria": {
+    "0": {
+      "conditions": {
+        "item": {
+          "enchantments": [
+            {
+              "enchantment": "brutalharvest:launch"
+            }
+          ],
+          "items": [
+            "brutalharvest:flint_knife"
+          ]
+        }
+      },
+      "trigger": "brutalharvest:throwing_knives"
+    },
+    "1": {
+      "conditions": {
+        "item": {
+          "enchantments": [
+            {
+              "enchantment": "brutalharvest:launch"
+            }
+          ],
+          "items": [
+            "brutalharvest:wooden_knife"
+          ]
+        }
+      },
+      "trigger": "brutalharvest:throwing_knives"
+    },
+    "2": {
+      "conditions": {
+        "item": {
+          "enchantments": [
+            {
+              "enchantment": "brutalharvest:launch"
+            }
+          ],
+          "items": [
+            "brutalharvest:stone_knife"
+          ]
+        }
+      },
+      "trigger": "brutalharvest:throwing_knives"
+    },
+    "3": {
+      "conditions": {
+        "item": {
+          "enchantments": [
+            {
+              "enchantment": "brutalharvest:launch"
+            }
+          ],
+          "items": [
+            "brutalharvest:copper_knife"
+          ]
+        }
+      },
+      "trigger": "brutalharvest:throwing_knives"
+    },
+    "4": {
+      "conditions": {
+        "item": {
+          "enchantments": [
+            {
+              "enchantment": "brutalharvest:launch"
+            }
+          ],
+          "items": [
+            "brutalharvest:iron_knife"
+          ]
+        }
+      },
+      "trigger": "brutalharvest:throwing_knives"
+    },
+    "5": {
+      "conditions": {
+        "item": {
+          "enchantments": [
+            {
+              "enchantment": "brutalharvest:launch"
+            }
+          ],
+          "items": [
+            "brutalharvest:golden_knife"
+          ]
+        }
+      },
+      "trigger": "brutalharvest:throwing_knives"
+    },
+    "6": {
+      "conditions": {
+        "item": {
+          "enchantments": [
+            {
+              "enchantment": "brutalharvest:launch"
+            }
+          ],
+          "items": [
+            "brutalharvest:diamond_knife"
+          ]
+        }
+      },
+      "trigger": "brutalharvest:throwing_knives"
+    },
+    "7": {
+      "conditions": {
+        "item": {
+          "enchantments": [
+            {
+              "enchantment": "brutalharvest:launch"
+            }
+          ],
+          "items": [
+            "brutalharvest:netherite_knife"
+          ]
+        }
+      },
+      "trigger": "brutalharvest:throwing_knives"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.brutalharvest.throwing_knives.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "brutalharvest:flint_knife",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.brutalharvest.throwing_knives"
+    }
+  },
+  "requirements": [
+    [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

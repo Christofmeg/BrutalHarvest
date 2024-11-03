@@ -95,7 +95,7 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "brutalharvest.advancement.reaperang.desc"
+      "translate": "advancement.brutalharvest.reaperang.desc"
     },
     "frame": "task",
     "hidden": false,
@@ -104,7 +104,7 @@
     },
     "show_toast": true,
     "title": {
-      "translate": "brutalharvest.advancement.reaperang"
+      "translate": "advancement.brutalharvest.reaperang"
     }
   },
   "requirements": [

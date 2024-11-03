@@ -1,10 +1,10 @@
 package com.christofmeg.brutalharvest.client.renderer;
 
 import com.christofmeg.brutalharvest.CommonConstants;
-import com.christofmeg.brutalharvest.client.model.ThrownScytheModel;
-import com.christofmeg.brutalharvest.common.entity.ThrownScytheEntity;
+import com.christofmeg.brutalharvest.client.model.ThrownKnifeModel;
+import com.christofmeg.brutalharvest.common.entity.ThrownKnifeEntity;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
-import com.christofmeg.brutalharvest.common.item.ScytheItem;
+import com.christofmeg.brutalharvest.common.item.KnifeItem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
@@ -25,29 +25,29 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @OnlyIn(Dist.CLIENT)
-public class ThrownScytheRenderer extends EntityRenderer<ThrownScytheEntity> {
-    public static final ResourceLocation MODEL_LOCATION = new ResourceLocation(CommonConstants.MOD_ID, "textures/entity/stone_scythe.png");
+public class ThrownKnifeRenderer extends EntityRenderer<ThrownKnifeEntity> {
+    public static final ResourceLocation MODEL_LOCATION = new ResourceLocation(CommonConstants.MOD_ID, "textures/entity/flint_knife.png");
 
     public static final Map<Item, ResourceLocation> TEXTURES = new ConcurrentHashMap<>();
 
     static {
         ItemRegistry.ITEMS.getEntries().stream()
                 .map(RegistryObject::get)
-                .filter(item -> item instanceof ScytheItem)
+                .filter(item -> item instanceof KnifeItem)
                 .forEach(item -> TEXTURES.put(item,
                         new ResourceLocation(CommonConstants.MOD_ID,
                                 "textures/entity/" + item.getDescriptionId().replace("item." + CommonConstants.MOD_ID + ".", "") + ".png")));
     }
 
-    private final ThrownScytheModel model;
+    private final ThrownKnifeModel model;
 
-    public ThrownScytheRenderer(EntityRendererProvider.Context pContext) {
+    public ThrownKnifeRenderer(EntityRendererProvider.Context pContext) {
         super(pContext);
-        this.model = new ThrownScytheModel(pContext.bakeLayer(RenderLayers.register("scythe")));
+        this.model = new ThrownKnifeModel(pContext.bakeLayer(RenderLayers.register("knife")));
     }
 
     @Override
-    public void render(ThrownScytheEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, @NotNull MultiBufferSource pBuffer, int pPackedLight) {
+    public void render(ThrownKnifeEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, @NotNull MultiBufferSource pBuffer, int pPackedLight) {
         pPoseStack.pushPose();
         pPoseStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(pPartialTicks, pEntity.yRotO, pEntity.getYRot()) - 90.0F));
         pPoseStack.mulPose(Axis.ZP.rotationDegrees(Mth.lerp(pPartialTicks, pEntity.xRotO, pEntity.getXRot()) + 90.0F));
@@ -58,7 +58,7 @@ public class ThrownScytheRenderer extends EntityRenderer<ThrownScytheEntity> {
     }
 
     @Override
-    public @NotNull ResourceLocation getTextureLocation(ThrownScytheEntity entity) {
+    public @NotNull ResourceLocation getTextureLocation(ThrownKnifeEntity entity) {
         return TEXTURES.getOrDefault(entity.getItem().getItem(), MODEL_LOCATION);
     }
 }

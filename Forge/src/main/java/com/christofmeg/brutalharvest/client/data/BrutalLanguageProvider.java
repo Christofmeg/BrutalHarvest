@@ -39,17 +39,19 @@ public class BrutalLanguageProvider extends LanguageProvider {
             addItem(ItemRegistry.CHEFS_HAT, "Chef's Hat");
             add("block." + CommonConstants.MOD_ID + "." + "rubber_log_generated", "Rubber Log");
 
-            add(CommonConstants.MOD_ID + "." + "advancement" + "." + "root" + ".desc", "Obtain some tomatoes");
-            add(CommonConstants.MOD_ID + "." + "advancement" + "." + "rotten_tomatoes", "Rotten Tomatoes");
-            add(CommonConstants.MOD_ID + "." + "advancement" + "." + "rotten_tomatoes" + ".desc", "Throw a tomato at a villager");
-            add(CommonConstants.MOD_ID + "." + "advancement" + "." + "grim_reaper", "Grim Reaper");
-            add(CommonConstants.MOD_ID + "." + "advancement" + "." + "grim_reaper" + ".desc", "Craft a scythe");
-            add(CommonConstants.MOD_ID + "." + "advancement" + "." + "reaperang", "Reaparang");
-            add(CommonConstants.MOD_ID + "." + "advancement" + "." + "reaperang" + ".desc", "Launch a scythe with the Boomerang enchantment");
-            add(CommonConstants.MOD_ID + "." + "advancement" + "." + "corn_seeds", "Colonel Cornelius Cornwall");
-            add(CommonConstants.MOD_ID + "." + "advancement" + "." + "corn_seeds" + ".desc", "Plant a Corn Seed (Kernel)");
-            add(CommonConstants.MOD_ID + "." + "advancement" + "." + "corn", "IT'S CORN");
-            add(CommonConstants.MOD_ID + "." + "advancement" + "." + "corn" + ".desc", "Obtain some corn");
+            add("advancement" + "." + CommonConstants.MOD_ID + "." + "root" + ".desc", "Obtain some tomatoes");
+            add("advancement" + "." + CommonConstants.MOD_ID + "." + "rotten_tomatoes", "Rotten Tomatoes");
+            add("advancement" + "." + CommonConstants.MOD_ID + "." + "rotten_tomatoes" + ".desc", "Throw a tomato at a villager");
+            add("advancement" + "." + CommonConstants.MOD_ID + "." + "grim_reaper", "Grim Reaper");
+            add("advancement" + "." + CommonConstants.MOD_ID + "." + "grim_reaper" + ".desc", "Craft a scythe");
+            add("advancement" + "." + CommonConstants.MOD_ID + "." + "reaperang", "Reaparang");
+            add("advancement" + "." + CommonConstants.MOD_ID + "." + "reaperang" + ".desc", "Throw a scythe with the Boomerang enchantment");
+            add("advancement" + "." + CommonConstants.MOD_ID + "." + "throwing_knives", "Throwing Knives?");
+            add("advancement" + "." + CommonConstants.MOD_ID + "." + "throwing_knives" + ".desc", "Throw a knife with the Launch enchantment");
+            add("advancement" + "." + CommonConstants.MOD_ID + "." + "corn_seeds", "Colonel Cornelius Cornwall");
+            add("advancement" + "." + CommonConstants.MOD_ID + "." + "corn_seeds" + ".desc", "Plant a Corn Seed (Kernel)");
+            add("advancement" + "." + CommonConstants.MOD_ID + "." + "corn", "IT'S CORN");
+            add("advancement" + "." + CommonConstants.MOD_ID + "." + "corn" + ".desc", "Obtain some corn");
 
             add("sounds." + CommonConstants.MOD_ID + "." + "tomato_splat", "Tomato Splat");
 
@@ -60,8 +62,12 @@ public class BrutalLanguageProvider extends LanguageProvider {
                     )
                 ));
 
+            add("enchantment." + CommonConstants.MOD_ID + "." + "boomerang" + ".desc", "Allows the Scythe to automatically return after being thrown");
+            add("enchantment." + CommonConstants.MOD_ID + "." + "launch" + ".desc", "Allows the Knife to be thrown");
+
             addEntityType(EntityTypeRegistry.TOMATO_PROJECTILE, "Tomato");
             addEntityType(EntityTypeRegistry.THROWN_SCYTHE, "Scythe");
+            addEntityType(EntityTypeRegistry.THROWN_KNIFE, "Knife");
 
         }
     }

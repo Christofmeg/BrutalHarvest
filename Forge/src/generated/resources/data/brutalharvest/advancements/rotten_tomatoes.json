@@ -9,7 +9,7 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "brutalharvest.advancement.rotten_tomatoes.desc"
+      "translate": "advancement.brutalharvest.rotten_tomatoes.desc"
     },
     "frame": "task",
     "hidden": false,
@@ -18,7 +18,7 @@
     },
     "show_toast": true,
     "title": {
-      "translate": "brutalharvest.advancement.rotten_tomatoes"
+      "translate": "advancement.brutalharvest.rotten_tomatoes"
     }
   },
   "requirements": [
