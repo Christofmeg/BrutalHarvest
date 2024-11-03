@@ -54,6 +54,8 @@ public class BlockRegistry {
     public static final RegistryObject<Block> FARMLAND_SLAB;
     public static final RegistryObject<Block> DIRT_SLAB;
 
+    //TODO Grass and Path slab
+
     private BlockRegistry() {
     }
 

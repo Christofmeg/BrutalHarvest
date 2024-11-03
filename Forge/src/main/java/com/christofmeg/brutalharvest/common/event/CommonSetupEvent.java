@@ -31,7 +31,7 @@ public class CommonSetupEvent {
         ToolAction toolAction = event.getToolAction();
         UseOnContext context = event.getContext();
         if (!event.isSimulated() && toolAction == ToolActions.HOE_TILL) {
-            var pair = HoeItemTillables.TILLABLES.get(state.getBlock());
+            var pair = HoeItemTillables.TILLABLES.get(state);
             if (pair != null && pair.getFirst().test(context)) {
                 pair.getSecond().accept(context);
                 event.getLevel().playSound(event.getPlayer(), event.getPos(), SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);

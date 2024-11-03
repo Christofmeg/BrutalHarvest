@@ -1,7 +1,2 @@
-1.13.0
-* Fix uv on farmland slab
-* Added Launch enchantment for Knives
-* Made knives throwable
-* Adjusted lang file format on advancements and enchantments
-* Added enchantment descriptons
-* Added Throwing Knives? advancement
+1.13.1
+* Fix Farmland Slab not getting the correct blockstate after being tilled by hoe

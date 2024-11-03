@@ -37,6 +37,8 @@ import java.util.Iterator;
 
 public class FarmlandSlabBlock extends FarmBlock implements SimpleWaterloggedBlock {
 
+    //TODO Make bottom slab plantable with custom block model
+
     public static final EnumProperty<SlabType> TYPE;
     public static final BooleanProperty WATERLOGGED;
     protected static final VoxelShape BOTTOM_AABB;
