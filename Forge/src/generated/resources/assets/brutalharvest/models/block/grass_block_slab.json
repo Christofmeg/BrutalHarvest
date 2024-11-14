@@ -1,0 +1,10 @@
+{
+  "parent": "brutalharvest:block/overlay_slab",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "bottom": "minecraft:block/dirt",
+    "overlay": "minecraft:block/grass_block_side_overlay",
+    "side": "minecraft:block/grass_block_side",
+    "top": "minecraft:block/grass_block_top"
+  }
+}

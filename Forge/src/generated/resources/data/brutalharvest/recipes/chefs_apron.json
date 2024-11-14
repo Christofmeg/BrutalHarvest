@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": {
+      "tag": "forge:string"
+    },
+    "W": {
+      "item": "brutalharvest:white_fabric"
+    }
+  },
+  "pattern": [
+    " W ",
+    "SWS",
+    "WWW"
+  ],
+  "result": {
+    "item": "brutalharvest:chefs_apron"
+  },
+  "show_notification": true
+}

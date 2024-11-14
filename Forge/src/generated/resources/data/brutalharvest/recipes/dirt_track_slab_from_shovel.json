@@ -1,0 +1,15 @@
+{
+  "type": "brutalharvest:shapeless_damage_tool",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "minecraft:shovels"
+    },
+    {
+      "item": "brutalharvest:dirt_slab"
+    }
+  ],
+  "result": {
+    "item": "brutalharvest:dirt_track_slab"
+  }
+}

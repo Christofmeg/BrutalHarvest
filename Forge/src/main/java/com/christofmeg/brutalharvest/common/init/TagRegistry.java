@@ -35,6 +35,8 @@ public class TagRegistry {
 
         public static TagKey<Block> MINEABLE_WITH_SCYTHE = forgeTag("mineable/scythe");
 
+        public static TagKey<Block> SLABS_DIRT = forgeTag("slabs/dirt");
+
     }
 
     public static final class Items {
@@ -166,6 +168,8 @@ public class TagRegistry {
         public static TagKey<Item> HIGH_TIER_HOES = ItemTags.create(new ResourceLocation("rightclickharvest", "high_tier_hoes"));
         public static TagKey<Item> MID_TIER_HOES = ItemTags.create(new ResourceLocation("rightclickharvest", "mid_tier_hoes"));
         public static TagKey<Item> LOW_TIER_HOES = ItemTags.create(new ResourceLocation("rightclickharvest", "low_tier_hoes"));
+
+        public static TagKey<Item> SLABS_TILLABLE = modTag("slabs/tillable");
 
     }
 

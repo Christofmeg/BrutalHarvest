@@ -25,7 +25,8 @@ public class BrutalLanguageProvider extends LanguageProvider {
             ItemRegistry.ITEMS.getEntries().stream().map(RegistryObject::get)
                 .filter(item -> !(item == ItemRegistry.CORN_SEEDS.get()) &&
                         !(item == BlockRegistry.RUBBER_LOG_GENERATED.get().asItem()) &&
-                        !(item == ItemRegistry.CHEFS_HAT.get().asItem())
+                        !(item == ItemRegistry.CHEFS_HAT.get().asItem()) &&
+                        !(item == ItemRegistry.CHEFS_APRON.get().asItem())
                 )
                 .forEach(item -> addItem(() -> item,
                 StringUtils.capitaliseAllWords(item.getDescription().getString()
@@ -37,6 +38,7 @@ public class BrutalLanguageProvider extends LanguageProvider {
 
             addItem(ItemRegistry.CORN_SEEDS, "Corn Seeds (Kernel)");
             addItem(ItemRegistry.CHEFS_HAT, "Chef's Hat");
+            addItem(ItemRegistry.CHEFS_APRON, "Chef's Apron");
             add("block." + CommonConstants.MOD_ID + "." + "rubber_log_generated", "Rubber Log");
 
             add("advancement" + "." + CommonConstants.MOD_ID + "." + "root" + ".desc", "Obtain some tomatoes");

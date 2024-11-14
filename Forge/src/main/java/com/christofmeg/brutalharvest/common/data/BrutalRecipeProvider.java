@@ -51,13 +51,7 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
         scytheBuilder(ItemRegistry.GOLDEN_SCYTHE.get(), Ingredient.of(Tags.Items.INGOTS_GOLD), "golden" + "_scythe", consumer);
         scytheBuilder(ItemRegistry.DIAMOND_SCYTHE.get(), Ingredient.of(Tags.Items.GEMS_DIAMOND), "diamond" + "_scythe", consumer);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.SEED_SATCHEL.get())
-                .define('C', TagRegistry.Items.CROPS)
-                .define('F', ItemRegistry.FABRIC.get())
-                .pattern("FCF")
-                .pattern("FFF")
-                .unlockedBy("has_cotton", has(ItemRegistry.COTTON.get()))
-                .save(consumer, modLoc(getItemName(ItemRegistry.SEED_SATCHEL.get())));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.SEED_SATCHEL.get()).define('C', TagRegistry.Items.CROPS).define('F', ItemRegistry.FABRIC.get()).pattern("FCF").pattern("FFF").unlockedBy("has_cotton", has(ItemRegistry.COTTON.get())).save(consumer, modLoc(getItemName(ItemRegistry.SEED_SATCHEL.get())));
 
         woolRecipeBuilder(TagRegistry.Items.WOOLS_BLACK, Items.BLACK_BANNER, Items.BLACK_BED, Items.BLACK_CARPET, consumer);
         woolRecipeBuilder(TagRegistry.Items.WOOLS_BLUE, Items.BLUE_BANNER, Items.BLUE_BED, Items.BLUE_CARPET, consumer);
@@ -76,96 +70,27 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
         woolRecipeBuilder(TagRegistry.Items.WOOLS_WHITE, Items.WHITE_BANNER, Items.WHITE_BED, Items.WHITE_CARPET, consumer);
         woolRecipeBuilder(TagRegistry.Items.WOOLS_YELLOW, Items.YELLOW_BANNER, Items.YELLOW_BED, Items.YELLOW_CARPET, consumer);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.GARDENERS_HAT.get())
-                .define('W', Tags.Items.CROPS_WHEAT)
-                .pattern("WWW")
-                .pattern("W W")
-                .unlockedBy("has_wheat", has(Tags.Items.CROPS_WHEAT))
-                .save(consumer, modLoc(getItemName(ItemRegistry.GARDENERS_HAT.get())));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.GARDENERS_HAT.get()).define('W', Tags.Items.CROPS_WHEAT).pattern("WWW").pattern("W W").unlockedBy("has_wheat", has(Tags.Items.CROPS_WHEAT)).save(consumer, modLoc(getItemName(ItemRegistry.GARDENERS_HAT.get())));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.CHEFS_HAT.get()).define('W', ItemRegistry.WHITE_FABRIC.get()).pattern("WWW").pattern("W W").unlockedBy("has_fabric", has(ItemRegistry.FABRIC.get())).save(consumer, modLoc(getItemName(ItemRegistry.CHEFS_HAT.get())));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.CHEFS_APRON.get()).define('W', ItemRegistry.WHITE_FABRIC.get()).define('S', Tags.Items.STRING).pattern(" W ").pattern("SWS").pattern("WWW").unlockedBy("has_fabric", has(ItemRegistry.FABRIC.get())).save(consumer, modLoc(getItemName(ItemRegistry.CHEFS_APRON.get())));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.BLUE_DUNGAREE.get()).define('W', ItemRegistry.BLUE_FABRIC.get()).pattern("WWW").pattern("W W").pattern("W W").unlockedBy("has_fabric", has(ItemRegistry.FABRIC.get())).save(consumer, modLoc(getItemName(ItemRegistry.BLUE_DUNGAREE.get())));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.OLD_DUNGAREE.get()).define('W', ItemRegistry.BROWN_FABRIC.get()).pattern("WWW").pattern("W W").pattern("W W").unlockedBy("has_fabric", has(ItemRegistry.FABRIC.get())).save(consumer, modLoc(getItemName(ItemRegistry.OLD_DUNGAREE.get())));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.BOOTS.get()).define('W', ItemRegistry.BROWN_FABRIC.get()).pattern("W W").pattern("W W").unlockedBy("has_fabric", has(ItemRegistry.FABRIC.get())).save(consumer, modLoc(getItemName(ItemRegistry.BOOTS.get())));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.TOAST_LOAF.get()).define('D', ItemRegistry.DOUGH.get()).pattern("DDD").pattern("DDD").unlockedBy("has_dough", has(ItemRegistry.DOUGH.get())).save(consumer, modLoc(getItemName(ItemRegistry.TOAST_LOAF.get())));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.JAR.get(), 3).define('G', Items.GLASS).pattern("G G").pattern("GGG").unlockedBy("has_toast", has(ItemRegistry.TOAST.get())).save(consumer, modLoc(getItemName(ItemRegistry.JAR.get())));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.RUBBER_WOOD.get(), 3).define('L', BlockRegistry.RUBBER_LOG.get()).pattern("LL").pattern("LL").unlockedBy("has_rubber_log", has(TagRegistry.Items.RUBBER_LOGS)).save(consumer, modLoc(getItemName(BlockRegistry.RUBBER_WOOD.get())));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.STRIPPED_RUBBER_WOOD.get(), 3).define('L', BlockRegistry.STRIPPED_RUBBER_LOG.get()).pattern("LL").pattern("LL").unlockedBy("has_rubber_log", has(TagRegistry.Items.RUBBER_LOGS)).save(consumer, modLoc(getItemName(BlockRegistry.STRIPPED_RUBBER_WOOD.get())));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.CHEFS_HAT.get())
-                .define('W', ItemRegistry.WHITE_FABRIC.get())
-                .pattern("WWW")
-                .pattern("W W")
-                .unlockedBy("has_fabric", has(ItemRegistry.FABRIC.get()))
-                .save(consumer, modLoc(getItemName(ItemRegistry.CHEFS_HAT.get())));
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.BLUE_DUNGAREE.get())
-                .define('W', ItemRegistry.BLUE_FABRIC.get())
-                .pattern("WWW")
-                .pattern("W W")
-                .pattern("W W")
-                .unlockedBy("has_fabric", has(ItemRegistry.FABRIC.get()))
-                .save(consumer, modLoc(getItemName(ItemRegistry.BLUE_DUNGAREE.get())));
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.OLD_DUNGAREE.get())
-                .define('W', ItemRegistry.BROWN_FABRIC.get())
-                .pattern("WWW")
-                .pattern("W W")
-                .pattern("W W")
-                .unlockedBy("has_fabric", has(ItemRegistry.FABRIC.get()))
-                .save(consumer, modLoc(getItemName(ItemRegistry.OLD_DUNGAREE.get())));
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.BOOTS.get())
-                .define('W', ItemRegistry.BROWN_FABRIC.get())
-                .pattern("W W")
-                .pattern("W W")
-                .unlockedBy("has_fabric", has(ItemRegistry.FABRIC.get()))
-                .save(consumer, modLoc(getItemName(ItemRegistry.BOOTS.get())));
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.TOAST_LOAF.get())
-                .define('D', ItemRegistry.DOUGH.get())
-                .pattern("DDD")
-                .pattern("DDD")
-                .unlockedBy("has_dough", has(ItemRegistry.DOUGH.get()))
-                .save(consumer, modLoc(getItemName(ItemRegistry.TOAST_LOAF.get())));
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.JAR.get(), 3)
-                .define('G', Items.GLASS)
-                .pattern("G G")
-                .pattern("GGG")
-                .unlockedBy("has_toast", has(ItemRegistry.TOAST.get()))
-                .save(consumer, modLoc(getItemName(ItemRegistry.JAR.get())));
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.RUBBER_WOOD.get(), 3)
-                .define('L', BlockRegistry.RUBBER_LOG.get())
-                .pattern("LL")
-                .pattern("LL")
-                .unlockedBy("has_rubber_log", has(TagRegistry.Items.RUBBER_LOGS))
-                .save(consumer, modLoc(getItemName(BlockRegistry.RUBBER_WOOD.get())));
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.STRIPPED_RUBBER_WOOD.get(), 3)
-                .define('L', BlockRegistry.STRIPPED_RUBBER_LOG.get())
-                .pattern("LL")
-                .pattern("LL")
-                .unlockedBy("has_rubber_log", has(TagRegistry.Items.RUBBER_LOGS))
-                .save(consumer, modLoc(getItemName(BlockRegistry.STRIPPED_RUBBER_WOOD.get())));
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.FARMLAND_SLAB.get(), 6)
-                .define('B', Blocks.FARMLAND)
-                .pattern("BBB")
-                .unlockedBy("has_dirt", has(ItemTags.DIRT))
-                .save(consumer, modLoc(getItemName(BlockRegistry.FARMLAND_SLAB.get())));
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Blocks.FARMLAND)
-                .define('B', BlockRegistry.FARMLAND_SLAB.get())
-                .pattern("B")
-                .pattern("B")
-                .unlockedBy("has_dirt", has(ItemTags.DIRT))
-                .save(consumer, modLoc(getItemName(Blocks.FARMLAND)));
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.DIRT_SLAB.get(), 6)
-                .define('B', Blocks.DIRT)
-                .pattern("BBB")
-                .unlockedBy("has_dirt", has(ItemTags.DIRT))
-                .save(consumer, modLoc(getItemName(BlockRegistry.DIRT_SLAB.get())));
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Blocks.DIRT)
-                .define('B', BlockRegistry.DIRT_SLAB.get())
-                .pattern("B")
-                .pattern("B")
-                .unlockedBy("has_dirt", has(ItemTags.DIRT))
-                .save(consumer, modLoc(getItemName(Blocks.DIRT)));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.FARMLAND_SLAB.get(), 6).define('B', Blocks.FARMLAND).pattern("BBB").unlockedBy("has_dirt", has(ItemTags.DIRT)).save(consumer, modLoc(getItemName(BlockRegistry.FARMLAND_SLAB.get())));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Blocks.FARMLAND).define('B', BlockRegistry.FARMLAND_SLAB.get()).pattern("B").pattern("B").unlockedBy("has_dirt", has(ItemTags.DIRT)).save(consumer, modLoc(getItemName(Blocks.FARMLAND)));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.DIRT_SLAB.get(), 6).define('B', Blocks.DIRT).pattern("BBB").unlockedBy("has_dirt", has(ItemTags.DIRT)).save(consumer, modLoc(getItemName(BlockRegistry.DIRT_SLAB.get())));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Blocks.DIRT).define('B', BlockRegistry.DIRT_SLAB.get()).pattern("B").pattern("B").unlockedBy("has_dirt", has(ItemTags.DIRT)).save(consumer, modLoc(getItemName(Blocks.DIRT)));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.DIRT_PATH_SLAB.get(), 6).define('B', Blocks.DIRT_PATH).pattern("BBB").unlockedBy("has_dirt", has(ItemTags.DIRT)).save(consumer, modLoc(getItemName(BlockRegistry.DIRT_PATH_SLAB.get())));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Blocks.DIRT_PATH).define('B', BlockRegistry.DIRT_PATH_SLAB.get()).pattern("B").pattern("B").unlockedBy("has_dirt", has(ItemTags.DIRT)).save(consumer, modLoc(getItemName(Blocks.DIRT_PATH)));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.DIRT_TRACK_SLAB.get(), 6).define('B', BlockRegistry.DIRT_TRACK.get()).pattern("BBB").unlockedBy("has_dirt", has(ItemTags.DIRT)).save(consumer, modLoc(getItemName(BlockRegistry.DIRT_TRACK_SLAB.get())));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.DIRT_TRACK.get()).define('B', BlockRegistry.DIRT_TRACK_SLAB.get()).pattern("B").pattern("B").unlockedBy("has_dirt", has(ItemTags.DIRT)).save(consumer, modLoc(getItemName(BlockRegistry.DIRT_TRACK.get())));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.GRASS_BLOCK_SLAB.get(), 6).define('B', Blocks.GRASS_BLOCK).pattern("BBB").unlockedBy("has_dirt", has(ItemTags.DIRT)).save(consumer, modLoc(getItemName(BlockRegistry.GRASS_BLOCK_SLAB.get())));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Blocks.GRASS_BLOCK).define('B', BlockRegistry.GRASS_BLOCK_SLAB.get()).pattern("B").pattern("B").unlockedBy("has_dirt", has(ItemTags.DIRT)).save(consumer, modLoc(getItemName(Blocks.GRASS_BLOCK)));
 
 /*        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.SUSHI.get())
                 .define('K', Items.DRIED_KELP)
@@ -332,58 +257,26 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .requires(new NBTIngredient(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER)))
                 .unlockedBy("flour", has(ItemRegistry.FLOUR.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.DOUGH.get()) + "_from_" + "water_bottle"));
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.DOUGH.get())
-                .requires(Ingredient.of(TagRegistry.Items.FLOUR), 2)
-                .requires(Tags.Items.EGGS)
-                .requires(TagRegistry.Items.BOTTLES_MILK)
-                .unlockedBy("flour", has(ItemRegistry.FLOUR.get()))
-                .save(consumer, modLoc(getItemName(ItemRegistry.DOUGH.get()) + "_from_" + "milk_bottle"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.DOUGH.get()).requires(Ingredient.of(TagRegistry.Items.FLOUR), 2).requires(Tags.Items.EGGS).requires(TagRegistry.Items.BOTTLES_MILK).unlockedBy("flour", has(ItemRegistry.FLOUR.get())).save(consumer, modLoc(getItemName(ItemRegistry.DOUGH.get()) + "_from_" + "milk_bottle"));
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_DOUGH.get())
-                .requires(TagRegistry.Items.FLOUR)
-                .requires(TagRegistry.Items.TOMATO)
-                .requires(Tags.Items.EGGS)
-                .requires(TagRegistry.Items.BUCKETS_WATER)
-                .unlockedBy("flour", has(ItemRegistry.FLOUR.get()))
-                .save(consumer, modLoc(getItemName(ItemRegistry.TOMATO_DOUGH.get()) + "_from_" + "water_bucket"));
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_DOUGH.get())
-                .requires(TagRegistry.Items.FLOUR)
-                .requires(TagRegistry.Items.TOMATO)
-                .requires(Tags.Items.EGGS)
-                .requires(TagRegistry.Items.BUCKETS_MILK)
-                .unlockedBy("flour", has(ItemRegistry.FLOUR.get()))
-                .save(consumer, modLoc(getItemName(ItemRegistry.TOMATO_DOUGH.get()) + "_from_" + "milk_bucket"));
-        ShapelessWithRemainder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_DOUGH.get())
-                .requires(TagRegistry.Items.FLOUR)
-                .requires(TagRegistry.Items.TOMATO)
-                .requires(Tags.Items.EGGS)
-                .requires(new NBTIngredient(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER)))
-                .unlockedBy("flour", has(ItemRegistry.FLOUR.get()))
-                .save(consumer, modLoc(getItemName(ItemRegistry.TOMATO_DOUGH.get()) + "_from_" + "water_bottle"));
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_DOUGH.get())
-                .requires(Ingredient.of(TagRegistry.Items.FLOUR), 2)
-                .requires(Tags.Items.EGGS)
-                .requires(TagRegistry.Items.BOTTLES_MILK)
-                .unlockedBy("flour", has(ItemRegistry.FLOUR.get()))
-                .save(consumer, modLoc(getItemName(ItemRegistry.TOMATO_DOUGH.get()) + "_from_" + "milk_bottle"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_DOUGH.get()).requires(TagRegistry.Items.FLOUR).requires(TagRegistry.Items.TOMATO).requires(Tags.Items.EGGS).requires(TagRegistry.Items.BUCKETS_WATER).unlockedBy("flour", has(ItemRegistry.FLOUR.get())).save(consumer, modLoc(getItemName(ItemRegistry.TOMATO_DOUGH.get()) + "_from_" + "water_bucket"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_DOUGH.get()).requires(TagRegistry.Items.FLOUR).requires(TagRegistry.Items.TOMATO).requires(Tags.Items.EGGS).requires(TagRegistry.Items.BUCKETS_MILK).unlockedBy("flour", has(ItemRegistry.FLOUR.get())).save(consumer, modLoc(getItemName(ItemRegistry.TOMATO_DOUGH.get()) + "_from_" + "milk_bucket"));
+        ShapelessWithRemainder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_DOUGH.get()).requires(TagRegistry.Items.FLOUR).requires(TagRegistry.Items.TOMATO).requires(Tags.Items.EGGS).requires(new NBTIngredient(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER))).unlockedBy("flour", has(ItemRegistry.FLOUR.get())).save(consumer, modLoc(getItemName(ItemRegistry.TOMATO_DOUGH.get()) + "_from_" + "water_bottle"));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_DOUGH.get()).requires(Ingredient.of(TagRegistry.Items.FLOUR), 2).requires(Tags.Items.EGGS).requires(TagRegistry.Items.BOTTLES_MILK).unlockedBy("flour", has(ItemRegistry.FLOUR.get())).save(consumer, modLoc(getItemName(ItemRegistry.TOMATO_DOUGH.get()) + "_from_" + "milk_bottle"));
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BlockRegistry.RUBBER_PLANKS.get(), 4)
-                .requires(TagRegistry.Items.RUBBER_LOGS)
-                .unlockedBy("has_rubber_log", has(TagRegistry.Items.RUBBER_LOGS))
-                .save(consumer, modLoc(getItemName(BlockRegistry.RUBBER_PLANKS.get())));
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BlockRegistry.RUBBER_PLANKS.get(), 4).requires(TagRegistry.Items.RUBBER_LOGS).unlockedBy("has_rubber_log", has(TagRegistry.Items.RUBBER_LOGS)).save(consumer, modLoc(getItemName(BlockRegistry.RUBBER_PLANKS.get())));
 
-        ShapelessDamageTool.shapeless(RecipeCategory.MISC, Blocks.FARMLAND)
-                .requires(ItemTags.HOES)
-                .requires(Items.DIRT)
-                .unlockedBy("has_hoe", has(ItemTags.HOES))
-                .save(consumer, modLoc(getItemName(Blocks.FARMLAND) + "_from_hoe"));
+        ShapelessDamageTool.shapeless(RecipeCategory.MISC, Blocks.FARMLAND).requires(ItemTags.HOES).requires(Items.DIRT).unlockedBy("has_hoe", has(ItemTags.HOES)).save(consumer, modLoc(getItemName(Blocks.FARMLAND) + "_from_hoe"));
+        ShapelessDamageTool.shapeless(RecipeCategory.MISC, Blocks.FARMLAND).requires(ItemTags.HOES).requires(Blocks.DIRT_PATH).unlockedBy("has_hoe", has(ItemTags.HOES)).save(consumer, modLoc(getItemName(Blocks.FARMLAND) + "_from_hoe" + "_and_" + getItemName(Blocks.DIRT_PATH)));
+        ShapelessDamageTool.shapeless(RecipeCategory.MISC, Blocks.FARMLAND).requires(ItemTags.HOES).requires(BlockRegistry.DIRT_TRACK.get()).unlockedBy("has_hoe", has(ItemTags.HOES)).save(consumer, modLoc(getItemName(Blocks.FARMLAND) + "_from_hoe" + "_and_" + getItemName(BlockRegistry.DIRT_TRACK.get())));
 
-        ShapelessDamageTool.shapeless(RecipeCategory.MISC, BlockRegistry.FARMLAND_SLAB.get())
-                .requires(ItemTags.HOES)
-                .requires(BlockRegistry.DIRT_SLAB.get())
-                .unlockedBy("has_hoe", has(ItemTags.HOES))
-                .save(consumer, modLoc(getItemName(BlockRegistry.FARMLAND_SLAB.get()) + "_from_hoe"));
+        ShapelessDamageTool.shapeless(RecipeCategory.MISC, Blocks.DIRT).requires(ItemTags.HOES).requires(Blocks.COARSE_DIRT).unlockedBy("has_hoe", has(ItemTags.HOES)).save(consumer, modLoc(getItemName(Blocks.DIRT) + "_from_hoe" + "_and_" + getItemName(Blocks.COARSE_DIRT)));
 
+        ShapelessDamageTool.shapeless(RecipeCategory.MISC, BlockRegistry.FARMLAND_SLAB.get()).requires(ItemTags.HOES).requires(TagRegistry.Items.SLABS_TILLABLE).unlockedBy("has_hoe", has(ItemTags.HOES)).save(consumer, modLoc(getItemName(BlockRegistry.FARMLAND_SLAB.get()) + "_from_hoe"));
+        ShapelessDamageTool.shapeless(RecipeCategory.MISC, BlockRegistry.DIRT_PATH_SLAB.get()).requires(ItemTags.SHOVELS).requires(BlockRegistry.GRASS_BLOCK_SLAB.get()).unlockedBy("has_shovel", has(ItemTags.SHOVELS)).save(consumer, modLoc(getItemName(BlockRegistry.DIRT_PATH_SLAB.get()) + "_from_shovel"));
+        ShapelessDamageTool.shapeless(RecipeCategory.MISC, Blocks.DIRT_PATH).requires(ItemTags.SHOVELS).requires(Items.GRASS_BLOCK).unlockedBy("has_shovel", has(ItemTags.SHOVELS)).save(consumer, modLoc("vanilla_" + getItemName(Blocks.DIRT_PATH) + "_from_shovel"));
+        ShapelessDamageTool.shapeless(RecipeCategory.MISC, BlockRegistry.DIRT_TRACK_SLAB.get()).requires(ItemTags.SHOVELS).requires(BlockRegistry.DIRT_SLAB.get()).unlockedBy("has_shovel", has(ItemTags.SHOVELS)).save(consumer, modLoc(getItemName(BlockRegistry.DIRT_TRACK_SLAB.get()) + "_from_shovel"));
+        ShapelessDamageTool.shapeless(RecipeCategory.MISC, BlockRegistry.DIRT_TRACK.get()).requires(ItemTags.SHOVELS).requires(Items.DIRT).unlockedBy("has_shovel", has(ItemTags.SHOVELS)).save(consumer, modLoc(getItemName(BlockRegistry.DIRT_TRACK.get()) + "_from_shovel"));
     }
 
     private void addSmithingRecipes(Consumer<FinishedRecipe> consumer) {

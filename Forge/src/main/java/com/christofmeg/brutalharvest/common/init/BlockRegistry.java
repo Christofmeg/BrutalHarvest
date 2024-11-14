@@ -4,7 +4,9 @@ import com.christofmeg.brutalharvest.CommonConstants;
 import com.christofmeg.brutalharvest.common.block.*;
 import com.christofmeg.brutalharvest.common.world.tree.RubberTreeGrower;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
@@ -53,8 +55,11 @@ public class BlockRegistry {
 
     public static final RegistryObject<Block> FARMLAND_SLAB;
     public static final RegistryObject<Block> DIRT_SLAB;
+    public static final RegistryObject<Block> GRASS_BLOCK_SLAB;
+    public static final RegistryObject<Block> DIRT_PATH_SLAB;
+    public static final RegistryObject<Block> DIRT_TRACK_SLAB;
 
-    //TODO Grass and Path slab
+    public static final RegistryObject<Block> DIRT_TRACK;
 
     private BlockRegistry() {
     }
@@ -124,8 +129,20 @@ public class BlockRegistry {
         FARMLAND_SLAB = BLOCKS.register("farmland_slab", () -> new FarmlandSlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).randomTicks().strength(0.6F).sound(SoundType.GRAVEL).isViewBlocking(BlockRegistry::always).isSuffocating(BlockRegistry::always)));
         ItemRegistry.ITEMS.register("farmland_slab", () -> new BlockItem(FARMLAND_SLAB.get(), new Item.Properties()));
 
-        DIRT_SLAB = BLOCKS.register("dirt_slab", () -> new SlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).strength(0.5F).sound(SoundType.GRAVEL)));
+        DIRT_SLAB = BLOCKS.register("dirt_slab", () -> new DirtSlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).randomTicks().strength(0.5F).sound(SoundType.GRAVEL)));
         ItemRegistry.ITEMS.register("dirt_slab", () -> new BlockItem(DIRT_SLAB.get(), new Item.Properties()));
+
+        GRASS_BLOCK_SLAB = BLOCKS.register("grass_block_slab", () -> new GrassBlockSlab(BlockBehaviour.Properties.of().mapColor(MapColor.GRASS).randomTicks().strength(0.6F).sound(SoundType.GRASS)));
+        ItemRegistry.ITEMS.register("grass_block_slab", () -> new BlockItem(GRASS_BLOCK_SLAB.get(), new Item.Properties()));
+
+        DIRT_PATH_SLAB = BLOCKS.register("dirt_path_slab", () ->  new DirtPathSlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).strength(0.65F).sound(SoundType.GRASS).isViewBlocking(BlockRegistry::always).isSuffocating(BlockRegistry::always)));
+        ItemRegistry.ITEMS.register("dirt_path_slab", () -> new BlockItem(DIRT_PATH_SLAB.get(), new Item.Properties()));
+
+        DIRT_TRACK_SLAB = BLOCKS.register("dirt_track_slab", () ->  new DirtPathSlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).strength(0.65F).sound(SoundType.GRASS).isViewBlocking(BlockRegistry::always).isSuffocating(BlockRegistry::always)));
+        ItemRegistry.ITEMS.register("dirt_track_slab", () -> new BlockItem(DIRT_TRACK_SLAB.get(), new Item.Properties()));
+
+        DIRT_TRACK = BLOCKS.register("dirt_track", () -> new DirtPathBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).strength(0.65F).sound(SoundType.GRASS).isViewBlocking(BlockRegistry::always).isSuffocating(BlockRegistry::always)));
+        ItemRegistry.ITEMS.register("dirt_track", () -> new BlockItem(DIRT_TRACK.get(), new Item.Properties()));
 
         // BIRCH_SIGN,
         // BIRCH_WALL_SIGN,

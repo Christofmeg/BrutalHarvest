@@ -25,6 +25,9 @@ public enum BrutalArmorMaterials implements ArmorMaterial {
     SoundEvents.ARMOR_EQUIP_GENERIC, 0, 0, () -> Ingredient.EMPTY),
 
     BOOTS("boots", new int[] { 0, 0, 0, 0 }, 0,
+    SoundEvents.ARMOR_EQUIP_GENERIC, 0, 0, () -> Ingredient.EMPTY),
+
+    CHEFS_APRON("chefs_apron", new int[] { 0, 0, 0, 0 }, 0,
     SoundEvents.ARMOR_EQUIP_GENERIC, 0, 0, () -> Ingredient.EMPTY);
 
     private final String name;

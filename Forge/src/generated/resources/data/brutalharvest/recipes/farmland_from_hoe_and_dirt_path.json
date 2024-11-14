@@ -1,0 +1,15 @@
+{
+  "type": "brutalharvest:shapeless_damage_tool",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "minecraft:hoes"
+    },
+    {
+      "item": "minecraft:dirt_path"
+    }
+  ],
+  "result": {
+    "item": "minecraft:farmland"
+  }
+}

@@ -47,60 +47,62 @@ public class BrutalBlockStateProvider extends BaseBlockStateProvider {
         simpleBlock(BlockRegistry.RUBBER_PLANKS.get());
         leavesBlock(BlockRegistry.RUBBER_LEAVES);
 
-        this.slabBlock(BlockRegistry.DIRT_SLAB.get(), mcLoc("block/dirt"), mcLoc("block/dirt"));
+        slabBlock(BlockRegistry.DIRT_SLAB.get(), mcLoc("block/dirt"), mcLoc("block/dirt"));
 
         ModelFile farmland = vanillaModels().withExistingParent("farmland", mcLoc("block/farmland_moist"));
         ModelFile farmland_moist = vanillaModels().withExistingParent("farmland_moist", mcLoc("block/farmland_moist"));
-        ModelFile farmland_slab = models().withExistingParent("farmland_slab", modLoc("block/lowered_slab"))
-                .texture("bottom", mcLoc("block/dirt"))
-                .texture("side", mcLoc("block/dirt"))
-                .texture("top", mcLoc("block/farmland"));
-        ModelFile farmland_slab_top = models().withExistingParent("farmland_slab_top", modLoc("block/lowered_slab_top"))
-                .texture("bottom", mcLoc("block/dirt"))
-                .texture("side", mcLoc("block/dirt"))
-                .texture("top", mcLoc("block/farmland"));
-        ModelFile farmland_slab_moist = models().withExistingParent("farmland_slab_moist", modLoc("block/lowered_slab"))
-                .texture("bottom", mcLoc("block/dirt"))
-                .texture("side", mcLoc("block/dirt"))
-                .texture("top", mcLoc("block/farmland_moist"));
-        ModelFile farmland_slab_moist_top = models().withExistingParent("farmland_slab_moist_top", modLoc("block/lowered_slab_top"))
-                .texture("bottom", mcLoc("block/dirt"))
-                .texture("side", mcLoc("block/dirt"))
-                .texture("top", mcLoc("block/farmland_moist"));
+        ModelFile farmland_slab = models().withExistingParent("farmland_slab", modLoc("block/lowered_slab")).texture("bottom", mcLoc("block/dirt")).texture("side", mcLoc("block/dirt")).texture("top", mcLoc("block/farmland"));
+        ModelFile farmland_slab_top = models().withExistingParent("farmland_slab_top", modLoc("block/lowered_slab_top")).texture("bottom", mcLoc("block/dirt")).texture("side", mcLoc("block/dirt")).texture("top", mcLoc("block/farmland"));
+        ModelFile farmland_slab_moist = models().withExistingParent("farmland_slab_moist", modLoc("block/lowered_slab")).texture("bottom", mcLoc("block/dirt")).texture("side", mcLoc("block/dirt")).texture("top", mcLoc("block/farmland_moist"));
+        ModelFile farmland_slab_moist_top = models().withExistingParent("farmland_slab_moist_top", modLoc("block/lowered_slab_top")).texture("bottom", mcLoc("block/dirt")).texture("side", mcLoc("block/dirt")).texture("top", mcLoc("block/farmland_moist"));
         for (int moisture = 0; moisture <= 7; moisture++) {
             ModelFile bottomModel = farmland_slab;
             ModelFile topModel = farmland_slab_top;
             ModelFile doubleModel = farmland;
-
             if (moisture == 7) {
                 bottomModel = farmland_slab_moist;
                 topModel = farmland_slab_moist_top;
                 doubleModel = farmland_moist;
             }
-
             getVariantBuilder(BlockRegistry.FARMLAND_SLAB.get())
                     .partialState().with(FarmlandSlabBlock.MOISTURE, moisture).with(SlabBlock.TYPE, SlabType.BOTTOM).modelForState().modelFile(bottomModel).addModel()
                     .partialState().with(FarmlandSlabBlock.MOISTURE, moisture).with(SlabBlock.TYPE, SlabType.TOP).modelForState().modelFile(topModel).addModel()
                     .partialState().with(FarmlandSlabBlock.MOISTURE, moisture).with(SlabBlock.TYPE, SlabType.DOUBLE).modelForState().modelFile(doubleModel).addModel();
         }
 
-        ModelFile normal = models().withExistingParent("rubber_log", "minecraft:block/cube_column")
-                .texture("end", modLoc("block/rubber_log_top"))
-                .texture("side", modLoc("block/rubber_log"));
-        ModelFile uncut = models().withExistingParent("rubber_log_drained", "minecraft:block/cube_column_horizontal")
-                .texture("end", modLoc("block/rubber_log_top"))
-                .texture("north", modLoc("block/rubber_log_drained"))
-                .texture("south", modLoc("block/rubber_log"))
-                .texture("east", modLoc("block/rubber_log"))
-                .texture("west", modLoc("block/rubber_log"))
-                .texture("particle", modLoc("block/rubber_log_drained"));
-        ModelFile cut = models().withExistingParent("rubber_log_open", "minecraft:block/cube_column_horizontal")
-                .texture("end", modLoc("block/rubber_log_top"))
-                .texture("north", modLoc("block/rubber_log_open"))
-                .texture("south", modLoc("block/rubber_log"))
-                .texture("east", modLoc("block/rubber_log"))
-                .texture("west", modLoc("block/rubber_log"))
-                .texture("particle", modLoc("block/rubber_log_open"));
+        ModelFile dirt_path = models().withExistingParent("dirt_path", mcLoc("block/dirt_path"));
+        ModelFile dirt_path_slab = models().withExistingParent("dirt_path_slab", modLoc("block/lowered_slab_upper_texture")).texture("bottom", mcLoc("block/dirt")).texture("side", mcLoc("block/dirt_path_side")).texture("top", mcLoc("block/dirt_path_top"));
+        ModelFile dirt_path_slab_top = models().withExistingParent("dirt_path_slab_top", modLoc("block/lowered_slab_top")).texture("bottom", mcLoc("block/dirt")).texture("side", mcLoc("block/dirt_path_side")).texture("top", mcLoc("block/dirt_path_top"));
+        getVariantBuilder(BlockRegistry.DIRT_PATH_SLAB.get())
+                .partialState().with(SlabBlock.TYPE, SlabType.BOTTOM).modelForState().modelFile(dirt_path_slab).addModel()
+                .partialState().with(SlabBlock.TYPE, SlabType.TOP).modelForState().modelFile(dirt_path_slab_top).addModel()
+                .partialState().with(SlabBlock.TYPE, SlabType.DOUBLE).modelForState().modelFile(dirt_path).addModel();
+
+        ModelFile dirt_track = models().withExistingParent("dirt_track", modLoc("block/dirt_track"));
+        ModelFile dirt_track_slab = models().withExistingParent("dirt_track_slab", modLoc("block/lowered_slab")).texture("bottom", mcLoc("block/dirt")).texture("side", modLoc("block/dirt_track_side")).texture("top", modLoc("block/dirt_track_top"));
+        ModelFile dirt_track_slab_top = models().withExistingParent("dirt_track_slab_top", modLoc("block/lowered_slab_top")).texture("bottom", mcLoc("block/dirt")).texture("side", modLoc("block/dirt_track_side")).texture("top", modLoc("block/dirt_track_top"));
+        getVariantBuilder(BlockRegistry.DIRT_TRACK_SLAB.get())
+                .partialState().with(SlabBlock.TYPE, SlabType.BOTTOM).modelForState().modelFile(dirt_track_slab).addModel()
+                .partialState().with(SlabBlock.TYPE, SlabType.TOP).modelForState().modelFile(dirt_track_slab_top).addModel()
+                .partialState().with(SlabBlock.TYPE, SlabType.DOUBLE).modelForState().modelFile(dirt_track).addModel();
+
+        ModelFile grass_block = models().withExistingParent("grass_block", mcLoc("block/grass_block")).renderType("cutout");
+        ModelFile grass_block_slab = models().withExistingParent("grass_block_slab", modLoc("block/overlay_slab"))
+                .texture("bottom", mcLoc("block/dirt")).texture("side", mcLoc("block/grass_block_side"))
+                .texture("top", mcLoc("block/grass_block_top")).texture("overlay", mcLoc("block/grass_block_side_overlay")).renderType("cutout");
+        ModelFile grass_block_slab_top = models().withExistingParent("grass_block_top", modLoc("block/overlay_slab_top"))
+                .texture("bottom", mcLoc("block/dirt")).texture("side", mcLoc("block/grass_block_side"))
+                .texture("top", mcLoc("block/grass_block_top")).texture("overlay", mcLoc("block/grass_block_side_overlay")).renderType("cutout");
+        getVariantBuilder(BlockRegistry.GRASS_BLOCK_SLAB.get())
+                .partialState().with(SlabBlock.TYPE, SlabType.BOTTOM).modelForState().modelFile(grass_block_slab).addModel()
+                .partialState().with(SlabBlock.TYPE, SlabType.TOP).modelForState().modelFile(grass_block_slab_top).addModel()
+                .partialState().with(SlabBlock.TYPE, SlabType.DOUBLE).modelForState().modelFile(grass_block).addModel();
+
+        simpleBlock(BlockRegistry.DIRT_TRACK.get(), models().withExistingParent("dirt_track", mcLoc("block/dirt_path")).texture("side", modLoc("block/dirt_track_side")).texture("top", modLoc("block/dirt_track_top")));
+
+        ModelFile normal = models().withExistingParent("rubber_log", mcLoc("block/cube_column")).texture("end", modLoc("block/rubber_log_top")).texture("side", modLoc("block/rubber_log"));
+        ModelFile uncut = models().withExistingParent("rubber_log_drained", mcLoc("block/cube_column_horizontal")).texture("end", modLoc("block/rubber_log_top")).texture("north", modLoc("block/rubber_log_drained")).texture("south", modLoc("block/rubber_log")).texture("east", modLoc("block/rubber_log")).texture("west", modLoc("block/rubber_log")).texture("particle", modLoc("block/rubber_log_drained"));
+        ModelFile cut = models().withExistingParent("rubber_log_open", mcLoc("block/cube_column_horizontal")).texture("end", modLoc("block/rubber_log_top")).texture("north", modLoc("block/rubber_log_open")).texture("south", modLoc("block/rubber_log")).texture("east", modLoc("block/rubber_log")).texture("west", modLoc("block/rubber_log")).texture("particle", modLoc("block/rubber_log_open"));
         getVariantBuilder(BlockRegistry.RUBBER_LOG_GENERATED.get())
             .partialState().with(RubberLogGeneratedBlock.OPEN, false).with(RubberLogGeneratedBlock.CUT, false).modelForState().modelFile(normal).addModel()
             .partialState().with(RubberLogGeneratedBlock.OPEN, false).with(RubberLogGeneratedBlock.CUT, true).modelForState().modelFile(normal).addModel()

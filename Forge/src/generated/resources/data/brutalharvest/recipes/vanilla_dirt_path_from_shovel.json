@@ -1,0 +1,15 @@
+{
+  "type": "brutalharvest:shapeless_damage_tool",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "minecraft:shovels"
+    },
+    {
+      "item": "minecraft:grass_block"
+    }
+  ],
+  "result": {
+    "item": "minecraft:dirt_path"
+  }
+}

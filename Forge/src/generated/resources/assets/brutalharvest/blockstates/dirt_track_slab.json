@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "brutalharvest:block/dirt_track_slab"
+    },
+    "type=double": {
+      "model": "brutalharvest:block/dirt_track"
+    },
+    "type=top": {
+      "model": "brutalharvest:block/dirt_track_slab_top"
+    }
+  }
+}

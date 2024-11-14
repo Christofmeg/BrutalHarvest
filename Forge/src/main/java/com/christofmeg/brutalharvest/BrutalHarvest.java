@@ -21,6 +21,8 @@ public class BrutalHarvest {
         init(bus);
         bus.addListener(new ClientSetupEvent()::clientSetupEvent);
         bus.addListener(new ClientSetupEvent()::registerLayerDefinitions);
+        bus.addListener(new ClientSetupEvent()::registerBlockColors);
+        bus.addListener(new ClientSetupEvent()::registerItemColors);
 
         bus.addListener(new CommonSetupEvent()::commonSetupEvent);
     }

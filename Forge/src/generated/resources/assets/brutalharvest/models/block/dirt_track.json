@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/dirt_path",
+  "textures": {
+    "side": "brutalharvest:block/dirt_track_side",
+    "top": "brutalharvest:block/dirt_track_top"
+  }
+}
