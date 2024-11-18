@@ -23,26 +23,10 @@ public class DungareeItem extends CosmeticItem {
         this.name = name;
     }
 
-    @Override
-    protected AbstractRenderer<?> getRenderer() {
-        return null;
-    }
-
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void initializeClient(Consumer<IClientItemExtensions> consumer){
-        consumer.accept(new IClientItemExtensions() {
-            private GeoArmorRenderer<?> renderer;
-
-            public @NotNull HumanoidModel<?> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack, EquipmentSlot equipmentSlot, HumanoidModel<?> original) {
-                if (this.renderer == null) {
-                    this.renderer = new DungareeRenderer(name);
-                }
-
-                this.renderer.prepForRender(livingEntity, itemStack, equipmentSlot, original);
-                return this.renderer;
-            }
-        });
+    protected GeoArmorRenderer<?> getRenderer() {
+        return new DungareeRenderer(name);
     }
 
 }

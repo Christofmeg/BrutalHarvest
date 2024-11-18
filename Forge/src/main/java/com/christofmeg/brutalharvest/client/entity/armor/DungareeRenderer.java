@@ -32,6 +32,7 @@ public class DungareeRenderer extends GeoArmorRenderer<DungareeItem> {
         });
     }
 
+
     @Override
     public void preRender(PoseStack poseStack, DungareeItem animatable, BakedGeoModel model, @javax.annotation.Nullable MultiBufferSource bufferSource, @javax.annotation.Nullable VertexConsumer buffer, boolean isReRender, float partialTick, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
         this.entityRenderTranslations = new Matrix4f(poseStack.last().pose());

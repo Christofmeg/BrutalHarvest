@@ -1,5 +1,6 @@
 package com.christofmeg.brutalharvest.common.item;
 
+import com.christofmeg.brutalharvest.client.entity.armor.AbstractRenderer;
 import com.christofmeg.brutalharvest.client.entity.armor.ChefsHatRenderer;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraftforge.api.distmarker.Dist;
@@ -13,7 +14,7 @@ public class ChefsHatItem extends CosmeticItem {
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    protected ChefsHatRenderer getRenderer() {
+    protected AbstractRenderer<?> getRenderer() {
         return new ChefsHatRenderer();
     }
 
