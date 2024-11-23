@@ -7,6 +7,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.gameevent.GameEvent;
 
@@ -21,15 +22,19 @@ public class ShovelItemFlattenables{
     public static void register() {
         ShovelItemFlattenables.put(BlockRegistry.GRASS_BLOCK_SLAB.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM), Pair.of(a -> true, ShovelItemFlattenables.changeIntoState(BlockRegistry.DIRT_PATH_SLAB.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))));
         ShovelItemFlattenables.put(BlockRegistry.GRASS_BLOCK_SLAB.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP), Pair.of(a -> true, ShovelItemFlattenables.changeIntoState(BlockRegistry.DIRT_PATH_SLAB.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))));
-        ShovelItemFlattenables.put(BlockRegistry.GRASS_BLOCK_SLAB.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.DOUBLE), Pair.of(a -> true, ShovelItemFlattenables.changeIntoState(BlockRegistry.DIRT_PATH_SLAB.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.DOUBLE))));
-
         ShovelItemFlattenables.put(BlockRegistry.DIRT_SLAB.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM), Pair.of(a -> true, ShovelItemFlattenables.changeIntoState(BlockRegistry.DIRT_TRACK_SLAB.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))));
         ShovelItemFlattenables.put(BlockRegistry.DIRT_SLAB.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP), Pair.of(a -> true, ShovelItemFlattenables.changeIntoState(BlockRegistry.DIRT_TRACK_SLAB.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))));
-        ShovelItemFlattenables.put(BlockRegistry.DIRT_SLAB.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.DOUBLE), Pair.of(a -> true, ShovelItemFlattenables.changeIntoState(BlockRegistry.DIRT_TRACK_SLAB.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.DOUBLE))));
 
+        ShovelItemFlattenables.put(BlockRegistry.GRASS_BLOCK_SLAB.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.DOUBLE), Pair.of(a -> true, ShovelItemFlattenables.changeIntoState(BlockRegistry.DIRT_PATH_SLAB.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.DOUBLE))));
+        ShovelItemFlattenables.put(BlockRegistry.DIRT_SLAB.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.DOUBLE), Pair.of(a -> true, ShovelItemFlattenables.changeIntoState(BlockRegistry.DIRT_TRACK_SLAB.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.DOUBLE))));
         ShovelItemFlattenables.putOverride(Blocks.DIRT.defaultBlockState(), Pair.of(a -> true, ShovelItemFlattenables.changeIntoState(BlockRegistry.DIRT_TRACK.get().defaultBlockState())));
         ShovelItemFlattenables.putOverride(Blocks.COARSE_DIRT.defaultBlockState(), Pair.of(a -> true, ShovelItemFlattenables.changeIntoState(BlockRegistry.DIRT_TRACK.get().defaultBlockState())));
         ShovelItemFlattenables.putOverride(Blocks.ROOTED_DIRT.defaultBlockState(), Pair.of(a -> true, ShovelItemFlattenables.changeIntoState(BlockRegistry.DIRT_TRACK.get().defaultBlockState())));
+
+        ShovelItemFlattenables.put(BlockRegistry.GRASS_BLOCK_SLAB.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM).setValue(BlockStateProperties.WATERLOGGED, true), Pair.of(a -> true, ShovelItemFlattenables.changeIntoState(BlockRegistry.DIRT_PATH_SLAB.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM).setValue(BlockStateProperties.WATERLOGGED, true))));
+        ShovelItemFlattenables.put(BlockRegistry.GRASS_BLOCK_SLAB.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP).setValue(BlockStateProperties.WATERLOGGED, true), Pair.of(a -> true, ShovelItemFlattenables.changeIntoState(BlockRegistry.DIRT_PATH_SLAB.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP).setValue(BlockStateProperties.WATERLOGGED, true))));
+        ShovelItemFlattenables.put(BlockRegistry.DIRT_SLAB.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM).setValue(BlockStateProperties.WATERLOGGED, true), Pair.of(a -> true, ShovelItemFlattenables.changeIntoState(BlockRegistry.DIRT_TRACK_SLAB.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM).setValue(BlockStateProperties.WATERLOGGED, true))));
+        ShovelItemFlattenables.put(BlockRegistry.DIRT_SLAB.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP).setValue(BlockStateProperties.WATERLOGGED, true), Pair.of(a -> true, ShovelItemFlattenables.changeIntoState(BlockRegistry.DIRT_TRACK_SLAB.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP).setValue(BlockStateProperties.WATERLOGGED, true))));
     }
 
     public static void put(BlockState block, Pair<Predicate<UseOnContext>, Consumer<UseOnContext>> context) {
