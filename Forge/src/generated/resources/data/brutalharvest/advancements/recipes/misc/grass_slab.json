@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "brutalharvest:grass_block_slab"
+        "recipe": "brutalharvest:grass_slab"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "brutalharvest:grass_block_slab"
+      "brutalharvest:grass_slab"
     ]
   },
   "sends_telemetry_event": false

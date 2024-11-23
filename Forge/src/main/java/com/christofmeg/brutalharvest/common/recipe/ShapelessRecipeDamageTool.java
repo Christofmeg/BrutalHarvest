@@ -63,38 +63,32 @@ public class ShapelessRecipeDamageTool extends ShapelessRecipe {
 
         private static NonNullList<Ingredient> itemsFromJson(JsonArray pIngredientArray) {
             NonNullList<Ingredient> nonnulllist = NonNullList.create();
-
             for(int i = 0; i < pIngredientArray.size(); ++i) {
                 Ingredient ingredient = Ingredient.fromJson(pIngredientArray.get(i), false);
                 nonnulllist.add(ingredient);
             }
-
             return nonnulllist;
         }
 
         @Override
-        public ShapelessRecipeDamageTool fromNetwork(@NotNull ResourceLocation pRecipeId, FriendlyByteBuf buf) {
-            String s = buf.readUtf();
-            int i = buf.readVarInt();
+        public ShapelessRecipeDamageTool fromNetwork(@NotNull ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
+            String s = pBuffer.readUtf();
+            int i = pBuffer.readVarInt();
             NonNullList<Ingredient> nonnulllist = NonNullList.withSize(i, Ingredient.EMPTY);
-
-            nonnulllist.replaceAll(ignored -> Ingredient.fromNetwork(buf));
-
-            ItemStack itemstack = buf.readItem();
+            nonnulllist.replaceAll(ignored -> Ingredient.fromNetwork(pBuffer));
+            ItemStack itemstack = pBuffer.readItem();
             return new ShapelessRecipeDamageTool(pRecipeId, s, itemstack, nonnulllist);
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf buf, ShapelessRecipeDamageTool pRecipe) {
-            buf.writeUtf(pRecipe.getGroup());
-            buf.writeEnum(pRecipe.category());
-            buf.writeVarInt(pRecipe.getIngredients().size());
-
+        public void toNetwork(FriendlyByteBuf pBuffer, ShapelessRecipeDamageTool pRecipe) {
+            pBuffer.writeUtf(pRecipe.getGroup());
+            pBuffer.writeEnum(pRecipe.category());
+            pBuffer.writeVarInt(pRecipe.getIngredients().size());
             for (Ingredient ingredient : pRecipe.getIngredients()) {
-                ingredient.toNetwork(buf);
+                ingredient.toNetwork(pBuffer);
             }
-
-            buf.writeItem(pRecipe.result);
+            pBuffer.writeItem(pRecipe.result);
         }
     }
 

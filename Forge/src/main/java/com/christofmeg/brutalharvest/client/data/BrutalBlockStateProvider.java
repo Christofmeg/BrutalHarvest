@@ -87,13 +87,13 @@ public class BrutalBlockStateProvider extends BaseBlockStateProvider {
                 .partialState().with(SlabBlock.TYPE, SlabType.DOUBLE).modelForState().modelFile(dirt_track).addModel();
 
         ModelFile grass_block = models().withExistingParent("grass_block", mcLoc("block/grass_block")).renderType("cutout");
-        ModelFile grass_block_slab = models().withExistingParent("grass_block_slab", modLoc("block/overlay_slab"))
+        ModelFile grass_block_slab = models().withExistingParent("grass_slab", modLoc("block/overlay_slab"))
                 .texture("bottom", mcLoc("block/dirt")).texture("side", mcLoc("block/grass_block_side"))
                 .texture("top", mcLoc("block/grass_block_top")).texture("overlay", mcLoc("block/grass_block_side_overlay")).renderType("cutout");
         ModelFile grass_block_slab_top = models().withExistingParent("grass_block_top", modLoc("block/overlay_slab_top"))
                 .texture("bottom", mcLoc("block/dirt")).texture("side", mcLoc("block/grass_block_side"))
                 .texture("top", mcLoc("block/grass_block_top")).texture("overlay", mcLoc("block/grass_block_side_overlay")).renderType("cutout");
-        getVariantBuilder(BlockRegistry.GRASS_BLOCK_SLAB.get())
+        getVariantBuilder(BlockRegistry.GRASS_SLAB.get())
                 .partialState().with(SlabBlock.TYPE, SlabType.BOTTOM).modelForState().modelFile(grass_block_slab).addModel()
                 .partialState().with(SlabBlock.TYPE, SlabType.TOP).modelForState().modelFile(grass_block_slab_top).addModel()
                 .partialState().with(SlabBlock.TYPE, SlabType.DOUBLE).modelForState().modelFile(grass_block).addModel();

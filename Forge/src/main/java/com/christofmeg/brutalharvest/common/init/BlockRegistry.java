@@ -55,7 +55,7 @@ public class BlockRegistry {
 
     public static final RegistryObject<Block> FARMLAND_SLAB;
     public static final RegistryObject<Block> DIRT_SLAB;
-    public static final RegistryObject<Block> GRASS_BLOCK_SLAB;
+    public static final RegistryObject<Block> GRASS_SLAB;
     public static final RegistryObject<Block> DIRT_PATH_SLAB;
     public static final RegistryObject<Block> DIRT_TRACK_SLAB;
 
@@ -132,8 +132,8 @@ public class BlockRegistry {
         DIRT_SLAB = BLOCKS.register("dirt_slab", () -> new DirtSlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).randomTicks().strength(0.5F).sound(SoundType.GRAVEL)));
         ItemRegistry.ITEMS.register("dirt_slab", () -> new BlockItem(DIRT_SLAB.get(), new Item.Properties()));
 
-        GRASS_BLOCK_SLAB = BLOCKS.register("grass_block_slab", () -> new GrassBlockSlab(BlockBehaviour.Properties.of().mapColor(MapColor.GRASS).randomTicks().strength(0.6F).sound(SoundType.GRASS)));
-        ItemRegistry.ITEMS.register("grass_block_slab", () -> new BlockItem(GRASS_BLOCK_SLAB.get(), new Item.Properties()));
+        GRASS_SLAB = BLOCKS.register("grass_slab", () -> new GrassSlab(BlockBehaviour.Properties.of().mapColor(MapColor.GRASS).randomTicks().strength(0.6F).sound(SoundType.GRASS)));
+        ItemRegistry.ITEMS.register("grass_slab", () -> new BlockItem(GRASS_SLAB.get(), new Item.Properties()));
 
         DIRT_PATH_SLAB = BLOCKS.register("dirt_path_slab", () ->  new DirtPathSlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).strength(0.65F).sound(SoundType.GRASS).isViewBlocking(BlockRegistry::always).isSuffocating(BlockRegistry::always)));
         ItemRegistry.ITEMS.register("dirt_path_slab", () -> new BlockItem(DIRT_PATH_SLAB.get(), new Item.Properties()));

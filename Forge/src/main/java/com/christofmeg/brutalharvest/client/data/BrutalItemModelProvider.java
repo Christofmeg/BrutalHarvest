@@ -56,7 +56,7 @@ public class BrutalItemModelProvider extends ItemModelProvider {
         withExistingParent(getItemName(BlockRegistry.RUBBER_LOG_GENERATED.get()), modLoc("block/" + getItemName(BlockRegistry.RUBBER_LOG.get())));
         withExistingParent(getItemName(BlockRegistry.FARMLAND_SLAB.get()), modLoc("block/" + getItemName(BlockRegistry.FARMLAND_SLAB.get())));
         withExistingParent(getItemName(BlockRegistry.DIRT_SLAB.get()), modLoc("block/" + getItemName(BlockRegistry.DIRT_SLAB.get())));
-        withExistingParent(getItemName(BlockRegistry.GRASS_BLOCK_SLAB.get()), modLoc("block/" + getItemName(BlockRegistry.GRASS_BLOCK_SLAB.get())));
+        withExistingParent(getItemName(BlockRegistry.GRASS_SLAB.get()), modLoc("block/" + getItemName(BlockRegistry.GRASS_SLAB.get())));
         withExistingParent(getItemName(BlockRegistry.DIRT_PATH_SLAB.get()), modLoc("block/" + getItemName(BlockRegistry.DIRT_PATH_SLAB.get())));
         withExistingParent(getItemName(BlockRegistry.DIRT_TRACK_SLAB.get()), modLoc("block/" + getItemName(BlockRegistry.DIRT_TRACK_SLAB.get())));
         withExistingParent(getItemName(BlockRegistry.DIRT_TRACK.get()), modLoc("block/" + getItemName(BlockRegistry.DIRT_TRACK.get())));

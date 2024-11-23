@@ -26,7 +26,7 @@
               "add": false,
               "conditions": [
                 {
-                  "block": "brutalharvest:grass_block_slab",
+                  "block": "brutalharvest:grass_slab",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "type": "double"
@@ -40,7 +40,7 @@
               "function": "minecraft:explosion_decay"
             }
           ],
-          "name": "brutalharvest:grass_block_slab"
+          "name": "brutalharvest:grass_slab"
         }
       ],
       "rolls": 1.0
@@ -73,7 +73,7 @@
               "add": false,
               "conditions": [
                 {
-                  "block": "brutalharvest:grass_block_slab",
+                  "block": "brutalharvest:grass_slab",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "type": "double"
@@ -93,5 +93,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "brutalharvest:blocks/grass_block_slab"
+  "random_sequence": "brutalharvest:blocks/grass_slab"
 }

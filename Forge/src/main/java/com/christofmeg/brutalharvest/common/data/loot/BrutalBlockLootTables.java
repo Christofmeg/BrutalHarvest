@@ -195,7 +195,7 @@ public class BrutalBlockLootTables extends BlockLootSubProvider {
 
         this.add(BlockRegistry.FARMLAND_SLAB.get(), createSlabSilkTouchDrops(BlockRegistry.FARMLAND_SLAB.get(), BlockRegistry.DIRT_SLAB.get()));
         this.add(BlockRegistry.DIRT_SLAB.get(), this.createSlabItemTable(BlockRegistry.DIRT_SLAB.get()));
-        this.add(BlockRegistry.GRASS_BLOCK_SLAB.get(), createSlabSilkTouchDrops(BlockRegistry.GRASS_BLOCK_SLAB.get(), BlockRegistry.DIRT_SLAB.get()));
+        this.add(BlockRegistry.GRASS_SLAB.get(), createSlabSilkTouchDrops(BlockRegistry.GRASS_SLAB.get(), BlockRegistry.DIRT_SLAB.get()));
         this.add(BlockRegistry.DIRT_PATH_SLAB.get(), createSlabSilkTouchDrops(BlockRegistry.DIRT_PATH_SLAB.get(), BlockRegistry.DIRT_SLAB.get()));
         this.add(BlockRegistry.DIRT_TRACK_SLAB.get(), createSlabSilkTouchDrops(BlockRegistry.DIRT_TRACK_SLAB.get(), BlockRegistry.DIRT_SLAB.get()));
         this.add(BlockRegistry.DIRT_TRACK.get(), createSingleItemTableWithSilkTouch(BlockRegistry.DIRT_TRACK.get(), Blocks.DIRT));

@@ -38,14 +38,14 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Optional;
 
-public class GrassBlockSlab extends GrassBlock implements SimpleWaterloggedBlock {
+public class GrassSlab extends GrassBlock implements SimpleWaterloggedBlock {
 
     public static final EnumProperty<SlabType> TYPE;
     public static final BooleanProperty WATERLOGGED;
     protected static final VoxelShape BOTTOM_AABB;
     protected static final VoxelShape TOP_AABB;
 
-    public GrassBlockSlab(Properties properties) {
+    public GrassSlab(Properties properties) {
         super(properties);
         this.registerDefaultState(this.defaultBlockState().setValue(TYPE, SlabType.BOTTOM).setValue(WATERLOGGED, false).setValue(SNOWY, false));
     }
@@ -119,7 +119,7 @@ public class GrassBlockSlab extends GrassBlock implements SimpleWaterloggedBlock
 
             BlockState $$10 = serverLevel.getBlockState($$8);
             if (randomSource.nextInt(10) == 0) {
-                if ($$10.is(grassBlock) || $$10.is(BlockRegistry.GRASS_BLOCK_SLAB.get())) {
+                if ($$10.is(grassBlock) || $$10.is(BlockRegistry.GRASS_SLAB.get())) {
                     ((BonemealableBlock)$$10).performBonemeal(serverLevel, randomSource, $$8, $$10);
                 }
             }

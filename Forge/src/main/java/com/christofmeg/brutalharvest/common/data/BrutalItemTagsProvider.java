@@ -269,7 +269,7 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
                 .add(BlockRegistry.DIRT_SLAB.get().asItem())
                 .add(BlockRegistry.DIRT_PATH_SLAB.get().asItem())
                 .add(BlockRegistry.DIRT_TRACK_SLAB.get().asItem())
-                .add(BlockRegistry.GRASS_BLOCK_SLAB.get().asItem());
+                .add(BlockRegistry.GRASS_SLAB.get().asItem());
 
         tag(ItemTags.SLABS).addTag(TagRegistry.Items.SLABS_TILLABLE).add(BlockRegistry.FARMLAND_SLAB.get().asItem());
 

@@ -34,11 +34,11 @@ public class ClientSetupEvent {
     }
 
     public void registerBlockColors(RegisterColorHandlersEvent.Block event) {
-        event.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : -1, BlockRegistry.GRASS_BLOCK_SLAB.get());
+        event.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageGrassColor(world, pos) : -1, BlockRegistry.GRASS_SLAB.get());
     }
 
     public void registerItemColors(final RegisterColorHandlersEvent.Item event) {
-        event.register((stack, tintIndex) -> GrassColor.get(0.5D, 1.0D), BlockRegistry.GRASS_BLOCK_SLAB.get());
+        event.register((stack, tintIndex) -> GrassColor.get(0.5D, 1.0D), BlockRegistry.GRASS_SLAB.get());
     }
 
 }

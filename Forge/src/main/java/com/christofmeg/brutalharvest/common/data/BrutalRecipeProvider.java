@@ -89,8 +89,8 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Blocks.DIRT_PATH).define('B', BlockRegistry.DIRT_PATH_SLAB.get()).pattern("B").pattern("B").unlockedBy("has_dirt", has(ItemTags.DIRT)).save(consumer, modLoc(getItemName(Blocks.DIRT_PATH)));
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.DIRT_TRACK_SLAB.get(), 6).define('B', BlockRegistry.DIRT_TRACK.get()).pattern("BBB").unlockedBy("has_dirt", has(ItemTags.DIRT)).save(consumer, modLoc(getItemName(BlockRegistry.DIRT_TRACK_SLAB.get())));
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.DIRT_TRACK.get()).define('B', BlockRegistry.DIRT_TRACK_SLAB.get()).pattern("B").pattern("B").unlockedBy("has_dirt", has(ItemTags.DIRT)).save(consumer, modLoc(getItemName(BlockRegistry.DIRT_TRACK.get())));
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.GRASS_BLOCK_SLAB.get(), 6).define('B', Blocks.GRASS_BLOCK).pattern("BBB").unlockedBy("has_dirt", has(ItemTags.DIRT)).save(consumer, modLoc(getItemName(BlockRegistry.GRASS_BLOCK_SLAB.get())));
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Blocks.GRASS_BLOCK).define('B', BlockRegistry.GRASS_BLOCK_SLAB.get()).pattern("B").pattern("B").unlockedBy("has_dirt", has(ItemTags.DIRT)).save(consumer, modLoc(getItemName(Blocks.GRASS_BLOCK)));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistry.GRASS_SLAB.get(), 6).define('B', Blocks.GRASS_BLOCK).pattern("BBB").unlockedBy("has_dirt", has(ItemTags.DIRT)).save(consumer, modLoc(getItemName(BlockRegistry.GRASS_SLAB.get())));
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Blocks.GRASS_BLOCK).define('B', BlockRegistry.GRASS_SLAB.get()).pattern("B").pattern("B").unlockedBy("has_dirt", has(ItemTags.DIRT)).save(consumer, modLoc(getItemName(Blocks.GRASS_BLOCK)));
 
 /*        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ItemRegistry.SUSHI.get())
                 .define('K', Items.DRIED_KELP)
@@ -239,6 +239,7 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .unlockedBy("fabric", has(ItemRegistry.FABRIC.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.FABRIC.get()) + "_cleaning"));
 
+        Ingredient waterBottle = new NBTIngredient(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.DOUGH.get())
                 .requires(Ingredient.of(TagRegistry.Items.FLOUR), 2)
                 .requires(Tags.Items.EGGS)
@@ -251,17 +252,17 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
                 .requires(TagRegistry.Items.BUCKETS_MILK)
                 .unlockedBy("flour", has(ItemRegistry.FLOUR.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.DOUGH.get()) + "_from_" + "milk_bucket"));
-        ShapelessWithRemainder.shapeless(RecipeCategory.MISC, ItemRegistry.DOUGH.get())
+        ShapelessWithRemainder.shapeless(RecipeCategory.MISC, ItemRegistry.DOUGH.get(), waterBottle, Ingredient.of(Items.GLASS_BOTTLE))
                 .requires(Ingredient.of(TagRegistry.Items.FLOUR), 2)
                 .requires(Tags.Items.EGGS)
-                .requires(new NBTIngredient(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER)))
+                .requires(waterBottle)
                 .unlockedBy("flour", has(ItemRegistry.FLOUR.get()))
                 .save(consumer, modLoc(getItemName(ItemRegistry.DOUGH.get()) + "_from_" + "water_bottle"));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.DOUGH.get()).requires(Ingredient.of(TagRegistry.Items.FLOUR), 2).requires(Tags.Items.EGGS).requires(TagRegistry.Items.BOTTLES_MILK).unlockedBy("flour", has(ItemRegistry.FLOUR.get())).save(consumer, modLoc(getItemName(ItemRegistry.DOUGH.get()) + "_from_" + "milk_bottle"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_DOUGH.get()).requires(TagRegistry.Items.FLOUR).requires(TagRegistry.Items.TOMATO).requires(Tags.Items.EGGS).requires(TagRegistry.Items.BUCKETS_WATER).unlockedBy("flour", has(ItemRegistry.FLOUR.get())).save(consumer, modLoc(getItemName(ItemRegistry.TOMATO_DOUGH.get()) + "_from_" + "water_bucket"));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_DOUGH.get()).requires(TagRegistry.Items.FLOUR).requires(TagRegistry.Items.TOMATO).requires(Tags.Items.EGGS).requires(TagRegistry.Items.BUCKETS_MILK).unlockedBy("flour", has(ItemRegistry.FLOUR.get())).save(consumer, modLoc(getItemName(ItemRegistry.TOMATO_DOUGH.get()) + "_from_" + "milk_bucket"));
-        ShapelessWithRemainder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_DOUGH.get()).requires(TagRegistry.Items.FLOUR).requires(TagRegistry.Items.TOMATO).requires(Tags.Items.EGGS).requires(new NBTIngredient(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER))).unlockedBy("flour", has(ItemRegistry.FLOUR.get())).save(consumer, modLoc(getItemName(ItemRegistry.TOMATO_DOUGH.get()) + "_from_" + "water_bottle"));
+        ShapelessWithRemainder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_DOUGH.get(), waterBottle, Ingredient.of(Items.GLASS_BOTTLE)).requires(TagRegistry.Items.FLOUR).requires(TagRegistry.Items.TOMATO).requires(Tags.Items.EGGS).requires(waterBottle).unlockedBy("flour", has(ItemRegistry.FLOUR.get())).save(consumer, modLoc(getItemName(ItemRegistry.TOMATO_DOUGH.get()) + "_from_" + "water_bottle"));
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistry.TOMATO_DOUGH.get()).requires(Ingredient.of(TagRegistry.Items.FLOUR), 2).requires(Tags.Items.EGGS).requires(TagRegistry.Items.BOTTLES_MILK).unlockedBy("flour", has(ItemRegistry.FLOUR.get())).save(consumer, modLoc(getItemName(ItemRegistry.TOMATO_DOUGH.get()) + "_from_" + "milk_bottle"));
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BlockRegistry.RUBBER_PLANKS.get(), 4).requires(TagRegistry.Items.RUBBER_LOGS).unlockedBy("has_rubber_log", has(TagRegistry.Items.RUBBER_LOGS)).save(consumer, modLoc(getItemName(BlockRegistry.RUBBER_PLANKS.get())));
@@ -273,10 +274,11 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
         ShapelessDamageTool.shapeless(RecipeCategory.MISC, Blocks.DIRT).requires(ItemTags.HOES).requires(Blocks.COARSE_DIRT).unlockedBy("has_hoe", has(ItemTags.HOES)).save(consumer, modLoc(getItemName(Blocks.DIRT) + "_from_hoe" + "_and_" + getItemName(Blocks.COARSE_DIRT)));
 
         ShapelessDamageTool.shapeless(RecipeCategory.MISC, BlockRegistry.FARMLAND_SLAB.get()).requires(ItemTags.HOES).requires(TagRegistry.Items.SLABS_TILLABLE).unlockedBy("has_hoe", has(ItemTags.HOES)).save(consumer, modLoc(getItemName(BlockRegistry.FARMLAND_SLAB.get()) + "_from_hoe"));
-        ShapelessDamageTool.shapeless(RecipeCategory.MISC, BlockRegistry.DIRT_PATH_SLAB.get()).requires(ItemTags.SHOVELS).requires(BlockRegistry.GRASS_BLOCK_SLAB.get()).unlockedBy("has_shovel", has(ItemTags.SHOVELS)).save(consumer, modLoc(getItemName(BlockRegistry.DIRT_PATH_SLAB.get()) + "_from_shovel"));
+        ShapelessDamageTool.shapeless(RecipeCategory.MISC, BlockRegistry.DIRT_PATH_SLAB.get()).requires(ItemTags.SHOVELS).requires(BlockRegistry.GRASS_SLAB.get()).unlockedBy("has_shovel", has(ItemTags.SHOVELS)).save(consumer, modLoc(getItemName(BlockRegistry.DIRT_PATH_SLAB.get()) + "_from_shovel"));
         ShapelessDamageTool.shapeless(RecipeCategory.MISC, Blocks.DIRT_PATH).requires(ItemTags.SHOVELS).requires(Items.GRASS_BLOCK).unlockedBy("has_shovel", has(ItemTags.SHOVELS)).save(consumer, modLoc("vanilla_" + getItemName(Blocks.DIRT_PATH) + "_from_shovel"));
         ShapelessDamageTool.shapeless(RecipeCategory.MISC, BlockRegistry.DIRT_TRACK_SLAB.get()).requires(ItemTags.SHOVELS).requires(BlockRegistry.DIRT_SLAB.get()).unlockedBy("has_shovel", has(ItemTags.SHOVELS)).save(consumer, modLoc(getItemName(BlockRegistry.DIRT_TRACK_SLAB.get()) + "_from_shovel"));
         ShapelessDamageTool.shapeless(RecipeCategory.MISC, BlockRegistry.DIRT_TRACK.get()).requires(ItemTags.SHOVELS).requires(Items.DIRT).unlockedBy("has_shovel", has(ItemTags.SHOVELS)).save(consumer, modLoc(getItemName(BlockRegistry.DIRT_TRACK.get()) + "_from_shovel"));
+        ShapelessDamageTool.shapeless(RecipeCategory.MISC, BlockRegistry.DIRT_TRACK.get()).requires(ItemTags.SHOVELS).requires(Items.COARSE_DIRT).unlockedBy("has_shovel", has(ItemTags.SHOVELS)).save(consumer, modLoc(getItemName(Blocks.COARSE_DIRT) + "_from_shovel"));
     }
 
     private void addSmithingRecipes(Consumer<FinishedRecipe> consumer) {

@@ -1,5 +1,3 @@
 1.14.3
-* Made Grass Block Slab and Dirt Slab flattenable when waterlogged
-* Update Dungaree item texture
-* Update Old Dungaree item texture
-* Update Old Dungaree model
+* Rename Grass Block Slab to Grass Slab
+* Make brutalharvest:shapeless_with_remainder recipes more robust with custom recipe remainder

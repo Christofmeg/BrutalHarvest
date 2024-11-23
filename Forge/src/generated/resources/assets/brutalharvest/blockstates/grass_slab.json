@@ -1,7 +1,7 @@
 {
   "variants": {
     "type=bottom": {
-      "model": "brutalharvest:block/grass_block_slab"
+      "model": "brutalharvest:block/grass_slab"
     },
     "type=double": {
       "model": "brutalharvest:block/grass_block"

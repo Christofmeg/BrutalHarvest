@@ -12,31 +12,37 @@ import net.minecraft.world.inventory.CraftingContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionUtils;
-import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.*;
 import org.jetbrains.annotations.NotNull;
 
 public class ShapelessRecipeWithRemainder extends ShapelessRecipe {
 
     final ItemStack result;
+    final ItemStack remainderTrigger;
+    final ItemStack remainder;
 
-    public ShapelessRecipeWithRemainder(ResourceLocation id, String group, ItemStack result, NonNullList<Ingredient> ingredients) {
+    public ShapelessRecipeWithRemainder(ResourceLocation id, String group, ItemStack result, ItemStack remainderTrigger, ItemStack remainder, NonNullList<Ingredient> ingredients) {
         super(id, group, CraftingBookCategory.MISC, result, ingredients);
         this.result = result;
+        this.remainderTrigger = remainderTrigger;
+        this.remainder = remainder;
     }
 
     @Override
     public @NotNull NonNullList<ItemStack> getRemainingItems(CraftingContainer inv) {
         NonNullList<ItemStack> remainingItems = NonNullList.withSize(inv.getContainerSize(), ItemStack.EMPTY);
         for (int i = 0; i < remainingItems.size(); ++i) {
-            ItemStack itemstack = inv.getItem(i);
-            if (itemstack.getItem() == Items.POTION && PotionUtils.getPotion(itemstack) == Potions.WATER) {
-                remainingItems.set(i, new ItemStack(Items.GLASS_BOTTLE));
+            ItemStack stack = inv.getItem(i);
+            if (stack.getItem() == Items.POTION && remainderTrigger.getItem() == Items.POTION) {
+                if (PotionUtils.getPotion(stack) == PotionUtils.getPotion(remainderTrigger)) {
+                    remainingItems.set(i, remainder.copy());
+                }
+            } else if (stack.getItem() == remainderTrigger.getItem()) {
+                remainingItems.set(i, remainder.copy());
             } else {
                 super.getRemainingItems(inv);
             }
         }
-
         return remainingItems;
     }
 
@@ -60,18 +66,18 @@ public class ShapelessRecipeWithRemainder extends ShapelessRecipe {
                 throw new JsonParseException("Too many ingredients for shapeless recipe. The maximum is " + 3 * 3);
             } else {
                 ItemStack itemstack = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pJson, "result"));
-                return new ShapelessRecipeWithRemainder(pRecipeId, s, itemstack, nonnulllist);
+                ItemStack remainderTrigger = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pJson, "remainderTrigger"));
+                ItemStack remainder = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pJson, "remainder"));
+                return new ShapelessRecipeWithRemainder(pRecipeId, s, itemstack, remainderTrigger, remainder, nonnulllist);
             }
         }
 
         private static NonNullList<Ingredient> itemsFromJson(JsonArray pIngredientArray) {
             NonNullList<Ingredient> nonnulllist = NonNullList.create();
-
             for(int i = 0; i < pIngredientArray.size(); ++i) {
                 Ingredient ingredient = Ingredient.fromJson(pIngredientArray.get(i), false);
                 nonnulllist.add(ingredient);
             }
-
             return nonnulllist;
         }
 
@@ -80,11 +86,11 @@ public class ShapelessRecipeWithRemainder extends ShapelessRecipe {
             String s = pBuffer.readUtf();
             int i = pBuffer.readVarInt();
             NonNullList<Ingredient> nonnulllist = NonNullList.withSize(i, Ingredient.EMPTY);
-
             nonnulllist.replaceAll(ignored -> Ingredient.fromNetwork(pBuffer));
-
             ItemStack itemstack = pBuffer.readItem();
-            return new ShapelessRecipeWithRemainder(pRecipeId, s, itemstack, nonnulllist);
+            ItemStack remainderTrigger = pBuffer.readItem();
+            ItemStack remainder = pBuffer.readItem();
+            return new ShapelessRecipeWithRemainder(pRecipeId, s, itemstack, remainderTrigger, remainder, nonnulllist);
         }
 
         @Override
@@ -92,13 +98,14 @@ public class ShapelessRecipeWithRemainder extends ShapelessRecipe {
             pBuffer.writeUtf(pRecipe.getGroup());
             pBuffer.writeEnum(pRecipe.category());
             pBuffer.writeVarInt(pRecipe.getIngredients().size());
-
             for (Ingredient ingredient : pRecipe.getIngredients()) {
                 ingredient.toNetwork(pBuffer);
             }
-
             pBuffer.writeItem(pRecipe.result);
+            pBuffer.writeItem(pRecipe.remainderTrigger);
+            pBuffer.writeItem(pRecipe.remainder);
         }
+
     }
 
 }

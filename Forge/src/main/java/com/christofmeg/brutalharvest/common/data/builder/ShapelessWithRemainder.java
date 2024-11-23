@@ -2,10 +2,13 @@ package com.christofmeg.brutalharvest.common.data.builder;
 
 import com.christofmeg.brutalharvest.common.init.RecipeSerializerRegistry;
 import com.google.common.collect.Lists;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.CriterionTriggerInstance;
 import net.minecraft.advancements.RequirementsStrategy;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
@@ -31,20 +34,24 @@ public class ShapelessWithRemainder extends ShapelessRecipeBuilder {
     private final List<Ingredient> ingredients = Lists.newArrayList();
     private final Advancement.Builder advancement = Advancement.Builder.recipeAdvancement();
     @Nullable private String group;
+    private final Ingredient remainderTrigger;
+    private final Ingredient remainder;
 
-    public ShapelessWithRemainder(RecipeCategory pCategory, ItemLike pResult, int pCount) {
+    public ShapelessWithRemainder(RecipeCategory pCategory, ItemLike pResult, int pCount, Ingredient remainderTrigger, Ingredient remainder) {
         super(pCategory, pResult, pCount);
         this.category = pCategory;
         this.result = pResult.asItem();
         this.count = pCount;
+        this.remainderTrigger = remainderTrigger;
+        this.remainder = remainder;
     }
 
-    public static ShapelessWithRemainder shapeless(@NotNull RecipeCategory pCategory, ItemLike pResult) {
-        return new ShapelessWithRemainder(pCategory, pResult, 1);
+    public static ShapelessWithRemainder shapeless(@NotNull RecipeCategory pCategory, ItemLike pResult, Ingredient remainderTrigger, Ingredient remainder) {
+        return new ShapelessWithRemainder(pCategory, pResult, 1, remainderTrigger, remainder);
     }
 
-    public static ShapelessWithRemainder shapeless(@NotNull RecipeCategory pCategory, ItemLike pResult, int pCount) {
-        return new ShapelessWithRemainder(pCategory, pResult, pCount);
+    public static ShapelessWithRemainder shapeless(@NotNull RecipeCategory pCategory, ItemLike pResult, Ingredient remainderTrigger, int pCount, Ingredient remainder) {
+        return new ShapelessWithRemainder(pCategory, pResult, pCount, remainderTrigger, remainder);
     }
 
     @Override
@@ -99,7 +106,8 @@ public class ShapelessWithRemainder extends ShapelessRecipeBuilder {
     public void save(Consumer<FinishedRecipe> pFinishedRecipeConsumer, @NotNull ResourceLocation pRecipeId) {
         this.ensureValid(pRecipeId);
         this.advancement.parent(ROOT_RECIPE_ADVANCEMENT).addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId)).rewards(net.minecraft.advancements.AdvancementRewards.Builder.recipe(pRecipeId)).requirements(RequirementsStrategy.OR);
-        pFinishedRecipeConsumer.accept(new CustomResult(pRecipeId, this.result, this.count, this.group == null ? "" : this.group, determineBookCategory(this.category), this.ingredients, this.advancement, pRecipeId.withPrefix("recipes/" + this.category.getFolderName() + "/")));
+        pFinishedRecipeConsumer.accept(new CustomResult(pRecipeId, this.result, this.count, this.remainderTrigger, this.remainder, this.group == null ? "" :
+                this.group, determineBookCategory(this.category), this.ingredients, this.advancement, pRecipeId.withPrefix("recipes/" + this.category.getFolderName() + "/")));
     }
 
     private void ensureValid(ResourceLocation pId) {
@@ -109,13 +117,51 @@ public class ShapelessWithRemainder extends ShapelessRecipeBuilder {
     }
 
     public static class CustomResult extends ShapelessRecipeBuilder.Result {
-        public CustomResult(ResourceLocation pId, Item pResult, int pCount, String pGroup, CraftingBookCategory pCategory, List<Ingredient> pIngredients, Advancement.Builder pAdvancement, ResourceLocation pAdvancementId) {
+        private final Item result;
+        private final int count;
+        private final Ingredient remainderTrigger;
+        private final Ingredient remainder;
+        private final String group;
+        private final List<Ingredient> ingredients;
+
+        public CustomResult(ResourceLocation pId, Item pResult, int pCount, Ingredient remainderTrigger, Ingredient remainder, String pGroup, CraftingBookCategory pCategory, List<Ingredient> pIngredients, Advancement.Builder pAdvancement, ResourceLocation pAdvancementId) {
             super(pId, pResult, pCount, pGroup, pCategory, pIngredients, pAdvancement, pAdvancementId);
+            this.result = pResult;
+            this.count = pCount;
+            this.remainderTrigger = remainderTrigger;
+            this.remainder = remainder;
+            this.group = pGroup;
+            this.ingredients = pIngredients;
         }
 
         @Override
         public @NotNull RecipeSerializer<?> getType() {
             return RecipeSerializerRegistry.SHAPELESS_RECIPE_WITH_REMAINDER.get();
+        }
+
+        @SuppressWarnings("deprecation")
+        @Override
+        public void serializeRecipeData(@NotNull JsonObject pJson) {
+            super.serializeRecipeData(pJson);
+            if (!this.group.isEmpty()) {
+                pJson.addProperty("group", this.group);
+            }
+
+            JsonArray ingredients = new JsonArray();
+            for (Ingredient $$2 : this.ingredients) {
+                ingredients.add($$2.toJson());
+            }
+            pJson.add("ingredients", ingredients);
+
+            JsonObject result = new JsonObject();
+            result.addProperty("item", BuiltInRegistries.ITEM.getKey(this.result).toString());
+            if (this.count > 1) {
+                result.addProperty("count", this.count);
+            }
+            pJson.add("result", result);
+
+            pJson.add("remainderTrigger", remainderTrigger.toJson());
+            pJson.add("remainder", remainder.toJson());
         }
     }
 

@@ -51,7 +51,7 @@ public class DirtSlabBlock extends SlabBlock {
             for(int i = 0; i < 4; ++i) {
                 BlockPos blockpos = pPos.offset(pRandom.nextInt(3) - 1, pRandom.nextInt(5) - 3, pRandom.nextInt(3) - 1);
                 if (pLevel.getBlockState(blockpos).is(Blocks.GRASS_BLOCK) && canPropagate(Blocks.GRASS_BLOCK.defaultBlockState(), pLevel, blockpos)) {
-                    pLevel.setBlockAndUpdate(pPos, BlockRegistry.GRASS_BLOCK_SLAB.get().withPropertiesOf(pState).setValue(SlabBlock.TYPE, pState.getValue(SlabBlock.TYPE)));
+                    pLevel.setBlockAndUpdate(pPos, BlockRegistry.GRASS_SLAB.get().withPropertiesOf(pState).setValue(SlabBlock.TYPE, pState.getValue(SlabBlock.TYPE)));
                 }
             }
         }

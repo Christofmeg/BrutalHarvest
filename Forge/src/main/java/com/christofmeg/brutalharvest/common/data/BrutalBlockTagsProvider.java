@@ -109,31 +109,31 @@ public class BrutalBlockTagsProvider extends BlockTagsProvider {
                 .addTag(BlockTags.FLOWERS)
                 .addTag(BlockTags.REPLACEABLE_BY_TREES);
 
-        tag(BlockTags.NETHER_CARVER_REPLACEABLES).add(BlockRegistry.DIRT_SLAB.get()).add(BlockRegistry.GRASS_BLOCK_SLAB.get());
-        tag(BlockTags.SNIFFER_DIGGABLE_BLOCK).add(BlockRegistry.DIRT_SLAB.get()).add(BlockRegistry.GRASS_BLOCK_SLAB.get());
-        tag(BlockTags.LUSH_GROUND_REPLACEABLE).add(BlockRegistry.DIRT_SLAB.get()).add(BlockRegistry.GRASS_BLOCK_SLAB.get());
-        tag(BlockTags.ENDERMAN_HOLDABLE).add(BlockRegistry.DIRT_SLAB.get()).add(BlockRegistry.GRASS_BLOCK_SLAB.get());
-        tag(BlockTags.MOSS_REPLACEABLE).add(BlockRegistry.DIRT_SLAB.get()).add(BlockRegistry.GRASS_BLOCK_SLAB.get());
+        tag(BlockTags.NETHER_CARVER_REPLACEABLES).add(BlockRegistry.DIRT_SLAB.get()).add(BlockRegistry.GRASS_SLAB.get());
+        tag(BlockTags.SNIFFER_DIGGABLE_BLOCK).add(BlockRegistry.DIRT_SLAB.get()).add(BlockRegistry.GRASS_SLAB.get());
+        tag(BlockTags.LUSH_GROUND_REPLACEABLE).add(BlockRegistry.DIRT_SLAB.get()).add(BlockRegistry.GRASS_SLAB.get());
+        tag(BlockTags.ENDERMAN_HOLDABLE).add(BlockRegistry.DIRT_SLAB.get()).add(BlockRegistry.GRASS_SLAB.get());
+        tag(BlockTags.MOSS_REPLACEABLE).add(BlockRegistry.DIRT_SLAB.get()).add(BlockRegistry.GRASS_SLAB.get());
         tag(BlockTags.MINEABLE_WITH_SHOVEL)
                 .add(BlockRegistry.DIRT_SLAB.get())
                 .add(BlockRegistry.FARMLAND_SLAB.get())
                 .add(BlockRegistry.DIRT_PATH_SLAB.get())
                 .add(BlockRegistry.DIRT_TRACK_SLAB.get())
-                .add(BlockRegistry.GRASS_BLOCK_SLAB.get())
+                .add(BlockRegistry.GRASS_SLAB.get())
                 .add(BlockRegistry.DIRT_TRACK.get())
         ;
-        tag(BlockTags.SCULK_REPLACEABLE_WORLD_GEN).add(BlockRegistry.DIRT_SLAB.get()).add(BlockRegistry.GRASS_BLOCK_SLAB.get());
-        tag(BlockTags.AZALEA_ROOT_REPLACEABLE).add(BlockRegistry.DIRT_SLAB.get()).add(BlockRegistry.GRASS_BLOCK_SLAB.get());
-        tag(BlockTags.SCULK_REPLACEABLE).add(BlockRegistry.DIRT_SLAB.get()).add(BlockRegistry.GRASS_BLOCK_SLAB.get());
-        tag(BlockTags.OVERWORLD_CARVER_REPLACEABLES).add(BlockRegistry.DIRT_SLAB.get()).add(BlockRegistry.GRASS_BLOCK_SLAB.get());
-        tag(BlockTags.DIRT).add(BlockRegistry.DIRT_SLAB.get()).add(BlockRegistry.GRASS_BLOCK_SLAB.get());
+        tag(BlockTags.SCULK_REPLACEABLE_WORLD_GEN).add(BlockRegistry.DIRT_SLAB.get()).add(BlockRegistry.GRASS_SLAB.get());
+        tag(BlockTags.AZALEA_ROOT_REPLACEABLE).add(BlockRegistry.DIRT_SLAB.get()).add(BlockRegistry.GRASS_SLAB.get());
+        tag(BlockTags.SCULK_REPLACEABLE).add(BlockRegistry.DIRT_SLAB.get()).add(BlockRegistry.GRASS_SLAB.get());
+        tag(BlockTags.OVERWORLD_CARVER_REPLACEABLES).add(BlockRegistry.DIRT_SLAB.get()).add(BlockRegistry.GRASS_SLAB.get());
+        tag(BlockTags.DIRT).add(BlockRegistry.DIRT_SLAB.get()).add(BlockRegistry.GRASS_SLAB.get());
 
         tag(TagRegistry.Blocks.SLABS_DIRT)
                 .add(BlockRegistry.DIRT_SLAB.get())
                 .add(BlockRegistry.FARMLAND_SLAB.get())
                 .add(BlockRegistry.DIRT_PATH_SLAB.get())
                 .add(BlockRegistry.DIRT_TRACK_SLAB.get())
-                .add(BlockRegistry.GRASS_BLOCK_SLAB.get());
+                .add(BlockRegistry.GRASS_SLAB.get());
 
         tag(BlockTags.SLABS).addTag(TagRegistry.Blocks.SLABS_DIRT);
 
