@@ -1,0 +1,21 @@
+{
+  "type": "brutalharvest:shapeless_damage_tool_with_remainder",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "minecraft:hoes"
+    },
+    {
+      "item": "minecraft:rooted_dirt"
+    }
+  ],
+  "remainder": {
+    "item": "minecraft:hanging_roots"
+  },
+  "remainderTrigger": {
+    "item": "minecraft:rooted_dirt"
+  },
+  "result": {
+    "item": "minecraft:dirt"
+  }
+}

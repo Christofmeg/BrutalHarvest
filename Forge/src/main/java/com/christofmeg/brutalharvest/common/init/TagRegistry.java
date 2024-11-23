@@ -170,6 +170,7 @@ public class TagRegistry {
         public static TagKey<Item> LOW_TIER_HOES = ItemTags.create(new ResourceLocation("rightclickharvest", "low_tier_hoes"));
 
         public static TagKey<Item> SLABS_TILLABLE = modTag("slabs/tillable");
+        public static TagKey<Item> BLOCKS_TILLABLE = modTag("blocks/tillable");
 
     }
 

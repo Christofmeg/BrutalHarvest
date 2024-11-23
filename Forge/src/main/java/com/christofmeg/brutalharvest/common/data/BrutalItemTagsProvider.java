@@ -14,6 +14,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
@@ -270,6 +271,12 @@ public class BrutalItemTagsProvider extends ItemTagsProvider {
                 .add(BlockRegistry.DIRT_PATH_SLAB.get().asItem())
                 .add(BlockRegistry.DIRT_TRACK_SLAB.get().asItem())
                 .add(BlockRegistry.GRASS_SLAB.get().asItem());
+
+        tag(TagRegistry.Items.BLOCKS_TILLABLE)
+                .add(Items.DIRT)
+                .add(Items.DIRT_PATH)
+                .add(BlockRegistry.DIRT_TRACK.get().asItem())
+                .add(Items.GRASS_BLOCK);
 
         tag(ItemTags.SLABS).addTag(TagRegistry.Items.SLABS_TILLABLE).add(BlockRegistry.FARMLAND_SLAB.get().asItem());
 

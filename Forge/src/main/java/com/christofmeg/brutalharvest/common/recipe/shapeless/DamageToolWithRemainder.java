@@ -1,4 +1,4 @@
-package com.christofmeg.brutalharvest.common.recipe;
+package com.christofmeg.brutalharvest.common.recipe.shapeless;
 
 import com.christofmeg.brutalharvest.common.init.RecipeSerializerRegistry;
 import com.google.gson.JsonArray;
@@ -15,13 +15,13 @@ import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.crafting.*;
 import org.jetbrains.annotations.NotNull;
 
-public class ShapelessRecipeWithRemainder extends ShapelessRecipe {
+public class DamageToolWithRemainder extends ShapelessRecipe {
 
     final ItemStack result;
     final ItemStack remainderTrigger;
     final ItemStack remainder;
 
-    public ShapelessRecipeWithRemainder(ResourceLocation id, String group, ItemStack result, ItemStack remainderTrigger, ItemStack remainder, NonNullList<Ingredient> ingredients) {
+    public DamageToolWithRemainder(ResourceLocation id, String group, ItemStack result, ItemStack remainderTrigger, ItemStack remainder, NonNullList<Ingredient> ingredients) {
         super(id, group, CraftingBookCategory.MISC, result, ingredients);
         this.result = result;
         this.remainderTrigger = remainderTrigger;
@@ -33,14 +33,20 @@ public class ShapelessRecipeWithRemainder extends ShapelessRecipe {
         NonNullList<ItemStack> remainingItems = NonNullList.withSize(inv.getContainerSize(), ItemStack.EMPTY);
         for (int i = 0; i < remainingItems.size(); ++i) {
             ItemStack stack = inv.getItem(i);
-            if (stack.getItem() == Items.POTION && remainderTrigger.getItem() == Items.POTION) {
+            if (stack.isDamageableItem()) {
+                if (stack.getDamageValue() + 1 < stack.getMaxDamage()) {
+                    ItemStack damagedTool = stack.copy();
+                    damagedTool.setDamageValue(stack.getDamageValue() + 1);
+                    remainingItems.set(i, damagedTool);
+                }
+            } else if (stack.getItem() == Items.POTION && remainderTrigger.getItem() == Items.POTION) {
                 if (PotionUtils.getPotion(stack) == PotionUtils.getPotion(remainderTrigger)) {
                     remainingItems.set(i, remainder.copy());
                 }
             } else if (stack.getItem() == remainderTrigger.getItem()) {
                 remainingItems.set(i, remainder.copy());
             } else {
-                super.getRemainingItems(inv);
+                remainingItems.set(i, ItemStack.EMPTY);
             }
         }
         return remainingItems;
@@ -48,16 +54,16 @@ public class ShapelessRecipeWithRemainder extends ShapelessRecipe {
 
     @Override
     public @NotNull RecipeSerializer<?> getSerializer() {
-        return RecipeSerializerRegistry.SHAPELESS_RECIPE_WITH_REMAINDER.get();
+        return RecipeSerializerRegistry.SHAPELESS_DAMAGE_TOOL_WITH_REMAINDER.get();
     }
 
-    public static class Serializer implements RecipeSerializer<ShapelessRecipeWithRemainder> {
+    public static class Serializer implements RecipeSerializer<DamageToolWithRemainder> {
 
         public Serializer() {
         }
 
         @Override
-        public @NotNull ShapelessRecipeWithRemainder fromJson(@NotNull ResourceLocation pRecipeId, @NotNull JsonObject pJson) {
+        public @NotNull DamageToolWithRemainder fromJson(@NotNull ResourceLocation pRecipeId, @NotNull JsonObject pJson) {
             String s = GsonHelper.getAsString(pJson, "group", "");
             NonNullList<Ingredient> nonnulllist = itemsFromJson(GsonHelper.getAsJsonArray(pJson, "ingredients"));
             if (nonnulllist.isEmpty()) {
@@ -68,7 +74,7 @@ public class ShapelessRecipeWithRemainder extends ShapelessRecipe {
                 ItemStack itemstack = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pJson, "result"));
                 ItemStack remainderTrigger = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pJson, "remainderTrigger"));
                 ItemStack remainder = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pJson, "remainder"));
-                return new ShapelessRecipeWithRemainder(pRecipeId, s, itemstack, remainderTrigger, remainder, nonnulllist);
+                return new DamageToolWithRemainder(pRecipeId, s, itemstack, remainderTrigger, remainder, nonnulllist);
             }
         }
 
@@ -82,7 +88,7 @@ public class ShapelessRecipeWithRemainder extends ShapelessRecipe {
         }
 
         @Override
-        public ShapelessRecipeWithRemainder fromNetwork(@NotNull ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
+        public DamageToolWithRemainder fromNetwork(@NotNull ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
             String s = pBuffer.readUtf();
             int i = pBuffer.readVarInt();
             NonNullList<Ingredient> nonnulllist = NonNullList.withSize(i, Ingredient.EMPTY);
@@ -90,11 +96,11 @@ public class ShapelessRecipeWithRemainder extends ShapelessRecipe {
             ItemStack itemstack = pBuffer.readItem();
             ItemStack remainderTrigger = pBuffer.readItem();
             ItemStack remainder = pBuffer.readItem();
-            return new ShapelessRecipeWithRemainder(pRecipeId, s, itemstack, remainderTrigger, remainder, nonnulllist);
+            return new DamageToolWithRemainder(pRecipeId, s, itemstack, remainderTrigger, remainder, nonnulllist);
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf pBuffer, ShapelessRecipeWithRemainder pRecipe) {
+        public void toNetwork(FriendlyByteBuf pBuffer, DamageToolWithRemainder pRecipe) {
             pBuffer.writeUtf(pRecipe.getGroup());
             pBuffer.writeEnum(pRecipe.category());
             pBuffer.writeVarInt(pRecipe.getIngredients().size());

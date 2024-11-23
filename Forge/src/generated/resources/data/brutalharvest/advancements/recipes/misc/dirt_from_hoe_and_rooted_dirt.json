@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "brutalharvest:farmland_from_hoe_and_dirt_track"
+        "recipe": "brutalharvest:dirt_from_hoe_and_rooted_dirt"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "brutalharvest:farmland_from_hoe_and_dirt_track"
+      "brutalharvest:dirt_from_hoe_and_rooted_dirt"
     ]
   },
   "sends_telemetry_event": false

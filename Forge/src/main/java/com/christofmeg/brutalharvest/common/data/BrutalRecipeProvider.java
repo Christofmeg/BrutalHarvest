@@ -2,6 +2,7 @@ package com.christofmeg.brutalharvest.common.data;
 
 import com.christofmeg.brutalharvest.common.data.base.BaseRecipeProvider;
 import com.christofmeg.brutalharvest.common.data.builder.ShapelessDamageTool;
+import com.christofmeg.brutalharvest.common.data.builder.ShapelessDamageToolWithRemainder;
 import com.christofmeg.brutalharvest.common.data.builder.ShapelessWithRemainder;
 import com.christofmeg.brutalharvest.common.init.BlockRegistry;
 import com.christofmeg.brutalharvest.common.init.ItemRegistry;
@@ -267,11 +268,9 @@ public class BrutalRecipeProvider extends BaseRecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BlockRegistry.RUBBER_PLANKS.get(), 4).requires(TagRegistry.Items.RUBBER_LOGS).unlockedBy("has_rubber_log", has(TagRegistry.Items.RUBBER_LOGS)).save(consumer, modLoc(getItemName(BlockRegistry.RUBBER_PLANKS.get())));
 
-        ShapelessDamageTool.shapeless(RecipeCategory.MISC, Blocks.FARMLAND).requires(ItemTags.HOES).requires(Items.DIRT).unlockedBy("has_hoe", has(ItemTags.HOES)).save(consumer, modLoc(getItemName(Blocks.FARMLAND) + "_from_hoe"));
-        ShapelessDamageTool.shapeless(RecipeCategory.MISC, Blocks.FARMLAND).requires(ItemTags.HOES).requires(Blocks.DIRT_PATH).unlockedBy("has_hoe", has(ItemTags.HOES)).save(consumer, modLoc(getItemName(Blocks.FARMLAND) + "_from_hoe" + "_and_" + getItemName(Blocks.DIRT_PATH)));
-        ShapelessDamageTool.shapeless(RecipeCategory.MISC, Blocks.FARMLAND).requires(ItemTags.HOES).requires(BlockRegistry.DIRT_TRACK.get()).unlockedBy("has_hoe", has(ItemTags.HOES)).save(consumer, modLoc(getItemName(Blocks.FARMLAND) + "_from_hoe" + "_and_" + getItemName(BlockRegistry.DIRT_TRACK.get())));
-
+        ShapelessDamageTool.shapeless(RecipeCategory.MISC, Blocks.FARMLAND).requires(ItemTags.HOES).requires(TagRegistry.Items.BLOCKS_TILLABLE).unlockedBy("has_hoe", has(ItemTags.HOES)).save(consumer, modLoc(getItemName(Blocks.FARMLAND) + "_from_hoe"));
         ShapelessDamageTool.shapeless(RecipeCategory.MISC, Blocks.DIRT).requires(ItemTags.HOES).requires(Blocks.COARSE_DIRT).unlockedBy("has_hoe", has(ItemTags.HOES)).save(consumer, modLoc(getItemName(Blocks.DIRT) + "_from_hoe" + "_and_" + getItemName(Blocks.COARSE_DIRT)));
+        ShapelessDamageToolWithRemainder.shapeless(RecipeCategory.MISC, Items.DIRT, Ingredient.of(Blocks.ROOTED_DIRT), Ingredient.of(Items.HANGING_ROOTS)).requires(ItemTags.HOES).requires(Blocks.ROOTED_DIRT).unlockedBy("has_hoe", has(ItemTags.HOES)).save(consumer, modLoc(getItemName(Blocks.DIRT) + "_from_hoe" + "_and_" + getItemName(Blocks.ROOTED_DIRT)));
 
         ShapelessDamageTool.shapeless(RecipeCategory.MISC, BlockRegistry.FARMLAND_SLAB.get()).requires(ItemTags.HOES).requires(TagRegistry.Items.SLABS_TILLABLE).unlockedBy("has_hoe", has(ItemTags.HOES)).save(consumer, modLoc(getItemName(BlockRegistry.FARMLAND_SLAB.get()) + "_from_hoe"));
         ShapelessDamageTool.shapeless(RecipeCategory.MISC, BlockRegistry.DIRT_PATH_SLAB.get()).requires(ItemTags.SHOVELS).requires(BlockRegistry.GRASS_SLAB.get()).unlockedBy("has_shovel", has(ItemTags.SHOVELS)).save(consumer, modLoc(getItemName(BlockRegistry.DIRT_PATH_SLAB.get()) + "_from_shovel"));

@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.function.Consumer;
 
 @SuppressWarnings("unused")
-public class ShapelessWithRemainder extends ShapelessRecipeBuilder {
+public class ShapelessDamageToolWithRemainder extends ShapelessRecipeBuilder {
 
     final RecipeCategory category;
     final Item result;
@@ -38,7 +38,7 @@ public class ShapelessWithRemainder extends ShapelessRecipeBuilder {
     final Ingredient remainderTrigger;
     final Ingredient remainder;
 
-    public ShapelessWithRemainder(RecipeCategory pCategory, ItemLike pResult, int pCount, Ingredient remainderTrigger, Ingredient remainder) {
+    public ShapelessDamageToolWithRemainder(RecipeCategory pCategory, ItemLike pResult, int pCount, Ingredient remainderTrigger, Ingredient remainder) {
         super(pCategory, pResult, pCount);
         this.category = pCategory;
         this.result = pResult.asItem();
@@ -47,26 +47,26 @@ public class ShapelessWithRemainder extends ShapelessRecipeBuilder {
         this.remainder = remainder;
     }
 
-    public static ShapelessWithRemainder shapeless(@NotNull RecipeCategory pCategory, ItemLike pResult, Ingredient remainderTrigger, Ingredient remainder) {
-        return new ShapelessWithRemainder(pCategory, pResult, 1, remainderTrigger, remainder);
+    public static ShapelessDamageToolWithRemainder shapeless(@NotNull RecipeCategory pCategory, ItemLike pResult, Ingredient remainderTrigger, Ingredient remainder) {
+        return new ShapelessDamageToolWithRemainder(pCategory, pResult, 1, remainderTrigger, remainder);
     }
 
-    public static ShapelessWithRemainder shapeless(@NotNull RecipeCategory pCategory, ItemLike pResult, Ingredient remainderTrigger, int pCount, Ingredient remainder) {
-        return new ShapelessWithRemainder(pCategory, pResult, pCount, remainderTrigger, remainder);
+    public static ShapelessDamageToolWithRemainder shapeless(@NotNull RecipeCategory pCategory, ItemLike pResult, Ingredient remainderTrigger, int pCount, Ingredient remainder) {
+        return new ShapelessDamageToolWithRemainder(pCategory, pResult, pCount, remainderTrigger, remainder);
     }
 
     @Override
-    public @NotNull ShapelessWithRemainder requires(@NotNull TagKey<Item> pTag) {
+    public @NotNull ShapelessDamageToolWithRemainder requires(@NotNull TagKey<Item> pTag) {
         return this.requires(Ingredient.of(pTag));
     }
 
     @Override
-    public @NotNull ShapelessWithRemainder requires(@NotNull ItemLike pItem) {
+    public @NotNull ShapelessDamageToolWithRemainder requires(@NotNull ItemLike pItem) {
         return this.requires(pItem, 1);
     }
 
     @Override
-    public @NotNull ShapelessWithRemainder requires(@NotNull ItemLike pItem, int pQuantity) {
+    public @NotNull ShapelessDamageToolWithRemainder requires(@NotNull ItemLike pItem, int pQuantity) {
         for(int $$2 = 0; $$2 < pQuantity; ++$$2) {
             this.requires(Ingredient.of(pItem));
         }
@@ -74,12 +74,12 @@ public class ShapelessWithRemainder extends ShapelessRecipeBuilder {
     }
 
     @Override
-    public @NotNull ShapelessWithRemainder requires(@NotNull Ingredient pIngredient) {
+    public @NotNull ShapelessDamageToolWithRemainder requires(@NotNull Ingredient pIngredient) {
         return this.requires(pIngredient, 1);
     }
 
     @Override
-    public @NotNull ShapelessWithRemainder requires(@NotNull Ingredient pIngredient, int pQuantity) {
+    public @NotNull ShapelessDamageToolWithRemainder requires(@NotNull Ingredient pIngredient, int pQuantity) {
         for(int $$2 = 0; $$2 < pQuantity; ++$$2) {
             this.ingredients.add(pIngredient);
         }
@@ -87,13 +87,13 @@ public class ShapelessWithRemainder extends ShapelessRecipeBuilder {
     }
 
     @Override
-    public @NotNull ShapelessWithRemainder unlockedBy(@NotNull String pCriterionName, @NotNull CriterionTriggerInstance pCriterionTrigger) {
+    public @NotNull ShapelessDamageToolWithRemainder unlockedBy(@NotNull String pCriterionName, @NotNull CriterionTriggerInstance pCriterionTrigger) {
         this.advancement.addCriterion(pCriterionName, pCriterionTrigger);
         return this;
     }
 
     @Override
-    public @NotNull ShapelessWithRemainder group(@Nullable String pGroupName) {
+    public @NotNull ShapelessDamageToolWithRemainder group(@Nullable String pGroupName) {
         this.group = pGroupName;
         return this;
     }
@@ -137,7 +137,7 @@ public class ShapelessWithRemainder extends ShapelessRecipeBuilder {
 
         @Override
         public @NotNull RecipeSerializer<?> getType() {
-            return RecipeSerializerRegistry.SHAPELESS_RECIPE_WITH_REMAINDER.get();
+            return RecipeSerializerRegistry.SHAPELESS_DAMAGE_TOOL_WITH_REMAINDER.get();
         }
 
         @SuppressWarnings("deprecation")

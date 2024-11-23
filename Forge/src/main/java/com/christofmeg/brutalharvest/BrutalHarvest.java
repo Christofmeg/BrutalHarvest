@@ -37,7 +37,6 @@ public class BrutalHarvest {
         LootModifierRegistry.init(modEventBus);
         SoundRegistry.init(modEventBus);
         RecipeSerializerRegistry.init(modEventBus);
-        RecipeTypeRegistry.init(modEventBus);
         TrunkPlacerTypeRegistry.init(modEventBus);
         EnchantmentRegistry.init(modEventBus);
     }

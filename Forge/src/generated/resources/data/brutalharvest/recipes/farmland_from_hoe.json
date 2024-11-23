@@ -6,7 +6,7 @@
       "tag": "minecraft:hoes"
     },
     {
-      "item": "minecraft:dirt"
+      "tag": "brutalharvest:blocks/tillable"
     }
   ],
   "result": {
