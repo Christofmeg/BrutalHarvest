@@ -6,6 +6,7 @@ plugins {
     id 'net.darkhax.curseforgegradle' version '1.1.15'
     id 'com.modrinth.minotaur' version '2.+'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
+    id 'org.spongepowered.mixin' version '0.7-SNAPSHOT'
 }
 
 archivesBaseName = "${mod_id}-forge-${forge_supported_versions}"
@@ -14,6 +15,10 @@ minecraft {
     mappings channel: 'parchment', version: parchment_version
 
     copyIdeResources = true //Calls processResources when in dev
+
+    if (file('src/main/resources/META-INF/accesstransformer.cfg').exists()) {
+        accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    }
 
     runs {
         client {
@@ -79,6 +84,7 @@ sourceSets {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${forge_minecraft_version}-${forge_version}"
+    annotationProcessor 'org.spongepowered:mixin:0.8.5-SNAPSHOT:processor'
     compileOnly project(":Common")
 
     // CATALOGUE
@@ -129,6 +135,19 @@ dependencies {
 //    runtimeOnly fg.deobf("curse.maven:enchantment-descriptions-250419:5855251")
 //        runtimeOnly fg.deobf("curse.maven:bookshelf-228525:5423987")
 
+    runtimeOnly fg.deobf("maven.modrinth:fence_on_slab:4HQmJ6vM")
+
+}
+
+mixin {
+    add sourceSets.main, 'mixins.brutalharvest.refmap.json'
+    config 'mixins.brutalharvest.json'
+
+    debug.verbose = true
+    debug.export = true
+    dumpTargetOnFailure = true
+
+    quiet
 }
 
 processResources {

@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "age=0,lower=false": {"model": "minecraft:block/wheat_stage0"},
+    "age=1,lower=false": {"model": "minecraft:block/wheat_stage1"},
+    "age=2,lower=false": {"model": "minecraft:block/wheat_stage2"},
+    "age=3,lower=false": {"model": "minecraft:block/wheat_stage3"},
+    "age=4,lower=false": {"model": "minecraft:block/wheat_stage4"},
+    "age=5,lower=false": {"model": "minecraft:block/wheat_stage5"},
+    "age=6,lower=false": {"model": "minecraft:block/wheat_stage6"},
+    "age=7,lower=false": {"model": "minecraft:block/wheat_stage7"},
+    "age=0,lower=true": {"model": "brutalharvest:block/wheat_stage0_lower"},
+    "age=1,lower=true": {"model": "brutalharvest:block/wheat_stage1_lower"},
+    "age=2,lower=true": {"model": "brutalharvest:block/wheat_stage2_lower"},
+    "age=3,lower=true": {"model": "brutalharvest:block/wheat_stage3_lower"},
+    "age=4,lower=true": {"model": "brutalharvest:block/wheat_stage4_lower"},
+    "age=5,lower=true": {"model": "brutalharvest:block/wheat_stage5_lower"},
+    "age=6,lower=true": {"model": "brutalharvest:block/wheat_stage6_lower"},
+    "age=7,lower=true": {"model": "brutalharvest:block/wheat_stage7_lower"}
+  }
+}

@@ -191,7 +191,7 @@ public class FarmlandSlabBlock extends FarmBlock implements SimpleWaterloggedBlo
         if (plantable instanceof BushBlock && mayPlaceOn(state)) {
             return true;
         } else if (PlantType.CROP.equals(type)) {
-            return state.is(BlockRegistry.FARMLAND_SLAB.get()) && state.getValue(SlabBlock.TYPE) != SlabType.BOTTOM;
+            return state.is(BlockRegistry.FARMLAND_SLAB.get());
         } else if (PlantType.PLAINS.equals(type)) {
             return mayPlaceOn(state);
         } else {
@@ -215,8 +215,7 @@ public class FarmlandSlabBlock extends FarmBlock implements SimpleWaterloggedBlo
     }
 
     protected boolean mayPlaceOn(BlockState state) {
-        return state.is(BlockRegistry.DIRT_SLAB.get()) && state.getValue(SlabBlock.TYPE) != SlabType.BOTTOM ||
-                state.is(BlockRegistry.FARMLAND_SLAB.get()) && state.getValue(SlabBlock.TYPE) != SlabType.BOTTOM;
+        return state.is(BlockRegistry.DIRT_SLAB.get()) || state.is(BlockRegistry.FARMLAND_SLAB.get());
     }
 
     private static boolean isNearWater(LevelReader pLevel, BlockPos pPos) {

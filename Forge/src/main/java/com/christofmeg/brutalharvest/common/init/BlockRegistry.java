@@ -132,6 +132,8 @@ public class BlockRegistry {
         DIRT_SLAB = BLOCKS.register("dirt_slab", () -> new DirtSlabBlock(BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).randomTicks().strength(0.5F).sound(SoundType.GRAVEL)));
         ItemRegistry.ITEMS.register("dirt_slab", () -> new BlockItem(DIRT_SLAB.get(), new Item.Properties()));
 
+        //TODO make all slab blocks extend SlabBlock instead
+
         GRASS_SLAB = BLOCKS.register("grass_slab", () -> new GrassSlab(BlockBehaviour.Properties.of().mapColor(MapColor.GRASS).randomTicks().strength(0.6F).sound(SoundType.GRASS)));
         ItemRegistry.ITEMS.register("grass_slab", () -> new BlockItem(GRASS_SLAB.get(), new Item.Properties()));
 

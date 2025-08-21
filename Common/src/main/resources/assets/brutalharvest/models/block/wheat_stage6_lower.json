@@ -1,0 +1,6 @@
+{
+  "parent": "brutalharvest:block/crop_lower",
+  "textures": {
+    "crop": "minecraft:block/wheat_stage6"
+  }
+}
